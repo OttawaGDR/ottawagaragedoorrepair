@@ -58,11 +58,11 @@ const posts = {
     readTime: '10 min read',
     intro: "With Ottawa temperature swings from -35°C to +35°C, insulation isn't a luxury — it's a necessity. Here's how to choose the right insulated door for your Ottawa home.",
     sections: [
-      { heading: 'Why Insulation Matters in Ottawa', content: "An uninsulated garage door has an R-value of about R-2. Ottawa's climate requires at least R-12 to maintain a reasonable temperature in an attached garage. Better insulation means lower heating bills, less noise, and a more comfortable home." },
-      { heading: 'Understanding R-Values', content: "R-value measures thermal resistance. For Ottawa: R-6 to R-9 is minimum for a detached garage. R-12 to R-16 is recommended for an attached garage. R-18 and above is ideal if you use your garage as a workshop or living space." },
-      { heading: 'Top Pick: Garaga Standard+ (R-16)', content: "Garaga is a Quebec-based manufacturer that designs specifically for Canadian winters. The Standard+ line offers R-16 insulation, steel construction, and is available in dozens of finishes. Price installed: $1,800–$2,800 depending on size and style." },
-      { heading: 'Best Value: Clopay Coachman (R-12)', content: "Clopay's Coachman series offers R-12 insulation with a realistic wood look at a fraction of the price of real wood. Durable, low-maintenance, and well-suited to Ottawa's freeze-thaw cycles. Price installed: $1,400–$2,200." },
-      { heading: 'Premium Option: Garaga Prestige (R-18)', content: "For homeowners who use their garage year-round, the Garaga Prestige series offers R-18 insulation with a premium finish and 10-year warranty. Price installed: $2,600–$4,200." },
+      { heading: 'Why Insulation Matters in Ottawa', content: "An uninsulated garage door has an R-value of about R-2. Ottawa's climate requires at least R18 to maintain a reasonable temperature in an attached garage. Better insulation means lower heating bills, less noise, and a more comfortable home." },
+      { heading: 'Understanding R-Values', content: "R-value measures thermal resistance. For Ottawa we recommend R18 insulation: it keeps your garage 10–15°C warmer, reduces heating costs, and is ideal for both attached and detached garages, especially if you use the space as a workshop or want maximum comfort." },
+      { heading: 'Top Pick: Garaga Standard+ (R18)', content: "Garaga is a Quebec-based manufacturer that designs specifically for Canadian winters. The Standard+ line offers R18 insulation, steel construction, and is available in dozens of finishes. Price installed: $1,800–$2,800 depending on size and style." },
+      { heading: 'Best Value: Clopay Coachman (R18)', content: "Clopay's Coachman series offers R18 insulation with a realistic wood look at a fraction of the price of real wood. Durable, low-maintenance, and well-suited to Ottawa's freeze-thaw cycles. Price installed: $1,400–$2,200." },
+      { heading: 'Premium Option: Garaga Prestige (R18)', content: "For homeowners who use their garage year-round, the Garaga Prestige series offers R18 insulation with a premium finish and 10-year warranty. Price installed: $2,600–$4,200." },
       { heading: 'What to Avoid', content: "Single-layer steel doors with no insulation are false economy in Ottawa — the energy costs alone will exceed the savings within 3–4 years. Also avoid polystyrene-only insulation; polyurethane-injected doors outperform them significantly." },
     ],
   },
@@ -137,7 +137,7 @@ const posts = {
       { heading: 'When Repair Makes Sense', content: "Repair when: the door is less than 15 years old, the issue is a single component (spring, cable, opener, roller), the door is structurally sound with no major panel damage, and the total repair cost is less than 40% of a replacement door's value." },
       { heading: 'When Replacement Makes Sense', content: "Replace when: the door is 20+ years old, you've repaired it multiple times in 2–3 years, the panels are significantly dented or damaged, it has no insulation and you want to lower heating costs, or you're renovating and want to improve curb appeal." },
       { heading: 'The 50% Rule', content: "A common guideline: if the cost of repairs exceeds 50% of the cost of a new door, replacement is usually the better long-term investment. New garage doors in Ottawa start from $1,800–$4,500 depending on size and model. If you're looking at $800+ in repairs on an old door, replacement math often wins." },
-      { heading: 'Insulation ROI in Ottawa', content: "Upgrading from an uninsulated door to an R-16 insulated door in Ottawa typically saves $150–$300/year in heating costs for an attached garage. That's a 6–10 year payback on a new door — a reasonable investment if you plan to stay in the home." },
+      { heading: 'Insulation ROI in Ottawa', content: "Upgrading from an uninsulated door to an R18 insulated door in Ottawa typically saves $150–$300/year in heating costs for an attached garage. That's a 6–10 year payback on a new door — a reasonable investment if you plan to stay in the home." },
       { heading: 'Our Honest Approach', content: "Our technicians are trained to always recommend the most cost-effective solution for the homeowner — not the option with the highest invoice. If a spring replacement ($220–350) will give you 5 more good years, we'll tell you that rather than push a full replacement. We believe that honest advice is what builds long-term trust." },
     ],
   },
@@ -187,7 +187,7 @@ export default async function BlogPostPage({ params }) {
             <span style={{ color: 'var(--orange)' }}>{post.cat}</span>
           </nav>
           <span className="service-tag" style={{ marginBottom: 20, display: 'inline-block' }}>{post.cat}</span>
-          <h1 style={{ fontFamily: 'var(--font-body)', fontWeight: 800, fontSize: 'clamp(1.6rem, 3.5vw, 2.4rem)', color: 'white', lineHeight: 1.3, marginBottom: 20 }}>{post.title}</h1>
+          <h1 className="display-xl" style={{ marginBottom: 20, lineHeight: 1.1 }}>{post.title}</h1>
           <div style={{ display: 'flex', gap: 20, color: 'var(--gray-400)', fontSize: '0.85rem', marginBottom: 32 }}>
             <span>📅 {post.date}</span>
             <span>⏱ {post.readTime}</span>
@@ -214,7 +214,7 @@ export default async function BlogPostPage({ params }) {
             {/* Bottom CTA */}
             <div className="glass-card" style={{ padding: 36, marginTop: 48, textAlign: 'center' }}>
               <div style={{ marginBottom: 16, display: 'flex', justifyContent: 'center' }}><Icon name="wrench" size={48} style={{ color: 'var(--orange)' }} /></div>
-              <h3 style={{ fontFamily: 'var(--font-display)',  fontWeight: 900, fontSize: '1.8rem', color: 'white', marginBottom: 12 }}>NEED A GARAGE DOOR REPAIR IN OTTAWA?</h3>
+              <h3 className="display-lg" style={{ fontSize: 'clamp(1.5rem, 4vw, 2.2rem)', marginBottom: 12 }}>NEED A GARAGE DOOR REPAIR IN OTTAWA?</h3>
               <p style={{ color: 'var(--gray-400)', marginBottom: 28, lineHeight: 1.75 }}>Same-day service across all Ottawa. Free diagnosis. Upfront pricing. 5.0 ★ Google rating.</p>
               <a href={PHONE_HREF} className="btn-primary" style={{ fontSize: '1.05rem', display: 'inline-flex', alignItems: 'center', gap: 8 }}><Icon name="phone" size={20} /> Call {PHONE}</a>
             </div>

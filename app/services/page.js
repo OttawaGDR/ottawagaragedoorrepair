@@ -80,8 +80,8 @@ const realJobs = [
   {
     emoji: '🚪',
     tag: 'Installation',
-    title: 'R-16 Insulated Door Install',
-    desc: 'Complete installation: removed old door, installed new R-16 steel door with polyurethane core, LiftMaster belt-drive opener, weather seals, safety sensors.',
+    title: 'R18 Insulated Door Install',
+    desc: 'Complete installation: removed old door, installed new R18 steel door with polyurethane core, LiftMaster belt-drive opener, weather seals, safety sensors.',
     time: '6 hours',
     location: 'Barrhaven',
     color: '#f97316',
@@ -131,16 +131,16 @@ const mainServices = [
     title: 'New Garage Door Installation Ottawa',
     price: '$1,800–4,500',
     priceNote: 'Depends on size & model',
-    desc: 'Replace your old, drafty, or damaged door with a modern insulated model built for Ottawa\'s harsh winters. New garage doors start from $1,800–$4,500 depending on size and model. Steel doors with polyurethane foam cores provide R-12 to R-18 insulation — reducing heating costs by up to 20% while keeping your garage 10–15°C warmer.',
+    desc: 'Replace your old, drafty, or damaged door with a modern insulated model built for Ottawa\'s harsh winters. New garage doors start from $1,800–$4,500 depending on size and model. Steel doors with polyurethane foam cores provide R18 insulation — reducing heating costs by up to 20% while keeping your garage 10–15°C warmer.',
     features: [
-      { title: 'Insulated Steel Doors (R-12 to R-18)', desc: 'Polyurethane foam core. 40% quieter operation. Prevents frost buildup. Energy savings pay back in 3–5 years.' },
+      { title: 'Insulated Steel Doors (R18)', desc: 'Polyurethane foam core. 40% quieter operation. Prevents frost buildup. Energy savings pay back in 3–5 years.' },
       { title: 'Multiple Design Styles', desc: 'Raised panel, carriage house, flush modern, aluminum with glass. Match your home\'s architecture perfectly.' },
       { title: 'Color & Hardware Options', desc: '10+ powder-coat colors. Decorative handles, hinges, windows. Frosted, clear, or tinted glass available.' },
       { title: 'Professional Installation (4–8 hours)', desc: 'Old door removal & disposal. New tracks, springs, nylon rollers, weather seals. Balance testing included.' },
       { title: 'Opener Included Options', desc: 'New openers supply & install from $650 (model-dependent). Add belt-drive, chain-drive, or WiFi smart opener with battery backup.' },
       { title: 'Warranty Coverage', desc: '1-year installation labor. 5–10 year manufacturer warranty on door. Lifetime warranty on torsion springs.' },
     ],
-    note: 'R-16 to R-18 doors are essential for attached garages in Ottawa. Keeps your garage warmer, reduces heating costs, prevents frost — worth every penny.',
+    note: 'R18 doors are essential for attached garages in Ottawa. Keeps your garage warmer, reduces heating costs, prevents frost — worth every penny.',
     noteIcon: '🌨️',
     badge: 'All Ottawa Neighborhoods',
     emergency: false,
@@ -151,7 +151,7 @@ export default function ServicesPage() {
   return (
     <>
       {/* HERO */}
-      <section style={{ background: 'linear-gradient(135deg, #040d1a, #0a1628)', padding: '80px 0 60px', position: 'relative', overflow: 'hidden' }} className="grid-bg">
+      <section style={{ background: 'transparent', padding: '80px 0 60px', position: 'relative', overflow: 'hidden' }} className="grid-bg">
         <div style={{ position: 'absolute', top: '20%', right: '-5%', width: 500, height: 500, borderRadius: '50%', background: 'radial-gradient(circle, rgba(249,115,22,0.1) 0%, transparent 70%)', pointerEvents: 'none' }} />
         <div className="container" style={{ position: 'relative', zIndex: 1 }}>
           <nav style={{ marginBottom: 32, fontSize: '0.85rem', color: 'var(--gray-400)' }}>
@@ -386,7 +386,7 @@ export default function ServicesPage() {
       {/* FINAL CTA */}
       <section style={{ background: 'linear-gradient(135deg, var(--orange), #ea580c)', padding: '70px 0', textAlign: 'center' }}>
         <div className="container">
-          <h2 style={{ fontFamily: 'var(--font-display)', fontSize: 'clamp(2rem, 5vw, 3.5rem)', fontWeight: 900,  color: 'white', marginBottom: 12 }}>
+          <h2 className="display-xl" style={{ marginBottom: 12 }}>
             NEED GARAGE DOOR SERVICE IN OTTAWA?
           </h2>
           <p style={{ color: 'rgba(255,255,255,0.9)', fontSize: '1.05rem', marginBottom: 36, maxWidth: 480, margin: '0 auto 36px' }}>

@@ -69,7 +69,7 @@ export default function BlogPage() {
 
       <section style={{ background: 'rgba(255,255,255,0.02)', borderTop: '1px solid rgba(255,255,255,0.06)', padding: '60px 0', textAlign: 'center' }}>
         <div className="container" style={{ maxWidth: 560, margin: '0 auto' }}>
-          <h2 style={{ fontFamily: 'var(--font-display)',  fontWeight: 900, fontSize: 'clamp(1.8rem,4vw,2.8rem)', color: 'white', marginBottom: 12, lineHeight: 1.1 }}>
+          <h2 className="display-xl" style={{ marginBottom: 12, lineHeight: 1.1 }}>
             SKIP THE BLOG.<br /><span style={{ color: 'var(--orange)' }}>JUST CALL US.</span>
           </h2>
           <p style={{ color: 'var(--gray-400)', marginBottom: 32, lineHeight: 1.75 }}>

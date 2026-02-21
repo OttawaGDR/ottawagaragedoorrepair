@@ -3,6 +3,7 @@ import { services, areas, PHONE, PHONE_HREF, SMS_HREF } from '../lib/data';
 import Icon from './components/Icons';
 import EmergencyBar from './components/EmergencyBar';
 import Logo from './components/Logo';
+import HeroBackground from './components/HeroBackground';
 
 export const viewport = { width: 'device-width', initialScale: 1, maximumScale: 5 };
 export const metadata = {
@@ -89,9 +90,10 @@ export default function RootLayout({ children }) {
           }) }}
         />
       </head>
-      <body style={{ margin: 0, background: 'var(--navy)' }}>
+      <body style={{ margin: 0, background: 'var(--navy)' }} className="noise">
+        <HeroBackground />
         <Navbar />
-        <div className="mobile-no-hscroll" style={{ overflowX: 'hidden', maxWidth: '100%' }}>
+        <div className="mobile-no-hscroll" style={{ overflowX: 'hidden', maxWidth: '100%', position: 'relative', zIndex: 1, paddingTop: 56 }}>
           {children}
         </div>
         <StickyCall />
@@ -116,6 +118,9 @@ function Navbar() {
           letter-spacing: 0.06em;
           transition: all 0.2s;
           position: relative;
+          display: inline-block;
+          padding: 8px 2px;
+          cursor: pointer;
         }
         .nav-item::after {
           content: '';
@@ -130,11 +135,12 @@ function Navbar() {
         }
         .nav-item:hover { color: white; }
         .nav-item:hover::after { width: 100%; }
+        .nav-dropdown-arrow { font-size: 0.5em; opacity: 0.8; vertical-align: middle; margin-left: 2px; }
 
         .nav-dropdown { position: relative; }
         .nav-dropdown-menu {
           position: absolute;
-          top: calc(100% + 12px);
+          top: calc(100% + 6px);
           left: 50%;
           transform: translateX(-50%);
           background: rgba(10,22,40,0.98);
@@ -145,14 +151,22 @@ function Navbar() {
           min-width: 320px;
           opacity: 0;
           visibility: hidden;
-          transition: all 0.25s ease;
+          transition: opacity 0.2s ease, visibility 0.2s ease, top 0.2s ease;
           z-index: 1000;
           box-shadow: 0 20px 60px rgba(0,0,0,0.5);
         }
         .nav-dropdown:hover .nav-dropdown-menu {
           opacity: 1;
           visibility: visible;
-          top: calc(100% + 8px);
+          top: calc(100% + 4px);
+        }
+        .nav-dropdown-menu::after {
+          content: '';
+          position: absolute;
+          top: -16px;
+          left: 0;
+          right: 0;
+          height: 20px;
         }
         .nav-dropdown-menu::before {
           content: '';
@@ -222,7 +236,7 @@ function Navbar() {
         }
       `}</style>
       <nav style={{
-        position: 'sticky', top: 0, zIndex: 900,
+        position: 'fixed', top: 0, left: 0, right: 0, zIndex: 900,
         background: 'rgba(10,22,40,0.95)',
         backdropFilter: 'blur(20px)',
         borderBottom: '1px solid rgba(255,255,255,0.08)',
@@ -233,7 +247,7 @@ function Navbar() {
 
           <div className="hide-mobile" style={{ display: 'flex', alignItems: 'center', gap: 36 }}>
             <div className="nav-dropdown">
-              <a href="/services" className="nav-item">SERVICES</a>
+              <a href="/services" className="nav-item">SERVICES <span className="nav-dropdown-arrow" aria-hidden>▼</span></a>
               <div className="nav-dropdown-menu">
                 {services.map(s => (
                   <a key={s.slug} href={`/services/${s.slug}`} className="dropdown-post">
@@ -247,9 +261,23 @@ function Navbar() {
                 <a href="/services" className="dropdown-view-all">View All Services →</a>
               </div>
             </div>
-            <a href="/areas" className="nav-item">AREAS</a>
             <div className="nav-dropdown">
-              <a href="/blog" className="nav-item">BLOG</a>
+              <a href="/areas" className="nav-item">AREAS <span className="nav-dropdown-arrow" aria-hidden>▼</span></a>
+              <div className="nav-dropdown-menu">
+                {areas.slice(0, 12).map(a => (
+                  <a key={a.slug} href={`/areas/${a.slug}`} className="dropdown-post">
+                    <span className="dropdown-post-emoji" style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', color: 'var(--orange)' }}>📍</span>
+                    <div>
+                      <div className="dropdown-post-title">{a.name}</div>
+                      <div className="dropdown-post-cat">Garage door repair</div>
+                    </div>
+                  </a>
+                ))}
+                <a href="/areas" className="dropdown-view-all">View All Areas →</a>
+              </div>
+            </div>
+            <div className="nav-dropdown">
+              <a href="/blog" className="nav-item">BLOG <span className="nav-dropdown-arrow" aria-hidden>▼</span></a>
               <div className="nav-dropdown-menu">
                 {[
                   { slug: 'garage-door-repair-cost-ottawa', icon: 'dollar', title: 'Repair Costs in Ottawa (2026 Guide)', cat: 'Pricing' },

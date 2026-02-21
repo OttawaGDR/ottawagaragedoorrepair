@@ -51,7 +51,7 @@ const faqSections = [
     questions: [
       { q: 'Why does my garage door not work in cold weather?', a: 'Ottawa winters cause several issues: springs lose tension in extreme cold and break more easily, metal contracts making tracks tight, batteries in remotes and keypads die faster, the bottom seal freezes to the ground trapping the door, and older openers struggle with the increased weight of cold steel. Most cold-weather failures are preventable with annual maintenance.' },
       { q: 'My garage door is frozen to the ground — what do I do?', a: 'Do NOT force the opener — this will strip the drive gear. Instead, use a heat gun or hair dryer along the bottom seal to melt the ice. De-icer spray also works. Once free, clear the area and apply a silicone lubricant to the seal to prevent refreezing. If the seal is cracked and causing recurring freeze, we can replace it from $250.' },
-      { q: 'What insulation rating do I need for an Ottawa garage?', a: 'For an attached garage, we recommend R-16 minimum, with R-18 being ideal. This keeps the garage 10–15°C warmer, protects your vehicle, reduces heating costs, and prevents frost buildup on the door panels. For detached garages where temperature is less critical, R-12 is sufficient.' },
+      { q: 'What insulation rating do I need for an Ottawa garage?', a: 'We recommend R18 insulation for all Ottawa garages. This keeps the garage 10–15°C warmer, protects your vehicle, reduces heating costs, and prevents frost buildup on the door panels. R18 is ideal for both attached and detached garages.' },
       { q: 'Should I lubricate my garage door in winter?', a: 'Yes — but use the right product. Use a silicone-based or lithium-based spray on hinges, rollers, and springs. Never use WD-40 on garage door components (it attracts dirt and degrades rubber). Lubricate in fall before temperatures drop. Avoid lubricating tracks — they should be clean and dry.' },
     ],
   },
@@ -98,7 +98,7 @@ export default function FAQPage() {
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }} />
 
       {/* HERO */}
-      <section style={{ background: 'linear-gradient(135deg, #040d1a, #0a1628)', padding: '80px 0 60px', position: 'relative', overflow: 'hidden' }} className="grid-bg">
+      <section style={{ background: 'transparent', padding: '80px 0 60px', position: 'relative', overflow: 'hidden' }} className="grid-bg">
         <div style={{ position: 'absolute', top: '20%', right: '-5%', width: 500, height: 500, borderRadius: '50%', background: 'radial-gradient(circle, rgba(249,115,22,0.08) 0%, transparent 70%)', pointerEvents: 'none' }} />
         <div className="container" style={{ position: 'relative', zIndex: 1 }}>
           <nav style={{ marginBottom: 32, fontSize: '0.85rem', color: 'var(--gray-400)' }}>

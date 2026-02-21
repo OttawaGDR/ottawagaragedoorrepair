@@ -82,7 +82,7 @@ export default async function AreaPage({ params }) {
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }} />
 
       {/* HERO */}
-      <section style={{ background: 'linear-gradient(135deg, #040d1a, #0a1628)', padding: '80px 0 60px', position: 'relative', overflow: 'hidden' }} className="grid-bg">
+      <section style={{ background: 'transparent', padding: '80px 0 60px', position: 'relative', overflow: 'hidden' }} className="grid-bg">
         <div style={{ position: 'absolute', top: '30%', right: '5%', width: 500, height: 500, borderRadius: '50%', background: 'radial-gradient(circle, rgba(249,115,22,0.08) 0%, transparent 70%)', pointerEvents: 'none' }} />
         <div className="container" style={{ position: 'relative', zIndex: 1 }}>
           <nav style={{ marginBottom: 32, fontSize: '0.85rem', color: 'var(--gray-400)' }}>
@@ -348,7 +348,7 @@ export default async function AreaPage({ params }) {
       {/* CTA */}
       <section style={{ background: 'var(--orange)', padding: '70px 0', textAlign: 'center' }}>
         <div className="container">
-          <h2 style={{ fontFamily: 'var(--font-display)', fontSize: 'clamp(2rem, 5vw, 3.5rem)', fontWeight: 900,  color: 'white', marginBottom: 12 }}>
+          <h2 className="display-xl" style={{ marginBottom: 12 }}>
             GARAGE DOOR REPAIR IN {area.name.toUpperCase()}
           </h2>
           <p style={{ color: 'rgba(255,255,255,0.9)', fontSize: '1.05rem', marginBottom: 36 }}>
