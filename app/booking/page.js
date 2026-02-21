@@ -99,7 +99,7 @@ export default function BookingPage() {
       });
       const data = await res.json().catch(() => ({}));
       if (!res.ok) throw new Error(data.error || 'Booking request failed');
-      setSubmitStatus({ success: true, emailSent: data.emailSent === true });
+      setSubmitStatus({ success: true, emailSent: data.emailSent === true, smsSent: data.smsSent === true });
       setSelectedDate(null);
       setSelectedSlot(null);
       setFormData({ name: '', phone: '', email: '', service: '', area: '', message: '' });
@@ -239,9 +239,10 @@ export default function BookingPage() {
                 {submitStatus?.success && (
                   <p style={{ color: '#4ade80', fontSize: '0.9rem', margin: 0 }}>
                     Request sent. We’ll call you to confirm your appointment.
-                    {submitStatus.emailSent === false && (
+                    {submitStatus.smsSent && <span style={{ display: 'block', marginTop: 4 }}>You’ll get a text at your business number.</span>}
+                    {!submitStatus.smsSent && submitStatus.emailSent === false && (
                       <span style={{ display: 'block', color: 'rgba(255,255,255,0.7)', marginTop: 6 }}>
-                        A confirmation email could not be sent — add <code style={{ fontSize: '0.85em' }}>RESEND_API_KEY</code> to your <code style={{ fontSize: '0.85em' }}>.env</code> file and restart the server to receive emails at info@ottawagaragedoorrepair.ca.
+                        Add Twilio (SMS) or Resend (email) in .env to get booking notifications.
                       </span>
                     )}
                   </p>

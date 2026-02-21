@@ -1,6 +1,7 @@
 import { NextResponse } from 'next/server';
-import { EMAIL } from '../../../lib/data';
+import { EMAIL, PHONE, BUSINESS_NAME } from '../../../lib/data';
 import { addBookedSlot } from '../../../lib/bookedSlots';
+import { sendSms, toE164 } from '../../../lib/sms';
 
 export async function POST(request) {
   try {
@@ -39,14 +40,26 @@ ${message ? `Message: ${message}` : ''}
 Please call the customer to confirm this appointment.
     `.trim();
 
+    // SMS to business phone (primary notification)
+    const businessE164 = toE164(PHONE);
+    let smsSent = false;
+    if (businessE164) {
+      const smsBody = `New booking: ${dateDisplay || date} at ${timeSlot} – ${name} ${phone}. ${service}, ${area}. Call to confirm.`;
+      const smsResult = await sendSms(businessE164, smsBody);
+      smsSent = smsResult.ok;
+      if (!smsResult.ok) console.warn('[Booking] SMS not sent:', smsResult.error);
+      else console.log('[Booking] SMS sent to', PHONE);
+    }
+
     let emailSent = false;
     const resendKey = process.env.RESEND_API_KEY;
     if (resendKey) {
       const { Resend } = await import('resend');
       const resend = new Resend(resendKey);
-      const from = process.env.RESEND_FROM_EMAIL || 'onboarding@resend.dev';
+      const fromAddr = process.env.RESEND_FROM_EMAIL || 'onboarding@resend.dev';
+      const fromName = process.env.RESEND_FROM_NAME || BUSINESS_NAME;
       const { data, error } = await resend.emails.send({
-        from: process.env.RESEND_FROM_NAME ? `${process.env.RESEND_FROM_NAME} <${from}>` : from,
+        from: `${fromName} <${fromAddr}>`,
         to: [EMAIL],
         subject: `Booking request: ${dateDisplay || date} at ${timeSlot} – ${name}`,
         html,
@@ -67,7 +80,7 @@ Please call the customer to confirm this appointment.
 
     addBookedSlot(date, timeSlot);
 
-    return NextResponse.json({ success: true, emailSent });
+    return NextResponse.json({ success: true, emailSent, smsSent });
   } catch (e) {
     console.error('Booking API error:', e);
     return NextResponse.json({ error: 'Server error. Please try again or call us.' }, { status: 500 });
