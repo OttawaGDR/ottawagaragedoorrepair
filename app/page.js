@@ -228,8 +228,8 @@ function Areas() {
             </p>
             <a href={PHONE_HREF} className="btn-primary" style={{ display: 'inline-flex', alignItems: 'center', gap: 8 }}><Icon name="phone" size={20} /> Check Your Area</a>
           </div>
-          <div>
-            <div style={{ display: 'flex', flexWrap: 'wrap', gap: 10, marginBottom: 24 }}>
+          <div className="areas-pills-wrap" style={{ minWidth: 0 }}>
+            <div className="areas-pills-inner" style={{ display: 'flex', flexWrap: 'wrap', gap: 10, marginBottom: 24 }}>
               {areas.map(area => (
                 <a key={area.slug} href={`/areas/${area.slug}`} className="area-pill" style={{ display: 'inline-flex', alignItems: 'center', gap: 6 }}><Icon name="mappin" size={16} /> {area.name}</a>
               ))}

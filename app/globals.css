@@ -554,6 +554,17 @@ select.form-input option { background: var(--navy-mid); color: white; }
 }
 .area-pill:hover { background: var(--orange); border-color: var(--orange); transform: translateY(-3px) scale(1.04); color: white; box-shadow: 0 8px 25px rgba(249,115,22,0.35); }
 
+.areas-pills-wrap { min-width: 0; }
+.areas-pills-inner { min-width: 0; }
+
+@media (max-width: 768px) {
+  .area-pill { font-size: 0.8rem; padding: 8px 14px; }
+  .areas-pills-inner { gap: 8px; }
+}
+@media (max-width: 480px) {
+  .area-pill { font-size: 0.75rem; padding: 6px 12px; }
+}
+
 .stat-number {
   font-family: var(--font-display);
   font-size: clamp(3rem, 5vw, 4.5rem);
