@@ -1,4 +1,5 @@
 import { PHONE, PHONE_HREF } from '../../lib/data';
+import BlogCategoryFilter from '../components/BlogCategoryFilter';
 
 export const metadata = {
   title: 'Garage Door Repair & Opener Tips Ottawa | Ottawa - GDR Blog',
@@ -61,25 +62,8 @@ export default function BlogPage() {
 
       <section style={{ padding: '40px 0 80px' }}>
         <div className="container">
-          <span className="section-label">All Articles</span>
-          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))', gap: 28, marginTop: 16 }}>
-            {rest.map((post) => (
-              <a key={post.slug} href={'/blog/' + post.slug} className="glass-card card-shine" style={{ textDecoration: 'none', color: 'inherit', display: 'block', overflow: 'hidden' }}>
-                <div style={{ height: 160, background: 'linear-gradient(135deg, var(--navy-light), var(--navy-mid))', display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: '3.5rem', position: 'relative' }}>
-                  <div style={{ position: 'absolute', inset: 0, background: 'radial-gradient(circle at 50% 50%, rgba(249,115,22,0.08), transparent 70%)' }} />
-                  {post.emoji}
-                </div>
-                <div style={{ padding: '24px 28px' }}>
-                  <span className="service-tag" style={{ marginBottom: 14, display: 'inline-block' }}>{post.cat}</span>
-                  <h3 style={{ fontWeight: 700, fontSize: '1rem', lineHeight: 1.45, color: 'white', marginBottom: 10 }}>{post.title}</h3>
-                  <p style={{ color: 'var(--gray-400)', fontSize: '0.87rem', lineHeight: 1.65, marginBottom: 20 }}>{post.excerpt}</p>
-                  <div style={{ display: 'flex', justifyContent: 'space-between', fontSize: '0.78rem', color: 'rgba(255,255,255,0.3)', borderTop: '1px solid rgba(255,255,255,0.06)', paddingTop: 16 }}>
-                    <span>{post.date}</span><span>{post.readTime}</span>
-                  </div>
-                </div>
-              </a>
-            ))}
-          </div>
+          <span className="section-label">Browse by Category</span>
+          <BlogCategoryFilter posts={rest} />
         </div>
       </section>
 

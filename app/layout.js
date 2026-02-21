@@ -11,7 +11,7 @@ export const metadata = {
     default: 'Garage Door Services Ottawa | Garage Door Repairs & Opener Repair | Ottawa - GDR',
     template: '%s | Ottawa - GDR',
   },
-  description: 'Ottawa\'s #1 garage door services: garage door repairs, garage door opener repair & installation. Same-day service, 5-star rated, 24/7 emergency. Call (613) 617-4238.',
+  description: 'Fast, reliable garage door repair in Ottawa. 24/7 emergency service, same-day fixes, 1-year warranty. Call (613) 617-4238 for a free quote.',
   keywords: [
     'garage door services Ottawa',
     'garage door repairs Ottawa',
@@ -69,6 +69,7 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en-CA">
       <head>
+        {/* Add Google Analytics: set NEXT_PUBLIC_GA_ID in env and uncomment the script in layout */}
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
         <script
@@ -339,7 +340,7 @@ function Footer() {
         <div className="footer-bottom" style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', paddingTop: 28, flexWrap: 'wrap', gap: 12 }}>
           <p style={{ color: 'rgba(255,255,255,0.3)', fontSize: '0.82rem' }}>© 2026 Ottawa - GDR. All rights reserved. | Serving Ottawa, ON</p>
           <div style={{ display: 'flex', gap: 24 }}>
-            {[['Privacy Policy', '#'], ['Terms of Service', '#'], ['Sitemap', '/sitemap.xml']].map(([label, href]) => (
+            {[['Privacy Policy', '/privacy'], ['Terms of Service', '#'], ['Sitemap', '/sitemap.xml']].map(([label, href]) => (
               <a key={label} href={href} style={{ color: 'rgba(255,255,255,0.3)', fontSize: '0.78rem', textDecoration: 'none' }}>{label}</a>
             ))}
           </div>

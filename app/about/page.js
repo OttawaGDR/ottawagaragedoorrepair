@@ -30,7 +30,7 @@ export default function AboutPage() {
                 { num: '1,000+', label: 'Repairs Done', icon: '🔧' },
                 { num: '5.0 ⭐', label: 'Google Rating', icon: '⭐' },
                 { num: '19', label: 'Areas Served', icon: '📍' },
-                { num: '5+', label: 'Years in Ottawa', icon: '📅' },
+                { num: '10+', label: 'Years Experience', icon: '📅' },
               ].map(stat => (
                 <div key={stat.label} className="glass-card" style={{ padding: '28px 20px', textAlign: 'center' }}>
                   <div style={{ fontSize: '2rem', marginBottom: 10 }}>{stat.icon}</div>
@@ -51,7 +51,7 @@ export default function AboutPage() {
               <h2 className="display-lg" style={{ marginBottom: 28 }}>FOUNDED ON <span className="text-gradient">FRUSTRATION</span></h2>
               <p style={{ color: 'rgba(255,255,255,0.75)', lineHeight: 1.9, marginBottom: 20 }}>GDS was founded in 2020 after watching too many Ottawa homeowners get taken advantage of — overcharged for simple repairs, pressured into replacing doors that only needed a spring, and left waiting by contractors who never showed up.</p>
               <p style={{ color: 'rgba(255,255,255,0.75)', lineHeight: 1.9, marginBottom: 20 }}>We started with two technicians, one truck, and a commitment: be the garage door company we would want to call ourselves. Show up on time. Give a real price before touching anything. Fix it right the first visit.</p>
-              <p style={{ color: 'rgba(255,255,255,0.75)', lineHeight: 1.9, marginBottom: 32 }}>Five years and 1,000+ Ottawa homeowners later — with a perfect 5.0 Google rating — that approach continues to work.</p>
+              <p style={{ color: 'rgba(255,255,255,0.75)', lineHeight: 1.9, marginBottom: 32 }}>Our team brings over 10 years of combined experience in garage door repair and installation. Five years in business and 1,000+ Ottawa homeowners later — with a perfect 5.0 Google rating — that approach continues to work.</p>
               <div style={{ padding: '22px 26px', background: 'rgba(249,115,22,0.08)', borderLeft: '4px solid var(--orange)', borderRadius: '0 14px 14px 0', marginBottom: 32 }}>
                 <p style={{ color: 'rgba(255,255,255,0.9)', fontWeight: 600,  lineHeight: 1.8, margin: 0 }}>
                   "We do not just fix garage doors. We give Ottawa homeowners peace of mind — that their home is secure, their family is safe, and the job was done right."
@@ -61,7 +61,7 @@ export default function AboutPage() {
             <div style={{ display: 'flex', flexDirection: 'column', gap: 14 }}>
               {[
                 { icon: '🏠', title: 'Family-Owned and Operated', desc: 'Not a franchise or contractor marketplace. A real Ottawa family business.' },
-                { icon: '📋', title: 'Licensed and Fully Insured', desc: 'Fully licensed in Ontario with $2 million liability coverage on every job.' },
+                { icon: '📋', title: 'Licensed and Fully Insured', desc: 'Fully licensed in Ontario with $2 million liability coverage on every job. Certifications and insurance verified for your peace of mind.' },
                 { icon: '🔩', title: '50+ Parts on Every Truck', desc: 'Most repairs completed in one visit — no ordering delays, no second trips.' },
                 { icon: '💬', title: 'Free Phone Diagnosis', desc: 'Tell us what is happening and we will give a realistic price range before arriving.' },
                 { icon: '❄️', title: 'Ottawa Winter Specialists', desc: 'Cold-rated springs, low-temp lubricants, insulated seals — in stock year-round.' },
@@ -125,6 +125,18 @@ export default function AboutPage() {
               </div>
             ))}
           </div>
+        </div>
+      </section>
+
+      <section style={{ padding: '60px 0', background: 'rgba(255,255,255,0.02)', borderTop: '1px solid rgba(255,255,255,0.06)' }}>
+        <div className="container" style={{ maxWidth: 560, margin: '0 auto', textAlign: 'center' }}>
+          <h2 style={{ fontFamily: 'var(--font-display)', fontSize: 'clamp(1.4rem, 3vw, 1.8rem)', fontWeight: 800, color: 'white', marginBottom: 12 }}>Help Others Find Us</h2>
+          <p style={{ color: 'rgba(255,255,255,0.75)', fontSize: '1rem', marginBottom: 24, lineHeight: 1.75 }}>
+            Love your experience? Leave us a review on Google — it helps Ottawa homeowners find reliable garage door repair.
+          </p>
+          <a href="https://www.google.com/search?q=Ottawa+Garage+Door+Repair+GDR" target="_blank" rel="noopener noreferrer" style={{ display: 'inline-flex', alignItems: 'center', gap: 8, background: 'rgba(255,255,255,0.1)', color: 'white', fontWeight: 700, fontSize: '0.95rem', padding: '14px 28px', borderRadius: 100, textDecoration: 'none', border: '1px solid rgba(255,255,255,0.2)' }}>
+            ⭐ Leave a Google Review
+          </a>
         </div>
       </section>
 

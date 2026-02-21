@@ -46,12 +46,26 @@ export default function ContactPage() {
                   <input id="contact-name" name="name" className="form-input" type="text" placeholder="John Smith" required />
                 </div>
                 <div className="form-group">
+                  <label className="form-label" htmlFor="contact-email">Your Email</label>
+                  <input id="contact-email" name="email" className="form-input" type="email" placeholder="you@example.com" />
+                </div>
+                <div className="form-group">
                   <label className="form-label" htmlFor="contact-phone">Your Phone</label>
                   <input id="contact-phone" name="phone" className="form-input" type="tel" placeholder="(613) 000-0000" required />
                 </div>
                 <div className="form-group">
-                  <label className="form-label" htmlFor="contact-message">Message (optional)</label>
-                  <textarea id="contact-message" name="message" className="form-input" rows={3} placeholder="Describe the issue or question..." style={{ resize: 'vertical', minHeight: 80 }} />
+                  <label className="form-label" htmlFor="contact-message">Issue Description</label>
+                  <textarea id="contact-message" name="message" className="form-input" rows={3} placeholder="Describe the issue (e.g. spring broken, door off track, opener not responding)..." style={{ resize: 'vertical', minHeight: 80 }} />
+                </div>
+                <div className="form-group">
+                  <label className="form-label" htmlFor="contact-time">Preferred Time</label>
+                  <select id="contact-time" name="preferredTime" className="form-input">
+                    <option value="">Any time</option>
+                    <option value="morning">Morning (8AM – 12PM)</option>
+                    <option value="afternoon">Afternoon (12PM – 5PM)</option>
+                    <option value="evening">Evening (5PM – 9PM)</option>
+                    <option value="asap">As soon as possible / Emergency</option>
+                  </select>
                 </div>
                 <a href={PHONE_HREF} className="btn-primary" style={{ width: '100%', justifyContent: 'center', display: 'inline-flex', alignItems: 'center', gap: 8 }}>
                   📞 Call for Instant Quote
