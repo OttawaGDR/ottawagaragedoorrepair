@@ -1,0 +1,27 @@
+{
+  "name": "ottawagaragedoorrepair",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "dev": "next dev -p 3002",
+    "dev:clean": "node -e \"const fs=require('fs');const p='.next';if(fs.existsSync(p)){try{fs.rmSync(p,{recursive:true});console.log('Cleared .next');}catch(e){console.log('Close other terminals/Node, then run: npm run dev');}}else{console.log('No .next folder');}\" && next dev -p 3002",
+    "build": "next build",
+    "start": "next start",
+    "lint": "eslint"
+  },
+  "dependencies": {
+    "next": "16.1.6",
+    "react": "19.2.3",
+    "react-dom": "19.2.3"
+  },
+  "devDependencies": {
+    "@tailwindcss/postcss": "^4",
+    "@types/node": "^20",
+    "@types/react": "^19",
+    "@types/react-dom": "^19",
+    "eslint": "^9",
+    "eslint-config-next": "16.1.6",
+    "tailwindcss": "^4",
+    "typescript": "^5"
+  }
+}
