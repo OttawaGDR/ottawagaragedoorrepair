@@ -230,11 +230,11 @@ iframe { max-width: 100%; }
   .trust-bar { padding: 12px 0 !important; }
   .marquee-item { font-size: 0.75rem !important; }
   .marquee-track { gap: 40px; }
-  .areas-heading { font-family: 'Barlow Condensed', sans-serif !important; font-size: clamp(1.75rem, 6vw, 2.5rem) !important; line-height: 1.15 !important; word-wrap: break-word; overflow-wrap: break-word; }
+  .areas-heading { font-family: var(--font-display), sans-serif !important; font-size: clamp(1.75rem, 6vw, 2.5rem) !important; line-height: 1.2 !important; font-weight: 800 !important; text-decoration: none !important; word-break: normal; overflow-wrap: normal; }
   .areas-section .container > div { min-width: 0; }
   .areas-response-card { min-width: 0; }
-  .areas-response-label { font-size: 0.8rem !important; word-wrap: break-word; }
-  .areas-response-time { font-size: clamp(1.35rem, 5vw, 2rem) !important; white-space: normal !important; word-break: break-word; line-height: 1.2 !important; }
+  .areas-response-label { font-size: 0.8rem !important; }
+  .areas-response-time { font-size: 1.25rem !important; white-space: nowrap !important; word-break: normal !important; overflow-wrap: normal !important; line-height: 1.2 !important; letter-spacing: -0.02em !important; }
 }
 
 .noise::after {
@@ -646,6 +646,7 @@ select.form-input option { background: var(--navy-mid); color: white; }
   .main-nav { padding-left: 12px !important; padding-right: 12px !important; }
   .trust-bar { padding: 10px 0 !important; }
   .marquee-item { font-size: 0.7rem !important; }
+  .areas-response-time { font-size: 1.1rem !important; }
   [style*="grid-template-columns: repeat(2"] { grid-template-columns: 1fr !important; }
   .section { padding: 48px 0; }
   .section-sm { padding: 32px 0; }
