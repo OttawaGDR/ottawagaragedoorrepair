@@ -1,4 +1,4 @@
-import { services, areas, blogPosts } from './lib/data';
+import { services, areas, blogPosts } from '../lib/data';
 
 const BASE = 'https://ottawagaragedoorrepair.ca';
 
