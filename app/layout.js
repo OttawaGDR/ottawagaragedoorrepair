@@ -220,16 +220,19 @@ function Navbar() {
           }
           .mobile-menu-btn::-webkit-details-marker { display: none; }
           .mobile-menu-drawer {
-            position: absolute; top: 100%; left: 0; right: 0;
+            position: fixed; top: 56px; left: 0; right: 0;
             background: rgba(10,22,40,0.98); backdrop-filter: blur(20px);
             border-bottom: 1px solid rgba(255,255,255,0.08);
-            padding: 16px; margin: 0 -24px; z-index: 999;
+            padding: 16px; z-index: 999;
             display: flex; flex-direction: column; gap: 4px;
+            min-width: 100%;
+            box-sizing: border-box;
           }
           .mobile-menu-drawer a {
             display: block; padding: 14px 16px; color: rgba(255,255,255,0.9);
             text-decoration: none; font-weight: 600; font-size: 1rem;
             border-radius: 10px; transition: background 0.2s;
+            white-space: nowrap;
           }
           .mobile-menu-drawer a:hover, .mobile-menu-drawer a:focus { background: rgba(249,115,22,0.15); color: white; }
           .nav-phone-btn { min-height: 44px; padding: 12px 20px !important; }
