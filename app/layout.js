@@ -358,34 +358,37 @@ const clientScript = `
     }
   });
 
-  function initReveal() {
-    var observer = new IntersectionObserver(function(entries) {
-      entries.forEach(function(entry) {
-        if (entry.isIntersecting) entry.target.classList.add('revealed');
-      });
-    }, { threshold: 0.1 });
-    document.querySelectorAll('.reveal').forEach(function(el) { observer.observe(el); });
-  }
-  if (document.readyState === 'complete') setTimeout(initReveal, 0);
-  else window.addEventListener('load', function() { setTimeout(initReveal, 0); });
-
-  document.querySelectorAll('.ba-slider').forEach(function(slider) {
-    var handle = slider.querySelector('.ba-handle');
-    var after = slider.querySelector('.ba-after');
-    var dragging = false;
-    if (!handle || !after) return;
-    function setPosition(x) {
-      var rect = slider.getBoundingClientRect();
-      var pct = Math.min(Math.max((x - rect.left) / rect.width * 100, 0), 100);
-      handle.style.left = pct + '%';
-      after.style.width = pct + '%';
+  function runAfterHydration() {
+    function initReveal() {
+      var observer = new IntersectionObserver(function(entries) {
+        entries.forEach(function(entry) {
+          if (entry.isIntersecting) entry.target.classList.add('revealed');
+        });
+      }, { threshold: 0.1 });
+      document.querySelectorAll('.reveal').forEach(function(el) { observer.observe(el); });
     }
-    handle.addEventListener('mousedown', function() { dragging = true; });
-    handle.addEventListener('touchstart', function() { dragging = true; });
-    document.addEventListener('mouseup', function() { dragging = false; });
-    document.addEventListener('touchend', function() { dragging = false; });
-    document.addEventListener('mousemove', function(e) { if (dragging) setPosition(e.clientX); });
-    document.addEventListener('touchmove', function(e) { if (dragging) setPosition(e.touches[0].clientX); });
-    setPosition(slider.getBoundingClientRect().left + slider.getBoundingClientRect().width * 0.5);
-  });
+    initReveal();
+
+    document.querySelectorAll('.ba-slider').forEach(function(slider) {
+      var handle = slider.querySelector('.ba-handle');
+      var after = slider.querySelector('.ba-after');
+      var dragging = false;
+      if (!handle || !after) return;
+      function setPosition(x) {
+        var rect = slider.getBoundingClientRect();
+        var pct = Math.min(Math.max((x - rect.left) / rect.width * 100, 0), 100);
+        handle.style.left = pct + '%';
+        after.style.width = pct + '%';
+      }
+      handle.addEventListener('mousedown', function() { dragging = true; });
+      handle.addEventListener('touchstart', function() { dragging = true; });
+      document.addEventListener('mouseup', function() { dragging = false; });
+      document.addEventListener('touchend', function() { dragging = false; });
+      document.addEventListener('mousemove', function(e) { if (dragging) setPosition(e.clientX); });
+      document.addEventListener('touchmove', function(e) { if (dragging) setPosition(e.touches[0].clientX); });
+      setPosition(slider.getBoundingClientRect().left + slider.getBoundingClientRect().width * 0.5);
+    });
+  }
+  if (document.readyState === 'complete') setTimeout(runAfterHydration, 150);
+  else window.addEventListener('load', function() { setTimeout(runAfterHydration, 150); });
 `;
