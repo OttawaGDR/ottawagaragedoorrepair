@@ -232,7 +232,7 @@ function Hero() {
           <div>
             <div className="badge" style={{ marginBottom: 28, display: 'inline-flex', alignItems: 'center', gap: 6 }}><Icon name="star" size={16} style={{ color: 'var(--orange-bright)' }} /><Icon name="star" size={16} style={{ color: 'var(--orange-bright)' }} /><Icon name="star" size={16} style={{ color: 'var(--orange-bright)' }} /><Icon name="star" size={16} style={{ color: 'var(--orange-bright)' }} /><Icon name="star" size={16} style={{ color: 'var(--orange-bright)' }} /> 5.0 · 127 Google Reviews</div>
             <h1 style={{
-              fontFamily: 'var(--font-display)',
+              fontFamily: "'Barlow Condensed', sans-serif",
               fontSize: 'clamp(3rem, 7vw, 5.5rem)',
               fontWeight: 900,
               lineHeight: 1.0,
@@ -242,8 +242,8 @@ function Hero() {
               textShadow: '0 2px 20px rgba(0,0,0,0.5)',
             }}>
               SAME-DAY<br />
-              <span style={{ color: 'var(--orange)', WebkitTextStroke: '0px' }}>GARAGE DOOR</span><br />
-              <span style={{ WebkitTextStroke: '2px white', color: 'transparent' }}>REPAIR OTTAWA</span>
+              <span style={{ color: 'var(--orange)' }}>GARAGE DOOR</span><br />
+              <span style={{ color: 'white' }}>REPAIR OTTAWA</span>
             </h1>
             <p style={{ fontSize: '1.1rem', color: 'rgba(255,255,255,0.9)', lineHeight: 1.75, marginBottom: 12, maxWidth: 460 }}>
               Garage door services Ottawa & garage door repairs — springs, openers, cables — fixed today. Garage door opener repair and installation. Ottawa's most trusted, available <strong style={{ color: 'white' }}>24/7.</strong>
