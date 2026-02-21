@@ -99,7 +99,7 @@ export default function BookingPage() {
       });
       const data = await res.json().catch(() => ({}));
       if (!res.ok) throw new Error(data.error || 'Booking request failed');
-      setSubmitStatus({ success: true });
+      setSubmitStatus({ success: true, emailSent: data.emailSent === true });
       setSelectedDate(null);
       setSelectedSlot(null);
       setFormData({ name: '', phone: '', email: '', service: '', area: '', message: '' });
@@ -236,7 +236,16 @@ export default function BookingPage() {
                   <textarea id="book-message" className="form-input" rows={2} placeholder="e.g. door won't open, spring broke..." style={{ resize: 'vertical', minHeight: 60 }} value={formData.message} onChange={e => setFormData(f => ({ ...f, message: e.target.value }))} />
                 </div>
                 {submitStatus?.error && <p style={{ color: '#f87171', fontSize: '0.9rem', margin: 0 }}>{submitStatus.error}</p>}
-                {submitStatus?.success && <p style={{ color: '#4ade80', fontSize: '0.9rem', margin: 0 }}>Request sent. We’ll call you to confirm your appointment.</p>}
+                {submitStatus?.success && (
+                  <p style={{ color: '#4ade80', fontSize: '0.9rem', margin: 0 }}>
+                    Request sent. We’ll call you to confirm your appointment.
+                    {submitStatus.emailSent === false && (
+                      <span style={{ display: 'block', color: 'rgba(255,255,255,0.7)', marginTop: 6 }}>
+                        A confirmation email could not be sent — add <code style={{ fontSize: '0.85em' }}>RESEND_API_KEY</code> to your <code style={{ fontSize: '0.85em' }}>.env</code> file and restart the server to receive emails at info@ottawagaragedoorrepair.ca.
+                      </span>
+                    )}
+                  </p>
+                )}
                 <button type="submit" className="btn-primary" style={{ width: '100%', justifyContent: 'center', marginTop: 8 }}>
                   Request this slot
                 </button>

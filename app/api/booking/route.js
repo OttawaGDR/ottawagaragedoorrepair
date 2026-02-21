@@ -39,12 +39,13 @@ ${message ? `Message: ${message}` : ''}
 Please call the customer to confirm this appointment.
     `.trim();
 
+    let emailSent = false;
     const resendKey = process.env.RESEND_API_KEY;
     if (resendKey) {
       const { Resend } = await import('resend');
       const resend = new Resend(resendKey);
       const from = process.env.RESEND_FROM_EMAIL || 'onboarding@resend.dev';
-      const { error } = await resend.emails.send({
+      const { data, error } = await resend.emails.send({
         from: process.env.RESEND_FROM_NAME ? `${process.env.RESEND_FROM_NAME} <${from}>` : from,
         to: [EMAIL],
         subject: `Booking request: ${dateDisplay || date} at ${timeSlot} – ${name}`,
@@ -52,16 +53,21 @@ Please call the customer to confirm this appointment.
         text,
       });
       if (error) {
-        console.error('Resend error:', error);
-        return NextResponse.json({ error: 'Failed to send notification email.' }, { status: 500 });
+        console.error('[Booking] Resend error:', JSON.stringify(error, null, 2));
+        return NextResponse.json(
+          { error: 'Booking saved but we could not send the confirmation email. We\'ll still call you to confirm.', emailSent: false },
+          { status: 200 }
+        );
       }
+      emailSent = true;
+      if (data?.id) console.log('[Booking] Email sent to', EMAIL, '| Resend id:', data.id);
     } else {
-      console.warn('[Booking] No RESEND_API_KEY – set it in .env to receive booking emails at', EMAIL);
+      console.warn('[Booking] RESEND_API_KEY is not set. Add it to .env in the project root and restart the dev server. Emails will go to:', EMAIL);
     }
 
     addBookedSlot(date, timeSlot);
 
-    return NextResponse.json({ success: true });
+    return NextResponse.json({ success: true, emailSent });
   } catch (e) {
     console.error('Booking API error:', e);
     return NextResponse.json({ error: 'Server error. Please try again or call us.' }, { status: 500 });
