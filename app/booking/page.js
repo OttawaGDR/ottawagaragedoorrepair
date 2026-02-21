@@ -240,6 +240,7 @@ export default function BookingPage() {
                   <p style={{ color: '#4ade80', fontSize: '0.9rem', margin: 0 }}>
                     Request sent. We’ll call you to confirm your appointment.
                     {submitStatus.smsSent && <span style={{ display: 'block', marginTop: 4 }}>You’ll get a text at (613) 617-4238.</span>}
+                    {!submitStatus.smsSent && <span style={{ display: 'block', color: 'rgba(255,255,255,0.75)', marginTop: 4 }}>No text was sent. We’ll still call you—or call us at (613) 617-4238 to confirm.</span>}
                   </p>
                 )}
                 <button type="submit" className="btn-primary" style={{ width: '100%', justifyContent: 'center', marginTop: 8 }}>
