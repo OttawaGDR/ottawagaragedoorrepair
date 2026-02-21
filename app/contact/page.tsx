@@ -9,7 +9,7 @@ export const metadata = {
 export default function ContactPage() {
   return (
     <>
-      <section style={{ padding: '80px 0 60px', borderBottom: '1px solid rgba(255,255,255,0.06)' }}>
+      <section className="contact-section" style={{ padding: '80px 0 60px', borderBottom: '1px solid rgba(255,255,255,0.06)' }}>
         <div className="container">
           <div style={{ maxWidth: 640, marginBottom: 48 }}>
             <span className="badge" style={{ marginBottom: 24, display: 'inline-flex' }}>📞 Get in Touch</span>
@@ -17,11 +17,11 @@ export default function ContactPage() {
               CONTACT <span className="text-gradient">OTTAWA - GDR</span>
             </h1>
             <p style={{ color: 'rgba(255,255,255,0.75)', lineHeight: 1.8, fontSize: '1.05rem' }}>
-              Need garage door repair or a free quote? Call us anytime — we answer 24/7. Or fill out the form and we&apos;ll call you back within 90 minutes.
+              Need <a href="/services" style={{ color: 'var(--orange)', fontWeight: 600, textDecoration: 'underline', textUnderlineOffset: 2 }}>garage door repair</a> or a free quote? Call us anytime — we answer 24/7. Or <a href="/booking" style={{ color: 'var(--orange)', fontWeight: 600, textDecoration: 'underline', textUnderlineOffset: 2 }}>book a visit</a> (Mon–Fri 9–5) and we&apos;ll call to confirm. Serving <a href="/areas" style={{ color: 'var(--orange)', fontWeight: 600, textDecoration: 'underline', textUnderlineOffset: 2 }}>all Ottawa areas</a>.
             </p>
           </div>
 
-          <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 48, alignItems: 'start' }}>
+          <div className="contact-grid" style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 48, alignItems: 'start' }}>
             {/* Contact form */}
             <div className="glass-card border-glow" style={{ padding: 40 }}>
               <h2 style={{ fontFamily: 'var(--font-display)', fontSize: '1.5rem', fontWeight: 800, color: 'white', marginBottom: 8 }}>Request a Callback</h2>
@@ -107,7 +107,7 @@ export default function ContactPage() {
                 <div>
                   <div style={{ fontWeight: 800, color: 'white', fontSize: '1.1rem', marginBottom: 6 }}>Service Area</div>
                   <p style={{ color: 'rgba(255,255,255,0.85)', fontSize: '1rem', marginBottom: 6 }}>Ottawa, Ontario, Canada</p>
-                  <p style={{ color: 'rgba(255,255,255,0.6)', fontSize: '0.88rem', margin: 0 }}>Serving Kanata, Nepean, Barrhaven, Orleans, Stittsville, Gloucester & all Ottawa neighbourhoods.</p>
+                  <p style={{ color: 'rgba(255,255,255,0.6)', fontSize: '0.88rem', margin: 0 }}>Serving <a href="/areas" style={{ color: 'var(--orange)', fontWeight: 600 }}>Kanata, Nepean, Barrhaven, Orleans, Stittsville, Gloucester</a> &amp; all <a href="/areas" style={{ color: 'var(--orange)', fontWeight: 600 }}>Ottawa neighbourhoods</a>.</p>
                 </div>
               </div>
 

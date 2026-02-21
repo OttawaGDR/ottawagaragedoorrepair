@@ -38,7 +38,7 @@ function Hero() {
       <div className="container hero-container" style={{ position: 'relative', zIndex: 1, paddingTop: 80, paddingBottom: 80 }}>
         <div className="hero-grid" style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 60, alignItems: 'center' }}>
           <div>
-            <div className="badge" style={{ marginBottom: 28, display: 'inline-flex', alignItems: 'center', gap: 6 }}><Icon name="star" size={16} style={{ color: 'var(--orange-bright)' }} /><Icon name="star" size={16} style={{ color: 'var(--orange-bright)' }} /><Icon name="star" size={16} style={{ color: 'var(--orange-bright)' }} /><Icon name="star" size={16} style={{ color: 'var(--orange-bright)' }} /><Icon name="star" size={16} style={{ color: 'var(--orange-bright)' }} /> 5.0 · 127 Google Reviews</div>
+            <div className="badge" style={{ marginBottom: 28, display: 'inline-flex', alignItems: 'center', gap: 6 }}><Icon name="star" size={16} style={{ color: 'var(--orange-bright)' }} /><Icon name="star" size={16} style={{ color: 'var(--orange-bright)' }} /><Icon name="star" size={16} style={{ color: 'var(--orange-bright)' }} /><Icon name="star" size={16} style={{ color: 'var(--orange-bright)' }} /><Icon name="star" size={16} style={{ color: 'var(--orange-bright)' }} /> 5.0 Rated</div>
             <h1 style={{
               fontFamily: "'Barlow Condensed', sans-serif",
               fontSize: 'clamp(3rem, 7vw, 5.5rem)',
@@ -54,14 +54,15 @@ function Hero() {
               <span style={{ color: 'white' }}>REPAIR OTTAWA</span>
             </h1>
             <p style={{ fontSize: '1.1rem', color: 'rgba(255,255,255,0.9)', lineHeight: 1.75, marginBottom: 12, maxWidth: 460 }}>
-              Garage door services Ottawa & garage door repairs — springs, openers, cables — fixed today. Garage door opener repair and installation. Ottawa's most trusted, available <strong style={{ color: 'white' }}>24/7.</strong>
+              <a href="/services" style={{ color: 'inherit', textDecoration: 'underline', textUnderlineOffset: 3 }}>Garage door services Ottawa</a> & <a href="/services" style={{ color: 'inherit', textDecoration: 'underline', textUnderlineOffset: 3 }}>garage door repairs</a> — springs, openers, cables — fixed today. <a href="/services/opener-repair" style={{ color: 'inherit', textDecoration: 'underline', textUnderlineOffset: 3 }}>Garage door opener repair</a> and installation. Ottawa&apos;s most trusted, available <strong style={{ color: 'white' }}>24/7.</strong>
             </p>
             <p style={{ fontSize: '0.95rem', color: 'var(--orange)', fontWeight: 700, marginBottom: 36, letterSpacing: '0.02em', display: 'flex', alignItems: 'center', gap: 6 }}>
-              <Icon name="mappin" size={18} /> Serving all Ottawa neighbourhoods · We arrive in under 90 min everywhere
+              <Icon name="mappin" size={18} /> Serving all <a href="/areas" style={{ color: 'inherit', textDecoration: 'underline', textUnderlineOffset: 2 }}>Ottawa neighbourhoods</a> · We arrive in under 90 min everywhere
             </p>
             <div style={{ display: 'flex', gap: 14, flexWrap: 'wrap', marginBottom: 48 }}>
               <a href={PHONE_HREF} className="btn-primary" style={{ fontSize: '1rem', display: 'inline-flex', alignItems: 'center', gap: 8 }}><Icon name="emergency" size={20} /> Emergency Call — {PHONE}</a>
-              <a href="#quote" className="btn-secondary">Get Free Quote →</a>
+              <a href="/contact" className="btn-secondary">Get Free Quote →</a>
+              <a href="/booking" className="btn-secondary">Book a visit →</a>
             </div>
             <div style={{ display: 'flex', gap: 28, flexWrap: 'wrap' }}>
               {[{ icon: 'bolt', label: 'Same Day Service' }, { icon: 'dollar', label: 'Upfront Pricing' }, { icon: 'shield', label: '1 Year Warranty' }].map(item => (
@@ -284,7 +285,7 @@ function Testimonials() {
             Ottawa Homeowners <em>Love</em> Our Service
           </h2>
           <div style={{ marginTop: 16, display: 'flex', gap: 4, color: 'var(--orange)' }}>{[1,2,3,4,5].map(i => <Icon key={i} name="star" size={22} />)}</div>
-          <p style={{ color: 'var(--gray-600)', marginTop: 8, fontSize: '0.92rem' }}>5.0 average from 127 verified Google reviews</p>
+          <p style={{ color: 'var(--gray-600)', marginTop: 8, fontSize: '0.92rem' }}>5.0 rated</p>
         </div>
         <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))', gap: 24 }}>
           {testimonials.map((t, i) => (
@@ -321,7 +322,7 @@ function FAQ() {
           <div style={{ position: 'sticky', top: 100 }}>
             <span className="section-label">FAQ</span>
             <h2 className="heading-lg reveal" style={{ marginBottom: 16 }}>Common Questions About Garage Door Services & Repairs in Ottawa</h2>
-            <p style={{ color: 'rgba(255,255,255,0.65)', marginTop: 16, lineHeight: 1.75, fontSize: '0.92rem' }}>Can't find your answer? Call us directly.</p>
+            <p style={{ color: 'rgba(255,255,255,0.65)', marginTop: 16, lineHeight: 1.75, fontSize: '0.92rem' }}>Can&apos;t find your answer? <a href="/contact" style={{ color: 'var(--orange)', fontWeight: 600 }}>Contact us</a> or call directly.</p>
             <a href={PHONE_HREF} className="btn-primary" style={{ marginTop: 28, display: 'inline-flex', alignItems: 'center', gap: 8 }}><Icon name="phone" size={20} /> {PHONE}</a>
           </div>
           <div>
@@ -387,7 +388,7 @@ function FinalCTA() {
           <span style={{ color: 'var(--orange)' }}>WE FIX IT TODAY.</span>
         </h2>
         <p style={{ color: 'rgba(255,255,255,0.85)', fontSize: '1.05rem', marginBottom: 48, maxWidth: 480, margin: '0 auto 48px', lineHeight: 1.75 }}>
-          Available 9AM–9PM daily. Emergency service 24/7. Most repairs done in one visit.
+          Available 9AM–9PM daily. <a href="/services/emergency-repair" style={{ color: 'var(--orange)', fontWeight: 600, textDecoration: 'underline', textUnderlineOffset: 2 }}>Emergency service</a> 24/7. Most <a href="/services" style={{ color: 'var(--orange)', fontWeight: 600, textDecoration: 'underline', textUnderlineOffset: 2 }}>repairs</a> done in one visit.
         </p>
         <div style={{ display: 'flex', gap: 20, justifyContent: 'center', flexWrap: 'wrap' }}>
           <a href={PHONE_HREF} className="btn-primary" style={{ fontSize: '1.1rem', padding: '18px 44px', display: 'inline-flex', alignItems: 'center', gap: 10 }}><Icon name="emergency" size={22} /> Call Now: {PHONE}</a>

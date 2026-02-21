@@ -447,6 +447,13 @@ iframe { max-width: 100%; }
 
 .form-group { margin-bottom: 20px; }
 .form-label { display: block; font-size: 0.78rem; font-weight: 700; color: var(--gray-400); margin-bottom: 8px; letter-spacing: 0.1em; text-transform: uppercase; }
+@media (max-width: 768px) {
+  .contact-section .contact-grid { grid-template-columns: 1fr !important; }
+  .contact-section .contact-grid > * { min-width: 0; width: 100%; }
+  .contact-section .form-label { white-space: nowrap; }
+  .contact-section .glass-card { min-width: 0; }
+  .booking-form-grid { grid-template-columns: 1fr !important; }
+}
 .form-input {
   width: 100%;
   min-height: 48px;

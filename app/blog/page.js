@@ -73,7 +73,7 @@ export default function BlogPage() {
             SKIP THE BLOG.<br /><span style={{ color: 'var(--orange)' }}>JUST CALL US.</span>
           </h2>
           <p style={{ color: 'var(--gray-400)', marginBottom: 32, lineHeight: 1.75 }}>
-            Our technicians can diagnose your issue over the phone for free and give you a real price before we arrive.
+            Our technicians can diagnose your issue over the phone for free and give you a real price before we arrive. <a href="/contact" style={{ color: 'var(--orange)', fontWeight: 600, textDecoration: 'underline', textUnderlineOffset: 2 }}>Request a callback</a> or <a href="/services" style={{ color: 'var(--orange)', fontWeight: 600, textDecoration: 'underline', textUnderlineOffset: 2 }}>browse our services</a>.
           </p>
           <a href={PHONE_HREF} className="btn-primary" style={{ fontSize: '1.1rem', padding: '18px 44px' }}>📞 Call {PHONE}</a>
         </div>

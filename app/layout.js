@@ -54,7 +54,7 @@ const jsonLd = {
   },
   areaServed: ['Ottawa', 'Kanata', 'Nepean', 'Barrhaven', 'Orleans', 'Stittsville', 'Gloucester', 'Vanier', 'Westboro', 'Glebe', 'Sandy Hill', 'Manotick', 'Riverside South', 'Alta Vista', 'Hunt Club', 'Carp', 'Orleans', 'Cumberland', 'Carleton Place'],
   openingHours: ['Mo-Su 00:00-23:59'],
-  aggregateRating: { '@type': 'AggregateRating', ratingValue: '5.0', reviewCount: '127', bestRating: '5', worstRating: '1' },
+  aggregateRating: { '@type': 'AggregateRating', ratingValue: '5.0', reviewCount: '50', bestRating: '5', worstRating: '1' },
   priceRange: '$$',
   hasOfferCatalog: {
     '@type': 'OfferCatalog',
@@ -303,6 +303,7 @@ function Navbar() {
             </div>
             <a href="/about" className="nav-item">ABOUT</a>
             <a href="/contact" className="nav-item">CONTACT</a>
+            <a href="/booking" className="nav-item">BOOK A VISIT</a>
           </div>
 
           <div style={{ display: 'flex', alignItems: 'center', gap: 12 }}>
@@ -314,6 +315,7 @@ function Navbar() {
                 <a href="/blog">Blog</a>
                 <a href="/about">About</a>
                 <a href="/contact">Contact</a>
+                <a href="/booking">Book a visit</a>
                 <a href={SMS_HREF} style={{ display: 'flex', alignItems: 'center', gap: 8 }}>📱 Text Us</a>
               </div>
             </details>
@@ -368,7 +370,7 @@ function Footer() {
           </div>
           <div>
             <h4 style={{ fontWeight: 800, marginBottom: 20, fontSize: '0.72rem', letterSpacing: '0.15em', textTransform: 'uppercase', color: 'var(--gray-400)' }}>Company</h4>
-            {[['About Us', '/about'], ['Contact', '/contact'], ['Blog', '/blog'], ['Emergency Service', '/services/emergency-repair']].map(([label, href]) => (
+            {[['About Us', '/about'], ['Contact', '/contact'], ['Book a visit', '/booking'], ['Blog', '/blog'], ['Emergency Service', '/services/emergency-repair']].map(([label, href]) => (
               <a key={href} href={href} className="footer-link">{label}</a>
             ))}
           </div>

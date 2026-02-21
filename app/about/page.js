@@ -18,10 +18,11 @@ export default function AboutPage() {
                 NOT JUST A<br />COMPANY —<br /><span className="text-gradient">YOUR NEIGHBOURS</span>
               </h1>
               <p style={{ color: 'rgba(255,255,255,0.75)', lineHeight: 1.85, fontSize: '1.05rem', marginBottom: 32, maxWidth: 480 }}>
-                Ottawa - GDR is an Ottawa family business built on one principle: treat every customer the way we would want to be treated. No hidden fees. No unnecessary upsells. No shortcuts.
+                Ottawa - GDR is an Ottawa family business built on one principle: treat every customer the way we would want to be treated. We offer <a href="/services" style={{ color: 'var(--orange)', fontWeight: 600, textDecoration: 'underline', textUnderlineOffset: 2 }}>garage door repairs</a> and <a href="/services/opener-repair" style={{ color: 'var(--orange)', fontWeight: 600, textDecoration: 'underline', textUnderlineOffset: 2 }}>opener repair</a> across <a href="/areas" style={{ color: 'var(--orange)', fontWeight: 600, textDecoration: 'underline', textUnderlineOffset: 2 }}>all Ottawa areas</a>. No hidden fees. No unnecessary upsells. No shortcuts.
               </p>
               <div style={{ display: 'flex', gap: 14, flexWrap: 'wrap' }}>
                 <a href={PHONE_HREF} className="btn-primary">📞 Call {PHONE}</a>
+                <a href="/contact" className="btn-secondary">Contact Us →</a>
                 <a href="#story" className="btn-secondary">Our Story →</a>
               </div>
             </div>

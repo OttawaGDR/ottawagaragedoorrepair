@@ -160,13 +160,13 @@ export default function ServicesPage() {
             <span style={{ color: 'var(--orange)' }}>Services</span>
           </nav>
           <div style={{ maxWidth: 700 }}>
-            <span className="badge" style={{ marginBottom: 24, display: 'inline-flex', alignItems: 'center', gap: 6 }}><Icon name="star" size={16} style={{ color: 'var(--orange-bright)' }} /> 5.0 · 127 Google Reviews</span>
+            <span className="badge" style={{ marginBottom: 24, display: 'inline-flex', alignItems: 'center', gap: 6 }}><Icon name="star" size={16} style={{ color: 'var(--orange-bright)' }} /> 5.0 Rated</span>
             <h1 className="display-xl" style={{ marginBottom: 24, color: 'white' }}>
               GARAGE DOOR SERVICES<br />
               <span className="text-gradient glow-text">OTTAWA</span>
             </h1>
             <p style={{ color: 'var(--gray-400)', fontSize: '1.1rem', lineHeight: 1.75, maxWidth: 560, marginBottom: 36 }}>
-              Garage door repairs Ottawa & garage door opener repair. Professional garage door services — springs, cables, installation. Same-day, licensed & insured.
+              <a href="/services/spring-replacement" style={{ color: 'inherit', textDecoration: 'underline', textUnderlineOffset: 2 }}>Garage door repairs</a> Ottawa & <a href="/services/opener-repair" style={{ color: 'inherit', textDecoration: 'underline', textUnderlineOffset: 2 }}>garage door opener repair</a>. Professional garage door services — springs, cables, installation. Same-day, licensed & insured. <a href="/contact" style={{ color: 'var(--orange)', fontWeight: 600 }}>Get a free quote</a>.
             </p>
             <div style={{ display: 'flex', gap: 14, flexWrap: 'wrap' }}>
               <a href={PHONE_HREF} className="btn-primary" style={{ display: 'inline-flex', alignItems: 'center', gap: 8 }}><Icon name="emergency" size={20} /> Emergency: {PHONE}</a>
@@ -262,7 +262,7 @@ export default function ServicesPage() {
               { icon: 'dollar', title: 'Upfront Pricing', desc: 'Full written quote before we touch anything. No hidden fees, no surprises.' },
               { icon: 'shield', title: '1-Year Warranty', desc: 'All parts and labor guaranteed. New door installations carry a 5-year warranty.' },
               { icon: 'weather', title: 'Ottawa Winter Experts', desc: 'We know how -30°C affects your door. Cold-weather failures are our specialty.' },
-              { icon: 'star', title: '5.0 Google Rating', desc: '127 verified reviews from real Ottawa homeowners. We stand behind every job.' },
+              { icon: 'star', title: '5.0 Rated', desc: 'Verified reviews from real Ottawa homeowners. We stand behind every job.' },
               { icon: 'phone', title: '24/7 Emergency Line', desc: 'Real person answers at 3am. Emergency technicians dispatched within 90 minutes.' },
             ].map((item, i) => (
               <div key={i} className="light-card reveal" style={{ padding: 28, textAlign: 'center' }}>

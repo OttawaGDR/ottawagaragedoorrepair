@@ -183,7 +183,7 @@ export default function FAQPage() {
             <em style={{ color: 'var(--orange)' }}>Question?</em>
           </h2>
           <p style={{ color: 'var(--gray-400)', lineHeight: 1.75, marginBottom: 36, fontSize: '1rem' }}>
-            Call us — our technicians answer questions for free over the phone. Describe your problem and we will tell you what it likely is, what it costs, and whether you need us or can fix it yourself.
+            <a href="/contact" style={{ color: 'var(--orange)', fontWeight: 600, textDecoration: 'underline', textUnderlineOffset: 2 }}>Contact us</a> — our technicians answer questions for free over the phone. Describe your problem and we will tell you what it likely is, what it costs, and whether you need <a href="/services" style={{ color: 'var(--orange)', fontWeight: 600, textDecoration: 'underline', textUnderlineOffset: 2 }}>our service</a> or can fix it yourself.
           </p>
           <div style={{ display: 'flex', gap: 16, justifyContent: 'center', flexWrap: 'wrap' }}>
             <a href={PHONE_HREF} className="btn-primary" style={{ fontSize: '1.05rem' }}>📞 Call {PHONE}</a>

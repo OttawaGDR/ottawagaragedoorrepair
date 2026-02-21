@@ -53,7 +53,7 @@ export default function AreasPage() {
               <span className="orange-outline">OTTAWA</span>
             </h1>
             <p style={{ color: 'var(--gray-400)', fontSize: '1.1rem', lineHeight: 1.75, maxWidth: 540, marginBottom: 36 }}>
-              We arrive in under 90 minutes everywhere in Ottawa — same promise in every neighbourhood. Same-day service guaranteed.
+              We arrive in under 90 minutes everywhere in Ottawa — same promise in every neighbourhood. <a href="/services" style={{ color: 'var(--orange)', fontWeight: 600, textDecoration: 'underline', textUnderlineOffset: 2 }}>Same-day service</a> guaranteed. <a href="/contact" style={{ color: 'var(--orange)', fontWeight: 600, textDecoration: 'underline', textUnderlineOffset: 2 }}>Request a callback</a>.
             </p>
             <div style={{ display: 'flex', gap: 14, flexWrap: 'wrap' }}>
               <a href={PHONE_HREF} className="btn-primary">📞 Call Now: {PHONE}</a>
