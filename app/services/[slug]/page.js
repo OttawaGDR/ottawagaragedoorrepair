@@ -136,7 +136,7 @@ export default async function ServicePage({ params }) {
                 Ottawa's Best {service.title} Service
               </h2>
               <p style={{ color: 'var(--gray-600)', lineHeight: 1.8, marginBottom: 28 }}>
-                When your garage door fails, you need a team you can trust. Ottawa - GDR has been serving Ottawa homeowners for over 10 years with transparent pricing, quality parts, and a full warranty on every job.
+                When your garage door fails, you need a team you can trust. Ottawa - GDR has been serving Ottawa homeowners for over 6 years with transparent pricing, quality parts, and a full warranty on every job.
               </p>
               {['Licensed & insured technicians', 'Parts stocked on every truck', 'Written quote before we start', '1-year warranty on all work', 'Same-day service available', 'Ottawa winter specialists'].map(item => (
                 <div key={item} style={{ display: 'flex', alignItems: 'center', gap: 12, marginBottom: 12 }}>

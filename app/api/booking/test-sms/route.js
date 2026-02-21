@@ -28,6 +28,6 @@ export async function GET() {
     ok: false,
     message: result.error || 'SMS failed.',
     recipient: PHONE,
-    hint: 'Add TWILIO_ACCOUNT_SID, TWILIO_AUTH_TOKEN, and TWILIO_FROM_NUMBER to .env (see .env.example).',
+    hint: 'On the LIVE site: add TWILIO_ACCOUNT_SID, TWILIO_AUTH_TOKEN, TWILIO_FROM_NUMBER in your host (e.g. Vercel → Settings → Environment Variables), then redeploy.',
   }, { status: 200 });
 }

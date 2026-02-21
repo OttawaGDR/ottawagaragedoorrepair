@@ -127,7 +127,7 @@ function Stats() {
     { number: '2,400+', label: 'Repairs Completed' },
     { number: '5.0★', label: 'Google Rating' },
     { number: '<90', label: 'Min Response Time' },
-    { number: '10+', label: 'Years in Ottawa' },
+    { number: '6+', label: 'Years in Ottawa' },
   ];
   return (
     <section className="section-sm" style={{ background: 'var(--navy-mid)', borderTop: '1px solid rgba(255,255,255,0.05)', borderBottom: '1px solid rgba(255,255,255,0.05)' }}>
