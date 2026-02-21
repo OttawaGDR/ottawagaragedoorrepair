@@ -1,5 +1,5 @@
 import './globals.css';
-import { services, areas, PHONE, PHONE_HREF } from '../lib/data';
+import { services, areas, PHONE, PHONE_HREF, SMS_HREF } from '../lib/data';
 import Icon from './components/Icons';
 import EmergencyBar from './components/EmergencyBar';
 import Logo from './components/Logo';
@@ -297,6 +297,8 @@ function StickyCall() {
     <div className="sticky-call">
       <a href={PHONE_HREF} aria-label="Call Ottawa - GDR" style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', color: 'inherit' }}><Icon name="phone" size={24} /></a>
       <span className="sticky-call-label">Call Now</span>
+      <a href={SMS_HREF} aria-label="Text Ottawa - GDR" className="sticky-sms" style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', color: 'inherit' }}><Icon name="message" size={24} /></a>
+      <span className="sticky-call-label">Text Us</span>
     </div>
   );
 }

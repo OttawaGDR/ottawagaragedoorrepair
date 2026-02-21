@@ -345,6 +345,12 @@ select.form-input option { background: var(--navy-mid); color: white; }
   transition: transform 0.2s;
 }
 .sticky-call a:hover { transform: scale(1.12); }
+.sticky-call .sticky-sms {
+  background: linear-gradient(135deg, #1e3a5f, #0f2040);
+  border: 2px solid rgba(249,115,22,0.4);
+  box-shadow: 0 6px 24px rgba(0,0,0,0.3);
+}
+.sticky-call .sticky-sms:hover { border-color: var(--orange); }
 .sticky-call-label { font-size: 0.68rem; font-weight: 800; color: var(--orange); text-transform: uppercase; letter-spacing: 0.08em; background: rgba(10,22,40,0.92); padding: 4px 10px; border-radius: 4px; }
 
 .nav-link { color: rgba(255,255,255,0.65); text-decoration: none; font-weight: 500; font-size: 0.88rem; transition: all 0.2s; letter-spacing: 0.02em; position: relative; }
