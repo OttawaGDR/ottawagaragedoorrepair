@@ -1,5 +1,6 @@
 import { NextResponse } from 'next/server';
 import { EMAIL } from '../../../lib/data';
+import { addBookedSlot } from '../../../lib/bookedSlots';
 
 export async function POST(request) {
   try {
@@ -45,7 +46,7 @@ Please call the customer to confirm this appointment.
       const from = process.env.RESEND_FROM_EMAIL || 'onboarding@resend.dev';
       const { error } = await resend.emails.send({
         from: process.env.RESEND_FROM_NAME ? `${process.env.RESEND_FROM_NAME} <${from}>` : from,
-        to: EMAIL,
+        to: [EMAIL],
         subject: `Booking request: ${dateDisplay || date} at ${timeSlot} – ${name}`,
         html,
         text,
@@ -55,8 +56,10 @@ Please call the customer to confirm this appointment.
         return NextResponse.json({ error: 'Failed to send notification email.' }, { status: 500 });
       }
     } else {
-      console.log('[Booking] No RESEND_API_KEY – notification not sent. Booking details:', { name, phone, email, service, area, date, timeSlot, message });
+      console.warn('[Booking] No RESEND_API_KEY – set it in .env to receive booking emails at', EMAIL);
     }
+
+    addBookedSlot(date, timeSlot);
 
     return NextResponse.json({ success: true });
   } catch (e) {

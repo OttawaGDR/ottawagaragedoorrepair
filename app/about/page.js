@@ -9,10 +9,10 @@ export const metadata = {
 export default function AboutPage() {
   return (
     <>
-      <section style={{ padding: '80px 0 60px', borderBottom: '1px solid rgba(255,255,255,0.06)' }}>
+      <section className="about-section" style={{ padding: '80px 0 60px', borderBottom: '1px solid rgba(255,255,255,0.06)' }}>
         <div className="container">
           <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 60, alignItems: 'center' }}>
-            <div>
+            <div style={{ minWidth: 0 }}>
               <span className="badge" style={{ marginBottom: 24, display: 'inline-flex' }}>🏆 Ottawa Family Business Since 2020</span>
               <h1 className="display-xl" style={{ marginBottom: 20 }}>
                 NOT JUST A<br />COMPANY —<br /><span className="text-gradient">YOUR NEIGHBOURS</span>
@@ -26,7 +26,7 @@ export default function AboutPage() {
                 <a href="#story" className="btn-secondary">Our Story →</a>
               </div>
             </div>
-            <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 16 }}>
+            <div className="about-stats-grid" style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 16 }}>
               {[
                 { num: '1,000+', label: 'Repairs Done', icon: '🔧' },
                 { num: '5.0 ⭐', label: 'Google Rating', icon: '⭐' },
@@ -44,10 +44,10 @@ export default function AboutPage() {
         </div>
       </section>
 
-      <section id="story" style={{ padding: '80px 0' }}>
+      <section id="story" className="about-section" style={{ padding: '80px 0' }}>
         <div className="container">
           <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 80, alignItems: 'start' }}>
-            <div>
+            <div style={{ minWidth: 0 }}>
               <span className="section-label">Our Story</span>
               <h2 className="display-lg" style={{ marginBottom: 28 }}>FOUNDED ON <span className="text-gradient">FRUSTRATION</span></h2>
               <p style={{ color: 'rgba(255,255,255,0.75)', lineHeight: 1.9, marginBottom: 20 }}>Ottawa - GDR was founded in 2020 after watching too many Ottawa homeowners get taken advantage of — overcharged for simple repairs, pressured into replacing doors that only needed a spring, and left waiting by contractors who never showed up.</p>
@@ -59,7 +59,7 @@ export default function AboutPage() {
                 </p>
               </div>
             </div>
-            <div style={{ display: 'flex', flexDirection: 'column', gap: 14 }}>
+            <div style={{ display: 'flex', flexDirection: 'column', gap: 14, minWidth: 0 }}>
               {[
                 { icon: '🏠', title: 'Family-Owned and Operated', desc: 'Not a franchise or contractor marketplace. A real Ottawa family business.' },
                 { icon: '📋', title: 'Licensed and Fully Insured', desc: 'Fully licensed in Ontario with $2 million liability coverage on every job. Certifications and insurance verified for your peace of mind.' },

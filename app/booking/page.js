@@ -1,6 +1,6 @@
 'use client';
 
-import { useState, useMemo } from 'react';
+import { useState, useMemo, useEffect } from 'react';
 import { PHONE_HREF, EMAIL, services, areas } from '../../lib/data';
 
 const TIME_SLOTS = ['9:00 AM', '12:00 PM', '3:00 PM']; // Mon–Fri 9–5, every 3 hours
@@ -45,6 +45,14 @@ export default function BookingPage() {
   const [selectedSlot, setSelectedSlot] = useState(null);
   const [submitStatus, setSubmitStatus] = useState(null);
   const [formData, setFormData] = useState({ name: '', phone: '', email: '', service: '', area: '', message: '' });
+  const [bookedSlots, setBookedSlots] = useState([]);
+
+  useEffect(() => {
+    fetch('/api/booking/slots')
+      .then(r => r.json())
+      .then(data => setBookedSlots(Array.isArray(data.slots) ? data.slots : []))
+      .catch(() => setBookedSlots([]));
+  }, []);
 
   const monthDays = useMemo(() => getMonthDays(year, month), [year, month]);
   const monthLabel = useMemo(() => new Date(year, month).toLocaleDateString('en-CA', { month: 'long', year: 'numeric' }), [year, month]);
@@ -95,6 +103,10 @@ export default function BookingPage() {
       setSelectedDate(null);
       setSelectedSlot(null);
       setFormData({ name: '', phone: '', email: '', service: '', area: '', message: '' });
+      fetch('/api/booking/slots')
+        .then(r => r.json())
+        .then(data => setBookedSlots(Array.isArray(data.slots) ? data.slots : []))
+        .catch(() => {});
     } catch (err) {
       setSubmitStatus({ error: err.message || 'Something went wrong. Please call us to book.' });
     }
@@ -163,7 +175,7 @@ export default function BookingPage() {
                   <h3 style={{ fontFamily: 'var(--font-display)', fontSize: '1.1rem', fontWeight: 700, color: 'white', marginTop: 24, marginBottom: 12 }}>2. Pick a time</h3>
                   <p style={{ color: 'rgba(255,255,255,0.6)', fontSize: '0.88rem', marginBottom: 12 }}>{formatDisplayDate(selectedDate)}</p>
                   <div style={{ display: 'flex', gap: 10, flexWrap: 'wrap' }}>
-                    {TIME_SLOTS.map(slot => (
+                    {TIME_SLOTS.filter(slot => !bookedSlots.includes(`${formatDateKey(selectedDate)}|${slot}`)).map(slot => (
                       <button
                         key={slot}
                         type="button"
@@ -181,6 +193,9 @@ export default function BookingPage() {
                         {slot}
                       </button>
                     ))}
+                    {TIME_SLOTS.every(slot => bookedSlots.includes(`${formatDateKey(selectedDate)}|${slot}`)) && (
+                      <p style={{ color: 'var(--gray-400)', fontSize: '0.9rem', width: '100%' }}>No slots left this day — pick another date.</p>
+                    )}
                   </div>
                 </>
               )}
