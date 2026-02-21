@@ -164,7 +164,7 @@ export default async function AreaPage({ params }) {
             <div>
               <span className="section-label" style={{ color: 'var(--orange)' }}>Local Expertise</span>
               <h2 className="heading-lg" style={{ color: 'var(--navy)', marginBottom: 20 }}>
-                Why {area.name} Homeowners Choose GDS
+                Why {area.name} Homeowners Choose Ottawa - GDR
               </h2>
               <p style={{ color: 'var(--gray-600)', lineHeight: 1.8, marginBottom: 20 }}>
                 We're not a call centre dispatching random contractors. Our {area.name} technicians live and work in this community. We know the local roads, common door brands in your neighbourhood, and how Ottawa's winters affect your garage door systems.

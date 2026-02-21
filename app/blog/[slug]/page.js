@@ -28,7 +28,7 @@ const posts = {
     sections: [
       { heading: 'Step 1: Do Not Try to Operate the Door', content: "A garage door with a broken spring can weigh 200–400 lbs with no counterbalance. Operating it manually or with the opener can cause serious injury or damage the opener motor. Disconnect the opener and leave the door where it is." },
       { heading: 'Step 2: Visually Confirm the Break', content: "Look at the horizontal metal bar above your door. You'll see one or two coiled springs. A broken spring will have a visible gap in the coil. If both look intact, the problem may be your cables or opener instead." },
-      { heading: 'Step 3: Call a Professional', content: "Torsion springs are under hundreds of pounds of tension. DIY spring replacement is one of the leading causes of serious garage door injuries. In Ottawa, GDS can typically arrive within 90 minutes and complete the repair in under an hour." },
+      { heading: 'Step 3: Call a Professional', content: "Torsion springs are under hundreds of pounds of tension. DIY spring replacement is one of the leading causes of serious garage door injuries. In Ottawa, Ottawa - GDR can typically arrive within 90 minutes and complete the repair in under an hour." },
       { heading: 'How Much Will It Cost?', content: "Spring replacement in Ottawa runs $220–$350. We always recommend replacing both springs when one fails. The repair typically takes 45–60 minutes. We carry all spring sizes on every truck so there's no ordering delay." },
       { heading: 'Can I Use the Side Door in the Meantime?', content: "Yes — use your home's side or back entry if possible. If your car is stuck inside, call us and we can manually disengage the door safely as part of the service call." },
     ],
@@ -77,7 +77,7 @@ const posts = {
       { heading: 'The 10,000 Cycle Standard', content: "Most garage door springs are rated for 10,000 open/close cycles. If you use your door 4 times per day, that's roughly 7 years of life. Heavy users (6–8 times daily) may see springs fail in 3–5 years." },
       { heading: "Ottawa's Climate Accelerates Wear", content: "Extreme cold makes metal brittle. Freeze-thaw cycles stress springs repeatedly. Ottawa homeowners typically see spring life 15–20% shorter than the rated specification. A 10,000-cycle spring often lasts 8,000–8,500 cycles in our climate." },
       { heading: 'Signs Your Springs Are Near End of Life', content: "Watch for: door feels heavy when lifting manually, opener strains or slows on the way up, squeaking or grinding noises when opening, visible rust or corrosion on the spring coils, or a door that doesn't stay open halfway." },
-      { heading: 'High-Cycle Upgrades', content: "GDS recommends upgrading to high-cycle springs (25,000 or 50,000 cycle rating) when replacing. The cost premium is $60–$120, but they last 2–5x longer. For Ottawa homeowners who want to avoid repeat service calls, it's the smart choice." },
+      { heading: 'High-Cycle Upgrades', content: "Ottawa - GDR recommends upgrading to high-cycle springs (25,000 or 50,000 cycle rating) when replacing. The cost premium is $60–$120, but they last 2–5x longer. For Ottawa homeowners who want to avoid repeat service calls, it's the smart choice." },
       { heading: 'Replace Both Springs at Once', content: "If one spring breaks, the other is likely close behind — especially if both were installed at the same time. Replacing both together saves a second service call and labour charge within months. We always recommend it." },
     ],
   },

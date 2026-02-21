@@ -49,7 +49,7 @@ export default function AboutPage() {
             <div>
               <span className="section-label">Our Story</span>
               <h2 className="display-lg" style={{ marginBottom: 28 }}>FOUNDED ON <span className="text-gradient">FRUSTRATION</span></h2>
-              <p style={{ color: 'rgba(255,255,255,0.75)', lineHeight: 1.9, marginBottom: 20 }}>GDS was founded in 2020 after watching too many Ottawa homeowners get taken advantage of — overcharged for simple repairs, pressured into replacing doors that only needed a spring, and left waiting by contractors who never showed up.</p>
+              <p style={{ color: 'rgba(255,255,255,0.75)', lineHeight: 1.9, marginBottom: 20 }}>Ottawa - GDR was founded in 2020 after watching too many Ottawa homeowners get taken advantage of — overcharged for simple repairs, pressured into replacing doors that only needed a spring, and left waiting by contractors who never showed up.</p>
               <p style={{ color: 'rgba(255,255,255,0.75)', lineHeight: 1.9, marginBottom: 20 }}>We started with two technicians, one truck, and a commitment: be the garage door company we would want to call ourselves. Show up on time. Give a real price before touching anything. Fix it right the first visit.</p>
               <p style={{ color: 'rgba(255,255,255,0.75)', lineHeight: 1.9, marginBottom: 32 }}>Our team brings over 10 years of combined experience in garage door repair and installation. Five years in business and 1,000+ Ottawa homeowners later — with a perfect 5.0 Google rating — that approach continues to work.</p>
               <div style={{ padding: '22px 26px', background: 'rgba(249,115,22,0.08)', borderLeft: '4px solid var(--orange)', borderRadius: '0 14px 14px 0', marginBottom: 32 }}>
@@ -143,10 +143,10 @@ export default function AboutPage() {
       <section style={{ background: 'var(--orange)', padding: '80px 0', textAlign: 'center' }}>
         <div className="container" style={{ maxWidth: 600, margin: '0 auto' }}>
           <h2 style={{ fontFamily: 'var(--font-display)', fontSize: 'clamp(2rem,5vw,3rem)', fontWeight: 900,  color: 'white', marginBottom: 16, lineHeight: 1.1 }}>
-            EXPERIENCE THE GDS DIFFERENCE
+            EXPERIENCE THE OTTAWA - GDR DIFFERENCE
           </h2>
           <p style={{ color: 'rgba(255,255,255,0.92)', fontSize: '1.05rem', marginBottom: 36, lineHeight: 1.8 }}>
-            Join 1,000+ Ottawa homeowners who trust GDS for honest, reliable garage door service.
+            Join 1,000+ Ottawa homeowners who trust Ottawa - GDR for honest, reliable garage door service.
           </p>
           <div style={{ display: 'flex', gap: 16, justifyContent: 'center', flexWrap: 'wrap' }}>
             <a href={PHONE_HREF} style={{ display: 'inline-flex', alignItems: 'center', gap: 10, background: 'white', color: '#ea580c', fontWeight: 800, fontSize: '1.1rem', padding: '16px 36px', borderRadius: 100, textDecoration: 'none' }}>

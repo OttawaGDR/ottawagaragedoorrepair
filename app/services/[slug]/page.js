@@ -131,7 +131,7 @@ export default async function ServicePage({ params }) {
         <div className="container">
           <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 60, alignItems: 'center' }}>
             <div>
-              <span className="section-label" style={{ color: 'var(--orange)' }}>Why Choose GDS</span>
+              <span className="section-label" style={{ color: 'var(--orange)' }}>Why Choose Ottawa - GDR</span>
               <h2 className="heading-lg" style={{ color: 'var(--navy)', marginBottom: 24 }}>
                 Ottawa's Best {service.title} Service
               </h2>
