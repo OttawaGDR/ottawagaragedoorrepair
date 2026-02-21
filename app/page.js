@@ -108,11 +108,11 @@ function Hero() {
 function TrustBar() {
   const items = ['✓ Licensed & Insured', '★ 5.0 Google Rating', '⚡ Same Day Service', '◆ All Brands Serviced', '$ Upfront Pricing', '🛡 1 Year Warranty', 'Ottawa Local', '📞 24/7 Emergency'];
   return (
-    <div style={{ background: 'linear-gradient(90deg, #ea580c, #f97316, #ea580c)', padding: '15px 0', overflow: 'hidden' }}>
+    <div className="trust-bar" style={{ background: 'linear-gradient(90deg, #ea580c, #f97316, #ea580c)', padding: '15px 0', overflow: 'hidden' }}>
       <div className="marquee-wrapper">
         <div className="marquee-track">
           {[...items, ...items].map((item, i) => (
-            <span key={i} style={{ fontWeight: 700, fontSize: '0.88rem', color: 'white', whiteSpace: 'nowrap', letterSpacing: '0.05em' }}>
+            <span key={i} className="marquee-item" style={{ fontWeight: 700, fontSize: '0.88rem', color: 'white', whiteSpace: 'nowrap', letterSpacing: '0.05em' }}>
               {item} <span style={{ opacity: 0.5, marginLeft: 20 }}>◆</span>
             </span>
           ))}
@@ -215,12 +215,12 @@ function HowItWorks() {
 
 function Areas() {
   return (
-    <section className="section" style={{ background: 'var(--navy)' }}>
+    <section className="section areas-section" style={{ background: 'var(--navy)' }}>
       <div className="container">
         <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 80, alignItems: 'center' }}>
-          <div>
+          <div style={{ minWidth: 0 }}>
             <span className="section-label">Service Area</span>
-            <h2 className="heading-xl reveal" style={{ marginBottom: 20 }}>
+            <h2 className="heading-xl areas-heading reveal" style={{ marginBottom: 20, fontFamily: "'Barlow Condensed', sans-serif" }}>
               We Come to <em style={{ color: 'var(--orange)' }}>Your Door</em> Across Ottawa
             </h2>
             <p style={{ color: 'rgba(255,255,255,0.75)', lineHeight: 1.75, marginBottom: 32, fontSize: '0.98rem' }}>
@@ -234,12 +234,12 @@ function Areas() {
                 <a key={area.slug} href={`/areas/${area.slug}`} className="area-pill" style={{ display: 'inline-flex', alignItems: 'center', gap: 6 }}><Icon name="mappin" size={16} /> {area.name}</a>
               ))}
             </div>
-            <div className="glass-card reveal" style={{ padding: 24 }}>
+            <div className="glass-card areas-response-card reveal" style={{ padding: 24, minWidth: 0 }}>
               <div style={{ display: 'flex', alignItems: 'center', gap: 16 }}>
-                <Icon name="clock" size={36} style={{ color: 'var(--orange)' }} />
-                <div>
-                  <div style={{ fontWeight: 600, fontSize: '0.9rem', color: 'rgba(255,255,255,0.65)', marginBottom: 4 }}>Average Response Time</div>
-                  <div className="stat-number" style={{ fontSize: '2.2rem' }}>Under 90 Minutes</div>
+                <Icon name="clock" size={36} style={{ color: 'var(--orange)', flexShrink: 0 }} />
+                <div style={{ minWidth: 0 }}>
+                  <div className="areas-response-label" style={{ fontWeight: 600, fontSize: '0.9rem', color: 'rgba(255,255,255,0.65)', marginBottom: 4 }}>Average Response Time</div>
+                  <div className="stat-number areas-response-time" style={{ fontSize: '2.2rem' }}>Under 90 Minutes</div>
                 </div>
               </div>
             </div>

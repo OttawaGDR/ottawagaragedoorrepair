@@ -235,18 +235,27 @@ function Navbar() {
             white-space: nowrap;
           }
           .mobile-menu-drawer a:hover, .mobile-menu-drawer a:focus { background: rgba(249,115,22,0.15); color: white; }
-          .nav-phone-btn { min-height: 44px; padding: 12px 20px !important; }
+          .nav-phone-btn { min-height: 44px; padding: 10px 14px !important; font-size: 0.85rem !important; }
+          .nav-inner > div:last-child { gap: 8 !important; min-width: 0; }
+          .nav-inner .btn-secondary { padding: 10px 12px !important; font-size: 0.85rem !important; }
+        }
+        @media (max-width: 380px) {
+          .nav-phone-btn span { display: none !important; }
+          .nav-phone-btn { padding: 10px 12px !important; }
         }
       `}</style>
-      <nav style={{
+      <nav className="main-nav" style={{
         position: 'fixed', top: 0, left: 0, right: 0, zIndex: 900,
         background: 'rgba(10,22,40,0.95)',
         backdropFilter: 'blur(20px)',
         borderBottom: '1px solid rgba(255,255,255,0.08)',
         padding: '0 16px',
       }}>
-        <div style={{ maxWidth: 1200, margin: '0 auto', display: 'flex', alignItems: 'center', justifyContent: 'space-between', minHeight: 56, gap: 12 }}>
-          <Logo compact />
+        <div className="nav-inner" style={{ maxWidth: 1200, margin: '0 auto', display: 'flex', alignItems: 'center', justifyContent: 'space-between', minHeight: 56, gap: 12 }}>
+          <div style={{ display: 'flex', alignItems: 'center', gap: 8, minWidth: 0 }}>
+            <Logo compact />
+            <span className="nav-flag" style={{ fontSize: '1.5rem', lineHeight: 1, flexShrink: 0 }} aria-hidden>🇨🇦</span>
+          </div>
 
           <div className="hide-mobile" style={{ display: 'flex', alignItems: 'center', gap: 36 }}>
             <div className="nav-dropdown">
