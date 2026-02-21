@@ -91,7 +91,9 @@ export default function RootLayout({ children }) {
       </head>
       <body style={{ margin: 0, background: 'var(--navy)' }}>
         <Navbar />
-        {children}
+        <div className="mobile-no-hscroll" style={{ overflowX: 'hidden', maxWidth: '100%' }}>
+          {children}
+        </div>
         <StickyCall />
         <EmergencyBar />
         <Footer />
@@ -281,8 +283,12 @@ function Navbar() {
                 <a href="/blog">Blog</a>
                 <a href="/about">About</a>
                 <a href="/contact">Contact</a>
+                <a href={SMS_HREF} style={{ display: 'flex', alignItems: 'center', gap: 8 }}>📱 Text Us</a>
               </div>
             </details>
+            <a href={SMS_HREF} className="show-mobile btn-secondary" style={{ padding: '12px 18px', fontSize: '0.9rem', alignItems: 'center', gap: 6 }} aria-label="Text Ottawa - GDR">
+              <Icon name="message" size={18} /> Text
+            </a>
             <a href={PHONE_HREF} className="btn-primary nav-phone-btn" style={{ padding: '12px 20px', fontSize: '0.9rem', display: 'inline-flex', alignItems: 'center', gap: 8 }}>
               <Icon name="phone" size={20} /> <span className="hide-mobile">{PHONE}</span><span className="show-mobile">Call</span>
             </a>

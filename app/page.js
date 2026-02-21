@@ -110,6 +110,11 @@ function PremiumHeroBackground() {
           opacity: 0.4;
           animation: floatOrb3 38s ease-in-out infinite;
         }
+        @media (max-width: 768px) {
+          .hero-section { overflow: hidden; }
+          .hero-orb-1 { right: -80px !important; top: -120px !important; }
+          .hero-orb-2 { left: -60px !important; bottom: -80px !important; }
+        }
         .hero-particle {
           position: absolute;
           width: 4px;
