@@ -239,12 +239,7 @@ export default function BookingPage() {
                 {submitStatus?.success && (
                   <p style={{ color: '#4ade80', fontSize: '0.9rem', margin: 0 }}>
                     Request sent. We’ll call you to confirm your appointment.
-                    {submitStatus.smsSent && <span style={{ display: 'block', marginTop: 4 }}>You’ll get a text at your business number.</span>}
-                    {!submitStatus.smsSent && submitStatus.emailSent === false && (
-                      <span style={{ display: 'block', color: 'rgba(255,255,255,0.7)', marginTop: 6 }}>
-                        Add Twilio (SMS) or Resend (email) in .env to get booking notifications.
-                      </span>
-                    )}
+                    {submitStatus.smsSent && <span style={{ display: 'block', marginTop: 4 }}>You’ll get a text at (613) 617-4238.</span>}
                   </p>
                 )}
                 <button type="submit" className="btn-primary" style={{ width: '100%', justifyContent: 'center', marginTop: 8 }}>
