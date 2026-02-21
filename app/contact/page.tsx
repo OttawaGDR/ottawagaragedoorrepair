@@ -55,7 +55,7 @@ export default function ContactPage() {
                   <textarea id="contact-message" name="message" className="form-input" rows={3} placeholder="Describe the issue or question..." style={{ resize: 'vertical', minHeight: 80 }} />
                 </div>
                 <a href={PHONE_HREF} className="btn-primary" style={{ width: '100%', justifyContent: 'center', display: 'inline-flex', alignItems: 'center', gap: 8 }}>
-                  <Icon name="phone" size={20} /> Call for Instant Quote
+                  📞 Call for Instant Quote
                 </a>
                 <p style={{ fontSize: '0.78rem', color: 'rgba(255,255,255,0.45)', textAlign: 'center', margin: 0 }}>
                   Prefer to call? Dial <a href={PHONE_HREF} style={{ color: 'var(--orange)', fontWeight: 700 }}>{PHONE}</a> now
