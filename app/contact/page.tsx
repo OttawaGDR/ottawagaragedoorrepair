@@ -1,4 +1,3 @@
-import Icon from '../components/Icons';
 import { PHONE, PHONE_HREF, EMAIL, services, areas } from '../../lib/data';
 
 export const metadata = {
@@ -67,7 +66,7 @@ export default function ContactPage() {
             <div style={{ display: 'flex', flexDirection: 'column', gap: 20 }}>
               <div className="glass-card" style={{ padding: 28, display: 'flex', gap: 20, alignItems: 'flex-start' }}>
                 <div style={{ width: 52, height: 52, background: 'linear-gradient(135deg, var(--orange), #ea580c)', borderRadius: 14, display: 'flex', alignItems: 'center', justifyContent: 'center', flexShrink: 0 }}>
-                  <Icon name="phone" size={26} style={{ color: 'white' }} />
+                  📞
                 </div>
                 <div>
                   <div style={{ fontWeight: 800, color: 'white', fontSize: '1.1rem', marginBottom: 6 }}>Call Us 24/7</div>
@@ -78,7 +77,7 @@ export default function ContactPage() {
 
               <div className="glass-card" style={{ padding: 28, display: 'flex', gap: 20, alignItems: 'flex-start' }}>
                 <div style={{ width: 52, height: 52, background: 'rgba(255,255,255,0.08)', borderRadius: 14, display: 'flex', alignItems: 'center', justifyContent: 'center', flexShrink: 0 }}>
-                  <Icon name="envelope" size={26} style={{ color: 'var(--orange)' }} />
+                  ✉️
                 </div>
                 <div>
                   <div style={{ fontWeight: 800, color: 'white', fontSize: '1.1rem', marginBottom: 6 }}>Email</div>
@@ -89,7 +88,7 @@ export default function ContactPage() {
 
               <div className="glass-card" style={{ padding: 28, display: 'flex', gap: 20, alignItems: 'flex-start' }}>
                 <div style={{ width: 52, height: 52, background: 'rgba(255,255,255,0.08)', borderRadius: 14, display: 'flex', alignItems: 'center', justifyContent: 'center', flexShrink: 0 }}>
-                  <Icon name="mappin" size={26} style={{ color: 'var(--orange)' }} />
+                  📍
                 </div>
                 <div>
                   <div style={{ fontWeight: 800, color: 'white', fontSize: '1.1rem', marginBottom: 6 }}>Service Area</div>
@@ -120,7 +119,7 @@ export default function ContactPage() {
               Door stuck, spring broken, or off the track? Call now — our technicians are dispatched within 90 minutes anywhere in Ottawa.
             </p>
             <a href={PHONE_HREF} className="btn-primary" style={{ display: 'inline-flex', alignItems: 'center', gap: 10 }}>
-              <Icon name="emergency" size={22} /> Call {PHONE}
+              🚨 Call {PHONE}
             </a>
           </div>
         </div>
