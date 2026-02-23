@@ -56,9 +56,14 @@ function Hero() {
             <p style={{ fontSize: '1.1rem', color: 'rgba(255,255,255,0.9)', lineHeight: 1.75, marginBottom: 12, maxWidth: 460 }}>
               <a href="/services" style={{ color: 'inherit', textDecoration: 'underline', textUnderlineOffset: 3 }}>Garage door services Ottawa</a> & <a href="/services" style={{ color: 'inherit', textDecoration: 'underline', textUnderlineOffset: 3 }}>garage door repairs</a> — springs, openers, cables — fixed today. <a href="/services/opener-repair" style={{ color: 'inherit', textDecoration: 'underline', textUnderlineOffset: 3 }}>Garage door opener repair</a> and installation. Ottawa&apos;s most trusted, available <strong style={{ color: 'white' }}>24/7.</strong>
             </p>
-            <p style={{ fontSize: '0.95rem', color: 'var(--orange)', fontWeight: 700, marginBottom: 36, letterSpacing: '0.02em', display: 'flex', alignItems: 'center', gap: 6 }}>
-              <Icon name="mappin" size={18} /> Serving all <a href="/areas" style={{ color: 'inherit', textDecoration: 'underline', textUnderlineOffset: 2 }}>Ottawa neighbourhoods</a> · We arrive in under 90 min everywhere
-            </p>
+            <div style={{ fontSize: '0.95rem', color: 'var(--orange)', fontWeight: 700, marginBottom: 36, letterSpacing: '0.02em' }}>
+              <p style={{ margin: 0, display: 'flex', alignItems: 'center', gap: 6 }}>
+                <Icon name="mappin" size={18} /> Serving all <a href="/areas" style={{ color: 'inherit', textDecoration: 'underline', textUnderlineOffset: 2 }}>Ottawa neighbourhoods</a>
+              </p>
+              <p style={{ margin: '8px 0 0 0', paddingLeft: 24, color: 'rgba(255,255,255,0.85)', fontWeight: 600 }}>
+                We arrive in under 90 min everywhere
+              </p>
+            </div>
             <div style={{ display: 'flex', gap: 14, flexWrap: 'wrap', marginBottom: 48 }}>
               <a href={PHONE_HREF} className="btn-primary" style={{ fontSize: '1rem', display: 'inline-flex', alignItems: 'center', gap: 8 }}><Icon name="emergency" size={20} /> Emergency Call — {PHONE}</a>
               <a href="/contact" className="btn-secondary">Get Free Quote →</a>
@@ -220,8 +225,8 @@ function Areas() {
         <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 80, alignItems: 'center' }}>
           <div style={{ minWidth: 0 }}>
             <span className="section-label">Service Area</span>
-            <h2 className="heading-xl areas-heading reveal" style={{ marginBottom: 20 }}>
-              We Come to <em style={{ color: 'var(--orange)' }}>Your Door</em> Across Ottawa
+            <h2 className="heading-xl areas-heading reveal" style={{ marginBottom: 20, fontFamily: 'var(--font-display), sans-serif' }}>
+              We Come to <em style={{ color: 'var(--orange)', fontFamily: 'inherit', fontStyle: 'italic' }}>Your Door</em> Across Ottawa
             </h2>
             <p style={{ color: 'rgba(255,255,255,0.75)', lineHeight: 1.75, marginBottom: 32, fontSize: '0.98rem' }}>
               We arrive in under 90 minutes everywhere in Ottawa — from Kanata to Orleans, Barrhaven to Stittsville. Same promise in every neighbourhood.

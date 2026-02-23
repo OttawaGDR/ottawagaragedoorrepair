@@ -149,7 +149,7 @@ const mainServices = [
 
 export default function ServicesPage() {
   return (
-    <>
+    <div className="services-page">
       {/* HERO */}
       <section style={{ background: 'transparent', padding: '80px 0 60px', position: 'relative', overflow: 'hidden' }} className="grid-bg">
         <div style={{ position: 'absolute', top: '20%', right: '-5%', width: 500, height: 500, borderRadius: '50%', background: 'radial-gradient(circle, rgba(249,115,22,0.1) 0%, transparent 70%)', pointerEvents: 'none' }} />
@@ -402,6 +402,6 @@ export default function ServicesPage() {
           </div>
         </div>
       </section>
-    </>
+    </div>
   );
 }

@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 32">
+  <rect width="64" height="32" fill="#fff"/>
+  <rect width="16" height="32" fill="#c8102e"/>
+  <rect x="48" width="16" height="32" fill="#c8102e"/>
+  <!-- Stylized 11-point maple leaf (symmetric) -->
+  <path fill="#c8102e" d="M32 4.5 L29.2 8.8 L26.8 7.2 L25.2 11.2 L22.4 9.8 L21.2 13.5 L24 15 L22 18.5 L25.5 19.5 L23.5 23 L27 22 L32 26 L37 22 L40.5 23 L38.5 19.5 L42 18.5 L40 15 L42.8 13.5 L41.6 9.8 L38.8 11.2 L37.2 7.2 L34.8 8.8 Z"/>
+</svg>

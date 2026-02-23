@@ -230,11 +230,31 @@ iframe { max-width: 100%; }
   .trust-bar { padding: 12px 0 !important; }
   .marquee-item { font-size: 0.75rem !important; }
   .marquee-track { gap: 40px; }
-  .areas-heading { font-family: var(--font-display), sans-serif !important; font-size: clamp(1.75rem, 6vw, 2.5rem) !important; line-height: 1.2 !important; font-weight: 800 !important; text-decoration: none !important; word-break: normal; overflow-wrap: normal; }
+  .areas-heading,
+  .areas-heading em { font-family: var(--font-display), sans-serif !important; font-size: clamp(1.75rem, 6vw, 2.5rem) !important; line-height: 1.2 !important; font-weight: 800 !important; text-decoration: none !important; word-break: normal !important; overflow-wrap: break-word !important; }
   .areas-section .container > div { min-width: 0; }
   .areas-response-card { min-width: 0; }
   .areas-response-label { font-size: 0.8rem !important; }
   .areas-response-time { font-size: 1.25rem !important; white-space: nowrap !important; word-break: normal !important; overflow-wrap: normal !important; line-height: 1.2 !important; letter-spacing: -0.02em !important; }
+
+  /* Services: prevent words breaking into single letters on mobile */
+  .service-detail-page .container,
+  .service-detail-page h1,
+  .service-detail-page h2,
+  .service-detail-page h3,
+  .service-detail-page p,
+  .service-detail-page .glass-card,
+  .service-detail-page .light-card,
+  .service-detail-page .service-tag,
+  .service-detail-page [class*="heading"] { word-break: normal !important; overflow-wrap: break-word !important; }
+  .service-detail-page .container > div { min-width: 0; }
+  .service-detail-page .heading-xl { font-family: var(--font-display), sans-serif !important; }
+  .services-page .container,
+  .services-page h1, .services-page h2, .services-page h3,
+  .services-page p, .services-page .glass-card, .services-page .light-card,
+  .services-page .service-tag, .services-page [class*="heading"],
+  .services-page .stat-number, .services-page .stat-label { word-break: normal !important; overflow-wrap: break-word !important; }
+  .services-page .container > div { min-width: 0; }
 }
 
 .noise::after {

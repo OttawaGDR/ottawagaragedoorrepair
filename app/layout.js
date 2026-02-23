@@ -251,7 +251,7 @@ function Navbar() {
         <div className="nav-inner" style={{ maxWidth: 1200, margin: '0 auto', display: 'flex', alignItems: 'center', justifyContent: 'space-between', minHeight: 56, gap: 12 }}>
           <div style={{ display: 'flex', alignItems: 'center', gap: 8, minWidth: 0 }}>
             <Logo compact />
-            <span className="nav-flag" style={{ fontSize: '1.5rem', lineHeight: 1, flexShrink: 0 }} aria-hidden>🇨🇦</span>
+            <img src="https://flagcdn.com/w80/ca.png" alt="Canada" className="nav-flag" style={{ height: 36, width: 72, objectFit: 'cover', flexShrink: 0, display: 'block' }} />
           </div>
 
           <div className="hide-mobile" style={{ display: 'flex', alignItems: 'center', gap: 36 }}>
