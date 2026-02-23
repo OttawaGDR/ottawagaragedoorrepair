@@ -554,6 +554,22 @@ select.form-input option { background: var(--navy-mid); color: white; }
 .sticky-call .sticky-sms:hover { border-color: var(--orange); }
 .sticky-call-label { font-size: 0.68rem; font-weight: 800; color: var(--orange); text-transform: uppercase; letter-spacing: 0.08em; background: rgba(10,22,40,0.92); padding: 4px 10px; border-radius: 4px; }
 
+/* Main nav: align all items (Services, Areas, Blog, About, Contact, Book a visit) on same line */
+.main-nav .hide-mobile { align-items: center; }
+.main-nav .nav-item {
+  display: inline-flex;
+  align-items: center;
+  min-height: 44px;
+  padding-top: 0;
+  padding-bottom: 0;
+  color: rgba(255,255,255,0.9);
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 0.8rem;
+  letter-spacing: 0.08em;
+  transition: color 0.2s;
+}
+.main-nav .nav-item:hover { color: var(--orange-bright); }
 .nav-link { color: rgba(255,255,255,0.65); text-decoration: none; font-weight: 500; font-size: 0.88rem; transition: all 0.2s; letter-spacing: 0.02em; position: relative; }
 .nav-link::after { content: ''; position: absolute; bottom: -4px; left: 0; width: 0; height: 2px; background: var(--orange); transition: width 0.3s ease; border-radius: 2px; }
 .nav-link:hover { color: white; }

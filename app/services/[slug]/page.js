@@ -64,6 +64,11 @@ export default async function ServicePage({ params }) {
             <span style={{ color: 'var(--orange)' }}>{service.title}</span>
           </nav>
 
+          {service.image && (
+          <div style={{ marginBottom: 32, borderRadius: 16, overflow: 'hidden', boxShadow: '0 20px 60px rgba(0,0,0,0.4)' }}>
+            <img src={service.image} alt={service.title} style={{ width: '100%', aspectRatio: '16/9', objectFit: 'cover', display: 'block' }} />
+          </div>
+        )}
           <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 60, alignItems: 'center' }}>
             <div>
               <div style={{ fontSize: '4rem', marginBottom: 20 }}>{service.icon}</div>

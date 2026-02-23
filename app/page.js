@@ -111,14 +111,25 @@ function Hero() {
 }
 
 function TrustBar() {
-  const items = ['✓ Licensed & Insured', '★ 5.0 Google Rating', '⚡ Same Day Service', '◆ All Brands Serviced', '$ Upfront Pricing', '🛡 1 Year Warranty', 'Ottawa Local', '📞 24/7 Emergency'];
+  const items = [
+    { icon: 'shield', label: 'Licensed & Insured' },
+    { icon: 'star', label: '5.0 Google Rating' },
+    { icon: 'bolt', label: 'Same Day Service' },
+    { icon: 'dollar', label: 'Upfront Pricing' },
+    { icon: 'shield', label: '1 Year Warranty' },
+    { icon: 'emergency', label: '24/7 Emergency' },
+    { icon: 'mappin', label: 'Ottawa Local' },
+    { icon: 'phone', label: 'Call Anytime' },
+  ];
   return (
     <div className="trust-bar" style={{ background: 'linear-gradient(90deg, #ea580c, #f97316, #ea580c)', padding: '15px 0', overflow: 'hidden' }}>
       <div className="marquee-wrapper">
         <div className="marquee-track">
           {[...items, ...items].map((item, i) => (
-            <span key={i} className="marquee-item" style={{ fontWeight: 700, fontSize: '0.88rem', color: 'white', whiteSpace: 'nowrap', letterSpacing: '0.05em' }}>
-              {item} <span style={{ opacity: 0.5, marginLeft: 20 }}>◆</span>
+            <span key={i} className="marquee-item" style={{ fontWeight: 700, fontSize: '0.88rem', color: 'white', whiteSpace: 'nowrap', letterSpacing: '0.05em', display: 'inline-flex', alignItems: 'center', gap: 8 }}>
+              <Icon name={item.icon} size={18} style={{ color: 'white', flexShrink: 0 }} />
+              {item.label}
+              <span style={{ opacity: 0.5, marginLeft: 12 }}>◆</span>
             </span>
           ))}
         </div>
@@ -165,19 +176,26 @@ function Services() {
         </div>
         <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))', gap: 24 }}>
           {services.map((service, i) => (
-            <a key={service.slug} href={`/services/${service.slug}`} className="glass-card card-shine reveal" style={{ padding: 32, textDecoration: 'none', color: 'inherit', display: 'block' }}>
-              <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', marginBottom: 20 }}>
-                <div style={{ lineHeight: 1, color: 'var(--orange)' }}><Icon name={service.slug} size={40} /></div>
-                <span className="service-tag">{service.price}</span>
-              </div>
-              <h3 style={{ fontFamily: 'var(--font-serif)', fontSize: '1.25rem', marginBottom: 10,  color: 'white' }}>{service.title}</h3>
-              <p style={{ color: 'rgba(255,255,255,0.65)', fontSize: '0.9rem', lineHeight: 1.65, marginBottom: 20 }}>{service.shortDesc}</p>
+            <a key={service.slug} href={`/services/${service.slug}`} className="glass-card card-shine reveal" style={{ padding: 0, textDecoration: 'none', color: 'inherit', display: 'block', overflow: 'hidden' }}>
+              {service.image && (
+                <div style={{ width: '100%', aspectRatio: '16/10', overflow: 'hidden', background: 'rgba(0,0,0,0.2)' }}>
+                  <img src={service.image} alt={service.title} style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
+                </div>
+              )}
+              <div style={{ padding: 32 }}>
+                <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', marginBottom: 20 }}>
+                  <div style={{ lineHeight: 1, color: 'var(--orange)' }}><Icon name={service.slug} size={40} /></div>
+                  <span className="service-tag">{service.price}</span>
+                </div>
+                <h3 style={{ fontFamily: 'var(--font-serif)', fontSize: '1.25rem', marginBottom: 10,  color: 'white' }}>{service.title}</h3>
+                <p style={{ color: 'rgba(255,255,255,0.65)', fontSize: '0.9rem', lineHeight: 1.65, marginBottom: 20 }}>{service.shortDesc}</p>
               <div style={{ display: 'flex', gap: 16, fontSize: '0.8rem', color: 'rgba(255,255,255,0.5)', marginBottom: 20, alignItems: 'center' }}>
-                <span style={{ display: 'flex', alignItems: 'center', gap: 4 }}><Icon name="clock" size={14} /> {service.time}</span>
-                <span style={{ display: 'flex', alignItems: 'center', gap: 4 }}><Icon name="shield" size={14} /> {service.warranty}</span>
-              </div>
-              <div style={{ color: 'var(--orange)', fontWeight: 700, fontSize: '0.88rem', display: 'flex', alignItems: 'center', gap: 6 }}>
-                Learn More <span>→</span>
+                  <span style={{ display: 'flex', alignItems: 'center', gap: 4 }}><Icon name="clock" size={14} /> {service.time}</span>
+                  <span style={{ display: 'flex', alignItems: 'center', gap: 4 }}><Icon name="shield" size={14} /> {service.warranty}</span>
+                </div>
+                <div style={{ color: 'var(--orange)', fontWeight: 700, fontSize: '0.88rem', display: 'flex', alignItems: 'center', gap: 6 }}>
+                  Learn More <span>→</span>
+                </div>
               </div>
             </a>
           ))}
