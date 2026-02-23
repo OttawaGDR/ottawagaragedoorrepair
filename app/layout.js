@@ -4,6 +4,7 @@ import Icon from './components/Icons';
 import EmergencyBar from './components/EmergencyBar';
 import Logo from './components/Logo';
 import HeroBackground from './components/HeroBackground';
+import GoogleAnalytics from './components/GoogleAnalytics';
 
 export const viewport = { width: 'device-width', initialScale: 1, maximumScale: 5 };
 export const metadata = {
@@ -70,7 +71,6 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en-CA">
       <head>
-        {/* Add Google Analytics: set NEXT_PUBLIC_GA_ID in env and uncomment the script in layout */}
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
         <script
@@ -91,6 +91,7 @@ export default function RootLayout({ children }) {
         />
       </head>
       <body style={{ margin: 0, background: 'var(--navy)' }} className="noise">
+        <GoogleAnalytics />
         <HeroBackground />
         <Navbar />
         <div className="mobile-no-hscroll" style={{ overflowX: 'hidden', maxWidth: '100%', position: 'relative', zIndex: 1, paddingTop: 56 }}>
@@ -243,26 +244,20 @@ function Navbar() {
           .main-nav .nav-inner > div:first-child { min-width: 0; max-width: 55%; }
         }
       `}</style>
-      <nav className="main-nav" style={{
-        position: 'fixed', top: 0, left: 0, right: 0, zIndex: 900,
-        background: 'rgba(10,22,40,0.95)',
-        backdropFilter: 'blur(20px)',
-        borderBottom: '1px solid rgba(255,255,255,0.08)',
-        padding: '0 16px',
-      }}>
-        <div className="nav-inner" style={{ maxWidth: 1200, margin: '0 auto', display: 'flex', alignItems: 'center', justifyContent: 'space-between', minHeight: 56, gap: 12 }}>
-          <div style={{ display: 'flex', alignItems: 'center', gap: 8, minWidth: 0 }}>
+      <nav className="main-nav main-nav-wrap">
+        <div className="nav-inner">
+          <div className="nav-left">
             <Logo compact />
-            <img src="https://flagcdn.com/w80/ca.png" alt="Canada" className="nav-flag" style={{ height: 36, width: 72, objectFit: 'cover', flexShrink: 0, display: 'block' }} />
+            <img src="https://flagcdn.com/w80/ca.png" alt="Canada" className="nav-flag" />
           </div>
 
-          <div className="hide-mobile" style={{ display: 'flex', alignItems: 'center', gap: 36 }}>
+          <div className="hide-mobile nav-center">
             <div className="nav-dropdown">
               <a href="/services" className="nav-item">SERVICES <span className="nav-dropdown-arrow" aria-hidden>▼</span></a>
               <div className="nav-dropdown-menu">
                 {services.map(s => (
                   <a key={s.slug} href={`/services/${s.slug}`} className="dropdown-post">
-                    <span className="dropdown-post-emoji" style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', color: 'var(--orange)' }}><Icon name={s.slug} size={22} /></span>
+                    <span className="dropdown-post-emoji"><Icon name={s.slug} size={22} /></span>
                     <div>
                       <div className="dropdown-post-title">{s.title}</div>
                       <div className="dropdown-post-cat">{s.price}</div>
@@ -277,7 +272,7 @@ function Navbar() {
               <div className="nav-dropdown-menu">
                 {areas.slice(0, 12).map(a => (
                   <a key={a.slug} href={`/areas/${a.slug}`} className="dropdown-post">
-                    <span className="dropdown-post-emoji" style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', color: 'var(--orange)' }}>📍</span>
+                    <span className="dropdown-post-emoji">📍</span>
                     <div>
                       <div className="dropdown-post-title">{a.name}</div>
                       <div className="dropdown-post-cat">Garage door repair</div>
@@ -299,7 +294,7 @@ function Navbar() {
                   { slug: 'garage-door-maintenance-checklist-ottawa', icon: 'checklist', title: 'Annual Maintenance Checklist', cat: 'Maintenance' },
                 ].map(post => (
                   <a key={post.slug} href={`/blog/${post.slug}`} className="dropdown-post">
-                    <span className="dropdown-post-emoji" style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', color: 'var(--orange)' }}><Icon name={post.icon} size={22} /></span>
+                    <span className="dropdown-post-emoji"><Icon name={post.icon} size={22} /></span>
                     <div>
                       <div className="dropdown-post-title">{post.title}</div>
                       <div className="dropdown-post-cat">{post.cat}</div>
@@ -314,11 +309,11 @@ function Navbar() {
             <a href="/booking" className="nav-item">BOOK A VISIT</a>
           </div>
 
-          <div style={{ display: 'flex', alignItems: 'center', gap: 12 }}>
-            <details className="show-mobile" style={{ position: 'relative' }}>
+          <div className="nav-right nav-ctas">
+            <details className="show-mobile nav-details">
               <summary className="mobile-menu-btn" aria-label="Open menu">☰</summary>
               <div className="mobile-menu-drawer">
-                <a href={SMS_HREF} style={{ display: 'flex', alignItems: 'center', gap: 8 }}>📱 Text Us</a>
+                <a href={SMS_HREF} className="drawer-link">📱 Text Us</a>
                 <a href="/services">Services</a>
                 <a href="/areas">Areas</a>
                 <a href="/blog">Blog</a>
@@ -327,10 +322,10 @@ function Navbar() {
                 <a href="/booking">Book a visit</a>
               </div>
             </details>
-            <a href={SMS_HREF} className="show-mobile btn-secondary" style={{ padding: '12px 18px', fontSize: '0.9rem', alignItems: 'center', gap: 6 }} aria-label="Text Ottawa - GDR">
+            <a href={SMS_HREF} className="show-mobile btn-secondary" aria-label="Text Ottawa - GDR">
               <Icon name="message" size={18} /> <span className="nav-text-label">Text</span>
             </a>
-            <a href={PHONE_HREF} className="btn-primary nav-phone-btn" style={{ padding: '12px 20px', fontSize: '0.9rem', display: 'inline-flex', alignItems: 'center', gap: 8 }} aria-label="Call (613) 617-4238">
+            <a href={PHONE_HREF} className="btn-primary nav-phone-btn" aria-label="Call (613) 617-4238">
               <Icon name="phone" size={20} /> <span className="hide-mobile">{PHONE}</span><span className="show-mobile">Call</span>
             </a>
           </div>
@@ -343,9 +338,9 @@ function Navbar() {
 function StickyCall() {
   return (
     <div className="sticky-call">
-      <a href={PHONE_HREF} aria-label="Call Ottawa - GDR" style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', color: 'inherit' }}><Icon name="phone" size={24} /></a>
+      <a href={PHONE_HREF} aria-label="Call Ottawa - GDR" className="sticky-call-btn"><Icon name="phone" size={24} /></a>
       <span className="sticky-call-label">Call Now</span>
-      <a href={SMS_HREF} aria-label="Text Ottawa - GDR" className="sticky-sms" style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', color: 'inherit' }}><Icon name="message" size={24} /></a>
+      <a href={SMS_HREF} aria-label="Text Ottawa - GDR" className="sticky-sms sticky-call-btn"><Icon name="message" size={24} /></a>
       <span className="sticky-call-label">Text Us</span>
     </div>
   );
@@ -353,42 +348,42 @@ function StickyCall() {
 
 function Footer() {
   return (
-    <footer style={{ background: '#02080f', borderTop: '1px solid rgba(249,115,22,0.1)', padding: '70px 0 110px' }}>
+    <footer className="footer-wrap">
       <div className="container">
-        <div className="footer-grid" style={{ display: 'grid', gridTemplateColumns: '2fr 1fr 1fr 1fr', gap: 48, marginBottom: 56 }}>
+        <div className="footer-grid">
           <div>
-            <div style={{ marginBottom: 20 }}><Logo asLink /></div>
-            <div style={{ fontSize: '0.72rem', color: 'var(--orange)', letterSpacing: '0.15em', textTransform: 'uppercase', fontWeight: 700, marginBottom: 20 }}>Ottawa's #1 Rated Service</div>
-            <p style={{ color: 'var(--gray-400)', lineHeight: 1.75, fontSize: '0.88rem', maxWidth: 280, marginBottom: 24 }}>Garage door services Ottawa — garage door repairs & garage door opener repair. Licensed, insured, 24/7.</p>
-            <a href={PHONE_HREF} style={{ color: 'var(--orange)', fontWeight: 800, fontSize: '1.1rem', textDecoration: 'none', display: 'flex', alignItems: 'center', gap: 8, marginBottom: 8 }}><Icon name="phone" size={20} /> {PHONE}</a>
-            <span style={{ color: 'var(--gray-400)', fontSize: '0.88rem', display: 'flex', alignItems: 'center', gap: 6, marginBottom: 4 }}><Icon name="envelope" size={16} /> info@ottawagaragedoorrepair.ca</span>
-            <span style={{ color: 'var(--gray-400)', fontSize: '0.88rem', display: 'flex', alignItems: 'center', gap: 6 }}><Icon name="mappin" size={16} /> Ottawa, Ontario, Canada</span>
+            <div className="footer-logo-wrap"><Logo asLink /></div>
+            <div className="footer-brand-desc">Ottawa's #1 Rated Service</div>
+            <p className="footer-brand-p">Garage door services Ottawa — garage door repairs & garage door opener repair. Licensed, insured, 24/7.</p>
+            <a href={PHONE_HREF} className="footer-phone"><Icon name="phone" size={20} /> {PHONE}</a>
+            <span className="footer-contact-line"><Icon name="envelope" size={16} /> info@ottawagaragedoorrepair.ca</span>
+            <span className="footer-contact-line"><Icon name="mappin" size={16} /> Ottawa, Ontario, Canada</span>
           </div>
           <div>
-            <h4 style={{ fontWeight: 800, marginBottom: 20, fontSize: '0.72rem', letterSpacing: '0.15em', textTransform: 'uppercase', color: 'var(--gray-400)' }}>Services</h4>
+            <h4 className="footer-col-title">Services</h4>
             {services.slice(0, 5).map(s => (
               <a key={s.slug} href={`/services/${s.slug}`} className="footer-link">{s.title}</a>
             ))}
           </div>
           <div>
-            <h4 style={{ fontWeight: 800, marginBottom: 20, fontSize: '0.72rem', letterSpacing: '0.15em', textTransform: 'uppercase', color: 'var(--gray-400)' }}>Areas</h4>
+            <h4 className="footer-col-title">Areas</h4>
             {areas.slice(0, 6).map(a => (
               <a key={a.slug} href={`/areas/${a.slug}`} className="footer-link">{a.name}</a>
             ))}
           </div>
           <div>
-            <h4 style={{ fontWeight: 800, marginBottom: 20, fontSize: '0.72rem', letterSpacing: '0.15em', textTransform: 'uppercase', color: 'var(--gray-400)' }}>Company</h4>
+            <h4 className="footer-col-title">Company</h4>
             {[['About Us', '/about'], ['Contact', '/contact'], ['Book a visit', '/booking'], ['Blog', '/blog'], ['Emergency Service', '/services/emergency-repair']].map(([label, href]) => (
               <a key={href} href={href} className="footer-link">{label}</a>
             ))}
           </div>
         </div>
         <div className="divider" />
-        <div className="footer-bottom" style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', paddingTop: 28, flexWrap: 'wrap', gap: 12 }}>
-          <p style={{ color: 'rgba(255,255,255,0.3)', fontSize: '0.82rem' }}>© 2026 Ottawa - GDR. All rights reserved. | Serving Ottawa, ON</p>
-          <div style={{ display: 'flex', gap: 24 }}>
+        <div className="footer-bottom-wrap">
+          <p>© 2026 Ottawa - GDR. All rights reserved. | Serving Ottawa, ON</p>
+          <div className="footer-bottom-links">
             {[['Privacy Policy', '/privacy'], ['Terms of Service', '#'], ['Sitemap', '/sitemap.xml']].map(([label, href]) => (
-              <a key={label} href={href} style={{ color: 'rgba(255,255,255,0.3)', fontSize: '0.78rem', textDecoration: 'none' }}>{label}</a>
+              <a key={label} href={href}>{label}</a>
             ))}
           </div>
         </div>

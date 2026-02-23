@@ -4,11 +4,11 @@ import GalleryImage from './components/GalleryImage';
 import QuoteCalculator from './components/QuoteCalculator';
 
 export const metadata = {
-  title: 'Garage Door Services Ottawa | Garage Door Repairs & Opener Repair | 24/7',
-  description: 'Garage door services Ottawa & garage door repairs Ottawa. Garage door opener repair, spring replacement, cables. Same-day service, 5.0 Google rating, 24/7 emergency. Call (613) 617-4238.',
+  title: `Garage Door Services Ottawa | Repairs & Opener | ${PHONE}`,
+  description: 'Garage door services Ottawa & repairs. Opener repair, springs, cables. Same-day service, 5.0 Google rating. Call (613) 617-4238.',
   openGraph: {
-    title: 'Garage Door Services Ottawa | Garage Door Repairs & Opener Repair',
-    description: 'Ottawa\'s #1 garage door services, repairs & garage door opener repair. Same-day, 24/7 emergency.',
+    title: `Garage Door Services Ottawa | Repairs & Opener | ${PHONE}`,
+    description: 'Garage door services Ottawa & repairs. Opener repair, springs, cables. Same-day service. Call (613) 617-4238.',
     url: 'https://ottawagaragedoorrepair.ca',
   },
 };
@@ -34,54 +34,41 @@ export default function HomePage() {
 
 function Hero() {
   return (
-    <section style={{ position: 'relative', minHeight: '85vh', display: 'flex', alignItems: 'center', overflow: 'hidden', background: 'transparent' }} className="grid-bg hero-section">
-      <div className="container hero-container" style={{ position: 'relative', zIndex: 1, paddingTop: 80, paddingBottom: 80 }}>
-        <div className="hero-grid" style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 60, alignItems: 'center' }}>
+    <section className="grid-bg hero-section">
+      <div className="container hero-container">
+        <div className="hero-grid">
           <div>
-            <div className="badge" style={{ marginBottom: 28, display: 'inline-flex', alignItems: 'center', gap: 6 }}><Icon name="star" size={16} style={{ color: 'var(--orange-bright)' }} /><Icon name="star" size={16} style={{ color: 'var(--orange-bright)' }} /><Icon name="star" size={16} style={{ color: 'var(--orange-bright)' }} /><Icon name="star" size={16} style={{ color: 'var(--orange-bright)' }} /><Icon name="star" size={16} style={{ color: 'var(--orange-bright)' }} /> 5.0 Rated</div>
-            <h1 style={{
-              fontFamily: "'Barlow Condensed', sans-serif",
-              fontSize: 'clamp(3rem, 7vw, 5.5rem)',
-              fontWeight: 900,
-              lineHeight: 1.0,
-              color: 'white',
-              marginBottom: 28,
-              letterSpacing: '-0.01em',
-              textShadow: '0 2px 20px rgba(0,0,0,0.5)',
-            }}>
+            <div className="badge hero-badge"><Icon name="star" size={16} className="text-orange-bright" /><Icon name="star" size={16} className="text-orange-bright" /><Icon name="star" size={16} className="text-orange-bright" /><Icon name="star" size={16} className="text-orange-bright" /><Icon name="star" size={16} className="text-orange-bright" /> 5.0 Rated</div>
+            <h1 className="hero-title">
               SAME-DAY<br />
-              <span style={{ color: 'var(--orange)' }}>GARAGE DOOR</span><br />
-              <span style={{ color: 'white' }}>REPAIR OTTAWA</span>
+              <span className="hero-title-accent">GARAGE DOOR</span><br />
+              REPAIR OTTAWA
             </h1>
-            <p style={{ fontSize: '1.1rem', color: 'rgba(255,255,255,0.9)', lineHeight: 1.75, marginBottom: 12, maxWidth: 460 }}>
-              <a href="/services" style={{ color: 'inherit', textDecoration: 'underline', textUnderlineOffset: 3 }}>Garage door services Ottawa</a> & <a href="/services" style={{ color: 'inherit', textDecoration: 'underline', textUnderlineOffset: 3 }}>garage door repairs</a> — springs, openers, cables — fixed today. <a href="/services/opener-repair" style={{ color: 'inherit', textDecoration: 'underline', textUnderlineOffset: 3 }}>Garage door opener repair</a> and installation. Ottawa&apos;s most trusted, available <strong style={{ color: 'white' }}>24/7.</strong>
+            <p className="hero-subtitle">
+              <a href="/services" className="link-inherit">Garage door services Ottawa</a> & <a href="/services" className="link-inherit">garage door repairs</a> — springs, openers, cables — fixed today. <a href="/services/opener-repair" className="link-inherit">Garage door opener repair</a> and installation. Ottawa&apos;s most trusted, available <strong className="text-white">24/7.</strong>
             </p>
-            <div style={{ fontSize: '0.95rem', color: 'var(--orange)', fontWeight: 700, marginBottom: 36, letterSpacing: '0.02em' }}>
-              <p style={{ margin: 0, display: 'flex', alignItems: 'center', gap: 6 }}>
-                <Icon name="mappin" size={18} /> Serving all <a href="/areas" style={{ color: 'inherit', textDecoration: 'underline', textUnderlineOffset: 2 }}>Ottawa neighbourhoods</a>
-              </p>
-              <p style={{ margin: '8px 0 0 0', paddingLeft: 24, color: 'rgba(255,255,255,0.85)', fontWeight: 600 }}>
-                We arrive in under 90 min everywhere
-              </p>
+            <div className="hero-location">
+              <p><Icon name="mappin" size={18} /> Serving all <a href="/areas" className="link-inherit link-inherit-2">Ottawa neighbourhoods</a></p>
+              <p>We arrive in under 90 min everywhere</p>
             </div>
-            <div style={{ display: 'flex', gap: 14, flexWrap: 'wrap', marginBottom: 48 }}>
-              <a href={PHONE_HREF} className="btn-primary" style={{ fontSize: '1rem', display: 'inline-flex', alignItems: 'center', gap: 8 }}><Icon name="emergency" size={20} /> Emergency Call — {PHONE}</a>
+            <div className="hero-cta-row">
+              <a href={PHONE_HREF} className="btn-primary"><Icon name="emergency" size={20} /> Emergency Call — {PHONE}</a>
               <a href="/contact" className="btn-secondary">Get Free Quote →</a>
               <a href="/booking" className="btn-secondary">Book a visit →</a>
             </div>
-            <div style={{ display: 'flex', gap: 28, flexWrap: 'wrap' }}>
+            <div className="hero-features">
               {[{ icon: 'bolt', label: 'Same Day Service' }, { icon: 'dollar', label: 'Upfront Pricing' }, { icon: 'shield', label: '1 Year Warranty' }].map(item => (
-                <div key={item.label} style={{ display: 'flex', alignItems: 'center', gap: 10 }}>
-                  <Icon name={item.icon} size={22} style={{ color: 'var(--orange)' }} />
-                  <span style={{ fontSize: '0.85rem', color: 'rgba(255,255,255,0.85)', fontWeight: 600 }}>{item.label}</span>
+                <div key={item.label} className="hero-feature-item">
+                  <Icon name={item.icon} size={22} className="text-orange" />
+                  <span>{item.label}</span>
                 </div>
               ))}
             </div>
           </div>
           <div className="hide-mobile">
-            <div className="glass-card border-glow" style={{ padding: 40 }}>
-              <h2 style={{ fontFamily: 'var(--font-serif)', fontSize: '1.45rem', marginBottom: 6,  color: 'white' }}>Request Service</h2>
-              <p style={{ color: 'rgba(255,255,255,0.65)', fontSize: '0.85rem', marginBottom: 24 }}>We arrive in under 90 minutes in every Ottawa area</p>
+            <div className="glass-card border-glow hero-request-card">
+              <h2 className="hero-form-title">Request Service</h2>
+              <p className="hero-form-desc">We arrive in under 90 minutes in every Ottawa area</p>
               <div className="form-group">
                 <label className="form-label">Service Needed</label>
                 <select className="form-input">
@@ -100,12 +87,12 @@ function Hero() {
                 <label className="form-label">Your Phone</label>
                 <input className="form-input" type="tel" placeholder="(613) 000-0000" />
               </div>
-              <a href={PHONE_HREF} className="btn-primary" style={{ width: '100%', justifyContent: 'center', display: 'inline-flex', alignItems: 'center', gap: 8 }}><Icon name="phone" size={20} /> Call for Instant Quote</a>
+              <a href={PHONE_HREF} className="btn-primary btn-full"><Icon name="phone" size={20} /> Call for Instant Quote</a>
             </div>
           </div>
         </div>
       </div>
-      <div style={{ position: 'absolute', bottom: 0, left: 0, right: 0, height: 140, background: 'linear-gradient(transparent, rgba(13,31,60,0.8))', pointerEvents: 'none' }} />
+      <div className="hero-gradient-bottom" aria-hidden="true" />
     </section>
   );
 }
@@ -122,14 +109,14 @@ function TrustBar() {
     { icon: 'phone', label: 'Call Anytime' },
   ];
   return (
-    <div className="trust-bar" style={{ background: 'linear-gradient(90deg, #ea580c, #f97316, #ea580c)', padding: '15px 0', overflow: 'hidden' }}>
+    <div className="trust-bar">
       <div className="marquee-wrapper">
         <div className="marquee-track">
           {[...items, ...items].map((item, i) => (
-            <span key={i} className="marquee-item" style={{ fontWeight: 700, fontSize: '0.88rem', color: 'white', whiteSpace: 'nowrap', letterSpacing: '0.05em', display: 'inline-flex', alignItems: 'center', gap: 8 }}>
-              <Icon name={item.icon} size={18} style={{ color: 'white', flexShrink: 0 }} />
+            <span key={i} className="marquee-item">
+              <Icon name={item.icon} size={18} className="text-white" />
               {item.label}
-              <span style={{ opacity: 0.5, marginLeft: 12 }}>◆</span>
+              <span className="marquee-sep">◆</span>
             </span>
           ))}
         </div>
@@ -146,11 +133,11 @@ function Stats() {
     { number: '6+', label: 'Years in Ottawa' },
   ];
   return (
-    <section className="section-sm" style={{ background: 'var(--navy-mid)', borderTop: '1px solid rgba(255,255,255,0.05)', borderBottom: '1px solid rgba(255,255,255,0.05)' }}>
+    <section className="section-sm stats-section">
       <div className="container">
-        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(4, 1fr)', gap: 24, textAlign: 'center' }}>
+        <div className="stats-grid">
           {stats.map((s, i) => (
-            <div key={i} className="reveal" style={{ paddingTop: 20, paddingBottom: 20, paddingLeft: 0, paddingRight: 0 }}>
+            <div key={i} className="reveal stat-item">
               <div className="stat-number">{s.number}</div>
               <div className="stat-label">{s.label}</div>
             </div>
@@ -163,39 +150,37 @@ function Stats() {
 
 function Services() {
   return (
-    <section className="section" style={{ background: 'var(--navy)' }}>
+    <section className="section">
       <div className="container">
-        <div style={{ textAlign: 'center', marginBottom: 64 }}>
+        <div className="section-intro">
           <span className="section-label">What We Fix</span>
-          <h2 className="heading-xl reveal" style={{ maxWidth: 600, margin: '0 auto' }}>
-            Garage Door Services Ottawa & <em style={{ color: 'var(--orange)' }}>Garage Door Repairs</em>
+          <h2 className="heading-xl reveal">
+            Garage Door Services Ottawa & <em className="text-orange">Garage Door Repairs</em>
           </h2>
-          <p style={{ color: 'rgba(255,255,255,0.7)', marginTop: 16, fontSize: '1rem', maxWidth: 520, margin: '16px auto 0' }}>
+          <p className="section-intro-p">
             Garage door opener repair, spring replacement, cables, new doors. Same-day garage door services across Ottawa.
           </p>
         </div>
-        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))', gap: 24 }}>
-          {services.map((service, i) => (
-            <a key={service.slug} href={`/services/${service.slug}`} className="glass-card card-shine reveal" style={{ padding: 0, textDecoration: 'none', color: 'inherit', display: 'block', overflow: 'hidden' }}>
+        <div className="services-grid">
+          {services.map((service) => (
+            <a key={service.slug} href={`/services/${service.slug}`} className="glass-card card-shine reveal service-card">
               {service.image && (
-                <div style={{ width: '100%', aspectRatio: '16/10', overflow: 'hidden', background: 'rgba(0,0,0,0.2)' }}>
-                  <img src={service.image} alt={service.title} style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
+                <div className="service-card-img-wrap">
+                  <img src={service.image} alt={service.title} />
                 </div>
               )}
-              <div style={{ padding: 32 }}>
-                <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', marginBottom: 20 }}>
-                  <div style={{ lineHeight: 1, color: 'var(--orange)' }}><Icon name={service.slug} size={40} /></div>
+              <div className="service-card-body">
+                <div className="service-card-header">
+                  <div className="icon-wrap"><Icon name={service.slug} size={40} /></div>
                   <span className="service-tag">{service.price}</span>
                 </div>
-                <h3 style={{ fontFamily: 'var(--font-serif)', fontSize: '1.25rem', marginBottom: 10,  color: 'white' }}>{service.title}</h3>
-                <p style={{ color: 'rgba(255,255,255,0.65)', fontSize: '0.9rem', lineHeight: 1.65, marginBottom: 20 }}>{service.shortDesc}</p>
-              <div style={{ display: 'flex', gap: 16, fontSize: '0.8rem', color: 'rgba(255,255,255,0.5)', marginBottom: 20, alignItems: 'center' }}>
-                  <span style={{ display: 'flex', alignItems: 'center', gap: 4 }}><Icon name="clock" size={14} /> {service.time}</span>
-                  <span style={{ display: 'flex', alignItems: 'center', gap: 4 }}><Icon name="shield" size={14} /> {service.warranty}</span>
+                <h3 className="service-card-title">{service.title}</h3>
+                <p className="service-card-desc">{service.shortDesc}</p>
+                <div className="service-card-meta">
+                  <span><Icon name="clock" size={14} /> {service.time}</span>
+                  <span><Icon name="shield" size={14} /> {service.warranty}</span>
                 </div>
-                <div style={{ color: 'var(--orange)', fontWeight: 700, fontSize: '0.88rem', display: 'flex', alignItems: 'center', gap: 6 }}>
-                  Learn More <span>→</span>
-                </div>
+                <div className="service-card-link">Learn More <span>→</span></div>
               </div>
             </a>
           ))}
@@ -215,18 +200,18 @@ function HowItWorks() {
   return (
     <section className="section section-light">
       <div className="container">
-        <div style={{ textAlign: 'center', marginBottom: 64 }}>
-          <span className="section-label" style={{ color: 'var(--orange)' }}>How It Works</span>
-          <h2 className="heading-xl reveal" style={{ color: 'var(--navy)' }}>Fixed in 4 Simple Steps</h2>
+        <div className="section-intro">
+          <span className="section-label text-orange">How It Works</span>
+          <h2 className="heading-xl reveal text-navy">Fixed in 4 Simple Steps</h2>
         </div>
-        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(240px, 1fr))', gap: 40 }}>
+        <div className="steps-grid">
           {steps.map((step, i) => (
-            <div key={i} className="reveal" style={{ position: 'relative' }}>
-              <div style={{ fontFamily: 'var(--font-display)', fontSize: '6rem', fontWeight: 900,  color: 'rgba(249,115,22,0.08)', lineHeight: 1, position: 'absolute', top: -24, left: -8, userSelect: 'none', letterSpacing: '-0.02em' }}>{step.num}</div>
-              <div style={{ position: 'relative', zIndex: 1, paddingTop: 20 }}>
-                <div style={{ width: 48, height: 48, background: 'linear-gradient(135deg, var(--orange), #ea580c)', borderRadius: 14, display: 'flex', alignItems: 'center', justifyContent: 'center', fontFamily: 'var(--font-display)', fontSize: '1.2rem', fontWeight: 900,  color: 'white', marginBottom: 18, boxShadow: '0 8px 24px rgba(249,115,22,0.35)' }}>{step.num}</div>
-                <h3 style={{ fontWeight: 700, fontSize: '1.05rem', color: 'var(--navy)', marginBottom: 10 }}>{step.title}</h3>
-                <p style={{ color: 'var(--gray-600)', lineHeight: 1.75, fontSize: '0.92rem' }}>{step.desc}</p>
+            <div key={i} className="reveal step-item">
+              <div className="step-bg-num" aria-hidden="true">{step.num}</div>
+              <div className="step-inner">
+                <div className="step-icon">{step.num}</div>
+                <h3 className="step-title">{step.title}</h3>
+                <p className="step-desc">{step.desc}</p>
               </div>
             </div>
           ))}
@@ -238,31 +223,31 @@ function HowItWorks() {
 
 function Areas() {
   return (
-    <section className="section areas-section" style={{ background: 'var(--navy)' }}>
+    <section className="section areas-section">
       <div className="container">
-        <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 80, alignItems: 'center' }}>
-          <div style={{ minWidth: 0 }}>
+        <div className="areas-grid">
+          <div className="areas-intro">
             <span className="section-label">Service Area</span>
-            <h2 className="heading-xl areas-heading reveal" style={{ marginBottom: 20, fontFamily: "'Barlow Condensed', sans-serif" }}>
-              We Come to <em style={{ color: 'var(--orange)', fontFamily: 'inherit', fontStyle: 'italic' }}>Your Door</em> Across <span style={{ fontFamily: 'inherit' }}>Ottawa</span>
+            <h2 className="heading-xl areas-heading reveal areas-heading-text">
+              We Come to <em className="text-orange">Your Door</em> Across Ottawa
             </h2>
-            <p style={{ color: 'rgba(255,255,255,0.75)', lineHeight: 1.75, marginBottom: 32, fontSize: '0.98rem' }}>
+            <p className="areas-intro-p">
               We arrive in under 90 minutes everywhere in Ottawa — from Kanata to Orleans, Barrhaven to Stittsville. Same promise in every neighbourhood.
             </p>
-            <a href={PHONE_HREF} className="btn-primary" style={{ display: 'inline-flex', alignItems: 'center', gap: 8 }}><Icon name="phone" size={20} /> Check Your Area</a>
+            <a href={PHONE_HREF} className="btn-primary"><Icon name="phone" size={20} /> Check Your Area</a>
           </div>
-          <div className="areas-pills-wrap" style={{ minWidth: 0 }}>
-            <div className="areas-pills-inner" style={{ display: 'flex', flexWrap: 'wrap', gap: 10, marginBottom: 24 }}>
+          <div className="areas-pills-wrap">
+            <div className="areas-pills-inner">
               {areas.map(area => (
-                <a key={area.slug} href={`/areas/${area.slug}`} className="area-pill" style={{ display: 'inline-flex', alignItems: 'center', gap: 6 }}><Icon name="mappin" size={16} /> {area.name}</a>
+                <a key={area.slug} href={`/areas/${area.slug}`} className="area-pill"><Icon name="mappin" size={16} /> {area.name}</a>
               ))}
             </div>
-            <div className="glass-card areas-response-card reveal" style={{ padding: 24, minWidth: 0 }}>
-              <div style={{ display: 'flex', alignItems: 'center', gap: 16 }}>
-                <Icon name="clock" size={36} style={{ color: 'var(--orange)', flexShrink: 0 }} />
-                <div style={{ minWidth: 0 }}>
-                  <div className="areas-response-label" style={{ fontWeight: 600, fontSize: '0.9rem', color: 'rgba(255,255,255,0.65)', marginBottom: 4 }}>Average Response Time</div>
-                  <div className="stat-number areas-response-time" style={{ fontSize: '2.2rem' }}>Under 90 Minutes</div>
+            <div className="glass-card areas-response-card reveal areas-response-inner">
+              <div className="areas-response-row">
+                <Icon name="clock" size={36} className="text-orange areas-response-icon" />
+                <div className="areas-response-text">
+                  <div className="areas-response-label">Average Response Time</div>
+                  <div className="stat-number areas-response-time">Under 90 Minutes</div>
                 </div>
               </div>
             </div>
