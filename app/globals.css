@@ -231,7 +231,7 @@ iframe { max-width: 100%; }
   .marquee-item { font-size: 0.75rem !important; }
   .marquee-track { gap: 40px; }
   .areas-heading,
-  .areas-heading em { font-family: var(--font-display), sans-serif !important; font-size: clamp(1.75rem, 6vw, 2.5rem) !important; line-height: 1.2 !important; font-weight: 800 !important; text-decoration: none !important; word-break: normal !important; overflow-wrap: break-word !important; }
+  .areas-heading em { font-family: 'Barlow Condensed', sans-serif !important; font-size: clamp(1.75rem, 6vw, 2.5rem) !important; line-height: 1.2 !important; font-weight: 800 !important; text-decoration: none !important; word-break: normal !important; overflow-wrap: break-word !important; }
   .areas-section .container > div { min-width: 0; }
   .areas-response-card { min-width: 0; }
   .areas-response-label { font-size: 0.8rem !important; }

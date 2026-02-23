@@ -225,7 +225,7 @@ function Areas() {
         <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 80, alignItems: 'center' }}>
           <div style={{ minWidth: 0 }}>
             <span className="section-label">Service Area</span>
-            <h2 className="heading-xl areas-heading reveal" style={{ marginBottom: 20, fontFamily: 'var(--font-display), sans-serif' }}>
+            <h2 className="heading-xl areas-heading reveal" style={{ marginBottom: 20, fontFamily: "'Barlow Condensed', sans-serif" }}>
               We Come to <em style={{ color: 'var(--orange)', fontFamily: 'inherit', fontStyle: 'italic' }}>Your Door</em> Across Ottawa
             </h2>
             <p style={{ color: 'rgba(255,255,255,0.75)', lineHeight: 1.75, marginBottom: 32, fontSize: '0.98rem' }}>

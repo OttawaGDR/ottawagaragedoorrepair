@@ -235,10 +235,9 @@ function Navbar() {
             white-space: nowrap;
           }
           .mobile-menu-drawer a:hover, .mobile-menu-drawer a:focus { background: rgba(249,115,22,0.15); color: white; }
-          .nav-phone-btn { min-height: 44px; padding: 10px 12px !important; font-size: 0.85rem !important; }
-          .nav-phone-btn span { display: none !important; }
+          .nav-phone-btn { display: none !important; }
           .nav-inner > div:last-child { gap: 8 !important; min-width: 0; }
-          .nav-inner .btn-secondary { padding: 10px 12px !important; font-size: 0.85rem !important; }
+          .nav-inner .btn-secondary.show-mobile { padding: 10px 14px !important; font-size: 0.85rem !important; }
         }
       `}</style>
       <nav className="main-nav" style={{
@@ -316,13 +315,13 @@ function Navbar() {
             <details className="show-mobile" style={{ position: 'relative' }}>
               <summary className="mobile-menu-btn" aria-label="Open menu">☰</summary>
               <div className="mobile-menu-drawer">
+                <a href={SMS_HREF} style={{ display: 'flex', alignItems: 'center', gap: 8 }}>📱 Text Us</a>
                 <a href="/services">Services</a>
                 <a href="/areas">Areas</a>
                 <a href="/blog">Blog</a>
                 <a href="/about">About</a>
                 <a href="/contact">Contact</a>
                 <a href="/booking">Book a visit</a>
-                <a href={SMS_HREF} style={{ display: 'flex', alignItems: 'center', gap: 8 }}>📱 Text Us</a>
               </div>
             </details>
             <a href={SMS_HREF} className="show-mobile btn-secondary" style={{ padding: '12px 18px', fontSize: '0.9rem', alignItems: 'center', gap: 6 }} aria-label="Text Ottawa - GDR">
