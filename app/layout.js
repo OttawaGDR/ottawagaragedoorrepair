@@ -236,7 +236,7 @@ function Navbar() {
           }
           .mobile-menu-drawer a:hover, .mobile-menu-drawer a:focus { background: rgba(249,115,22,0.15); color: white; }
           .nav-phone-btn { display: none !important; }
-          .nav-inner > div:last-child { gap: 8 !important; min-width: 0; }
+          .nav-inner > div:last-child { gap: 8 !important; min-width: 0; flex: 1; justify-content: center; }
           .nav-inner .btn-secondary.show-mobile { padding: 10px 14px !important; font-size: 0.85rem !important; }
         }
       `}</style>

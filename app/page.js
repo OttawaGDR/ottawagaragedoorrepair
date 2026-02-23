@@ -226,7 +226,7 @@ function Areas() {
           <div style={{ minWidth: 0 }}>
             <span className="section-label">Service Area</span>
             <h2 className="heading-xl areas-heading reveal" style={{ marginBottom: 20, fontFamily: "'Barlow Condensed', sans-serif" }}>
-              We Come to <em style={{ color: 'var(--orange)', fontFamily: 'inherit', fontStyle: 'italic' }}>Your Door</em> Across Ottawa
+              We Come to <em style={{ color: 'var(--orange)', fontFamily: 'inherit', fontStyle: 'italic' }}>Your Door</em> Across <span style={{ fontFamily: 'inherit' }}>Ottawa</span>
             </h2>
             <p style={{ color: 'rgba(255,255,255,0.75)', lineHeight: 1.75, marginBottom: 32, fontSize: '0.98rem' }}>
               We arrive in under 90 minutes everywhere in Ottawa — from Kanata to Orleans, Barrhaven to Stittsville. Same promise in every neighbourhood.
