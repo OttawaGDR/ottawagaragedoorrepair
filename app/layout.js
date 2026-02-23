@@ -236,8 +236,11 @@ function Navbar() {
           }
           .mobile-menu-drawer a:hover, .mobile-menu-drawer a:focus { background: rgba(249,115,22,0.15); color: white; }
           .nav-phone-btn { display: none !important; }
-          .nav-inner > div:last-child { gap: 8 !important; min-width: 0; flex: 1; justify-content: center; }
-          .nav-inner .btn-secondary.show-mobile { padding: 10px 14px !important; font-size: 0.85rem !important; }
+          .nav-inner > div:last-child { gap: 8 !important; min-width: 0; }
+          .nav-inner .btn-secondary.show-mobile { padding: 10px 12px !important; font-size: 0.85rem !important; min-width: 44px; }
+          .nav-inner .btn-secondary.show-mobile .nav-text-label { display: none !important; }
+          .nav-flag { height: 24px !important; width: 48px !important; }
+          .main-nav .nav-inner > div:first-child { min-width: 0; max-width: 55%; }
         }
       `}</style>
       <nav className="main-nav" style={{
@@ -325,7 +328,7 @@ function Navbar() {
               </div>
             </details>
             <a href={SMS_HREF} className="show-mobile btn-secondary" style={{ padding: '12px 18px', fontSize: '0.9rem', alignItems: 'center', gap: 6 }} aria-label="Text Ottawa - GDR">
-              <Icon name="message" size={18} /> Text
+              <Icon name="message" size={18} /> <span className="nav-text-label">Text</span>
             </a>
             <a href={PHONE_HREF} className="btn-primary nav-phone-btn" style={{ padding: '12px 20px', fontSize: '0.9rem', display: 'inline-flex', alignItems: 'center', gap: 8 }} aria-label="Call (613) 617-4238">
               <Icon name="phone" size={20} /> <span className="hide-mobile">{PHONE}</span><span className="show-mobile">Call</span>
