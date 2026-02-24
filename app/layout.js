@@ -1,5 +1,5 @@
 import './globals.css';
-import { services, areas, PHONE, PHONE_HREF, SMS_HREF } from '../lib/data';
+import { services, areas, PHONE, PHONE_HREF, SMS_HREF, EMAIL, FACEBOOK_URL } from '../lib/data';
 import Icon from './components/Icons';
 import EmergencyBar from './components/EmergencyBar';
 import Logo from './components/Logo';
@@ -356,8 +356,12 @@ function Footer() {
             <div className="footer-brand-desc">Ottawa's #1 Rated Service</div>
             <p className="footer-brand-p">Garage door services Ottawa — garage door repairs & garage door opener repair. Licensed, insured, 24/7.</p>
             <a href={PHONE_HREF} className="footer-phone"><Icon name="phone" size={20} /> {PHONE}</a>
-            <span className="footer-contact-line"><Icon name="envelope" size={16} /> info@ottawagaragedoorrepair.ca</span>
+            <span className="footer-contact-line"><Icon name="envelope" size={16} /> <a href={`mailto:${EMAIL}`} className="footer-contact-link">info@ottawagaragedoorrepair.ca</a></span>
             <span className="footer-contact-line"><Icon name="mappin" size={16} /> Ottawa, Ontario, Canada</span>
+            <a href={FACEBOOK_URL} target="_blank" rel="noopener noreferrer" className="footer-contact-line footer-social-link" aria-label="Ottawa Garage Door Repair on Facebook">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
+              Follow us on Facebook
+            </a>
           </div>
           <div>
             <h4 className="footer-col-title">Services</h4>

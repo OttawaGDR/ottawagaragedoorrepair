@@ -518,6 +518,11 @@ iframe { max-width: 100%; }
 .footer-brand-p { color: var(--gray-400); line-height: 1.75; font-size: 0.88rem; max-width: 280px; margin-bottom: 24px; }
 .footer-phone { color: var(--orange); font-weight: 800; font-size: 1.1rem; text-decoration: none; display: flex; align-items: center; gap: 8px; margin-bottom: 8px; }
 .footer-contact-line { color: var(--gray-400); font-size: 0.88rem; display: flex; align-items: center; gap: 6px; margin-bottom: 4px; }
+.footer-contact-line a.footer-contact-link { color: var(--gray-400); text-decoration: none; }
+.footer-contact-line a.footer-contact-link:hover { color: var(--orange); }
+.footer-social-link { color: var(--gray-400); text-decoration: none; transition: color 0.2s; }
+.footer-social-link:hover { color: var(--orange); }
+.footer-social-link svg { flex-shrink: 0; }
 .footer-col-title { font-weight: 800; margin-bottom: 20px; font-size: 0.72rem; letter-spacing: 0.15em; text-transform: uppercase; color: var(--gray-400); }
 .footer-bottom-wrap {
   display: flex;
