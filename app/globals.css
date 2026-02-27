@@ -982,7 +982,10 @@ select.form-input option { background: var(--navy-mid); color: white; }
 }
 
 @media (max-width: 768px) {
-  .about-section > .container > div { min-width: 0; }
+  .about-section > .container > div {
+    min-width: 0;
+    display: block !important; /* stack columns vertically on mobile */
+  }
   .about-section p,
   .about-section .glass-card { overflow-wrap: break-word; word-break: normal; }
   .about-section .glass-card > div { min-width: 0; }
