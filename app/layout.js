@@ -9,6 +9,7 @@ import GoogleAnalytics from './components/GoogleAnalytics';
 export const viewport = { width: 'device-width', initialScale: 1, maximumScale: 5 };
 export const metadata = {
   metadataBase: new URL('https://ottawagaragedoorrepair.ca'),
+  applicationName: 'Ottawa Garage Door Repair',
   title: {
     default: 'Garage Door Services Ottawa | Garage Door Repairs & Opener Repair | Ottawa - GDR',
     template: '%s | Ottawa - GDR',
@@ -29,7 +30,7 @@ export const metadata = {
     type: 'website',
     locale: 'en_CA',
     url: 'https://ottawagaragedoorrepair.ca',
-    siteName: 'Ottawa - GDR',
+    siteName: 'Ottawa Garage Door Repair',
     title: 'Garage Door Services Ottawa | Garage Door Repairs & Opener Repair',
     description: 'Ottawa\'s #1 garage door services, repairs & garage door opener repair. Same-day, 5-star rated, 24/7 emergency.',
   },
@@ -41,8 +42,8 @@ const jsonLd = {
   '@context': 'https://schema.org',
   '@type': 'LocalBusiness',
   '@id': 'https://ottawagaragedoorrepair.ca/#organization',
-  name: 'Ottawa - GDR',
-  alternateName: 'Ottawa Garage Door Repair',
+  name: 'Ottawa Garage Door Repair',
+  alternateName: 'Ottawa - GDR',
   telephone: '(613) 617-4238',
   email: 'info@ottawagaragedoorrepair.ca',
   url: 'https://ottawagaragedoorrepair.ca',
@@ -82,7 +83,8 @@ export default function RootLayout({ children }) {
           dangerouslySetInnerHTML={{ __html: JSON.stringify({
             '@context': 'https://schema.org',
             '@type': 'WebSite',
-            name: 'Ottawa - GDR',
+            name: 'Ottawa Garage Door Repair',
+            alternateName: 'Ottawa - GDR',
             url: 'https://ottawagaragedoorrepair.ca',
             description: 'Garage door services Ottawa — garage door repairs, garage door opener repair and installation.',
             publisher: { '@id': 'https://ottawagaragedoorrepair.ca/#organization' },
