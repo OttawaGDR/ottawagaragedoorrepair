@@ -31,6 +31,21 @@ const areaDetails = [
   { slug: "blackburn-hamlet", name: "Blackburn Hamlet", emoji: "🌳", population: "8,000+", highlight: "Blackburn Hamlet & Orleans east", color: "#10b981" },
   { slug: "cumberland", name: "Cumberland", emoji: "🏡", population: "2,500+", highlight: "Cumberland village & rural Orleans", color: "#06b6d4" },
   { slug: "carleton-place", name: "Carleton Place", emoji: "🌾", population: "12,000+", highlight: "Ottawa Valley, just west of Ottawa", color: "#d946ef" },
+  /* Within ~40 min drive of Ottawa */
+  { slug: "embrun", name: "Embrun", emoji: "🏘️", population: "6,500+", highlight: "Russell Township, east Ottawa region", color: "#f59e0b" },
+  { slug: "russell", name: "Russell", emoji: "🌾", population: "4,000+", highlight: "Russell village & township", color: "#eab308" },
+  { slug: "metcalfe", name: "Metcalfe", emoji: "🌿", population: "2,000+", highlight: "Osgoode & rural south Ottawa", color: "#10b981" },
+  { slug: "kemptville", name: "Kemptville", emoji: "🏡", population: "4,000+", highlight: "North Grenville, south of Ottawa", color: "#6366f1" },
+  { slug: "arnprior", name: "Arnprior", emoji: "🌲", population: "9,000+", highlight: "Ottawa Valley west", color: "#0ea5e9" },
+  { slug: "almonte", name: "Almonte", emoji: "🏙️", population: "5,000+", highlight: "Mississippi Mills, west Ottawa", color: "#8b5cf6" },
+  { slug: "casselman", name: "Casselman", emoji: "📍", population: "3,500+", highlight: "Prescott-Russell, east of Ottawa", color: "#ec4899" },
+  { slug: "rockland", name: "Rockland", emoji: "🏘️", population: "10,000+", highlight: "Clarence-Rockland, east Ottawa", color: "#14b8a6" },
+  { slug: "navan", name: "Navan", emoji: "🌾", population: "2,000+", highlight: "Rural east Ottawa village", color: "#22c55e" },
+  { slug: "smiths-falls", name: "Smiths Falls", emoji: "🏡", population: "9,000+", highlight: "Rideau region, south of Ottawa", color: "#d946ef" },
+  { slug: "winchester", name: "Winchester", emoji: "🌿", population: "2,000+", highlight: "North Dundas, south Ottawa", color: "#f97316" },
+  { slug: "limoges", name: "Limoges", emoji: "📍", population: "2,500+", highlight: "Prescott-Russell, east Ottawa", color: "#06b6d4" },
+  { slug: "constance-bay", name: "Constance Bay", emoji: "🌊", population: "2,500+", highlight: "West Carleton, Ottawa River", color: "#84cc16" },
+  { slug: "osgoode", name: "Osgoode", emoji: "🌾", population: "2,500+", highlight: "Rural south Ottawa village", color: "#fb923c" },
 ];
 
 export default function AreasPage() {
@@ -69,7 +84,7 @@ export default function AreasPage() {
         <div className="container">
           <div style={{ display: 'grid', gridTemplateColumns: 'repeat(4, 1fr)', gap: 0 }}>
             {[
-              { number: '23', label: 'Ottawa Areas Served' },
+              { number: '37', label: 'Areas Served (Ottawa + Region)' },
               { number: '< 90', label: 'Min Arrival (All Areas)' },
               { number: '24/7', label: 'Emergency Service' },
               { number: '5.0★', label: 'Google Rating' },

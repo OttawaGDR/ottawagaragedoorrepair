@@ -50,6 +50,10 @@ export default async function AreaPage({ params }) {
     'dunrobin': '#0ea5e9', 'carleton-place': '#d946ef', 'greely': '#22c55e',
     'richmond': '#eab308', 'vanier': '#f43f5e', 'rockcliffe-park': '#8b5cf6',
     'findlay-creek': '#fb923c',
+    'embrun': '#f59e0b', 'russell': '#eab308', 'metcalfe': '#10b981', 'kemptville': '#6366f1',
+    'arnprior': '#0ea5e9', 'almonte': '#8b5cf6', 'casselman': '#ec4899', 'rockland': '#14b8a6',
+    'navan': '#22c55e', 'smiths-falls': '#d946ef', 'winchester': '#f97316', 'limoges': '#06b6d4',
+    'constance-bay': '#84cc16', 'osgoode': '#fb923c',
   };
   const activeColor = areaColors[suburb] || '#f97316';
 
