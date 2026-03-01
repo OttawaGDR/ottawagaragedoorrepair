@@ -4,14 +4,32 @@ export async function generateStaticParams() {
   return areas.map(a => ({ suburb: a.slug }));
 }
 
+const SITE_URL = 'https://ottawagaragedoorrepair.ca';
+
 export async function generateMetadata({ params }) {
   const { suburb } = await params;
   const area = areas.find(a => a.slug === suburb);
   if (!area) return {};
+  const areaUrl = `${SITE_URL}/areas/${suburb}`;
+  const title = `Garage Door Repair ${area.name} | Same-Day Service | Ottawa - GDR`;
+  const description = `Same-day garage door repair in ${area.name}, Ottawa. Springs, openers, cables, emergency service. Licensed, 5★ rated. Call ${PHONE} for a quote.`;
   return {
-    title: `Garage Door Services ${area.name} Ottawa | Repairs & Opener Repair | Ottawa - GDR`,
-    description: `Garage door services & garage door repairs in ${area.name}, Ottawa. Garage door opener repair, springs, cables. Same-day. Call ${PHONE}.`,
-    alternates: { canonical: `https://ottawagaragedoorrepair.ca/areas/${suburb}` },
+    title,
+    description,
+    alternates: { canonical: areaUrl },
+    openGraph: {
+      title: `Garage Door Repair ${area.name} | Ottawa - GDR`,
+      description,
+      url: areaUrl,
+      siteName: 'Ottawa Garage Door Repair',
+      locale: 'en_CA',
+    },
+    keywords: [
+      `garage door repair ${area.name}`,
+      `garage door repair ${area.name} Ottawa`,
+      `garage door service ${area.name}`,
+      'garage door opener repair Ottawa',
+    ],
   };
 }
 
@@ -33,13 +51,28 @@ export default async function AreaPage({ params }) {
   const areaReviews = testimonials.filter(t => t.area.toLowerCase().includes(area.name.toLowerCase()));
   const displayReviews = areaReviews.length ? areaReviews : testimonials.slice(0, 2);
 
+  const areaPageUrl = `${SITE_URL}/areas/${suburb}`;
   const schema = {
     '@context': 'https://schema.org',
     '@type': 'LocalBusiness',
-    name: `Ottawa - GDR — ${area.name}`,
+    '@id': `${SITE_URL}/#organization`,
+    name: 'Ottawa Garage Door Repair',
+    alternateName: 'Ottawa - GDR',
+    description: `Garage door repair and installation in ${area.name}, Ottawa. Same-day service for springs, openers, cables, and emergency repairs.`,
+    url: SITE_URL,
     telephone: PHONE,
-    areaServed: area.name,
-    address: { '@type': 'PostalAddress', addressLocality: area.name, addressRegion: 'ON', addressCountry: 'CA' },
+    areaServed: [{ '@type': 'City', name: area.name }, { '@type': 'City', name: 'Ottawa', addressRegion: 'ON', addressCountry: 'CA' }],
+    address: { '@type': 'PostalAddress', addressLocality: 'Ottawa', addressRegion: 'ON', addressCountry: 'CA' },
+    serviceArea: { '@type': 'GeoCircle', geoMidpoint: { '@type': 'GeoCoordinates', latitude: 45.4215, longitude: -75.6972 }, geoRadius: '50000' },
+  };
+  const breadcrumbSchema = {
+    '@context': 'https://schema.org',
+    '@type': 'BreadcrumbList',
+    itemListElement: [
+      { '@type': 'ListItem', position: 1, name: 'Home', item: SITE_URL },
+      { '@type': 'ListItem', position: 2, name: 'Areas', item: `${SITE_URL}/areas` },
+      { '@type': 'ListItem', position: 3, name: `Garage Door Repair ${area.name}`, item: areaPageUrl },
+    ],
   };
 
   const areaColors = {
@@ -84,6 +117,7 @@ export default async function AreaPage({ params }) {
   return (
     <>
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }} />
       <div className="area-detail-page">
       {/* HERO */}
       <section style={{ background: 'transparent', padding: '80px 0 60px', position: 'relative', overflow: 'hidden' }} className="grid-bg">
