@@ -80,12 +80,12 @@ export default async function AreaPage({ params }) {
   return (
     <>
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }} />
-
+      <div className="area-detail-page">
       {/* HERO */}
       <section style={{ background: 'transparent', padding: '80px 0 60px', position: 'relative', overflow: 'hidden' }} className="grid-bg">
         <div style={{ position: 'absolute', top: '30%', right: '5%', width: 500, height: 500, borderRadius: '50%', background: 'radial-gradient(circle, rgba(249,115,22,0.08) 0%, transparent 70%)', pointerEvents: 'none' }} />
         <div className="container" style={{ position: 'relative', zIndex: 1 }}>
-          <nav style={{ marginBottom: 32, fontSize: '0.85rem', color: 'var(--gray-400)' }}>
+          <nav style={{ marginBottom: 32, fontSize: '0.85rem', color: 'var(--gray-400)' }} className="area-page-nav">
             <a href="/" style={{ color: 'var(--gray-400)', textDecoration: 'none' }}>Home</a>
             <span style={{ margin: '0 8px' }}>›</span>
             <a href="/areas" style={{ color: 'var(--gray-400)', textDecoration: 'none' }}>Areas</a>
@@ -93,8 +93,8 @@ export default async function AreaPage({ params }) {
             <span style={{ color: 'var(--orange)' }}>Garage Door Repair {area.name}</span>
           </nav>
 
-          <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 60, alignItems: 'center' }}>
-            <div>
+          <div className="area-hero-grid" style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 60, alignItems: 'center' }}>
+            <div className="area-hero-content">
               <div className="badge" style={{ marginBottom: 24 }}>📍 Now Serving {area.name}</div>
               <h1 className="display-xl" style={{ marginBottom: 20, color: 'white' }}>
                 GARAGE DOOR<br />
@@ -160,8 +160,8 @@ export default async function AreaPage({ params }) {
       {/* LOCAL CONTENT */}
       <section className="section section-light">
         <div className="container">
-          <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 60, alignItems: 'start' }}>
-            <div>
+          <div className="area-content-grid" style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 60, alignItems: 'start' }}>
+            <div className="area-content-col">
               <span className="section-label" style={{ color: 'var(--orange)' }}>Local Expertise</span>
               <h2 className="heading-lg" style={{ color: 'var(--navy)', marginBottom: 20 }}>
                 Why {area.name} Homeowners Choose Ottawa - GDR
@@ -190,7 +190,7 @@ export default async function AreaPage({ params }) {
               </div>
             </div>
 
-            <div>
+            <div className="area-content-col">
               {/* OTTAWA SVG MAP */}
               <div style={{ marginBottom: 24 }}>
                 <div style={{ background: 'linear-gradient(135deg, #0a1628, #0f2040)', borderRadius: 20, overflow: 'hidden', border: '1px solid rgba(255,255,255,0.08)', padding: 20 }}>
@@ -270,9 +270,9 @@ export default async function AreaPage({ params }) {
                   ['Coverage', area.desc],
                   ['Rating', '⭐⭐⭐⭐⭐ 5.0 Google'],
                 ].map(([label, value]) => (
-                  <div key={label} style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', padding: '10px 0', borderBottom: '1px solid var(--gray-100)', gap: 12 }}>
+                  <div key={label} className="area-service-info-row" style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', padding: '10px 0', borderBottom: '1px solid var(--gray-100)', gap: 12 }}>
                     <span style={{ color: 'var(--gray-600)', fontSize: '0.88rem', flexShrink: 0 }}>{label}</span>
-                    <span style={{ color: 'var(--navy)', fontWeight: 600, fontSize: '0.88rem', textAlign: 'right' }}>{value}</span>
+                    <span className="area-service-info-value" style={{ color: 'var(--navy)', fontWeight: 600, fontSize: '0.88rem', textAlign: 'right' }}>{value}</span>
                   </div>
                 ))}
               </div>
@@ -373,6 +373,7 @@ export default async function AreaPage({ params }) {
           </div>
         </div>
       </section>
+      </div>
     </>
   );
 }

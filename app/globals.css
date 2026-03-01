@@ -1006,6 +1006,50 @@ select.form-input option { background: var(--navy-mid); color: white; }
   .about-stats-grid { grid-template-columns: 1fr !important; }
 }
 
+/* Area detail page (e.g. /areas/kanata) – mobile: single column, text in boxes */
+@media (max-width: 768px) {
+  .area-detail-page .container > div { min-width: 0; }
+  .area-hero-grid,
+  .area-content-grid {
+    grid-template-columns: 1fr !important;
+    gap: 32px !important;
+  }
+  .area-hero-content,
+  .area-content-col {
+    min-width: 0;
+    width: 100%;
+  }
+  .area-detail-page .display-xl,
+  .area-detail-page .heading-lg,
+  .area-detail-page .heading-xl { word-break: normal; overflow-wrap: break-word; }
+  .area-detail-page p,
+  .area-detail-page .light-card,
+  .area-detail-page .glass-card {
+    overflow-wrap: break-word;
+    word-break: normal;
+    min-width: 0;
+  }
+  .area-detail-page .light-card > div,
+  .area-detail-page .glass-card > div { min-width: 0; }
+  .area-page-nav { overflow-wrap: break-word; word-break: normal; }
+  .area-service-info-row {
+    flex-wrap: wrap;
+    gap: 6px;
+  }
+  .area-service-info-value {
+    min-width: 0;
+    overflow-wrap: break-word;
+    word-break: normal;
+    width: 100%;
+    text-align: left !important;
+  }
+}
+@media (max-width: 480px) {
+  .area-detail-page .container { padding-left: 14px; padding-right: 14px; }
+  .area-detail-page .area-hero-grid,
+  .area-detail-page .area-content-grid { gap: 24px !important; }
+}
+
 @media (hover: none) and (pointer: coarse) {
   .btn-primary, .btn-secondary, a[href^="tel"] { min-height: 44px; }
   .footer-link, .nav-item { min-height: 44px; display: inline-flex; align-items: center; }
