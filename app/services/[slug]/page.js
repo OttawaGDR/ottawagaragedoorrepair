@@ -1,4 +1,5 @@
 import { services, PHONE, PHONE_HREF } from '../../../lib/data';
+import { serviceWhatsIncluded, serviceFaqs } from '../../../lib/serviceContent';
 
 export async function generateStaticParams() {
   return services.map(s => ({ slug: s.slug }));
@@ -39,6 +40,8 @@ export default async function ServicePage({ params }) {
   }
 
   const related = services.filter(s => s.slug !== slug).slice(0, 3);
+  const whatsIncluded = serviceWhatsIncluded[slug] || [];
+  const serviceFaqList = serviceFaqs[slug] || [];
 
   const schema = {
     '@context': 'https://schema.org',
@@ -176,6 +179,44 @@ export default async function ServicePage({ params }) {
           </div>
         </div>
       </section>
+
+      {whatsIncluded.length > 0 && (
+        <section className="section" style={{ background: 'var(--navy-mid)' }}>
+          <div className="container">
+            <h2 className="heading-lg" style={{ marginBottom: 24 }}>What&apos;s Included</h2>
+            <p style={{ color: 'var(--gray-400)', marginBottom: 28, maxWidth: 560 }}>
+              Every {service.title.toLowerCase()} job from Ottawa - GDR includes the following:
+            </p>
+            <ul style={{ listStyle: 'none', padding: 0, margin: 0, display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(260px, 1fr))', gap: 14 }}>
+              {whatsIncluded.map((item, i) => (
+                <li key={i} style={{ display: 'flex', alignItems: 'center', gap: 12, color: 'rgba(255,255,255,0.85)', fontSize: '0.95rem' }}>
+                  <span style={{ width: 22, height: 22, borderRadius: '50%', background: 'rgba(249,115,22,0.2)', border: '1.5px solid var(--orange)', display: 'flex', alignItems: 'center', justifyContent: 'center', flexShrink: 0, fontSize: '0.7rem', color: 'var(--orange)', fontWeight: 800 }}>✓</span>
+                  {item}
+                </li>
+              ))}
+            </ul>
+          </div>
+        </section>
+      )}
+
+      {serviceFaqList.length > 0 && (
+        <section className="section section-light">
+          <div className="container" style={{ maxWidth: 720 }}>
+            <h2 className="heading-lg" style={{ color: 'var(--navy)', marginBottom: 8 }}>Common Questions</h2>
+            <p style={{ color: 'var(--gray-600)', marginBottom: 28, fontSize: '0.95rem' }}>
+              Quick answers about {service.title.toLowerCase()} in Ottawa.
+            </p>
+            <div style={{ display: 'flex', flexDirection: 'column', gap: 16 }}>
+              {serviceFaqList.map((faq, i) => (
+                <div key={i} className="light-card" style={{ padding: '20px 24px' }}>
+                  <h3 style={{ fontFamily: 'var(--font-display)', fontWeight: 700, fontSize: '1rem', color: 'var(--navy)', marginBottom: 10 }}>{faq.q}</h3>
+                  <p style={{ color: 'var(--gray-600)', fontSize: '0.92rem', lineHeight: 1.7, margin: 0 }}>{faq.a}</p>
+                </div>
+              ))}
+            </div>
+          </div>
+        </section>
+      )}
 
       <section className="section" style={{ background: 'var(--navy)' }}>
         <div className="container">

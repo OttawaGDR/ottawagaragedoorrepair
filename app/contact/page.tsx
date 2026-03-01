@@ -16,9 +16,14 @@ export default function ContactPage() {
             <h1 className="display-xl" style={{ marginBottom: 20 }}>
               CONTACT <span className="text-gradient">OTTAWA - GDR</span>
             </h1>
-            <p style={{ color: 'rgba(255,255,255,0.75)', lineHeight: 1.8, fontSize: '1.05rem' }}>
+            <p style={{ color: 'rgba(255,255,255,0.75)', lineHeight: 1.8, fontSize: '1.05rem', marginBottom: 20 }}>
               Need <a href="/services" style={{ color: 'var(--orange)', fontWeight: 600, textDecoration: 'underline', textUnderlineOffset: 2 }}>garage door repair</a> or a free quote? Call us anytime — we answer 24/7. Or <a href="/booking" style={{ color: 'var(--orange)', fontWeight: 600, textDecoration: 'underline', textUnderlineOffset: 2 }}>book a visit</a> (Mon–Fri 9–5) and we&apos;ll call to confirm. Serving <a href="/areas" style={{ color: 'var(--orange)', fontWeight: 600, textDecoration: 'underline', textUnderlineOffset: 2 }}>all Ottawa areas</a>.
             </p>
+            <ul style={{ color: 'rgba(255,255,255,0.7)', fontSize: '0.95rem', lineHeight: 1.75, margin: 0, paddingLeft: 20 }}>
+              <li style={{ marginBottom: 6 }}><strong style={{ color: 'rgba(255,255,255,0.9)' }}>Same-day service</strong> — We arrive in under 90 minutes across Ottawa and the region.</li>
+              <li style={{ marginBottom: 6 }}><strong style={{ color: 'rgba(255,255,255,0.9)' }}>Free phone estimate</strong> — Describe the issue and we&apos;ll give you a realistic price range before we come.</li>
+              <li><strong style={{ color: 'rgba(255,255,255,0.9)' }}>24/7 emergency</strong> — Stuck door or broken spring? We answer and dispatch around the clock.</li>
+            </ul>
           </div>
 
           <div className="contact-grid" style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 48, alignItems: 'start' }}>

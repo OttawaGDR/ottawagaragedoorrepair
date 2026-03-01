@@ -1,5 +1,5 @@
 import './globals.css';
-import { services, areas, PHONE, PHONE_HREF, SMS_HREF, EMAIL, FACEBOOK_URL, INSTAGRAM_URL } from '../lib/data';
+import { services, areas, PHONE, PHONE_HREF, SMS_HREF, EMAIL, FACEBOOK_URL, INSTAGRAM_URL, GOOGLE_REVIEW_COUNT } from '../lib/data';
 import Icon from './components/Icons';
 import EmergencyBar from './components/EmergencyBar';
 import Logo from './components/Logo';
@@ -54,14 +54,18 @@ const jsonLd = {
     addressRegion: 'ON',
     addressCountry: 'CA',
   },
-  areaServed: ['Ottawa', 'Kanata', 'Nepean', 'Barrhaven', 'Orleans', 'Stittsville', 'Gloucester', 'Vanier', 'Westboro', 'Glebe', 'Sandy Hill', 'Manotick', 'Riverside South', 'Alta Vista', 'Hunt Club', 'Carp', 'Orleans', 'Cumberland', 'Carleton Place'],
-  openingHours: ['Mo-Su 00:00-23:59'],
-  aggregateRating: { '@type': 'AggregateRating', ratingValue: '5.0', reviewCount: '50', bestRating: '5', worstRating: '1' },
+  areaServed: areas.map((a) => a.name),
+  sameAs: [FACEBOOK_URL, INSTAGRAM_URL],
+  openingHoursSpecification: [
+    { '@type': 'OpeningHoursSpecification', dayOfWeek: ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday'], opens: '09:00', closes: '21:00', description: 'Same-day service' },
+    { '@type': 'OpeningHoursSpecification', dayOfWeek: ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday'], opens: '00:00', closes: '23:59', description: '24/7 emergency' },
+  ],
+  aggregateRating: { '@type': 'AggregateRating', ratingValue: '5.0', reviewCount: String(GOOGLE_REVIEW_COUNT), bestRating: '5', worstRating: '1' },
   priceRange: '$$',
   hasOfferCatalog: {
     '@type': 'OfferCatalog',
     name: 'Garage Door Services Ottawa',
-    itemListElement: services.map((s, i) => ({
+    itemListElement: services.map((s) => ({
       '@type': 'Offer',
       itemOffered: { '@type': 'Service', name: `${s.title} Ottawa` },
     })),

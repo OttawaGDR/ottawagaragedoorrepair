@@ -30,7 +30,7 @@ export default function AboutPage() {
               {[
                 { num: '1,000+', label: 'Repairs Done', icon: '🔧' },
                 { num: '5.0 ⭐', label: 'Google Rating', icon: '⭐' },
-                { num: '19', label: 'Areas Served', icon: '📍' },
+                { num: '37', label: 'Areas Served', icon: '📍' },
                 { num: '6+', label: 'Years Experience', icon: '📅' },
               ].map(stat => (
                 <div key={stat.label} className="glass-card" style={{ padding: '28px 20px', textAlign: 'center' }}>
