@@ -36,6 +36,7 @@ export const metadata = {
   },
   robots: { index: true, follow: true },
   alternates: { canonical: 'https://ottawagaragedoorrepair.ca' },
+  other: { 'msvalidate.01': 'F07B54450F4E8031FB33D8429BD6A5A2' },
 };
 
 const jsonLd = {
