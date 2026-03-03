@@ -1,9 +1,19 @@
 import { NextResponse } from 'next/server';
 
 /**
- * Fetches recent Instagram posts via Instagram Graph API.
- * Requires INSTAGRAM_ACCESS_TOKEN in .env (long-lived User Access Token with instagram_basic).
- * Get token: Meta for Developers > Your App > Instagram Graph API.
+ * Instagram feed API – fetches recent media via Instagram Graph API.
+ *
+ * ACCESS TOKENS (use one):
+ * - Instagram User access token  → Host: graph.instagram.com (Business Login for Instagram)
+ * - Facebook Page access token  → Host: graph.facebook.com (Facebook Login for Business)
+ *
+ * PERMISSIONS:
+ * - Instagram Login: instagram_business_basic (or instagram_basic for basic display)
+ * - Facebook Login: instagram_basic, pages_read_engagement
+ * - Optional (comments): instagram_business_manage_comments / instagram_manage_comments
+ *
+ * Set INSTAGRAM_ACCESS_TOKEN in .env. This route uses graph.instagram.com/me/media
+ * for fetching feed; comment endpoints use versioned paths e.g. graph.instagram.com/v25.0/<IG_MEDIA_ID>/comments
  */
 export async function GET() {
   const token = process.env.INSTAGRAM_ACCESS_TOKEN;
