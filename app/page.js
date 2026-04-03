@@ -2,7 +2,6 @@ import { services, areas, testimonials, faqs, blogPosts, galleryImages, PHONE, P
 import Icon from './components/Icons';
 import GalleryImage from './components/GalleryImage';
 import QuoteCalculator from './components/QuoteCalculator';
-import TrustBadges from './components/TrustBadges';
 
 export const metadata = {
   title: `Garage Door Services Ottawa | Repairs & Opener | ${PHONE}`,
@@ -19,7 +18,6 @@ export default function HomePage() {
     <>
       <Hero />
       <TrustBar />
-      <TrustBadges />
       <Stats />
       <Services />
       <QuoteCalculator services={services} />
