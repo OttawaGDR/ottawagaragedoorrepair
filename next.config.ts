@@ -18,16 +18,6 @@ const nextConfig: NextConfig = {
         hostname: "img1.wsimg.com",
         pathname: "/**",
       },
-      {
-        protocol: "https",
-        hostname: "scontent.cdninstagram.com",
-        pathname: "/**",
-      },
-      {
-        protocol: "https",
-        hostname: "*.fbcdn.net",
-        pathname: "/**",
-      },
     ],
   },
 };

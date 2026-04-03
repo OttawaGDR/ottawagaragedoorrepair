@@ -1,4 +1,5 @@
 import { areas, services, testimonials, faqs, PHONE, PHONE_HREF } from '../../../lib/data';
+import { getAreaContent, getAreaMetaDescription } from '../../../lib/areaPageContent';
 
 export async function generateStaticParams() {
   return areas.map(a => ({ suburb: a.slug }));
@@ -12,7 +13,10 @@ export async function generateMetadata({ params }) {
   if (!area) return {};
   const areaUrl = `${SITE_URL}/areas/${suburb}`;
   const title = `Garage Door Repair ${area.name} | Same-Day Service | Ottawa - GDR`;
-  const description = `Same-day garage door repair in ${area.name}, Ottawa. Springs, openers, cables, emergency service. Licensed, 5★ rated. Call ${PHONE} for a quote.`;
+  const uniqueMeta = getAreaMetaDescription(suburb);
+  const description = uniqueMeta
+    ? `${uniqueMeta} Same-day service for springs, openers & cables. Licensed, 5★ rated. Call ${PHONE}.`
+    : `Same-day garage door repair in ${area.name}, Ottawa. Springs, openers, cables, emergency service. Licensed, 5★ rated. Call ${PHONE} for a quote.`;
   return {
     title,
     description,
@@ -28,6 +32,7 @@ export async function generateMetadata({ params }) {
       `garage door repair ${area.name}`,
       `garage door repair ${area.name} Ottawa`,
       `garage door service ${area.name}`,
+      `garage door spring repair ${area.name}`,
       'garage door opener repair Ottawa',
     ],
   };
@@ -36,6 +41,7 @@ export async function generateMetadata({ params }) {
 export default async function AreaPage({ params }) {
   const { suburb } = await params;
   const area = areas.find(a => a.slug === suburb);
+  const areaContent = area ? getAreaContent(suburb) : null;
 
   if (!area) {
     return (
@@ -58,7 +64,9 @@ export default async function AreaPage({ params }) {
     '@id': `${SITE_URL}/#organization`,
     name: 'Ottawa Garage Door Repair',
     alternateName: 'Ottawa - GDR',
-    description: `Garage door repair and installation in ${area.name}, Ottawa. Same-day service for springs, openers, cables, and emergency repairs.`,
+    description: areaContent?.intro
+      ? `${areaContent.intro} Same-day repair and installation for springs, openers, cables, and emergencies.`
+      : `Garage door repair and installation in ${area.name}, Ottawa. Same-day service for springs, openers, cables, and emergency repairs.`,
     url: SITE_URL,
     telephone: PHONE,
     areaServed: [{ '@type': 'City', name: area.name }, { '@type': 'City', name: 'Ottawa', addressRegion: 'ON', addressCountry: 'CA' }],
@@ -140,7 +148,9 @@ export default async function AreaPage({ params }) {
                 <span className="orange-outline">{area.name.toUpperCase()}</span>
               </h1>
               <p style={{ color: 'var(--gray-400)', lineHeight: 1.8, fontSize: '1rem', marginBottom: 16 }}>
-                Fast, reliable garage door repair in {area.name}, Ottawa. Our local technicians provide same-day service for springs, openers, cables, and emergency repairs across {area.name} and surrounding areas.
+                {areaContent?.intro
+                  ? areaContent.intro
+                  : `Fast, reliable garage door repair in ${area.name}, Ottawa. Our local technicians provide same-day service for springs, openers, cables, and emergency repairs across ${area.name} and surrounding areas.`}
               </p>
               <p style={{ color: 'rgba(255,255,255,0.5)', lineHeight: 1.7, fontSize: '0.92rem', marginBottom: 32 }}>
                 {area.localNote}
@@ -204,12 +214,32 @@ export default async function AreaPage({ params }) {
               <h2 className="heading-lg" style={{ color: 'var(--navy)', marginBottom: 20 }}>
                 Why {area.name} Homeowners Choose Ottawa - GDR
               </h2>
-              <p style={{ color: 'var(--gray-600)', lineHeight: 1.8, marginBottom: 20 }}>
-                We're not a call centre dispatching random contractors. Our {area.name} technicians live and work in this community. We know the local roads, common door brands in your neighbourhood, and how Ottawa's winters affect your garage door systems.
-              </p>
-              <p style={{ color: 'var(--gray-600)', lineHeight: 1.8, marginBottom: 32 }}>
-                Whether you're dealing with a spring snapped in a -25°C cold snap, a door that came off its tracks, or an opener that stopped responding, we have the parts on our truck and the experience to fix it right the first time.
-              </p>
+              {areaContent?.localContext ? (
+                <p style={{ color: 'var(--gray-600)', lineHeight: 1.8, marginBottom: 24 }}>
+                  {areaContent.localContext}
+                </p>
+              ) : (
+                <>
+                  <p style={{ color: 'var(--gray-600)', lineHeight: 1.8, marginBottom: 20 }}>
+                    We're not a call centre dispatching random contractors. Our {area.name} technicians live and work in this community. We know the local roads, common door brands in your neighbourhood, and how Ottawa's winters affect your garage door systems.
+                  </p>
+                  <p style={{ color: 'var(--gray-600)', lineHeight: 1.8, marginBottom: 32 }}>
+                    Whether you're dealing with a spring snapped in a -25°C cold snap, a door that came off its tracks, or an opener that stopped responding, we have the parts on our truck and the experience to fix it right the first time.
+                  </p>
+                </>
+              )}
+              {areaContent?.issues?.length ? (
+                <div style={{ marginBottom: 28 }}>
+                  <h3 style={{ fontFamily: 'var(--font-serif)', fontSize: '1.15rem', color: 'var(--navy)', marginBottom: 14, fontWeight: 700 }}>
+                    What we see most often in {area.name}
+                  </h3>
+                  <ul style={{ margin: 0, paddingLeft: 22, color: 'var(--gray-600)', lineHeight: 1.75, fontSize: '0.95rem' }}>
+                    {areaContent.issues.map((line) => (
+                      <li key={line} style={{ marginBottom: 10 }}>{line}</li>
+                    ))}
+                  </ul>
+                </div>
+              ) : null}
               <div style={{ display: 'flex', flexDirection: 'column', gap: 14 }}>
                 {[
                   { icon: '⚡', title: `Under 90 Min Arrival`, desc: `We arrive in under 90 minutes everywhere in Ottawa — including ${area.name}. We call 30 min before arrival.` },
@@ -374,8 +404,8 @@ export default async function AreaPage({ params }) {
             <span className="section-label">{area.name} FAQ</span>
             <h2 className="heading-lg reveal">{area.name} Garage Door Questions</h2>
           </div>
-          {faqs.slice(0, 5).map((faq, i) => (
-            <div key={i} className="faq-item">
+          {(areaContent?.areaFaq ? [areaContent.areaFaq, ...faqs.slice(0, 4)] : faqs.slice(0, 5)).map((faq, i) => (
+            <div key={`${faq.q}-${i}`} className="faq-item">
               <button className="faq-question">{faq.q}<span className="faq-icon">+</span></button>
               <div className="faq-answer">{faq.a}</div>
             </div>
