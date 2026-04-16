@@ -70,7 +70,6 @@ const jsonLd = {
     return {
       '@type': 'Review',
       author: { '@type': 'Person', name: t.name },
-      itemReviewed: { '@id': 'https://ottawagaragedoorrepair.ca/#organization' },
       reviewRating: { '@type': 'Rating', ratingValue: String(t.stars), bestRating: '5', worstRating: '1' },
       reviewBody: t.text,
       ...(isoDate && { datePublished: isoDate }),
