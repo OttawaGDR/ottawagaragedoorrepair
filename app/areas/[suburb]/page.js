@@ -12,7 +12,7 @@ export async function generateMetadata({ params }) {
   const area = areas.find(a => a.slug === suburb);
   if (!area) return {};
   const areaUrl = `${SITE_URL}/areas/${suburb}`;
-  const title = `Garage Door Repair ${area.name} | Same-Day Service | Ottawa - GDR`;
+  const title = `Garage Door Repair ${area.name} | Same-Day Service`;
   const uniqueMeta = getAreaMetaDescription(suburb);
   const description = uniqueMeta
     ? `${uniqueMeta} Same-day service for springs, openers & cables. Licensed, 5★ rated. Call ${PHONE}.`
@@ -22,7 +22,7 @@ export async function generateMetadata({ params }) {
     description,
     alternates: { canonical: areaUrl },
     openGraph: {
-      title: `Garage Door Repair ${area.name} | Ottawa - GDR`,
+      title: `Garage Door Repair ${area.name} | Ottawa Garage Door Repair`,
       description,
       url: areaUrl,
       siteName: 'Ottawa Garage Door Repair',

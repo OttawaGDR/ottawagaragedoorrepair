@@ -2,7 +2,7 @@ import { PHONE, PHONE_HREF } from '../../lib/data';
 import BlogCategoryFilter from '../components/BlogCategoryFilter';
 
 export const metadata = {
-  title: 'Garage Door Repair & Opener Tips Ottawa | Ottawa - GDR Blog',
+  title: 'Garage Door Repair & Opener Tips Ottawa | Blog',
   description: 'Expert advice on garage door repairs, garage door opener repair, and maintenance in Ottawa. Pricing, springs, winter tips from Ottawa - GDR.',
   keywords: ['garage door repair Ottawa', 'garage door opener repair Ottawa', 'garage door tips Ottawa'],
   alternates: { canonical: 'https://ottawagaragedoorrepair.ca/blog' },

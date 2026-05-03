@@ -11,8 +11,8 @@ export const metadata = {
   metadataBase: new URL('https://ottawagaragedoorrepair.ca'),
   applicationName: 'Ottawa Garage Door Repair',
   title: {
-    default: 'Garage Door Services Ottawa | Garage Door Repairs & Opener Repair | Ottawa - GDR',
-    template: '%s | Ottawa - GDR',
+    default: 'Ottawa Garage Door Repair | Garage Door Services, Repairs & Opener',
+    template: '%s | Ottawa Garage Door Repair',
   },
   description: 'Fast, reliable garage door repair in Ottawa. 24/7 emergency service, same-day fixes, 1-year warranty. Call (613) 617-4238 for a free quote.',
   keywords: [
@@ -31,7 +31,7 @@ export const metadata = {
     locale: 'en_CA',
     url: 'https://ottawagaragedoorrepair.ca',
     siteName: 'Ottawa Garage Door Repair',
-    title: 'Garage Door Services Ottawa | Garage Door Repairs & Opener Repair',
+    title: 'Ottawa Garage Door Repair | Garage Door Services, Repairs & Opener',
     description: 'Ottawa\'s #1 garage door services, repairs & garage door opener repair. Same-day, 5-star rated, 24/7 emergency.',
   },
   robots: { index: true, follow: true },
@@ -95,19 +95,6 @@ export default function RootLayout({ children }) {
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
-        />
-        <script
-          type="application/ld+json"
-          dangerouslySetInnerHTML={{ __html: JSON.stringify({
-            '@context': 'https://schema.org',
-            '@type': 'WebSite',
-            name: 'Ottawa Garage Door Repair',
-            alternateName: 'Ottawa - GDR',
-            url: 'https://ottawagaragedoorrepair.ca',
-            description: 'Garage door services Ottawa — garage door repairs, garage door opener repair and installation.',
-            publisher: { '@id': 'https://ottawagaragedoorrepair.ca/#organization' },
-            inLanguage: 'en-CA',
-          }) }}
         />
       </head>
       <body style={{ margin: 0, background: 'var(--navy)' }} className="noise">

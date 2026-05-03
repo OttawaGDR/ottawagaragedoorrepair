@@ -2,12 +2,12 @@ import { services, PHONE, PHONE_HREF } from '../../lib/data';
 import Icon from '../components/Icons';
 
 export const metadata = {
-  title: 'Garage Door Services Ottawa | Repairs & Opener Repair | Ottawa - GDR',
+  title: 'Garage Door Services Ottawa | Repairs & Opener Repair',
   description: `Garage door services Ottawa: garage door repairs, garage door opener repair & installation. Springs, cables, new doors. Same-day, 5-star rated. Call ${PHONE}.`,
   keywords: ['garage door services Ottawa', 'garage door repairs Ottawa', 'garage door opener services Ottawa', 'garage door opener repair Ottawa'],
   alternates: { canonical: 'https://ottawagaragedoorrepair.ca/services' },
   openGraph: {
-    title: 'Garage Door Services Ottawa | Repairs & Opener Repair',
+    title: 'Ottawa Garage Door Repair | Garage Door Services Ottawa | Repairs & Opener',
     description: 'Complete garage door services and repairs in Ottawa. Opener repair, springs, cables. Same-day service.',
     url: 'https://ottawagaragedoorrepair.ca/services',
   },

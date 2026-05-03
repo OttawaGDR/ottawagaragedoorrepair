@@ -3,11 +3,26 @@ import Icon from './components/Icons';
 import GalleryImage from './components/GalleryImage';
 import QuoteCalculator from './components/QuoteCalculator';
 
+/** WebSite JSON-LD belongs on the domain home page only (Google Site names guidelines). */
+const websiteJsonLd = {
+  '@context': 'https://schema.org',
+  '@type': 'WebSite',
+  '@id': 'https://ottawagaragedoorrepair.ca/#website',
+  name: 'Ottawa Garage Door Repair',
+  alternateName: ['Ottawa - GDR'],
+  url: 'https://ottawagaragedoorrepair.ca/',
+  description: 'Garage door services Ottawa — garage door repairs, garage door opener repair and installation.',
+  publisher: { '@id': 'https://ottawagaragedoorrepair.ca/#organization' },
+  inLanguage: 'en-CA',
+};
+
 export const metadata = {
-  title: `Garage Door Services Ottawa | Repairs & Opener | ${PHONE}`,
+  title: {
+    absolute: `Ottawa Garage Door Repair | Garage Door Services & Repairs | ${PHONE}`,
+  },
   description: 'Garage door services Ottawa & repairs. Opener repair, springs, cables. Same-day service, 5.0 Google rating. Call (613) 617-4238.',
   openGraph: {
-    title: `Garage Door Services Ottawa | Repairs & Opener | ${PHONE}`,
+    title: `Ottawa Garage Door Repair | Garage Door Services & Repairs | ${PHONE}`,
     description: 'Garage door services Ottawa & repairs. Opener repair, springs, cables. Same-day service. Call (613) 617-4238.',
     url: 'https://ottawagaragedoorrepair.ca',
   },
@@ -16,6 +31,10 @@ export const metadata = {
 export default function HomePage() {
   return (
     <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(websiteJsonLd) }}
+      />
       <Hero />
       <TrustBar />
       <Stats />
@@ -39,6 +58,7 @@ function Hero() {
         <div className="hero-grid">
           <div>
             <div className="badge hero-badge"><Icon name="star" size={16} className="text-orange-bright" /><Icon name="star" size={16} className="text-orange-bright" /><Icon name="star" size={16} className="text-orange-bright" /><Icon name="star" size={16} className="text-orange-bright" /><Icon name="star" size={16} className="text-orange-bright" /> 5.0 Rated</div>
+            <p className="hero-brand-line">Ottawa Garage Door Repair</p>
             <h1 className="hero-title">
               SAME-DAY<br />
               <span className="hero-title-accent">GARAGE DOOR</span><br />

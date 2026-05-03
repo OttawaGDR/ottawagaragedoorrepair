@@ -1,7 +1,7 @@
 import { PHONE, PHONE_HREF, testimonials } from '../../lib/data';
 
 export const metadata = {
-  title: 'About Us | Garage Door Services Ottawa | Ottawa - GDR',
+  title: 'About Us | Garage Door Services Ottawa',
   description: "Ottawa - GDR delivers garage door services Ottawa trusts: garage door repairs, garage door opener repair. Local family business since 2020.",
   alternates: { canonical: 'https://ottawagaragedoorrepair.ca/about' },
 };
