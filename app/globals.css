@@ -1049,17 +1049,64 @@ select.form-input option { background: var(--navy-mid); color: white; }
   .hero-grid { grid-template-columns: 1fr !important; gap: 32px !important; }
 }
 
+/* About page layout */
+.about-page .about-hero-grid,
+.about-page .about-story-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 60px;
+  align-items: center;
+  min-width: 0;
+}
+.about-page .about-story-grid {
+  gap: 48px;
+  align-items: start;
+}
+.about-page .about-stats-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+  min-width: 0;
+}
+.about-page .about-stat-card {
+  padding: 28px 20px;
+  text-align: center;
+  min-width: 0;
+}
+.about-page .about-stat-icon {
+  font-size: 2rem;
+  margin-bottom: 10px;
+  line-height: 1;
+}
+.about-page .about-stat-number {
+  font-size: 1.75rem !important;
+  white-space: normal !important;
+  line-height: 1.1;
+  margin: 0 auto;
+  max-width: 100%;
+}
+.about-page .about-stat-label {
+  font-size: 0.8rem;
+  line-height: 1.35;
+  margin-top: 8px;
+}
+.about-page .display-xl,
+.about-page .display-lg {
+  word-break: normal;
+  overflow-wrap: break-word;
+}
 @media (max-width: 768px) {
-  .about-section > .container > div {
-    min-width: 0;
-    display: block !important; /* stack columns vertically on mobile */
+  .about-page .about-hero-grid,
+  .about-page .about-story-grid {
+    grid-template-columns: 1fr;
+    gap: 36px;
+  }
+  .about-page .about-stats-grid {
+    grid-template-columns: 1fr 1fr;
   }
   .about-section p,
   .about-section .glass-card { overflow-wrap: break-word; word-break: normal; }
   .about-section .glass-card > div { min-width: 0; }
-  .about-stats-grid { grid-template-columns: 1fr 1fr !important; }
-  .about-stats-grid .glass-card { min-width: 0; }
-  .about-stats-grid .stat-number { white-space: nowrap; }
 }
 @media (max-width: 480px) {
   .container { padding: 0 14px; }
@@ -1071,7 +1118,20 @@ select.form-input option { background: var(--navy-mid); color: white; }
   .section { padding: 48px 0; }
   .section-sm { padding: 32px 0; }
   .hero-container { padding-top: 20px !important; padding-bottom: 32px !important; }
-  .about-stats-grid { grid-template-columns: 1fr !important; }
+  .about-page .about-stats-grid {
+    grid-template-columns: 1fr;
+  }
+  .about-page .about-stat-number {
+    font-size: 1.5rem !important;
+  }
+  .about-page .display-xl {
+    font-size: clamp(2rem, 9vw, 3rem);
+    line-height: 1.05;
+  }
+  .about-page .display-lg {
+    font-size: clamp(1.75rem, 7vw, 2.5rem);
+    line-height: 1.1;
+  }
 }
 
 /* Area detail page (e.g. /areas/kanata) – mobile: single column, text in boxes */

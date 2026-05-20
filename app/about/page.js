@@ -9,10 +9,10 @@ export const metadata = {
 
 export default function AboutPage() {
   return (
-    <>
-      <section className="about-section" style={{ padding: '80px 0 60px', borderBottom: '1px solid rgba(255,255,255,0.06)' }}>
+    <div className="about-page">
+      <section className="about-section about-hero" style={{ padding: '80px 0 60px', borderBottom: '1px solid rgba(255,255,255,0.06)' }}>
         <div className="container">
-          <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 60, alignItems: 'center' }}>
+          <div className="about-hero-grid">
             <div style={{ minWidth: 0 }}>
               <span className="badge" style={{ marginBottom: 24, display: 'inline-flex' }}>🏆 Ottawa Family Business Since 2020</span>
               <h1 className="display-xl" style={{ marginBottom: 20 }}>
@@ -27,12 +27,12 @@ export default function AboutPage() {
                 <a href="#story" className="btn-secondary">Our Story →</a>
               </div>
             </div>
-            <div className="about-stats-grid" style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 16 }}>
+            <div className="about-stats-grid">
               {aboutStats.map(stat => (
-                <div key={stat.label} className="glass-card" style={{ padding: '28px 20px', textAlign: 'center' }}>
-                  <div style={{ fontSize: '2rem', marginBottom: 10 }}>{stat.icon}</div>
-                  <div className="stat-number" style={{ fontSize: '1.8rem' }}>{stat.num}</div>
-                  <div className="stat-label">{stat.label}</div>
+                <div key={stat.label} className="glass-card about-stat-card">
+                  <div className="about-stat-icon">{stat.icon}</div>
+                  <div className="stat-number about-stat-number">{stat.num}</div>
+                  <div className="stat-label about-stat-label">{stat.label}</div>
                 </div>
               ))}
             </div>
@@ -40,9 +40,9 @@ export default function AboutPage() {
         </div>
       </section>
 
-      <section id="story" className="about-section" style={{ padding: '80px 0' }}>
+      <section id="story" className="about-section about-story" style={{ padding: '80px 0' }}>
         <div className="container">
-          <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 80, alignItems: 'start' }}>
+          <div className="about-story-grid">
             <div style={{ minWidth: 0 }}>
               <span className="section-label">Our Story</span>
               <h2 className="display-lg" style={{ marginBottom: 28 }}>FOUNDED ON <span className="text-gradient">FRUSTRATION</span></h2>
@@ -148,6 +148,6 @@ export default function AboutPage() {
           </div>
         </div>
       </section>
-    </>
+    </div>
   );
 }
