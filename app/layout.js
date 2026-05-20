@@ -361,7 +361,7 @@ function Footer() {
           <div>
             <div className="footer-logo-wrap"><Logo asLink /></div>
             <div className="footer-brand-desc">Ottawa's #1 Rated Service</div>
-            <p className="footer-brand-p">Garage door services Ottawa — garage door repairs & garage door opener repair. Licensed, insured, 24/7.</p>
+            <p className="footer-brand-p">Ottawa garage door repairs, opener service, and installs. Licensed, insured — emergency line 24/7.</p>
             <a href={PHONE_HREF} className="footer-phone"><Icon name="phone" size={20} /> {PHONE}</a>
             <span className="footer-contact-line"><Icon name="envelope" size={16} /> <a href={`mailto:${EMAIL}`} className="footer-contact-link">info@ottawagaragedoorrepair.ca</a></span>
             <span className="footer-contact-line"><Icon name="mappin" size={16} /> Ottawa, Ontario, Canada</span>

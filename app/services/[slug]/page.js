@@ -1,5 +1,6 @@
 import { services, PHONE, PHONE_HREF } from '../../../lib/data';
 import { serviceWhatsIncluded, serviceFaqs } from '../../../lib/serviceContent';
+import { servicePageTrustBullets } from '../../../lib/siteCopy';
 
 export async function generateStaticParams() {
   return services.map(s => ({ slug: s.slug }));
@@ -144,9 +145,9 @@ export default async function ServicePage({ params }) {
                 Ottawa's Best {service.title} Service
               </h2>
               <p style={{ color: 'var(--gray-600)', lineHeight: 1.8, marginBottom: 28 }}>
-                When your garage door fails, you need a team you can trust. Ottawa - GDR has been serving Ottawa homeowners for over 6 years with transparent pricing, quality parts, and a full warranty on every job.
+                When your garage door fails, you need a crew that shows up prepared. Ottawa - GDR has served Ottawa for five-plus years with approved pricing, quality hardware, and a labour guarantee on every visit.
               </p>
-              {['Licensed & insured technicians', 'Parts stocked on every truck', 'Written quote before we start', '1-year warranty on all work', 'Same-day service available', 'Ottawa winter specialists'].map(item => (
+              {servicePageTrustBullets.map(item => (
                 <div key={item} style={{ display: 'flex', alignItems: 'center', gap: 12, marginBottom: 12 }}>
                   <div style={{ width: 22, height: 22, borderRadius: '50%', background: 'rgba(34,197,94,0.15)', border: '1.5px solid rgba(34,197,94,0.4)', display: 'flex', alignItems: 'center', justifyContent: 'center', flexShrink: 0, fontSize: '0.75rem', color: '#16a34a', fontWeight: 800 }}>✓</div>
                   <span style={{ color: 'var(--gray-600)', fontSize: '0.95rem' }}>{item}</span>

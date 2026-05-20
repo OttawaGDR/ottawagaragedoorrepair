@@ -127,7 +127,7 @@ export default function AreasPage() {
                   </div>
                 </div>
 
-                <h2 style={{ fontFamily: 'var(--font-display)', fontSize: '1.8rem', fontWeight: 900,  marginBottom: 6, letterSpacing: '0.02em' }}>
+                <h2 className="area-card-name">
                   {area.name}
                 </h2>
 

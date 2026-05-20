@@ -31,7 +31,7 @@ export default function BlogPage() {
             TIPS FOR<br /><span className="text-gradient">OTTAWA</span><br />HOMEOWNERS
           </h1>
           <p style={{ color: 'rgba(255,255,255,0.7)', fontSize: '1.05rem', lineHeight: 1.8 }}>
-            Honest advice on garage door repair, maintenance, and buying decisions from Ottawa most trusted local team.
+            Practical garage door repair, maintenance, and buying advice from our Ottawa technicians.
           </p>
         </div>
       </section>

@@ -13,11 +13,11 @@ const faqSections = [
     emoji: '💰',
     color: '#f97316',
     questions: [
-      { q: 'How much does garage door repair cost in Ottawa?', a: 'Spring replacement $220–350, cable repair $170–250, maintenance tune-up $150, panel repair from $170 (we don\'t replace panels). Opener installation from $195; opener gear replacement from $250; new openers supply & install from $650 (model-dependent). New garage doors from $1,800–4,500 (size and model). We always provide a full written quote before any work begins.' },
+      { q: 'How much does garage door repair cost in Ottawa?', a: 'Spring replacement $220–350, cable repair $170–250, maintenance tune-up $150, panel repair from $170 (we don\'t replace panels). Opener installation from $195; opener gear replacement from $250; new openers supply & install from $650 (model-dependent). New garage doors from $1,800–4,500 (size and model). You approve the full price in writing before any work begins.' },
       { q: 'How much does a new garage door cost in Ottawa?', a: 'New garage doors start from $1,800–$4,500 depending on size and model. A standard insulated steel door with installation typically runs in that range. Adding a new opener is from $650 (model-dependent).' },
-      { q: 'How much does a garage door opener installation cost in Ottawa?', a: 'Opener installation starts at $195. New openers supplied and installed start from $650 depending on the model (chain-drive, belt-drive, or smart WiFi). Opener gear replacement starts from $250. All prices include labour; we provide a written quote before starting.' },
+      { q: 'How much does a garage door opener installation cost in Ottawa?', a: 'Opener installation starts at $195. New openers supplied and installed start from $650 depending on the model (chain-drive, belt-drive, or smart WiFi). Opener gear replacement starts from $250. All prices include labour; you approve the total before we start.' },
       { q: 'Do you charge for estimates?', a: 'Phone estimates are always free — call us and describe the problem and we will give you a likely price range immediately. For in-home estimates on new door installations, there is no charge.' },
-      { q: 'Are there any hidden fees?', a: 'Never. We provide a complete written quote before any work begins. The price we quote is the price you pay. We do not charge extra for evenings, weekends, or same-day service.' },
+      { q: 'Are there any hidden fees?', a: 'No. You approve the full total in writing before work begins — that is the amount on your invoice. Evenings, weekends, and same-day dispatch are never surcharged.' },
     ],
   },
   {

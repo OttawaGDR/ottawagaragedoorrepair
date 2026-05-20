@@ -1,4 +1,5 @@
-import { services, PHONE, PHONE_HREF } from '../../lib/data';
+import { services, PHONE, PHONE_HREF, servicesPageStats } from '../../lib/data';
+import { EMERGENCY_REPAIR_INTRO, whyChooseUsCards, servicesGallerySection } from '../../lib/siteCopy';
 import Icon from '../components/Icons';
 
 export const metadata = {
@@ -94,7 +95,7 @@ const mainServices = [
     title: 'Emergency Garage Door Repair Ottawa',
     price: '$220',
     priceNote: 'Starting from',
-    desc: 'Broken spring? Door won\'t open? Cable snapped? Off-track door? We provide same-day emergency repair across all Ottawa areas. Our fully-stocked trucks carry torsion springs, extension springs, cables, rollers, hinges, and remotes to fix 85% of problems on the first visit.',
+    desc: EMERGENCY_REPAIR_INTRO,
     features: [
       { title: 'Torsion Spring Replacement ($220–$350)', desc: 'Most common failure in Ottawa\'s cold climate. Both springs replaced together with 10,000-cycle rated hardware.' },
       { title: 'Cable & Drum Repair ($170–$250)', desc: 'Snapped cables cause dangerous door tilt. Replaced with aircraft-grade cable rated 2,000+ lbs.' },
@@ -181,12 +182,7 @@ export default function ServicesPage() {
       <section style={{ background: 'var(--navy-mid)', borderBottom: '1px solid rgba(255,255,255,0.05)' }}>
         <div className="container">
           <div style={{ display: 'grid', gridTemplateColumns: 'repeat(4, 1fr)', gap: 0 }}>
-            {[
-              { number: '85%', label: 'Fixed on First Visit' },
-              { number: '$220+', label: 'Spring Repair Starting' },
-              { number: '< 90', label: 'Min Response Time' },
-              { number: '24/7', label: 'Emergency Service' },
-            ].map((s, i) => (
+            {servicesPageStats.map((s, i) => (
               <div key={i} style={{ padding: '32px 24px', textAlign: 'center', borderRight: i < 3 ? '1px solid rgba(255,255,255,0.06)' : 'none' }}>
                 <div className="stat-number" style={{ fontSize: '2.8rem' }}>{s.number}</div>
                 <div className="stat-label">{s.label}</div>
@@ -200,12 +196,12 @@ export default function ServicesPage() {
       <section className="section" style={{ background: 'var(--navy)' }}>
         <div className="container">
           <div style={{ textAlign: 'center', marginBottom: 60 }}>
-            <span className="section-label">Real Ottawa Jobs</span>
+            <span className="section-label">{servicesGallerySection.label}</span>
             <h2 className="heading-xl reveal">
-              Recent Work Across <em style={{ color: 'var(--orange)' }}>Ottawa</em>
+              {servicesGallerySection.title} <em style={{ color: 'var(--orange)' }}>{servicesGallerySection.titleAccent}</em>
             </h2>
             <p style={{ color: 'var(--gray-400)', marginTop: 16, maxWidth: 520, margin: '16px auto 0', lineHeight: 1.75 }}>
-              Every job completed by our licensed Ottawa technicians. Real repairs, real results.
+              {servicesGallerySection.subtitle}
             </p>
           </div>
           <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))', gap: 24 }}>
@@ -257,16 +253,9 @@ export default function ServicesPage() {
             </h2>
           </div>
           <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(220px, 1fr))', gap: 24 }}>
-            {[
-              { icon: '🚚', title: 'Parts on Every Truck', desc: 'We stock springs, cables, rollers, openers and more. 85% of repairs done in one visit.' },
-              { icon: 'dollar', title: 'Upfront Pricing', desc: 'Full written quote before we touch anything. No hidden fees, no surprises.' },
-              { icon: 'shield', title: '1-Year Warranty', desc: 'All parts and labor guaranteed. New door installations carry a 5-year warranty.' },
-              { icon: 'weather', title: 'Ottawa Winter Experts', desc: 'We know how -30°C affects your door. Cold-weather failures are our specialty.' },
-              { icon: 'star', title: '5.0 Rated', desc: 'Verified reviews from real Ottawa homeowners. We stand behind every job.' },
-              { icon: 'phone', title: '24/7 Emergency Line', desc: 'Real person answers at 3am. Emergency technicians dispatched within 90 minutes.' },
-            ].map((item, i) => (
+            {whyChooseUsCards.map((item, i) => (
               <div key={i} className="light-card reveal" style={{ padding: 28, textAlign: 'center' }}>
-                <div style={{ marginBottom: 14, color: 'var(--orange)' }}><Icon name={item.icon} size={36} /></div>
+                <div style={{ fontSize: '2rem', marginBottom: 14 }}>{item.icon}</div>
                 <h3 style={{ fontFamily: 'var(--font-body)', fontWeight: 700, fontSize: '1rem', color: 'var(--navy)', marginBottom: 8 }}>{item.title}</h3>
                 <p style={{ color: 'var(--gray-600)', fontSize: '0.88rem', lineHeight: 1.65 }}>{item.desc}</p>
               </div>

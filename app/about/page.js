@@ -1,4 +1,5 @@
-import { PHONE, PHONE_HREF, testimonials } from '../../lib/data';
+import { PHONE, PHONE_HREF, testimonials, aboutStats, JOBS_TOTAL } from '../../lib/data';
+import { aboutStoryCards } from '../../lib/siteCopy';
 
 export const metadata = {
   title: 'About Us | Garage Door Services Ottawa',
@@ -18,7 +19,7 @@ export default function AboutPage() {
                 NOT JUST A<br />COMPANY —<br /><span className="text-gradient">YOUR NEIGHBOURS</span>
               </h1>
               <p style={{ color: 'rgba(255,255,255,0.75)', lineHeight: 1.85, fontSize: '1.05rem', marginBottom: 32, maxWidth: 480 }}>
-                Ottawa - GDR is an Ottawa family business built on one principle: treat every customer the way we would want to be treated. We offer <a href="/services" style={{ color: 'var(--orange)', fontWeight: 600, textDecoration: 'underline', textUnderlineOffset: 2 }}>garage door repairs</a> and <a href="/services/opener-repair" style={{ color: 'var(--orange)', fontWeight: 600, textDecoration: 'underline', textUnderlineOffset: 2 }}>opener repair</a> across <a href="/areas" style={{ color: 'var(--orange)', fontWeight: 600, textDecoration: 'underline', textUnderlineOffset: 2 }}>all Ottawa areas</a>. No hidden fees. No unnecessary upsells. No shortcuts.
+                Ottawa - GDR is a local garage door crew — repairs, openers, and installs across <a href="/areas" style={{ color: 'var(--orange)', fontWeight: 600, textDecoration: 'underline', textUnderlineOffset: 2 }}>every Ottawa neighbourhood</a>. Clear pricing before work starts. Repair when it makes sense; replace only when it should.
               </p>
               <div style={{ display: 'flex', gap: 14, flexWrap: 'wrap' }}>
                 <a href={PHONE_HREF} className="btn-primary">📞 Call {PHONE}</a>
@@ -27,12 +28,7 @@ export default function AboutPage() {
               </div>
             </div>
             <div className="about-stats-grid" style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 16 }}>
-              {[
-                { num: '1,000+', label: 'Repairs Done', icon: '🔧' },
-                { num: '5.0 ⭐', label: 'Google Rating', icon: '⭐' },
-                { num: '37', label: 'Areas Served', icon: '📍' },
-                { num: '6+', label: 'Years Experience', icon: '📅' },
-              ].map(stat => (
+              {aboutStats.map(stat => (
                 <div key={stat.label} className="glass-card" style={{ padding: '28px 20px', textAlign: 'center' }}>
                   <div style={{ fontSize: '2rem', marginBottom: 10 }}>{stat.icon}</div>
                   <div className="stat-number" style={{ fontSize: '1.8rem' }}>{stat.num}</div>
@@ -50,24 +46,17 @@ export default function AboutPage() {
             <div style={{ minWidth: 0 }}>
               <span className="section-label">Our Story</span>
               <h2 className="display-lg" style={{ marginBottom: 28 }}>FOUNDED ON <span className="text-gradient">FRUSTRATION</span></h2>
-              <p style={{ color: 'rgba(255,255,255,0.75)', lineHeight: 1.9, marginBottom: 20 }}>Ottawa - GDR was founded in 2020 after watching too many Ottawa homeowners get taken advantage of — overcharged for simple repairs, pressured into replacing doors that only needed a spring, and left waiting by contractors who never showed up.</p>
-              <p style={{ color: 'rgba(255,255,255,0.75)', lineHeight: 1.9, marginBottom: 20 }}>We started with two technicians, one truck, and a commitment: be the garage door company we would want to call ourselves. Show up on time. Give a real price before touching anything. Fix it right the first visit.</p>
-              <p style={{ color: 'rgba(255,255,255,0.75)', lineHeight: 1.9, marginBottom: 32 }}>Our team brings over 6 years of combined experience in garage door repair and installation. Five years in business and 1,000+ Ottawa homeowners later — with a perfect 5.0 Google rating — that approach continues to work.</p>
+              <p style={{ color: 'rgba(255,255,255,0.75)', lineHeight: 1.9, marginBottom: 20 }}>Ottawa - GDR started in 2020 when our founders kept hearing the same stories — surprise bills after the work began, full door replacements pushed for a $250 spring fix, and no-shows from companies that never called back.</p>
+              <p style={{ color: 'rgba(255,255,255,0.75)', lineHeight: 1.9, marginBottom: 20 }}>We built a small team around three rules: arrive when we say we will, quote the real number before a wrench turns, and leave the door balanced and safe before we drive away.</p>
+              <p style={{ color: 'rgba(255,255,255,0.75)', lineHeight: 1.9, marginBottom: 32 }}>Five years and {JOBS_TOTAL} jobs across Ottawa later, a 5.0 Google rating tells us those rules still matter to the people who call us.</p>
               <div style={{ padding: '22px 26px', background: 'rgba(249,115,22,0.08)', borderLeft: '4px solid var(--orange)', borderRadius: '0 14px 14px 0', marginBottom: 32 }}>
                 <p style={{ color: 'rgba(255,255,255,0.9)', fontWeight: 600,  lineHeight: 1.8, margin: 0 }}>
-                  "We do not just fix garage doors. We give Ottawa homeowners peace of mind — that their home is secure, their family is safe, and the job was done right."
+                  "We fix doors — but what people remember is knowing the price upfront, the door actually working, and someone local picking up the phone."
                 </p>
               </div>
             </div>
             <div style={{ display: 'flex', flexDirection: 'column', gap: 14, minWidth: 0 }}>
-              {[
-                { icon: '🏠', title: 'Family-Owned and Operated', desc: 'Not a franchise or contractor marketplace. A real Ottawa family business.' },
-                { icon: '📋', title: 'Licensed and Fully Insured', desc: 'Fully licensed in Ontario with $2 million liability coverage on every job. Certifications and insurance verified for your peace of mind.' },
-                { icon: '🔩', title: '50+ Parts on Every Truck', desc: 'Most repairs completed in one visit — no ordering delays, no second trips.' },
-                { icon: '💬', title: 'Free Phone Diagnosis', desc: 'Tell us what is happening and we will give a realistic price range before arriving.' },
-                { icon: '❄️', title: 'Ottawa Winter Specialists', desc: 'Cold-rated springs, low-temp lubricants, insulated seals — in stock year-round.' },
-                { icon: '🇨🇦', title: 'Proudly Ottawa-Based', desc: 'We source from Canadian suppliers and hire Ottawa residents.' },
-              ].map(item => (
+              {aboutStoryCards.map(item => (
                 <div key={item.title} className="glass-card" style={{ padding: '18px 22px', display: 'flex', gap: 16, alignItems: 'flex-start' }}>
                   <span style={{ fontSize: '1.5rem', flexShrink: 0 }}>{item.icon}</span>
                   <div>
@@ -89,7 +78,7 @@ export default function AboutPage() {
           </div>
           <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))', gap: 24 }}>
             {[
-              { icon: '🤝', title: 'Honesty First', desc: 'Full written price before we touch anything. If we can repair instead of replace, we always say so — even if it means a smaller invoice.' },
+              { icon: '🤝', title: 'Honesty First', desc: 'You see the full price in writing before work starts. If a repair beats a replacement, we say so — even when it means a smaller bill.' },
               { icon: '⚡', title: 'Fast Response', desc: 'Same-day service 7 days a week. Emergency calls answered within 90 minutes across all Ottawa — no overtime premium.' },
               { icon: '🏆', title: 'Premium Parts Only', desc: 'Every truck carries LiftMaster, Chamberlain, Garaga, and Clopay parts. We never substitute cheap hardware.' },
               { icon: '❄️', title: 'Ottawa Climate Experts', desc: 'Specializing in how Ottawa extreme temperature swings affect every component of a garage door system.' },
@@ -147,7 +136,7 @@ export default function AboutPage() {
             EXPERIENCE THE OTTAWA - GDR DIFFERENCE
           </h2>
           <p style={{ color: 'rgba(255,255,255,0.92)', fontSize: '1.05rem', marginBottom: 36, lineHeight: 1.8 }}>
-            Join 1,000+ Ottawa homeowners who trust Ottawa - GDR for honest, reliable garage door service.
+            Join {JOBS_TOTAL} Ottawa neighbours who trust Ottawa - GDR for honest, reliable garage door service.
           </p>
           <div style={{ display: 'flex', gap: 16, justifyContent: 'center', flexWrap: 'wrap' }}>
             <a href={PHONE_HREF} style={{ display: 'inline-flex', alignItems: 'center', gap: 10, background: 'white', color: '#ea580c', fontWeight: 800, fontSize: '1.1rem', padding: '16px 36px', borderRadius: 100, textDecoration: 'none' }}>

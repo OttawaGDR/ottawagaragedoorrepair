@@ -15,7 +15,7 @@ const posts = {
       { heading: 'Cable Replacement', content: 'Broken or frayed cables are a safety hazard. Cable repair in Ottawa typically costs $170–$250 for both cables including labour. Never attempt to replace cables yourself — they are under extreme tension.' },
       { heading: 'Panel Repair', content: "We don't replace panels — we repair them. Panel repair starts at $170. If your door is older or severely damaged, a new door may make more sense; new garage doors start from $1,800–$4,500 depending on size and model." },
       { heading: 'Track Adjustment or Replacement', content: 'If your door is off-track or rubbing, a track adjustment runs $95–$150. Full track replacement is $200–$350. Left unaddressed, misaligned tracks will damage your rollers and panels.' },
-      { heading: 'Maintenance Tune-Up', content: 'Our full 21-point maintenance tune-up is $150. Diagnosis and written quote are always provided before any work begins.' },
+      { heading: 'Maintenance Tune-Up', content: 'Our full 21-point maintenance tune-up is $150. Inspection findings and an approved price are always shared before any work begins.' },
     ],
   },
   'broken-spring-ottawa-what-to-do': {

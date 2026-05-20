@@ -197,6 +197,65 @@ iframe { max-width: 100%; }
   color: transparent;
 }
 
+/* Area / suburb pages — readable location name (no outline stroke) */
+.area-hero-title {
+  margin: 0 0 20px;
+  color: white;
+}
+.area-hero-title .area-hero-line {
+  display: block;
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: clamp(1.65rem, 4.5vw, 2.75rem);
+  font-weight: 900;
+  text-transform: uppercase;
+  letter-spacing: 0.03em;
+  line-height: 1.15;
+  color: white;
+  text-shadow: 0 2px 16px rgba(0, 0, 0, 0.45);
+}
+.area-name-hero {
+  display: block;
+  margin-top: 0.2em;
+  font-family: var(--font-display), 'Inter', system-ui, sans-serif;
+  font-size: clamp(2rem, 7vw, 3.25rem);
+  font-weight: 800;
+  color: var(--orange);
+  text-transform: none;
+  letter-spacing: -0.02em;
+  line-height: 1.15;
+  -webkit-text-stroke: 0;
+  text-decoration: none;
+  word-break: normal;
+  overflow-wrap: break-word;
+}
+.area-cta-title {
+  font-family: var(--font-display), 'Inter', system-ui, sans-serif;
+  font-size: clamp(1.5rem, 5vw, 2.5rem);
+  font-weight: 800;
+  color: white;
+  text-transform: none;
+  letter-spacing: -0.02em;
+  line-height: 1.2;
+  margin: 0 0 12px;
+  -webkit-text-stroke: 0;
+}
+.area-card-name {
+  font-family: var(--font-display), 'Inter', system-ui, sans-serif;
+  font-size: 1.5rem;
+  font-weight: 800;
+  margin: 0 0 6px;
+  letter-spacing: -0.01em;
+  line-height: 1.2;
+  color: white;
+  text-decoration: none;
+  -webkit-text-stroke: 0;
+}
+@media (max-width: 768px) {
+  .area-card-name {
+    font-size: 1.35rem;
+  }
+}
+
 .badge {
   display: inline-flex;
   align-items: center;
@@ -980,7 +1039,7 @@ select.form-input option { background: var(--navy-mid); color: white; }
   .stat-label { word-break: normal; overflow-wrap: break-word; }
 }
 @media (max-width: 480px) {
-  /* Stats: single column so 85%, $220+, labels have full width */
+  /* Stats: single column so 9/10, $220+, labels have full width */
   [style*="grid-template-columns: repeat(4"] { grid-template-columns: 1fr !important; }
 }
 
@@ -1031,6 +1090,20 @@ select.form-input option { background: var(--navy-mid); color: white; }
   .area-detail-page .display-xl,
   .area-detail-page .heading-lg,
   .area-detail-page .heading-xl { word-break: normal; overflow-wrap: break-word; }
+  .area-detail-page .area-hero-title .area-hero-line {
+    font-size: clamp(1.35rem, 5vw, 2rem);
+    letter-spacing: 0.02em;
+  }
+  .area-detail-page .area-name-hero {
+    font-size: clamp(1.75rem, 8vw, 2.5rem);
+    line-height: 1.2;
+    -webkit-text-stroke: 0 !important;
+    color: var(--orange) !important;
+  }
+  .area-detail-page .area-cta-title {
+    font-size: clamp(1.35rem, 5.5vw, 2rem);
+    padding: 0 4px;
+  }
   .area-detail-page p,
   .area-detail-page .light-card,
   .area-detail-page .glass-card {

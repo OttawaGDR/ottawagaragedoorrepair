@@ -142,10 +142,9 @@ export default async function AreaPage({ params }) {
           <div className="area-hero-grid" style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 60, alignItems: 'center' }}>
             <div className="area-hero-content">
               <div className="badge" style={{ marginBottom: 24 }}>📍 Now Serving {area.name}</div>
-              <h1 className="display-xl" style={{ marginBottom: 20, color: 'white' }}>
-                GARAGE DOOR<br />
-                <span className="text-gradient glow-text">REPAIR</span><br />
-                <span className="orange-outline">{area.name.toUpperCase()}</span>
+              <h1 className="area-hero-title">
+                <span className="area-hero-line">Garage Door Repair</span>
+                <span className="area-name-hero">{area.name}</span>
               </h1>
               <p style={{ color: 'var(--gray-400)', lineHeight: 1.8, fontSize: '1rem', marginBottom: 16 }}>
                 {areaContent?.intro
@@ -212,7 +211,7 @@ export default async function AreaPage({ params }) {
             <div className="area-content-col">
               <span className="section-label" style={{ color: 'var(--orange)' }}>Local Expertise</span>
               <h2 className="heading-lg" style={{ color: 'var(--navy)', marginBottom: 20 }}>
-                Why {area.name} Homeowners Choose Ottawa - GDR
+                Why {area.name} Calls Ottawa - GDR
               </h2>
               {areaContent?.localContext ? (
                 <p style={{ color: 'var(--gray-600)', lineHeight: 1.8, marginBottom: 24 }}>
@@ -245,7 +244,7 @@ export default async function AreaPage({ params }) {
                   { icon: '⚡', title: `Under 90 Min Arrival`, desc: `We arrive in under 90 minutes everywhere in Ottawa — including ${area.name}. We call 30 min before arrival.` },
                   { icon: '🔧', title: 'All Makes & Models Serviced', desc: 'We stock parts for all major door and opener brands.' },
                   { icon: '❄️', title: 'Ottawa Winter Specialists', desc: 'Cold-weather door failures are our specialty. We work year-round.' },
-                  { icon: '💰', title: 'Honest Upfront Pricing', desc: 'Full written quote before we start. No hidden fees ever.' },
+                  { icon: '💰', title: 'Price Locked First', desc: 'You approve the total in writing before we start — no add-ons at the end.' },
                 ].map(item => (
                   <div key={item.title} className="light-card" style={{ padding: '18px 22px', display: 'flex', gap: 16, alignItems: 'flex-start' }}>
                     <span style={{ fontSize: '1.4rem', flexShrink: 0 }}>{item.icon}</span>
@@ -416,8 +415,8 @@ export default async function AreaPage({ params }) {
       {/* CTA */}
       <section style={{ background: 'var(--orange)', padding: '70px 0', textAlign: 'center' }}>
         <div className="container">
-          <h2 className="display-xl" style={{ marginBottom: 12 }}>
-            GARAGE DOOR REPAIR IN {area.name.toUpperCase()}
+          <h2 className="area-cta-title">
+            Garage Door Repair in {area.name}
           </h2>
           <p style={{ color: 'rgba(255,255,255,0.9)', fontSize: '1.05rem', marginBottom: 36 }}>
             Same-day service · Licensed & insured · 5-star rated
