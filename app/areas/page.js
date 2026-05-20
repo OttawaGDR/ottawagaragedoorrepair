@@ -3,7 +3,7 @@ import { areas, PHONE, PHONE_HREF } from '../../lib/data';
 export const metadata = {
   title: 'Garage Door Repair Across Ottawa | All Areas',
   description: `Garage door repair across all Ottawa neighborhoods. Kanata, Barrhaven, Nepean, Orleans, Stittsville, Gloucester and more. Same-day service. Call ${PHONE}.`,
-  alternates: { canonical: 'https://ottawagaragedoorrepair.ca/areas' },
+  alternates: { canonical: 'https://www.ottawagaragedoorrepair.ca/areas' },
 };
 
 const areaDetails = [

@@ -1,4 +1,4 @@
-const BASE = 'https://ottawagaragedoorrepair.ca';
+const BASE = 'https://www.ottawagaragedoorrepair.ca';
 
 /** @type {import('next').MetadataRoute.Robots} */
 export default function robots() {

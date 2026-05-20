@@ -20,7 +20,7 @@ export async function generateMetadata({ params }) {
     title,
     description,
     keywords: service.keywords || ['garage door services Ottawa', 'garage door repairs Ottawa'],
-    alternates: { canonical: `https://ottawagaragedoorrepair.ca/services/${slug}` },
+    alternates: { canonical: `https://www.ottawagaragedoorrepair.ca/services/${slug}` },
   };
 }
 

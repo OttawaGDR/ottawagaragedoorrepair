@@ -1,6 +1,6 @@
 import { services, areas, blogPosts } from '../lib/data';
 
-const BASE = 'https://ottawagaragedoorrepair.ca';
+const BASE = 'https://www.ottawagaragedoorrepair.ca';
 
 /** @type {import('next').MetadataRoute.Sitemap} */
 export default function sitemap() {

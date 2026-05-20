@@ -4,7 +4,7 @@ export const metadata = {
   title: 'Garage Door Repair & Opener FAQ Ottawa',
   description: 'FAQ: garage door services Ottawa, garage door repairs, garage door opener repair costs. Pricing, springs, maintenance, same-day service.',
   keywords: ['garage door repair Ottawa FAQ', 'garage door opener repair Ottawa', 'garage door services Ottawa'],
-  alternates: { canonical: 'https://ottawagaragedoorrepair.ca/faq' },
+  alternates: { canonical: 'https://www.ottawagaragedoorrepair.ca/faq' },
 };
 
 const faqSections = [

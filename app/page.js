@@ -7,12 +7,12 @@ import QuoteCalculator from './components/QuoteCalculator';
 const websiteJsonLd = {
   '@context': 'https://schema.org',
   '@type': 'WebSite',
-  '@id': 'https://ottawagaragedoorrepair.ca/#website',
+  '@id': 'https://www.ottawagaragedoorrepair.ca/#website',
   name: 'Ottawa Garage Door Repair',
   alternateName: ['Ottawa - GDR'],
-  url: 'https://ottawagaragedoorrepair.ca/',
+  url: 'https://www.ottawagaragedoorrepair.ca/',
   description: 'Garage door services Ottawa — garage door repairs, garage door opener repair and installation.',
-  publisher: { '@id': 'https://ottawagaragedoorrepair.ca/#organization' },
+  publisher: { '@id': 'https://www.ottawagaragedoorrepair.ca/#organization' },
   inLanguage: 'en-CA',
 };
 
@@ -24,7 +24,7 @@ export const metadata = {
   openGraph: {
     title: `Ottawa Garage Door Repair | Garage Door Services & Repairs | ${PHONE}`,
     description: 'Garage door services Ottawa & repairs. Opener repair, springs, cables. Same-day service. Call (613) 617-4238.',
-    url: 'https://ottawagaragedoorrepair.ca',
+    url: 'https://www.ottawagaragedoorrepair.ca',
   },
 };
 

@@ -154,7 +154,7 @@ export async function generateMetadata({ params }) {
   return {
     title: post.title,
     description: post.intro?.slice(0, 160) || `Garage door repair and opener advice for Ottawa. ${post.title}`,
-    alternates: { canonical: `https://ottawagaragedoorrepair.ca/blog/${slug}` },
+    alternates: { canonical: `https://www.ottawagaragedoorrepair.ca/blog/${slug}` },
   };
 }
 

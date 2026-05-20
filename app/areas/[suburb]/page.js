@@ -5,7 +5,7 @@ export async function generateStaticParams() {
   return areas.map(a => ({ suburb: a.slug }));
 }
 
-const SITE_URL = 'https://ottawagaragedoorrepair.ca';
+const SITE_URL = 'https://www.ottawagaragedoorrepair.ca';
 
 export async function generateMetadata({ params }) {
   const { suburb } = await params;
