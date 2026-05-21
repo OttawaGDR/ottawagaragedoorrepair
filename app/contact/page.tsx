@@ -1,8 +1,8 @@
 import { PHONE, PHONE_HREF, EMAIL, services, areas } from '../../lib/data';
 
 export const metadata = {
-  title: 'Contact Us | Garage Door Services Ottawa',
-  description: 'Contact Ottawa - GDR for garage door repairs, opener repair & installation. Call (613) 617-4238 or request a quote. Same-day service across Ottawa.',
+  title: 'Contact Us',
+  description: 'Call or request a quote for garage door repair in Ottawa — springs, openers, cables, and installs. Same-day service across every neighbourhood.',
   alternates: { canonical: 'https://www.ottawagaragedoorrepair.ca/contact' },
 };
 

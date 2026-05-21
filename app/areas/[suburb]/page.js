@@ -1,18 +1,17 @@
 import { areas, services, testimonials, faqs, PHONE, PHONE_HREF } from '../../../lib/data';
 import { getAreaContent, getAreaMetaDescription } from '../../../lib/areaPageContent';
+import { OG_SITE_NAME, SITE_BRAND, SITE_URL } from '../../../lib/seo';
 
 export async function generateStaticParams() {
   return areas.map(a => ({ suburb: a.slug }));
 }
-
-const SITE_URL = 'https://www.ottawagaragedoorrepair.ca';
 
 export async function generateMetadata({ params }) {
   const { suburb } = await params;
   const area = areas.find(a => a.slug === suburb);
   if (!area) return {};
   const areaUrl = `${SITE_URL}/areas/${suburb}`;
-  const title = `Garage Door Repair ${area.name} | Same-Day Service`;
+  const title = { absolute: `Garage Door Repair ${area.name} | Springs & Openers | Same-Day` };
   const uniqueMeta = getAreaMetaDescription(suburb);
   const description = uniqueMeta
     ? `${uniqueMeta} Same-day service for springs, openers & cables. Licensed, 5★ rated. Call ${PHONE}.`
@@ -22,10 +21,10 @@ export async function generateMetadata({ params }) {
     description,
     alternates: { canonical: areaUrl },
     openGraph: {
-      title: `Garage Door Repair ${area.name} | Ottawa Garage Door Repair`,
+      title: `Garage Door Repair ${area.name} | Springs & Openers | Same-Day`,
       description,
       url: areaUrl,
-      siteName: 'Ottawa Garage Door Repair',
+      siteName: OG_SITE_NAME,
       locale: 'en_CA',
     },
     keywords: [
@@ -62,8 +61,8 @@ export default async function AreaPage({ params }) {
     '@context': 'https://schema.org',
     '@type': 'LocalBusiness',
     '@id': `${SITE_URL}/#organization`,
-    name: 'Ottawa Garage Door Repair',
-    alternateName: 'Ottawa - GDR',
+    name: SITE_BRAND,
+    alternateName: 'ottawagaragedoorrepair.ca',
     description: areaContent?.intro
       ? `${areaContent.intro} Same-day repair and installation for springs, openers, cables, and emergencies.`
       : `Garage door repair and installation in ${area.name}, Ottawa. Same-day service for springs, openers, cables, and emergency repairs.`,

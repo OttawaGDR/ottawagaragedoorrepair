@@ -1,6 +1,6 @@
 export const metadata = {
-  title: 'Book a visit | Garage Door Services Ottawa',
-  description: 'Book a garage door service slot Mon–Fri 9AM–5PM. We’ll call you to confirm. Ottawa - GDR.',
+  title: 'Book a Visit',
+  description: 'Book a garage door service slot Mon–Fri 9AM–5PM. We’ll call you to confirm your appointment across Ottawa.',
   alternates: { canonical: 'https://www.ottawagaragedoorrepair.ca/booking' },
 };
 

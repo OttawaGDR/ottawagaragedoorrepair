@@ -3,8 +3,8 @@ import { PHONE, PHONE_HREF } from '../../lib/data';
 import { faqCategories, FAQ_TOTAL, getAllFaqItems } from '../../lib/faqPageData';
 
 export const metadata = {
-  title: 'Garage Door FAQ Ottawa | 33 Expert Answers',
-  description: `Search ${FAQ_TOTAL} garage door FAQ answers for Ottawa — pricing, springs, openers, winters, installs, and booking. Honest answers from Ottawa - GDR.`,
+  title: 'FAQ — 33 Expert Answers',
+  description: `Search ${FAQ_TOTAL} garage door FAQ answers for Ottawa — pricing, springs, openers, winter care, installs, and booking. Straight answers from a local repair crew.`,
   keywords: ['garage door FAQ Ottawa', 'garage door repair questions', 'garage door opener FAQ'],
   alternates: { canonical: 'https://www.ottawagaragedoorrepair.ca/faq' },
 };

@@ -1,4 +1,5 @@
 import { services, PHONE, PHONE_HREF } from '../../../lib/data';
+import { SITE_BRAND } from '../../../lib/seo';
 import { serviceWhatsIncluded, serviceFaqs } from '../../../lib/serviceContent';
 import { servicePageTrustBullets } from '../../../lib/siteCopy';
 
@@ -10,13 +11,8 @@ export async function generateMetadata({ params }) {
   const { slug } = await params;
   const service = services.find(s => s.slug === slug);
   if (!service) return {};
-  const isOpener = slug.includes('opener');
-  const title = isOpener
-    ? `${service.title} Ottawa | Garage Door Opener Services`
-    : `${service.title} Ottawa | Garage Door Services`;
-  const description = isOpener
-    ? `Garage door opener repair & ${service.title.toLowerCase()} in Ottawa. ${service.shortDesc} Same-day. Call ${PHONE}.`
-    : `Professional ${service.title.toLowerCase()} in Ottawa. ${service.shortDesc} Same-day garage door services. Call ${PHONE}.`;
+  const title = { absolute: `${service.title} Ottawa | Springs & Openers | Same-Day` };
+  const description = `${service.shortDesc} Same-day ${service.title.toLowerCase()} in Ottawa. Licensed & insured. Call ${PHONE}.`;
   return {
     title,
     description,
@@ -48,7 +44,7 @@ export default async function ServicePage({ params }) {
     '@context': 'https://schema.org',
     '@type': 'Service',
     name: `${service.title} in Ottawa`,
-    provider: { '@type': 'LocalBusiness', name: 'Ottawa Garage Door Repair', telephone: PHONE },
+    provider: { '@type': 'LocalBusiness', name: SITE_BRAND, telephone: PHONE },
     areaServed: 'Ottawa, Ontario, Canada',
     description: service.fullDesc,
   };

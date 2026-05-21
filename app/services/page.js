@@ -3,13 +3,13 @@ import { EMERGENCY_REPAIR_INTRO, whyChooseUsCards, servicesGallerySection } from
 import Icon from '../components/Icons';
 
 export const metadata = {
-  title: 'Garage Door Services Ottawa | Repairs & Opener Repair',
-  description: `Garage door services Ottawa: garage door repairs, garage door opener repair & installation. Springs, cables, new doors. Same-day, 5-star rated. Call ${PHONE}.`,
-  keywords: ['garage door services Ottawa', 'garage door repairs Ottawa', 'garage door opener services Ottawa', 'garage door opener repair Ottawa'],
+  title: 'Springs, Openers & Door Repair',
+  description: `Garage door repair in Ottawa — spring replacement, opener repair, cables, and new door installs. Same-day service, upfront pricing. Call ${PHONE}.`,
+  keywords: ['garage door repair Ottawa', 'garage door spring repair Ottawa', 'garage door opener repair Ottawa', 'garage door installation Ottawa'],
   alternates: { canonical: 'https://www.ottawagaragedoorrepair.ca/services' },
   openGraph: {
-    title: 'Ottawa Garage Door Repair | Garage Door Services Ottawa | Repairs & Opener',
-    description: 'Complete garage door services and repairs in Ottawa. Opener repair, springs, cables. Same-day service.',
+    title: 'Springs, Openers & Door Repair | Garage Door Repair Ottawa',
+    description: `Spring replacement, opener repair, cables, and new doors in Ottawa. Same-day service. Call ${PHONE}.`,
     url: 'https://www.ottawagaragedoorrepair.ca/services',
   },
 };

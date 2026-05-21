@@ -2,7 +2,7 @@ import { PHONE_HREF } from '../../lib/data';
 
 export const metadata = {
   title: 'Privacy Policy',
-  description: 'Privacy policy for Ottawa - GDR. How we collect, use, and protect your information when you contact us for garage door services in Ottawa.',
+  description: 'Privacy policy for ottawagaragedoorrepair.ca. How we collect, use, and protect your information when you contact us for garage door services in Ottawa.',
   alternates: { canonical: 'https://www.ottawagaragedoorrepair.ca/privacy' },
 };
 

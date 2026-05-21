@@ -2,8 +2,8 @@ import { PHONE, PHONE_HREF, testimonials, aboutStats, JOBS_TOTAL } from '../../l
 import { aboutStoryCards } from '../../lib/siteCopy';
 
 export const metadata = {
-  title: 'About Us | Garage Door Services Ottawa',
-  description: "Ottawa - GDR delivers garage door services Ottawa trusts: garage door repairs, garage door opener repair. Local family business since 2020.",
+  title: 'About Us',
+  description: 'Local Ottawa garage door crew since 2020 — springs, openers, repairs, and installs. Upfront pricing, same-day service, and a labour guarantee on every job.',
   alternates: { canonical: 'https://www.ottawagaragedoorrepair.ca/about' },
 };
 

@@ -1,4 +1,5 @@
 import { services, areas, testimonials, faqs, blogPosts, galleryImages, PHONE, PHONE_HREF, homepageStats } from '../lib/data';
+import { META_TITLE_HOME, META_DESCRIPTION_HOME, SITE_BRAND, SITE_URL } from '../lib/seo';
 import {
   trustBarItems,
   heroFeaturePills,
@@ -17,23 +18,21 @@ const websiteJsonLd = {
   '@context': 'https://schema.org',
   '@type': 'WebSite',
   '@id': 'https://www.ottawagaragedoorrepair.ca/#website',
-  name: 'Ottawa Garage Door Repair',
-  alternateName: ['Ottawa - GDR'],
-  url: 'https://www.ottawagaragedoorrepair.ca/',
-  description: 'Garage door services Ottawa — garage door repairs, garage door opener repair and installation.',
+  name: SITE_BRAND,
+  alternateName: ['ottawagaragedoorrepair.ca'],
+  url: `${SITE_URL}/`,
+  description: META_DESCRIPTION_HOME,
   publisher: { '@id': 'https://www.ottawagaragedoorrepair.ca/#organization' },
   inLanguage: 'en-CA',
 };
 
 export const metadata = {
-  title: {
-    absolute: `Ottawa Garage Door Repair | Garage Door Services & Repairs | ${PHONE}`,
-  },
-  description: 'Garage door services Ottawa & repairs. Opener repair, springs, cables. Same-day service, 5.0 Google rating. Call (613) 617-4238.',
+  title: { absolute: META_TITLE_HOME },
+  description: META_DESCRIPTION_HOME,
   openGraph: {
-    title: `Ottawa Garage Door Repair | Garage Door Services & Repairs | ${PHONE}`,
-    description: 'Garage door services Ottawa & repairs. Opener repair, springs, cables. Same-day service. Call (613) 617-4238.',
-    url: 'https://www.ottawagaragedoorrepair.ca',
+    title: META_TITLE_HOME,
+    description: META_DESCRIPTION_HOME,
+    url: SITE_URL,
   },
 };
 
