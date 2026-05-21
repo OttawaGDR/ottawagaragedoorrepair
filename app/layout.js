@@ -311,6 +311,7 @@ function Navbar() {
                 <a href="/blog" className="dropdown-view-all">View All Articles →</a>
               </div>
             </div>
+            <a href="/faq" className="nav-item">FAQ</a>
             <a href="/about" className="nav-item">ABOUT</a>
             <a href="/contact" className="nav-item">CONTACT</a>
             <a href="/booking" className="nav-item">BOOK A VISIT</a>
@@ -324,6 +325,7 @@ function Navbar() {
                 <a href="/services">Services</a>
                 <a href="/areas">Areas</a>
                 <a href="/blog">Blog</a>
+                <a href="/faq">FAQ</a>
                 <a href="/about">About</a>
                 <a href="/contact">Contact</a>
                 <a href="/booking">Book a visit</a>
@@ -388,7 +390,7 @@ function Footer() {
           </div>
           <div>
             <h4 className="footer-col-title">Company</h4>
-            {[['About Us', '/about'], ['Contact', '/contact'], ['Book a visit', '/booking'], ['Blog', '/blog'], ['Emergency Service', '/services/emergency-repair']].map(([label, href]) => (
+            {[['About Us', '/about'], ['FAQ', '/faq'], ['Contact', '/contact'], ['Book a visit', '/booking'], ['Blog', '/blog'], ['Emergency Service', '/services/emergency-repair']].map(([label, href]) => (
               <a key={href} href={href} className="footer-link">{label}</a>
             ))}
           </div>
