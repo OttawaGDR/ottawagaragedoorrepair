@@ -216,7 +216,7 @@ export default async function BlogPostPage({ params }) {
             <div className="glass-card" style={{ padding: 36, marginTop: 48, textAlign: 'center' }}>
               <div style={{ marginBottom: 16, display: 'flex', justifyContent: 'center' }}><Icon name="wrench" size={48} style={{ color: 'var(--orange)' }} /></div>
               <h3 className="display-lg" style={{ fontSize: 'clamp(1.5rem, 4vw, 2.2rem)', marginBottom: 12 }}>NEED A GARAGE DOOR REPAIR IN OTTAWA?</h3>
-              <p style={{ color: 'var(--gray-400)', marginBottom: 28, lineHeight: 1.75 }}>Same-day service across all Ottawa. Free diagnosis. Upfront pricing. 5.0 ★ Google rating.</p>
+              <p style={{ color: 'var(--gray-400)', marginBottom: 28, lineHeight: 1.75 }}>Same-day service across all Ottawa. Free diagnosis. Upfront pricing. 5.0 ★ rating.</p>
               <a href={PHONE_HREF} className="btn-primary" style={{ fontSize: '1.05rem', display: 'inline-flex', alignItems: 'center', gap: 8 }}><Icon name="phone" size={20} /> Call {PHONE}</a>
             </div>
           </article>

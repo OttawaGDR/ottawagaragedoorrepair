@@ -1,5 +1,5 @@
 import './globals.css';
-import { services, areas, testimonials, PHONE, PHONE_HREF, SMS_HREF, EMAIL, FACEBOOK_URL, INSTAGRAM_URL, GOOGLE_REVIEW_COUNT, BUSINESS_NAME } from '../lib/data';
+import { services, areas, testimonials, PHONE, PHONE_HREF, SMS_HREF, EMAIL, FACEBOOK_URL, INSTAGRAM_URL, REVIEW_COUNT, BUSINESS_NAME } from '../lib/data';
 import {
   META_TITLE_HOME,
   META_TITLE_TEMPLATE,
@@ -69,7 +69,7 @@ const jsonLd = {
     { '@type': 'OpeningHoursSpecification', dayOfWeek: ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday'], opens: '09:00', closes: '21:00', description: 'Same-day service' },
     { '@type': 'OpeningHoursSpecification', dayOfWeek: ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday'], opens: '00:00', closes: '23:59', description: '24/7 emergency' },
   ],
-  aggregateRating: { '@type': 'AggregateRating', ratingValue: '5.0', reviewCount: String(GOOGLE_REVIEW_COUNT), bestRating: '5', worstRating: '1' },
+  aggregateRating: { '@type': 'AggregateRating', ratingValue: '5.0', reviewCount: String(REVIEW_COUNT), bestRating: '5', worstRating: '1' },
   review: testimonials.map((t) => {
     const monthMap = { january: '01', february: '02', march: '03', april: '04', may: '05', june: '06', july: '07', august: '08', september: '09', october: '10', november: '11', december: '12' };
     const [monthName, year] = t.date.split(' ');

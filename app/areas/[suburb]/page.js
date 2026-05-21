@@ -334,7 +334,7 @@ export default async function AreaPage({ params }) {
                   ['Emergency Service', '24 Hours / 7 Days'],
                   ['Response Time', 'Under 90 Minutes'],
                   ['Coverage', area.desc],
-                  ['Rating', '⭐⭐⭐⭐⭐ 5.0 Google'],
+                  ['Rating', '⭐⭐⭐⭐⭐ 5.0'],
                 ].map(([label, value]) => (
                   <div key={label} className="area-service-info-row" style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', padding: '10px 0', borderBottom: '1px solid var(--gray-100)', gap: 12 }}>
                     <span style={{ color: 'var(--gray-600)', fontSize: '0.88rem', flexShrink: 0 }}>{label}</span>
