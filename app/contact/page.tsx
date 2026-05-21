@@ -1,8 +1,9 @@
-import { PHONE, PHONE_HREF, EMAIL, services, areas, BUSINESS_NAME } from '../../lib/data';
+import { PHONE, PHONE_HREF, SMS_HREF, EMAIL, services, areas, BUSINESS_NAME } from '../../lib/data';
+import ContactCallbackForm from '../components/ContactCallbackForm';
 
 export const metadata = {
   title: 'Contact Us',
-  description: 'Call or request a quote for garage door repair in Ottawa — springs, openers, cables, and installs. Same-day service across every neighbourhood.',
+  description: 'Call, text, or request a callback for garage door repair in Ottawa — springs, openers, cables, and installs. Same-day service across every neighbourhood.',
   alternates: { canonical: 'https://www.ottawagaragedoorrepair.ca/contact' },
 };
 
@@ -17,7 +18,7 @@ export default function ContactPage() {
               CONTACT <span className="text-gradient">{BUSINESS_NAME.toUpperCase()}</span>
             </h1>
             <p style={{ color: 'rgba(255,255,255,0.75)', lineHeight: 1.8, fontSize: '1.05rem', marginBottom: 20 }}>
-              Need <a href="/services" style={{ color: 'var(--orange)', fontWeight: 600, textDecoration: 'underline', textUnderlineOffset: 2 }}>garage door repair</a> or a free quote? Call us anytime — we answer 24/7. Or <a href="/booking" style={{ color: 'var(--orange)', fontWeight: 600, textDecoration: 'underline', textUnderlineOffset: 2 }}>book a visit</a> (Mon–Fri 9–5) and we&apos;ll call to confirm. Serving <a href="/areas" style={{ color: 'var(--orange)', fontWeight: 600, textDecoration: 'underline', textUnderlineOffset: 2 }}>all Ottawa areas</a>.
+              Need <a href="/services" style={{ color: 'var(--orange)', fontWeight: 600, textDecoration: 'underline', textUnderlineOffset: 2 }}>garage door repair</a> or a free quote? Call or text us anytime — we answer 24/7. Or <a href="/booking" style={{ color: 'var(--orange)', fontWeight: 600, textDecoration: 'underline', textUnderlineOffset: 2 }}>book a visit</a> (Mon–Fri 9–5) and we&apos;ll call to confirm. Serving <a href="/areas" style={{ color: 'var(--orange)', fontWeight: 600, textDecoration: 'underline', textUnderlineOffset: 2 }}>all Ottawa areas</a>.
             </p>
             <ul style={{ color: 'rgba(255,255,255,0.7)', fontSize: '0.95rem', lineHeight: 1.75, margin: 0, paddingLeft: 20 }}>
               <li style={{ marginBottom: 6 }}><strong style={{ color: 'rgba(255,255,255,0.9)' }}>Same-day service</strong> — We arrive in under 90 minutes across Ottawa and the region.</li>
@@ -29,56 +30,7 @@ export default function ContactPage() {
           <div className="contact-grid" style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 48, alignItems: 'start' }}>
             {/* Contact form */}
             <div className="glass-card border-glow" style={{ padding: 40 }}>
-              <h2 style={{ fontFamily: 'var(--font-display)', fontSize: '1.5rem', fontWeight: 800, color: 'white', marginBottom: 8 }}>Request a Callback</h2>
-              <p style={{ color: 'rgba(255,255,255,0.65)', fontSize: '0.9rem', marginBottom: 28 }}>We arrive in under 90 min across all Ottawa areas</p>
-              <form action="#" method="post" style={{ display: 'flex', flexDirection: 'column', gap: 20 }}>
-                <div className="form-group">
-                  <label className="form-label" htmlFor="contact-service">Service Needed</label>
-                  <select id="contact-service" name="service" className="form-input" required>
-                    <option value="">Select a service...</option>
-                    {services.map(s => <option key={s.slug} value={s.slug}>{s.title}</option>)}
-                  </select>
-                </div>
-                <div className="form-group">
-                  <label className="form-label" htmlFor="contact-area">Your Area</label>
-                  <select id="contact-area" name="area" className="form-input" required>
-                    <option value="">Select your neighborhood...</option>
-                    {areas.map(a => <option key={a.slug} value={a.slug}>{a.name}</option>)}
-                  </select>
-                </div>
-                <div className="form-group">
-                  <label className="form-label" htmlFor="contact-name">Your Name</label>
-                  <input id="contact-name" name="name" className="form-input" type="text" placeholder="John Smith" required />
-                </div>
-                <div className="form-group">
-                  <label className="form-label" htmlFor="contact-email">Your Email</label>
-                  <input id="contact-email" name="email" className="form-input" type="email" placeholder="you@example.com" />
-                </div>
-                <div className="form-group">
-                  <label className="form-label" htmlFor="contact-phone">Your Phone</label>
-                  <input id="contact-phone" name="phone" className="form-input" type="tel" placeholder="(613) 000-0000" required />
-                </div>
-                <div className="form-group">
-                  <label className="form-label" htmlFor="contact-message">Issue Description</label>
-                  <textarea id="contact-message" name="message" className="form-input" rows={3} placeholder="Describe the issue (e.g. spring broken, door off track, opener not responding)..." style={{ resize: 'vertical', minHeight: 80 }} />
-                </div>
-                <div className="form-group">
-                  <label className="form-label" htmlFor="contact-time">Preferred Time</label>
-                  <select id="contact-time" name="preferredTime" className="form-input">
-                    <option value="">Any time</option>
-                    <option value="morning">Morning (8AM – 12PM)</option>
-                    <option value="afternoon">Afternoon (12PM – 5PM)</option>
-                    <option value="evening">Evening (5PM – 9PM)</option>
-                    <option value="asap">As soon as possible / Emergency</option>
-                  </select>
-                </div>
-                <a href={PHONE_HREF} className="btn-primary" style={{ width: '100%', justifyContent: 'center', display: 'inline-flex', alignItems: 'center', gap: 8 }}>
-                  📞 Call for Instant Quote
-                </a>
-                <p style={{ fontSize: '0.78rem', color: 'rgba(255,255,255,0.45)', textAlign: 'center', margin: 0 }}>
-                  Prefer to call? Dial <a href={PHONE_HREF} style={{ color: 'var(--orange)', fontWeight: 700 }}>{PHONE}</a> now
-                </p>
-              </form>
+              <ContactCallbackForm services={services} areas={areas} />
             </div>
 
             {/* Contact info */}
@@ -91,6 +43,17 @@ export default function ContactPage() {
                   <div style={{ fontWeight: 800, color: 'white', fontSize: '1.1rem', marginBottom: 6 }}>Call Us 24/7</div>
                   <a href={PHONE_HREF} style={{ fontSize: '1.25rem', color: 'var(--orange)', fontWeight: 800, textDecoration: 'none' }}>{PHONE}</a>
                   <p style={{ color: 'rgba(255,255,255,0.6)', fontSize: '0.88rem', marginTop: 8, marginBottom: 0 }}>Emergency? We answer and dispatch within 90 min.</p>
+                </div>
+              </div>
+
+              <div className="glass-card" style={{ padding: 28, display: 'flex', gap: 20, alignItems: 'flex-start' }}>
+                <div style={{ width: 52, height: 52, background: 'linear-gradient(135deg, #3b82f6, #2563eb)', borderRadius: 14, display: 'flex', alignItems: 'center', justifyContent: 'center', flexShrink: 0 }}>
+                  💬
+                </div>
+                <div>
+                  <div style={{ fontWeight: 800, color: 'white', fontSize: '1.1rem', marginBottom: 6 }}>Text Us</div>
+                  <a href={SMS_HREF} style={{ fontSize: '1.25rem', color: 'var(--orange)', fontWeight: 800, textDecoration: 'none' }}>{PHONE}</a>
+                  <p style={{ color: 'rgba(255,255,255,0.6)', fontSize: '0.88rem', marginTop: 8, marginBottom: 0 }}>Prefer SMS? Send a message — we reply quickly during service hours.</p>
                 </div>
               </div>
 
