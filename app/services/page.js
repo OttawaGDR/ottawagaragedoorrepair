@@ -1,4 +1,4 @@
-import { services, PHONE, PHONE_HREF, servicesPageStats } from '../../lib/data';
+import { services, PHONE, PHONE_HREF, servicesPageStats, BUSINESS_NAME } from '../../lib/data';
 import { EMERGENCY_REPAIR_INTRO, whyChooseUsCards, servicesGallerySection } from '../../lib/siteCopy';
 import Icon from '../components/Icons';
 
@@ -249,7 +249,7 @@ export default function ServicesPage() {
           <div style={{ textAlign: 'center', marginBottom: 56 }}>
             <span className="section-label" style={{ color: 'var(--orange)' }}>Why Us</span>
             <h2 className="heading-xl reveal" style={{ color: 'var(--navy)' }}>
-              Why Ottawa Chooses <em>Ottawa - GDR</em>
+              Why Ottawa Chooses <em>{BUSINESS_NAME}</em>
             </h2>
           </div>
           <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(220px, 1fr))', gap: 24 }}>

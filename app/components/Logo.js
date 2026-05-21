@@ -1,3 +1,5 @@
+import { BUSINESS_NAME } from '../../lib/data';
+
 export default function Logo({ compact = false, asLink = true }) {
   const className = compact ? 'logo logo-compact' : 'logo';
   const content = (
@@ -24,7 +26,7 @@ export default function Logo({ compact = false, asLink = true }) {
 
   if (asLink) {
     return (
-      <a href="/" className={className} aria-label="Ottawa Garage Door Repair - Home">
+      <a href="/" className={className} aria-label={`${BUSINESS_NAME} - Home`}>
         {content}
       </a>
     );

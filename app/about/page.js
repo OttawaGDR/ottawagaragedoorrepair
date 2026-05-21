@@ -1,4 +1,4 @@
-import { PHONE, PHONE_HREF, testimonials, aboutStats, JOBS_TOTAL } from '../../lib/data';
+import { PHONE, PHONE_HREF, testimonials, aboutStats, JOBS_TOTAL, BUSINESS_NAME } from '../../lib/data';
 import { aboutStoryCards } from '../../lib/siteCopy';
 
 export const metadata = {
@@ -19,7 +19,7 @@ export default function AboutPage() {
                 NOT JUST A<br />COMPANY —<br /><span className="text-gradient">YOUR NEIGHBOURS</span>
               </h1>
               <p style={{ color: 'rgba(255,255,255,0.75)', lineHeight: 1.85, fontSize: '1.05rem', marginBottom: 32, maxWidth: 480 }}>
-                Ottawa - GDR is a local garage door crew — repairs, openers, and installs across <a href="/areas" style={{ color: 'var(--orange)', fontWeight: 600, textDecoration: 'underline', textUnderlineOffset: 2 }}>every Ottawa neighbourhood</a>. Clear pricing before work starts. Repair when it makes sense; replace only when it should.
+                {BUSINESS_NAME} is a local garage door crew — repairs, openers, and installs across <a href="/areas" style={{ color: 'var(--orange)', fontWeight: 600, textDecoration: 'underline', textUnderlineOffset: 2 }}>every Ottawa neighbourhood</a>. Clear pricing before work starts. Repair when it makes sense; replace only when it should.
               </p>
               <div style={{ display: 'flex', gap: 14, flexWrap: 'wrap' }}>
                 <a href={PHONE_HREF} className="btn-primary">📞 Call {PHONE}</a>
@@ -46,7 +46,7 @@ export default function AboutPage() {
             <div style={{ minWidth: 0 }}>
               <span className="section-label">Our Story</span>
               <h2 className="display-lg" style={{ marginBottom: 28 }}>FOUNDED ON <span className="text-gradient">FRUSTRATION</span></h2>
-              <p style={{ color: 'rgba(255,255,255,0.75)', lineHeight: 1.9, marginBottom: 20 }}>Ottawa - GDR started in 2020 when our founders kept hearing the same stories — surprise bills after the work began, full door replacements pushed for a $250 spring fix, and no-shows from companies that never called back.</p>
+              <p style={{ color: 'rgba(255,255,255,0.75)', lineHeight: 1.9, marginBottom: 20 }}>{BUSINESS_NAME} started in 2020 when our founders kept hearing the same stories — surprise bills after the work began, full door replacements pushed for a $250 spring fix, and no-shows from companies that never called back.</p>
               <p style={{ color: 'rgba(255,255,255,0.75)', lineHeight: 1.9, marginBottom: 20 }}>We built a small team around three rules: arrive when we say we will, quote the real number before a wrench turns, and leave the door balanced and safe before we drive away.</p>
               <p style={{ color: 'rgba(255,255,255,0.75)', lineHeight: 1.9, marginBottom: 32 }}>Five years and {JOBS_TOTAL} jobs across Ottawa later, a 5.0 Google rating tells us those rules still matter to the people who call us.</p>
               <div style={{ padding: '22px 26px', background: 'rgba(249,115,22,0.08)', borderLeft: '4px solid var(--orange)', borderRadius: '0 14px 14px 0', marginBottom: 32 }}>
@@ -124,7 +124,7 @@ export default function AboutPage() {
           <p style={{ color: 'rgba(255,255,255,0.75)', fontSize: '1rem', marginBottom: 24, lineHeight: 1.75 }}>
             Love your experience? Leave us a review on Google — it helps Ottawa homeowners find reliable garage door repair.
           </p>
-          <a href="https://www.google.com/search?q=Ottawa+Garage+Door+Repair+GDR" target="_blank" rel="noopener noreferrer" style={{ display: 'inline-flex', alignItems: 'center', gap: 8, background: 'rgba(255,255,255,0.1)', color: 'white', fontWeight: 700, fontSize: '0.95rem', padding: '14px 28px', borderRadius: 100, textDecoration: 'none', border: '1px solid rgba(255,255,255,0.2)' }}>
+          <a href="https://www.google.com/search?q=Garage+Door+Repair+Ottawa" target="_blank" rel="noopener noreferrer" style={{ display: 'inline-flex', alignItems: 'center', gap: 8, background: 'rgba(255,255,255,0.1)', color: 'white', fontWeight: 700, fontSize: '0.95rem', padding: '14px 28px', borderRadius: 100, textDecoration: 'none', border: '1px solid rgba(255,255,255,0.2)' }}>
             ⭐ Leave a Google Review
           </a>
         </div>
@@ -133,10 +133,10 @@ export default function AboutPage() {
       <section style={{ background: 'var(--orange)', padding: '80px 0', textAlign: 'center' }}>
         <div className="container" style={{ maxWidth: 600, margin: '0 auto' }}>
           <h2 style={{ fontFamily: 'var(--font-display)', fontSize: 'clamp(2rem,5vw,3rem)', fontWeight: 900,  color: 'white', marginBottom: 16, lineHeight: 1.1 }}>
-            EXPERIENCE THE OTTAWA - GDR DIFFERENCE
+            EXPERIENCE THE {BUSINESS_NAME.toUpperCase()} DIFFERENCE
           </h2>
           <p style={{ color: 'rgba(255,255,255,0.92)', fontSize: '1.05rem', marginBottom: 36, lineHeight: 1.8 }}>
-            Join {JOBS_TOTAL} Ottawa neighbours who trust Ottawa - GDR for honest, reliable garage door service.
+            Join {JOBS_TOTAL} Ottawa neighbours who trust {BUSINESS_NAME} for honest, reliable garage door service.
           </p>
           <div style={{ display: 'flex', gap: 16, justifyContent: 'center', flexWrap: 'wrap' }}>
             <a href={PHONE_HREF} style={{ display: 'inline-flex', alignItems: 'center', gap: 10, background: 'white', color: '#ea580c', fontWeight: 800, fontSize: '1.1rem', padding: '16px 36px', borderRadius: 100, textDecoration: 'none' }}>

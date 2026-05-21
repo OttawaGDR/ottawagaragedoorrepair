@@ -1,5 +1,5 @@
 import FaqHub from '../components/FaqHub';
-import { PHONE, PHONE_HREF } from '../../lib/data';
+import { PHONE, PHONE_HREF, BUSINESS_NAME } from '../../lib/data';
 import { faqCategories, FAQ_TOTAL, getAllFaqItems } from '../../lib/faqPageData';
 
 export const metadata = {
@@ -36,7 +36,7 @@ export default function FAQPage() {
             <span style={{ color: 'var(--orange)' }}>Help Centre</span>
           </nav>
           <div className="faq-hub-hero-inner">
-            <span className="faq-hub-hero-kicker">Ottawa - GDR Help Centre</span>
+            <span className="faq-hub-hero-kicker">{BUSINESS_NAME} Help Centre</span>
             <h1 className="faq-hub-hero-title">
               Garage door questions, <em>answered clearly</em>
             </h1>

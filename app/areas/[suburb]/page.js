@@ -1,4 +1,4 @@
-import { areas, services, testimonials, faqs, PHONE, PHONE_HREF } from '../../../lib/data';
+import { areas, services, testimonials, faqs, PHONE, PHONE_HREF, BUSINESS_NAME } from '../../../lib/data';
 import { getAreaContent, getAreaMetaDescription } from '../../../lib/areaPageContent';
 import { OG_SITE_NAME, SITE_BRAND, SITE_URL } from '../../../lib/seo';
 
@@ -210,7 +210,7 @@ export default async function AreaPage({ params }) {
             <div className="area-content-col">
               <span className="section-label" style={{ color: 'var(--orange)' }}>Local Expertise</span>
               <h2 className="heading-lg" style={{ color: 'var(--navy)', marginBottom: 20 }}>
-                Why {area.name} Calls Ottawa - GDR
+                Why {area.name} Calls {BUSINESS_NAME}
               </h2>
               {areaContent?.localContext ? (
                 <p style={{ color: 'var(--gray-600)', lineHeight: 1.8, marginBottom: 24 }}>

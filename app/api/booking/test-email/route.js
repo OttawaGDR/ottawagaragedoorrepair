@@ -25,7 +25,7 @@ export async function GET() {
     const { data, error } = await resend.emails.send({
       from: `${fromDisplay} <${from}>`,
       to: [EMAIL],
-      subject: 'Test email – Ottawa Garage Door Repair booking',
+      subject: 'Test email – Garage Door Repair Ottawa booking',
       html: '<p>If you see this, the booking email system is working. Emails will be sent to this address when someone books a slot.</p>',
       text: 'If you see this, the booking email system is working. Emails will be sent to this address when someone books a slot.',
     });

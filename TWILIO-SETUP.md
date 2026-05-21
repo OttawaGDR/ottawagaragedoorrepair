@@ -79,7 +79,7 @@ Save the `.env` file (Ctrl+S).
 1. Open your browser.
 2. Go to: **http://localhost:3005/api/booking/test-sms**
 3. You should see a short message saying the test SMS was sent (and maybe “Check your phone”).
-4. Check the phone for **(613) 617-4238** – you should get a text that says something like “Test from Ottawa Garage Door Repair booking – SMS is working…”
+4. Check the phone for **(613) 617-4238** – you should get a text that says something like “Test from Garage Door Repair Ottawa booking – SMS is working…”
 
 If you get that text, you’re done. From now on, when someone books a slot on your site, you’ll get an SMS on that same number with the booking details.
 

@@ -1,4 +1,4 @@
-import { PHONE, PHONE_HREF, EMAIL, services, areas } from '../../lib/data';
+import { PHONE, PHONE_HREF, EMAIL, services, areas, BUSINESS_NAME } from '../../lib/data';
 
 export const metadata = {
   title: 'Contact Us',
@@ -14,7 +14,7 @@ export default function ContactPage() {
           <div style={{ maxWidth: 640, marginBottom: 48 }}>
             <span className="badge" style={{ marginBottom: 24, display: 'inline-flex' }}>📞 Get in Touch</span>
             <h1 className="display-xl" style={{ marginBottom: 20 }}>
-              CONTACT <span className="text-gradient">OTTAWA - GDR</span>
+              CONTACT <span className="text-gradient">{BUSINESS_NAME.toUpperCase()}</span>
             </h1>
             <p style={{ color: 'rgba(255,255,255,0.75)', lineHeight: 1.8, fontSize: '1.05rem', marginBottom: 20 }}>
               Need <a href="/services" style={{ color: 'var(--orange)', fontWeight: 600, textDecoration: 'underline', textUnderlineOffset: 2 }}>garage door repair</a> or a free quote? Call us anytime — we answer 24/7. Or <a href="/booking" style={{ color: 'var(--orange)', fontWeight: 600, textDecoration: 'underline', textUnderlineOffset: 2 }}>book a visit</a> (Mon–Fri 9–5) and we&apos;ll call to confirm. Serving <a href="/areas" style={{ color: 'var(--orange)', fontWeight: 600, textDecoration: 'underline', textUnderlineOffset: 2 }}>all Ottawa areas</a>.

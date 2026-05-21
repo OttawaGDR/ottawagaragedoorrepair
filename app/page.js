@@ -1,4 +1,4 @@
-import { services, areas, testimonials, faqs, blogPosts, galleryImages, PHONE, PHONE_HREF, homepageStats } from '../lib/data';
+import { services, areas, testimonials, faqs, blogPosts, galleryImages, PHONE, PHONE_HREF, homepageStats, BUSINESS_NAME } from '../lib/data';
 import { META_TITLE_HOME, META_DESCRIPTION_HOME, SITE_BRAND, SITE_URL } from '../lib/seo';
 import {
   trustBarItems,
@@ -66,7 +66,7 @@ function Hero() {
         <div className="hero-grid">
           <div>
             <div className="badge hero-badge"><Icon name="star" size={16} className="text-orange-bright" /><Icon name="star" size={16} className="text-orange-bright" /><Icon name="star" size={16} className="text-orange-bright" /><Icon name="star" size={16} className="text-orange-bright" /><Icon name="star" size={16} className="text-orange-bright" /> 5.0 Rated</div>
-            <p className="hero-brand-line">Ottawa Garage Door Repair</p>
+            <p className="hero-brand-line">{BUSINESS_NAME}</p>
             <h1 className="hero-title">
               SAME-DAY<br />
               <span className="hero-title-accent">GARAGE DOOR</span><br />

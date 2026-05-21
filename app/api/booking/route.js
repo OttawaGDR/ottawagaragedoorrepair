@@ -15,7 +15,7 @@ export async function POST(request) {
     }
 
     const html = `
-      <h2>New booking request – Ottawa - GDR</h2>
+      <h2>New booking request – ${BUSINESS_NAME}</h2>
       <p><strong>Date:</strong> ${dateDisplay || date}</p>
       <p><strong>Time slot:</strong> ${timeSlot}</p>
       <p><strong>Name:</strong> ${name}</p>
@@ -28,7 +28,7 @@ export async function POST(request) {
     `;
 
     const text = `
-New booking request – Ottawa - GDR
+New booking request – ${BUSINESS_NAME}
 Date: ${dateDisplay || date}
 Time slot: ${timeSlot}
 Name: ${name}

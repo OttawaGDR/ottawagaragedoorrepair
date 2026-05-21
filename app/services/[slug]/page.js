@@ -1,4 +1,4 @@
-import { services, PHONE, PHONE_HREF } from '../../../lib/data';
+import { services, PHONE, PHONE_HREF, BUSINESS_NAME } from '../../../lib/data';
 import { SITE_BRAND } from '../../../lib/seo';
 import { serviceWhatsIncluded, serviceFaqs } from '../../../lib/serviceContent';
 import { servicePageTrustBullets } from '../../../lib/siteCopy';
@@ -136,12 +136,12 @@ export default async function ServicePage({ params }) {
         <div className="container">
           <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 60, alignItems: 'center' }}>
             <div>
-              <span className="section-label" style={{ color: 'var(--orange)' }}>Why Choose Ottawa - GDR</span>
+              <span className="section-label" style={{ color: 'var(--orange)' }}>Why Choose {BUSINESS_NAME}</span>
               <h2 className="heading-lg" style={{ color: 'var(--navy)', marginBottom: 24 }}>
                 Ottawa's Best {service.title} Service
               </h2>
               <p style={{ color: 'var(--gray-600)', lineHeight: 1.8, marginBottom: 28 }}>
-                When your garage door fails, you need a crew that shows up prepared. Ottawa - GDR has served Ottawa for five-plus years with approved pricing, quality hardware, and a labour guarantee on every visit.
+                When your garage door fails, you need a crew that shows up prepared. {BUSINESS_NAME} has served Ottawa for five-plus years with approved pricing, quality hardware, and a labour guarantee on every visit.
               </p>
               {servicePageTrustBullets.map(item => (
                 <div key={item} style={{ display: 'flex', alignItems: 'center', gap: 12, marginBottom: 12 }}>
@@ -182,7 +182,7 @@ export default async function ServicePage({ params }) {
           <div className="container">
             <h2 className="heading-lg" style={{ marginBottom: 24 }}>What&apos;s Included</h2>
             <p style={{ color: 'var(--gray-400)', marginBottom: 28, maxWidth: 560 }}>
-              Every {service.title.toLowerCase()} job from Ottawa - GDR includes the following:
+              Every {service.title.toLowerCase()} job from {BUSINESS_NAME} includes the following:
             </p>
             <ul style={{ listStyle: 'none', padding: 0, margin: 0, display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(260px, 1fr))', gap: 14 }}>
               {whatsIncluded.map((item, i) => (

@@ -1,4 +1,4 @@
-import { PHONE_HREF } from '../../lib/data';
+import { PHONE_HREF, BUSINESS_NAME } from '../../lib/data';
 
 export const metadata = {
   title: 'Privacy Policy',
@@ -52,7 +52,7 @@ export default function PrivacyPage() {
           <div>
             <h2 style={{ fontFamily: 'var(--font-display)', fontSize: '1.25rem', fontWeight: 800, color: 'white', marginBottom: 12 }}>6. Contact Us</h2>
             <p style={{ color: 'rgba(255,255,255,0.8)', lineHeight: 1.8, fontSize: '0.95rem' }}>
-              For privacy questions or to exercise your rights, contact Ottawa - GDR at <a href={PHONE_HREF} style={{ color: 'var(--orange)', fontWeight: 600 }}> (613) 617-4238</a> or info@ottawagaragedoorrepair.ca.
+              For privacy questions or to exercise your rights, contact {BUSINESS_NAME} at <a href={PHONE_HREF} style={{ color: 'var(--orange)', fontWeight: 600 }}> (613) 617-4238</a> or info@ottawagaragedoorrepair.ca.
             </p>
           </div>
         </div>

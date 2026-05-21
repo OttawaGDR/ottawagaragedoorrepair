@@ -16,7 +16,7 @@ export async function GET() {
     }, { status: 200 });
   }
 
-  const result = await sendSms(e164, 'Test from Ottawa Garage Door Repair booking – SMS is working. You’ll get a text when someone books.');
+  const result = await sendSms(e164, 'Test from Garage Door Repair Ottawa booking – SMS is working. You’ll get a text when someone books.');
   if (result.ok) {
     return NextResponse.json({
       ok: true,
