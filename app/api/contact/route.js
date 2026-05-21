@@ -68,14 +68,15 @@ export async function POST(request) {
       return NextResponse.json({ error: parsed.error }, { status: 400 });
     }
 
-    const { name, phone, email, service, area, message, preferredTime, contactMethod, attachment } = parsed;
+    let { name, phone, email, service, area, message, preferredTime, contactMethod, attachment } = parsed;
 
-    if (!name || !phone || !service || !area) {
-      return NextResponse.json(
-        { error: 'Missing required fields: name, phone, service, area' },
-        { status: 400 }
-      );
+    if (!phone) {
+      return NextResponse.json({ error: 'Phone number is required.' }, { status: 400 });
     }
+
+    name = name || 'Guest';
+    service = service || 'emergency-repair';
+    area = area || areas[0]?.slug || 'kanata';
 
     const method = contactMethod === 'text' ? 'text' : 'call';
     const methodLabel = CONTACT_LABELS[method];

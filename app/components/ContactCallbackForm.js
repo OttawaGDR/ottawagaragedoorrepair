@@ -3,7 +3,6 @@
 import { useRef, useState } from 'react';
 import { PHONE, PHONE_HREF, SMS_HREF } from '../../lib/data';
 import {
-  ACCEPTED_ATTACHMENT_LABEL,
   ACCEPTED_ATTACHMENT_TYPES,
   MAX_ATTACHMENT_BYTES,
   PREFERRED_TIME_LABELS,
@@ -43,7 +42,7 @@ export default function ContactCallbackForm({ services, areas, variant = 'page' 
       return;
     }
     if (file.size > MAX_ATTACHMENT_BYTES) {
-      setSubmitStatus({ error: 'File is too large. Please use an image or PDF under 4 MB.' });
+      setSubmitStatus({ error: 'File must be under 4 MB.' });
       e.target.value = '';
       setAttachment(null);
       return;
@@ -75,15 +74,11 @@ export default function ContactCallbackForm({ services, areas, variant = 'page' 
       if (!res.ok) throw new Error(data.error || 'Request failed');
       if (data.error) throw new Error(data.error);
 
-      setSubmitStatus({
-        success: true,
-        contactMethod,
-        hadAttachment: Boolean(attachment),
-      });
+      setSubmitStatus({ success: true, contactMethod, hadAttachment: Boolean(attachment) });
       setFormData(EMPTY_FORM);
       clearAttachment();
     } catch (err) {
-      setSubmitStatus({ error: err.message || 'Something went wrong. Please call or text us directly.' });
+      setSubmitStatus({ error: err.message || 'Something went wrong. Please call or text us.' });
     } finally {
       setSubmitting(false);
     }
@@ -106,227 +101,207 @@ export default function ContactCallbackForm({ services, areas, variant = 'page' 
   );
   const smsHref = `${SMS_HREF}${smsBody ? `?body=${smsBody}` : ''}`;
 
+  const methodToggle = (
+    <div
+      className={`contact-method-toggle${isHero ? ' contact-method-toggle--compact' : ''}`}
+      role="group"
+      aria-label="Contact by call or text"
+    >
+      <button
+        type="button"
+        className={`contact-method-option${contactMethod === 'call' ? ' is-active' : ''}`}
+        aria-pressed={contactMethod === 'call'}
+        onClick={() => setContactMethod('call')}
+      >
+        📞 Call
+      </button>
+      <button
+        type="button"
+        className={`contact-method-option${contactMethod === 'text' ? ' is-active' : ''}`}
+        aria-pressed={contactMethod === 'text'}
+        onClick={() => setContactMethod('text')}
+      >
+        💬 Text
+      </button>
+    </div>
+  );
+
   return (
     <>
       {isHero ? (
         <>
           <h2 className="hero-form-title">Request Service</h2>
-          <p className="hero-form-desc">Call or text back — we respond within 90 minutes in every Ottawa area</p>
+          <p className="hero-form-desc">We&apos;ll reach you in under 90 minutes</p>
         </>
       ) : (
         <>
-          <h2 style={{ fontFamily: 'var(--font-display)', fontSize: '1.5rem', fontWeight: 800, color: 'white', marginBottom: 8 }}>
+          <h2 style={{ fontFamily: 'var(--font-display)', fontSize: '1.35rem', fontWeight: 800, color: 'white', marginBottom: 6 }}>
             Request a Callback or Text
           </h2>
-          <p style={{ color: 'rgba(255,255,255,0.65)', fontSize: '0.9rem', marginBottom: 28 }}>
-            Choose how you&apos;d like us to reach you — we respond within 90 minutes across Ottawa
+          <p style={{ color: 'rgba(255,255,255,0.6)', fontSize: '0.85rem', marginBottom: 20 }}>
+            We respond within 90 minutes across Ottawa
           </p>
         </>
       )}
 
-      <form onSubmit={handleSubmit} className="contact-callback-form" style={{ display: 'flex', flexDirection: 'column', gap: isHero ? 16 : 20 }}>
-        <div className="form-group" style={{ marginBottom: 0 }}>
-          <span className="form-label" id={`${idPrefix}-contact-method-label`}>
-            How should we contact you?
-          </span>
-          <div className="contact-method-toggle" role="group" aria-labelledby={`${idPrefix}-contact-method-label`}>
-            <button
-              type="button"
-              className={`contact-method-option${contactMethod === 'call' ? ' is-active' : ''}`}
-              aria-pressed={contactMethod === 'call'}
-              onClick={() => setContactMethod('call')}
-            >
-              <span className="contact-method-icon" aria-hidden>📞</span>
-              <span className="contact-method-text">
-                <strong>Call me</strong>
-                <small>We&apos;ll phone you back</small>
-              </span>
-            </button>
-            <button
-              type="button"
-              className={`contact-method-option${contactMethod === 'text' ? ' is-active' : ''}`}
-              aria-pressed={contactMethod === 'text'}
-              onClick={() => setContactMethod('text')}
-            >
-              <span className="contact-method-icon" aria-hidden>💬</span>
-              <span className="contact-method-text">
-                <strong>Text me</strong>
-                <small>SMS reply to your number</small>
-              </span>
-            </button>
-          </div>
-        </div>
+      <form
+        onSubmit={handleSubmit}
+        className={`contact-callback-form${isHero ? ' contact-callback-form--hero' : ''}`}
+      >
+        {methodToggle}
 
-        <div className="form-group">
-          <label className="form-label" htmlFor={`${idPrefix}-service`}>Service Needed</label>
-          <select
-            id={`${idPrefix}-service`}
-            name="service"
-            className="form-input"
-            value={formData.service}
-            onChange={handleChange}
-            required
-          >
-            <option value="">Select a service...</option>
-            {services.map((s) => (
-              <option key={s.slug} value={s.slug}>{s.title}</option>
-            ))}
-          </select>
-        </div>
-
-        <div className="form-group">
-          <label className="form-label" htmlFor={`${idPrefix}-area`}>Your Area</label>
-          <select
-            id={`${idPrefix}-area`}
-            name="area"
-            className="form-input"
-            value={formData.area}
-            onChange={handleChange}
-            required
-          >
-            <option value="">Select your neighborhood...</option>
-            {areas.map((a) => (
-              <option key={a.slug} value={a.slug}>{a.name}</option>
-            ))}
-          </select>
-        </div>
-
-        <div className="form-group">
-          <label className="form-label" htmlFor={`${idPrefix}-name`}>Your Name</label>
-          <input
-            id={`${idPrefix}-name`}
-            name="name"
-            className="form-input"
-            type="text"
-            placeholder="John Smith"
-            value={formData.name}
-            onChange={handleChange}
-            required
-          />
-        </div>
-
-        {!isHero && (
-          <div className="form-group">
-            <label className="form-label" htmlFor={`${idPrefix}-email`}>
-              Your Email <span style={{ fontWeight: 400, opacity: 0.65 }}>(optional)</span>
-            </label>
-            <input
-              id={`${idPrefix}-email`}
-              name="email"
-              className="form-input"
-              type="email"
-              placeholder="you@example.com"
-              value={formData.email}
-              onChange={handleChange}
-            />
-          </div>
-        )}
-
-        <div className="form-group">
-          <label className="form-label" htmlFor={`${idPrefix}-phone`}>Your Phone</label>
-          <input
-            id={`${idPrefix}-phone`}
-            name="phone"
-            className="form-input"
-            type="tel"
-            placeholder="(613) 000-0000"
-            value={formData.phone}
-            onChange={handleChange}
-            required
-          />
-        </div>
-
-        <div className="form-group">
-          <label className="form-label" htmlFor={`${idPrefix}-message`}>Issue Description</label>
-          <textarea
-            id={`${idPrefix}-message`}
-            name="message"
-            className="form-input"
-            rows={isHero ? 2 : 3}
-            placeholder="Describe the issue (e.g. spring broken, door off track, grinding opener)..."
-            style={{ resize: 'vertical', minHeight: isHero ? 72 : 80 }}
-            value={formData.message}
-            onChange={handleChange}
-          />
-        </div>
-
-        <div className="form-group">
-          <label className="form-label" htmlFor={`${idPrefix}-attachment`}>
-            Attach a photo <span style={{ fontWeight: 400, opacity: 0.65 }}>(optional)</span>
-          </label>
-          <input
-            ref={fileInputRef}
-            id={`${idPrefix}-attachment`}
-            name="attachment"
-            type="file"
-            className="form-file-input"
-            accept={ACCEPTED_ATTACHMENT_TYPES}
-            onChange={handleFileChange}
-          />
-          <p className="form-hint">{ACCEPTED_ATTACHMENT_LABEL}</p>
-          {attachment && (
-            <div className="form-file-preview">
-              <span>📎 {attachment.name}</span>
-              <button type="button" className="form-file-remove" onClick={clearAttachment}>
-                Remove
-              </button>
+        {isHero ? (
+          <>
+            <div className="form-group">
+              <label className="form-label" htmlFor={`${idPrefix}-phone`}>Phone</label>
+              <input
+                id={`${idPrefix}-phone`}
+                name="phone"
+                className="form-input"
+                type="tel"
+                placeholder="(613) 000-0000"
+                value={formData.phone}
+                onChange={handleChange}
+                required
+              />
             </div>
-          )}
-        </div>
-
-        <div className="form-group">
-          <label className="form-label" htmlFor={`${idPrefix}-time`}>Preferred Time</label>
-          <select
-            id={`${idPrefix}-time`}
-            name="preferredTime"
-            className="form-input"
-            value={formData.preferredTime}
-            onChange={handleChange}
-          >
-            <option value="">Any time</option>
-            <option value="morning">Morning (8AM – 12PM)</option>
-            <option value="afternoon">Afternoon (12PM – 5PM)</option>
-            <option value="evening">Evening (5PM – 9PM)</option>
-            <option value="asap">As soon as possible / Emergency</option>
-          </select>
-        </div>
+            <div className="form-group">
+              <label className="form-label" htmlFor={`${idPrefix}-message`}>Issue</label>
+              <textarea
+                id={`${idPrefix}-message`}
+                name="message"
+                className="form-input"
+                rows={2}
+                placeholder="e.g. spring snapped, door stuck..."
+                value={formData.message}
+                onChange={handleChange}
+              />
+            </div>
+            <div className="form-group form-group--inline-file">
+              <label className="form-label" htmlFor={`${idPrefix}-attachment`}>Photo (optional)</label>
+              <input
+                ref={fileInputRef}
+                id={`${idPrefix}-attachment`}
+                type="file"
+                className="form-file-input form-file-input--compact"
+                accept={ACCEPTED_ATTACHMENT_TYPES}
+                onChange={handleFileChange}
+              />
+              {attachment && (
+                <button type="button" className="form-file-remove" onClick={clearAttachment}>
+                  Remove {attachment.name}
+                </button>
+              )}
+            </div>
+          </>
+        ) : (
+          <>
+            <div className="contact-form-row">
+              <div className="form-group">
+                <label className="form-label" htmlFor={`${idPrefix}-phone`}>Phone</label>
+                <input
+                  id={`${idPrefix}-phone`}
+                  name="phone"
+                  className="form-input"
+                  type="tel"
+                  placeholder="(613) 000-0000"
+                  value={formData.phone}
+                  onChange={handleChange}
+                  required
+                />
+              </div>
+              <div className="form-group">
+                <label className="form-label" htmlFor={`${idPrefix}-name`}>Name</label>
+                <input
+                  id={`${idPrefix}-name`}
+                  name="name"
+                  className="form-input"
+                  type="text"
+                  placeholder="Your name"
+                  value={formData.name}
+                  onChange={handleChange}
+                />
+              </div>
+            </div>
+            <div className="contact-form-row">
+              <div className="form-group">
+                <label className="form-label" htmlFor={`${idPrefix}-service`}>Service</label>
+                <select
+                  id={`${idPrefix}-service`}
+                  name="service"
+                  className="form-input"
+                  value={formData.service}
+                  onChange={handleChange}
+                >
+                  <option value="">Select...</option>
+                  {services.map((s) => (
+                    <option key={s.slug} value={s.slug}>{s.title}</option>
+                  ))}
+                </select>
+              </div>
+              <div className="form-group">
+                <label className="form-label" htmlFor={`${idPrefix}-area`}>Area</label>
+                <select
+                  id={`${idPrefix}-area`}
+                  name="area"
+                  className="form-input"
+                  value={formData.area}
+                  onChange={handleChange}
+                >
+                  <option value="">Select...</option>
+                  {areas.map((a) => (
+                    <option key={a.slug} value={a.slug}>{a.name}</option>
+                  ))}
+                </select>
+              </div>
+            </div>
+            <div className="form-group">
+              <label className="form-label" htmlFor={`${idPrefix}-message`}>Issue</label>
+              <textarea
+                id={`${idPrefix}-message`}
+                name="message"
+                className="form-input"
+                rows={2}
+                placeholder="What's wrong with the door?"
+                value={formData.message}
+                onChange={handleChange}
+              />
+            </div>
+            <div className="form-group">
+              <label className="form-label" htmlFor={`${idPrefix}-attachment`}>Photo (optional)</label>
+              <input
+                ref={fileInputRef}
+                id={`${idPrefix}-attachment`}
+                type="file"
+                className="form-file-input form-file-input--compact"
+                accept={ACCEPTED_ATTACHMENT_TYPES}
+                onChange={handleFileChange}
+              />
+              {attachment && (
+                <button type="button" className="form-file-remove" onClick={clearAttachment}>
+                  Remove {attachment.name}
+                </button>
+              )}
+            </div>
+          </>
+        )}
 
         {submitStatus?.success && (
           <p role="status" className="form-status form-status--success">
-            {submitStatus.contactMethod === 'text'
-              ? 'Request sent — we’ll text you back shortly.'
-              : 'Request sent — we’ll call you back shortly.'}
-            {submitStatus.hadAttachment ? ' Your photo was included — our team will review it before we reach out.' : ''}
+            {contactMethod === 'text' ? 'Sent — we’ll text you soon.' : 'Sent — we’ll call you soon.'}
           </p>
         )}
         {submitStatus?.error && (
           <p role="alert" className="form-status form-status--error">{submitStatus.error}</p>
         )}
 
-        <button
-          type="submit"
-          className="btn-primary btn-full"
-          disabled={submitting}
-          style={{ justifyContent: 'center', display: 'inline-flex', alignItems: 'center', gap: 8 }}
-        >
-          {submitting
-            ? 'Sending…'
-            : contactMethod === 'text'
-              ? '💬 Request a Text Back'
-              : '📞 Request a Call Back'}
+        <button type="submit" className="btn-primary btn-full" disabled={submitting}>
+          {submitting ? 'Sending…' : contactMethod === 'text' ? '💬 Request Text Back' : '📞 Request Call Back'}
         </button>
 
-        <div className="contact-quick-actions">
-          <a href={PHONE_HREF} className="btn-secondary" style={{ flex: 1, justifyContent: 'center', display: 'inline-flex', alignItems: 'center', gap: 8 }}>
-            📞 Call {PHONE}
-          </a>
-          <a href={smsHref} className="btn-secondary" style={{ flex: 1, justifyContent: 'center', display: 'inline-flex', alignItems: 'center', gap: 8 }}>
-            💬 Text Now
-          </a>
-        </div>
         {!isHero && (
-          <p style={{ fontSize: '0.78rem', color: 'rgba(255,255,255,0.45)', textAlign: 'center', margin: 0 }}>
-            Need help right away? Call or text {PHONE}
+          <p className="contact-form-foot">
+            Or <a href={PHONE_HREF}>call {PHONE}</a> · <a href={smsHref}>text us</a>
           </p>
         )}
       </form>
