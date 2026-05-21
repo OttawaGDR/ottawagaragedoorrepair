@@ -12,6 +12,7 @@ import {
 import Icon from './components/Icons';
 import GalleryImage from './components/GalleryImage';
 import QuoteCalculator from './components/QuoteCalculator';
+import ContactCallbackForm from './components/ContactCallbackForm';
 
 /** WebSite JSON-LD belongs on the domain home page only (Google Site names guidelines). */
 const websiteJsonLd = {
@@ -92,30 +93,13 @@ function Hero() {
                 </div>
               ))}
             </div>
+            <div className="hero-request-mobile glass-card border-glow">
+              <ContactCallbackForm services={services} areas={areas} variant="hero" />
+            </div>
           </div>
-          <div className="hide-mobile">
+          <div className="hide-mobile hero-request-desktop">
             <div className="glass-card border-glow hero-request-card">
-              <h2 className="hero-form-title">Request Service</h2>
-              <p className="hero-form-desc">We arrive in under 90 minutes in every Ottawa area</p>
-              <div className="form-group">
-                <label className="form-label">Service Needed</label>
-                <select className="form-input">
-                  <option value="">Select a service...</option>
-                  {services.map(s => <option key={s.slug} value={s.slug}>{s.title}</option>)}
-                </select>
-              </div>
-              <div className="form-group">
-                <label className="form-label">Your Area</label>
-                <select className="form-input">
-                  <option value="">Select your neighborhood...</option>
-                  {areas.map(a => <option key={a.slug} value={a.slug}>{a.name}</option>)}
-                </select>
-              </div>
-              <div className="form-group">
-                <label className="form-label">Your Phone</label>
-                <input className="form-input" type="tel" placeholder="(613) 000-0000" />
-              </div>
-              <a href={PHONE_HREF} className="btn-primary btn-full"><Icon name="phone" size={20} /> Call for Instant Quote</a>
+              <ContactCallbackForm services={services} areas={areas} variant="hero" />
             </div>
           </div>
         </div>

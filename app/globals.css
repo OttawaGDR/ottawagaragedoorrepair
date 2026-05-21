@@ -392,6 +392,77 @@ iframe { max-width: 100%; }
 .hero-request-card { padding: 40px; }
 .hero-form-title { font-family: var(--font-serif); font-size: 1.45rem; margin-bottom: 6px; color: white; }
 .hero-form-desc { color: rgba(255,255,255,0.65); font-size: 0.85rem; margin-bottom: 24px; }
+.hero-request-mobile { display: none; padding: 28px; margin-top: 28px; }
+.hero-request-desktop { min-width: 0; }
+.contact-callback-form .form-group:last-of-type { margin-bottom: 0; }
+
+.form-file-input {
+  width: 100%;
+  padding: 12px 14px;
+  border-radius: 12px;
+  border: 1px dashed rgba(255, 255, 255, 0.22);
+  background: rgba(255, 255, 255, 0.04);
+  color: rgba(255, 255, 255, 0.75);
+  font-size: 0.88rem;
+  cursor: pointer;
+}
+.form-file-input::file-selector-button {
+  margin-right: 12px;
+  padding: 8px 14px;
+  border: none;
+  border-radius: 8px;
+  background: var(--orange);
+  color: #fff;
+  font-weight: 700;
+  font-size: 0.8rem;
+  cursor: pointer;
+}
+.form-hint {
+  margin: 8px 0 0;
+  font-size: 0.75rem;
+  color: rgba(255, 255, 255, 0.45);
+  line-height: 1.4;
+}
+.form-file-preview {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  margin-top: 10px;
+  padding: 10px 12px;
+  border-radius: 10px;
+  background: rgba(249, 115, 22, 0.1);
+  border: 1px solid rgba(249, 115, 22, 0.25);
+  font-size: 0.85rem;
+  color: rgba(255, 255, 255, 0.9);
+}
+.form-file-remove {
+  border: none;
+  background: transparent;
+  color: var(--orange);
+  font-weight: 700;
+  font-size: 0.8rem;
+  cursor: pointer;
+  text-decoration: underline;
+  flex-shrink: 0;
+}
+.form-status {
+  margin: 0;
+  padding: 14px 16px;
+  border-radius: 12px;
+  font-size: 0.9rem;
+  line-height: 1.5;
+}
+.form-status--success {
+  background: rgba(34, 197, 94, 0.12);
+  border: 1px solid rgba(34, 197, 94, 0.35);
+  color: #86efac;
+}
+.form-status--error {
+  background: rgba(239, 68, 68, 0.12);
+  border: 1px solid rgba(239, 68, 68, 0.35);
+  color: #fca5a5;
+}
 .link-inherit { color: inherit; text-decoration: underline; text-underline-offset: 3px; }
 .link-inherit-2 { text-underline-offset: 2px; }
 .text-orange { color: var(--orange); }
@@ -1090,6 +1161,8 @@ select.form-input option { background: var(--navy-mid); color: white; }
   .hero-section { min-height: auto; }
   .hero-container { padding-top: 24px !important; padding-bottom: 40px !important; }
   .hero-grid { grid-template-columns: 1fr !important; gap: 32px !important; }
+  .hero-request-mobile { display: block !important; }
+  .hero-request-desktop { display: none !important; }
 }
 
 /* About page layout */
