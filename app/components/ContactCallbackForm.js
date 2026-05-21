@@ -152,6 +152,40 @@ export default function ContactCallbackForm({ services, areas, variant = 'page' 
 
         {isHero ? (
           <>
+            <div className="contact-form-row">
+              <div className="form-group">
+                <label className="form-label" htmlFor={`${idPrefix}-service`}>Service</label>
+                <select
+                  id={`${idPrefix}-service`}
+                  name="service"
+                  className="form-input"
+                  value={formData.service}
+                  onChange={handleChange}
+                  required
+                >
+                  <option value="">Select...</option>
+                  {services.map((s) => (
+                    <option key={s.slug} value={s.slug}>{s.title}</option>
+                  ))}
+                </select>
+              </div>
+              <div className="form-group">
+                <label className="form-label" htmlFor={`${idPrefix}-area`}>Area</label>
+                <select
+                  id={`${idPrefix}-area`}
+                  name="area"
+                  className="form-input"
+                  value={formData.area}
+                  onChange={handleChange}
+                  required
+                >
+                  <option value="">Select...</option>
+                  {areas.map((a) => (
+                    <option key={a.slug} value={a.slug}>{a.name}</option>
+                  ))}
+                </select>
+              </div>
+            </div>
             <div className="form-group">
               <label className="form-label" htmlFor={`${idPrefix}-phone`}>Phone</label>
               <input

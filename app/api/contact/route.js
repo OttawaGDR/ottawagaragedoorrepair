@@ -74,9 +74,11 @@ export async function POST(request) {
       return NextResponse.json({ error: 'Phone number is required.' }, { status: 400 });
     }
 
+    if (!service || !area) {
+      return NextResponse.json({ error: 'Please select a service and area.' }, { status: 400 });
+    }
+
     name = name || 'Guest';
-    service = service || 'emergency-repair';
-    area = area || areas[0]?.slug || 'kanata';
 
     const method = contactMethod === 'text' ? 'text' : 'call';
     const methodLabel = CONTACT_LABELS[method];
