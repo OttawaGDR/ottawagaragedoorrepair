@@ -161,7 +161,7 @@ export default function ServicesPage() {
             <span style={{ color: 'var(--orange)' }}>Services</span>
           </nav>
           <div style={{ maxWidth: 700 }}>
-            <span className="badge" style={{ marginBottom: 24, display: 'inline-flex', alignItems: 'center', gap: 6 }}><Icon name="star" size={16} style={{ color: 'var(--orange-bright)' }} /> 5.0 Rated</span>
+            <span className="badge" style={{ marginBottom: 24, display: 'inline-flex', alignItems: 'center', gap: 6 }}><Icon name="bolt" size={16} style={{ color: 'var(--orange-bright)' }} /> Same-Day Service</span>
             <h1 className="display-xl" style={{ marginBottom: 24, color: 'white' }}>
               GARAGE DOOR SERVICES<br />
               <span className="text-gradient glow-text">OTTAWA</span>

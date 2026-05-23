@@ -12,7 +12,7 @@ export default function Logo({ compact = false, asLink = true }) {
         <div className="logo-line1">Ottawa</div>
         <div className="logo-divider" />
         <div className="logo-line2">GARAGE DOOR<br />REPAIR</div>
-        {!compact && <div className="logo-line3">Licensed · Insured · 5.0 ⭐ Rated</div>}
+        {!compact && <div className="logo-line3">Licensed · Insured · Same-Day</div>}
       </div>
     </>
   );

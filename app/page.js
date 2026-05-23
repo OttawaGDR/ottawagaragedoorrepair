@@ -1,4 +1,4 @@
-import { services, areas, testimonials, faqs, blogPosts, galleryImages, PHONE, PHONE_HREF, homepageStats, BUSINESS_NAME } from '../lib/data';
+import { services, areas, faqs, blogPosts, galleryImages, PHONE, PHONE_HREF, homepageStats, BUSINESS_NAME } from '../lib/data';
 import { META_TITLE_HOME, META_DESCRIPTION_HOME, SITE_BRAND, SITE_URL } from '../lib/seo';
 import {
   trustBarItems,
@@ -6,7 +6,6 @@ import {
   howItWorksSteps,
   howItWorksPromiseItems,
   gallerySection,
-  testimonialsSection,
   finalCtaCopy,
 } from '../lib/siteCopy';
 import Icon from './components/Icons';
@@ -52,7 +51,6 @@ export default function HomePage() {
       <HowItWorks />
       <Areas />
       <Gallery />
-      <Testimonials />
       <FAQ />
       <Blog />
       <FinalCTA />
@@ -66,7 +64,7 @@ function Hero() {
       <div className="container hero-container">
         <div className="hero-grid">
           <div>
-            <div className="badge hero-badge"><Icon name="star" size={16} className="text-orange-bright" /><Icon name="star" size={16} className="text-orange-bright" /><Icon name="star" size={16} className="text-orange-bright" /><Icon name="star" size={16} className="text-orange-bright" /><Icon name="star" size={16} className="text-orange-bright" /> 5.0 Rated</div>
+            <div className="badge hero-badge"><Icon name="bolt" size={16} className="text-orange-bright" /> Same-Day Service</div>
             <p className="hero-brand-line">{BUSINESS_NAME}</p>
             <h1 className="hero-title">
               SAME-DAY<br />
@@ -277,39 +275,6 @@ function Gallery() {
           {galleryImages.map((img, i) => (
             <div key={i} className="reveal glass-card" style={{ overflow: 'hidden', padding: 0 }}>
               <GalleryImage src={img.src} alt={img.alt} caption={img.caption} />
-            </div>
-          ))}
-        </div>
-      </div>
-    </section>
-  );
-}
-
-function Testimonials() {
-  return (
-    <section className="section section-light">
-      <div className="container">
-        <div style={{ textAlign: 'center', marginBottom: 64 }}>
-          <span className="section-label" style={{ color: 'var(--orange)' }}>{testimonialsSection.label}</span>
-          <h2 className="heading-xl reveal" style={{ color: 'var(--navy)' }}>
-            {testimonialsSection.title}
-          </h2>
-          <div style={{ marginTop: 16, display: 'flex', gap: 4, color: 'var(--orange)' }}>{[1,2,3,4,5].map(i => <Icon key={i} name="star" size={22} />)}</div>
-          <p style={{ color: 'var(--gray-600)', marginTop: 8, fontSize: '0.92rem' }}>{testimonialsSection.ratingNote}</p>
-        </div>
-        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))', gap: 24 }}>
-          {testimonials.map((t, i) => (
-            <div key={i} className="light-card reveal" style={{ padding: 32, position: 'relative', overflow: 'hidden' }}>
-              <div style={{ fontSize: '5rem', color: 'var(--orange)', opacity: 0.08, fontFamily: 'var(--font-serif)', position: 'absolute', top: -10, left: 16, lineHeight: 1,  userSelect: 'none' }}>"</div>
-              <div style={{ fontSize: '0.95rem', marginBottom: 16, display: 'flex', gap: 2, color: 'var(--orange)' }}>{[1,2,3,4,5].map(i => <Icon key={i} name="star" size={16} />)}</div>
-              <p style={{ color: 'var(--gray-600)', lineHeight: 1.75, marginBottom: 24,  fontSize: '0.93rem', position: 'relative', zIndex: 1 }}>"{t.text}"</p>
-              <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
-                <div>
-                  <div style={{ fontWeight: 700, color: 'var(--navy)', fontSize: '0.95rem' }}>{t.name}</div>
-                  <div style={{ fontSize: '0.78rem', color: 'var(--gray-400)', marginTop: 2, display: 'flex', alignItems: 'center', gap: 4 }}><Icon name="mappin" size={12} /> {t.area}</div>
-                </div>
-                <div style={{ fontSize: '0.75rem', color: 'var(--gray-400)' }}>{t.date}</div>
-              </div>
             </div>
           ))}
         </div>

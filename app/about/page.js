@@ -1,4 +1,4 @@
-import { PHONE, PHONE_HREF, testimonials, aboutStats, JOBS_TOTAL, BUSINESS_NAME } from '../../lib/data';
+import { PHONE, PHONE_HREF, aboutStats, JOBS_TOTAL, BUSINESS_NAME } from '../../lib/data';
 import { aboutStoryCards } from '../../lib/siteCopy';
 
 export const metadata = {
@@ -48,7 +48,7 @@ export default function AboutPage() {
               <h2 className="display-lg" style={{ marginBottom: 28 }}>FOUNDED ON <span className="text-gradient">FRUSTRATION</span></h2>
               <p style={{ color: 'rgba(255,255,255,0.75)', lineHeight: 1.9, marginBottom: 20 }}>{BUSINESS_NAME} started in 2020 when our founders kept hearing the same stories — surprise bills after the work began, full door replacements pushed for a $250 spring fix, and no-shows from companies that never called back.</p>
               <p style={{ color: 'rgba(255,255,255,0.75)', lineHeight: 1.9, marginBottom: 20 }}>We built a small team around three rules: arrive when we say we will, quote the real number before a wrench turns, and leave the door balanced and safe before we drive away.</p>
-              <p style={{ color: 'rgba(255,255,255,0.75)', lineHeight: 1.9, marginBottom: 32 }}>Five years and {JOBS_TOTAL} jobs across Ottawa later, a 5.0 rating from our reviews tells us those rules still matter to the people who call us.</p>
+              <p style={{ color: 'rgba(255,255,255,0.75)', lineHeight: 1.9, marginBottom: 32 }}>Five years and {JOBS_TOTAL} jobs across Ottawa later, repeat customers and word of mouth tell us those rules still matter to the people who call us.</p>
               <div style={{ padding: '22px 26px', background: 'rgba(249,115,22,0.08)', borderLeft: '4px solid var(--orange)', borderRadius: '0 14px 14px 0', marginBottom: 32 }}>
                 <p style={{ color: 'rgba(255,255,255,0.9)', fontWeight: 600,  lineHeight: 1.8, margin: 0 }}>
                   "We fix doors — but what people remember is knowing the price upfront, the door actually working, and someone local picking up the phone."
@@ -93,40 +93,6 @@ export default function AboutPage() {
               </div>
             ))}
           </div>
-        </div>
-      </section>
-
-      <section style={{ padding: '80px 0' }}>
-        <div className="container">
-          <div style={{ textAlign: 'center', marginBottom: 52 }}>
-            <span className="section-label">Real Reviews</span>
-            <h2 className="display-lg">WHAT OTTAWA <span className="text-gradient">SAYS ABOUT US</span></h2>
-          </div>
-          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))', gap: 24, maxWidth: 1000, margin: '0 auto' }}>
-            {testimonials.slice(0, 3).map((review, i) => (
-              <div key={i} className="glass-card" style={{ padding: 32, position: 'relative', overflow: 'hidden' }}>
-                <div style={{ fontSize: '5rem', color: 'var(--orange)', opacity: 0.07, position: 'absolute', top: -10, left: 14, lineHeight: 1, userSelect: 'none' }}>"</div>
-                <div style={{ marginBottom: 14, color: 'var(--gold)', fontSize: '1rem' }}>⭐⭐⭐⭐⭐</div>
-                <p style={{ color: 'rgba(255,255,255,0.8)',  lineHeight: 1.78, marginBottom: 24, fontSize: '0.93rem', position: 'relative', zIndex: 1 }}>"{review.text}"</p>
-                <div style={{ paddingTop: 16, borderTop: '1px solid rgba(255,255,255,0.08)' }}>
-                  <div style={{ fontWeight: 700, color: 'white', fontSize: '0.95rem' }}>{review.name}</div>
-                  <div style={{ fontSize: '0.78rem', color: 'var(--gray-400)', marginTop: 2 }}>📍 {review.area} · {review.date}</div>
-                </div>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      <section style={{ padding: '60px 0', background: 'rgba(255,255,255,0.02)', borderTop: '1px solid rgba(255,255,255,0.06)' }}>
-        <div className="container" style={{ maxWidth: 560, margin: '0 auto', textAlign: 'center' }}>
-          <h2 style={{ fontFamily: 'var(--font-display)', fontSize: 'clamp(1.4rem, 3vw, 1.8rem)', fontWeight: 800, color: 'white', marginBottom: 12 }}>Help Others Find Us</h2>
-          <p style={{ color: 'rgba(255,255,255,0.75)', fontSize: '1rem', marginBottom: 24, lineHeight: 1.75 }}>
-            Love your experience? Leave us a review — it helps Ottawa homeowners find reliable garage door repair.
-          </p>
-          <a href="https://www.google.com/search?q=Garage+Door+Repair+Ottawa" target="_blank" rel="noopener noreferrer" style={{ display: 'inline-flex', alignItems: 'center', gap: 8, background: 'rgba(255,255,255,0.1)', color: 'white', fontWeight: 700, fontSize: '0.95rem', padding: '14px 28px', borderRadius: 100, textDecoration: 'none', border: '1px solid rgba(255,255,255,0.2)' }}>
-            ⭐ Leave a Review
-          </a>
         </div>
       </section>
 

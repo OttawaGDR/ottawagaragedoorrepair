@@ -1,5 +1,5 @@
 import './globals.css';
-import { services, areas, testimonials, PHONE, PHONE_HREF, SMS_HREF, EMAIL, FACEBOOK_URL, INSTAGRAM_URL, REVIEW_COUNT, BUSINESS_NAME } from '../lib/data';
+import { services, areas, PHONE, PHONE_HREF, SMS_HREF, EMAIL, FACEBOOK_URL, INSTAGRAM_URL, BUSINESS_NAME } from '../lib/data';
 import {
   META_TITLE_HOME,
   META_TITLE_TEMPLATE,
@@ -69,20 +69,6 @@ const jsonLd = {
     { '@type': 'OpeningHoursSpecification', dayOfWeek: ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday'], opens: '09:00', closes: '21:00', description: 'Same-day service' },
     { '@type': 'OpeningHoursSpecification', dayOfWeek: ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday'], opens: '00:00', closes: '23:59', description: '24/7 emergency' },
   ],
-  aggregateRating: { '@type': 'AggregateRating', ratingValue: '5.0', reviewCount: String(REVIEW_COUNT), bestRating: '5', worstRating: '1' },
-  review: testimonials.map((t) => {
-    const monthMap = { january: '01', february: '02', march: '03', april: '04', may: '05', june: '06', july: '07', august: '08', september: '09', october: '10', november: '11', december: '12' };
-    const [monthName, year] = t.date.split(' ');
-    const month = monthMap[(monthName || '').toLowerCase()] || '01';
-    const isoDate = year && month ? `${year}-${month}-01` : undefined;
-    return {
-      '@type': 'Review',
-      author: { '@type': 'Person', name: t.name },
-      reviewRating: { '@type': 'Rating', ratingValue: String(t.stars), bestRating: '5', worstRating: '1' },
-      reviewBody: t.text,
-      ...(isoDate && { datePublished: isoDate }),
-    };
-  }),
   priceRange: '$$',
   hasOfferCatalog: {
     '@type': 'OfferCatalog',
@@ -370,7 +356,7 @@ function Footer() {
         <div className="footer-grid">
           <div>
             <div className="footer-logo-wrap"><Logo asLink /></div>
-            <div className="footer-brand-desc">Ottawa's #1 Rated Service</div>
+            <div className="footer-brand-desc">Same-Day Garage Door Service</div>
             <p className="footer-brand-p">Ottawa garage door repairs, opener service, and installs. Licensed, insured — emergency line 24/7.</p>
             <a href={PHONE_HREF} className="footer-phone"><Icon name="phone" size={20} /> {PHONE}</a>
             <span className="footer-contact-line"><Icon name="envelope" size={16} /> <a href={`mailto:${EMAIL}`} className="footer-contact-link">info@ottawagaragedoorrepair.ca</a></span>

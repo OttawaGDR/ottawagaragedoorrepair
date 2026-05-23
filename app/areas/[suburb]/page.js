@@ -1,4 +1,4 @@
-import { areas, services, testimonials, faqs, PHONE, PHONE_HREF, BUSINESS_NAME } from '../../../lib/data';
+import { areas, services, faqs, PHONE, PHONE_HREF, BUSINESS_NAME } from '../../../lib/data';
 import { getAreaContent, getAreaMetaDescription } from '../../../lib/areaPageContent';
 import { OG_SITE_NAME, SITE_BRAND, SITE_URL } from '../../../lib/seo';
 
@@ -14,8 +14,8 @@ export async function generateMetadata({ params }) {
   const title = { absolute: `Garage Door Repair ${area.name} | Springs & Openers | Same-Day` };
   const uniqueMeta = getAreaMetaDescription(suburb);
   const description = uniqueMeta
-    ? `${uniqueMeta} Same-day service for springs, openers & cables. Licensed, 5★ rated. Call ${PHONE}.`
-    : `Same-day garage door repair in ${area.name}, Ottawa. Springs, openers, cables, emergency service. Licensed, 5★ rated. Call ${PHONE} for a quote.`;
+    ? `${uniqueMeta} Same-day service for springs, openers & cables. Licensed & insured. Call ${PHONE}.`
+    : `Same-day garage door repair in ${area.name}, Ottawa. Springs, openers, cables, emergency service. Licensed & insured. Call ${PHONE} for a quote.`;
   return {
     title,
     description,
@@ -52,9 +52,6 @@ export default async function AreaPage({ params }) {
       </div>
     );
   }
-
-  const areaReviews = testimonials.filter(t => t.area.toLowerCase().includes(area.name.toLowerCase()));
-  const displayReviews = areaReviews.length ? areaReviews : testimonials.slice(0, 2);
 
   const areaPageUrl = `${SITE_URL}/areas/${suburb}`;
   const schema = {
@@ -158,7 +155,7 @@ export default async function AreaPage({ params }) {
                 <a href="#services" className="btn-secondary">View Services →</a>
               </div>
               <div style={{ display: 'flex', gap: 24, flexWrap: 'wrap' }}>
-                {['Same Day Service', `Local ${area.name} Tech`, '5.0 ⭐ Rated'].map(item => (
+                {['Same Day Service', `Local ${area.name} Tech`, 'Licensed & Insured'].map(item => (
                   <div key={item} style={{ display: 'flex', alignItems: 'center', gap: 8 }}>
                     <span style={{ color: 'var(--orange)', fontWeight: 800, fontSize: '0.9rem' }}>✓</span>
                     <span style={{ color: 'var(--gray-400)', fontSize: '0.85rem', fontWeight: 500 }}>{item}</span>
@@ -334,7 +331,6 @@ export default async function AreaPage({ params }) {
                   ['Emergency Service', '24 Hours / 7 Days'],
                   ['Response Time', 'Under 90 Minutes'],
                   ['Coverage', area.desc],
-                  ['Rating', '⭐⭐⭐⭐⭐ 5.0'],
                 ].map(([label, value]) => (
                   <div key={label} className="area-service-info-row" style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', padding: '10px 0', borderBottom: '1px solid var(--gray-100)', gap: 12 }}>
                     <span style={{ color: 'var(--gray-600)', fontSize: '0.88rem', flexShrink: 0 }}>{label}</span>
@@ -370,31 +366,6 @@ export default async function AreaPage({ params }) {
         </div>
       </section>
 
-      {/* LOCAL REVIEWS */}
-      <section className="section section-light">
-        <div className="container">
-          <div style={{ textAlign: 'center', marginBottom: 48 }}>
-            <span className="section-label" style={{ color: 'var(--orange)' }}>Reviews</span>
-            <h2 className="heading-lg reveal" style={{ color: 'var(--navy)' }}>What {area.name} Customers Say</h2>
-          </div>
-          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))', gap: 24, maxWidth: 900, margin: '0 auto' }}>
-            {displayReviews.map((review, i) => (
-              <div key={i} className="light-card reveal" style={{ padding: 32, position: 'relative', overflow: 'hidden' }}>
-                <div style={{ fontSize: '5rem', color: 'var(--orange)', opacity: 0.08, fontFamily: 'var(--font-serif)', position: 'absolute', top: -10, left: 16, lineHeight: 1, userSelect: 'none' }}>"</div>
-                <div className="stars" style={{ fontSize: '1rem', marginBottom: 16 }}>⭐⭐⭐⭐⭐</div>
-                <p style={{ color: 'var(--gray-600)',  lineHeight: 1.75, marginBottom: 24, fontSize: '0.93rem', position: 'relative', zIndex: 1 }}>"{review.text}"</p>
-                <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
-                  <div>
-                    <div style={{ fontWeight: 700, color: 'var(--navy)', fontSize: '0.95rem' }}>{review.name}</div>
-                    <div style={{ fontSize: '0.78rem', color: 'var(--gray-400)', marginTop: 2 }}>📍 {review.area} · {review.date}</div>
-                  </div>
-                </div>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
       {/* FAQ */}
       <section className="section" style={{ background: 'var(--navy-mid)' }}>
         <div className="container" style={{ maxWidth: 800, margin: '0 auto' }}>
@@ -418,7 +389,7 @@ export default async function AreaPage({ params }) {
             Garage Door Repair in {area.name}
           </h2>
           <p style={{ color: 'rgba(255,255,255,0.9)', fontSize: '1.05rem', marginBottom: 36 }}>
-            Same-day service · Licensed & insured · 5-star rated
+            Same-day service · Licensed & insured
           </p>
           <a href={PHONE_HREF} style={{ display: 'inline-flex', alignItems: 'center', gap: 10, background: 'white', color: '#ea580c', fontWeight: 800, fontSize: '1.15rem', padding: '18px 44px', borderRadius: 100, textDecoration: 'none' }}>
             📞 {PHONE}

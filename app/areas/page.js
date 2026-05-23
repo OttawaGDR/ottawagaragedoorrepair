@@ -87,7 +87,7 @@ export default function AreasPage() {
               { number: '37', label: 'Areas Served (Ottawa + Region)' },
               { number: '< 90', label: 'Min Arrival (All Areas)' },
               { number: '24/7', label: 'Emergency Service' },
-              { number: '5.0★', label: 'Rating' },
+              { number: '<90', label: 'Min Response' },
             ].map((s, i) => (
               <div key={i} style={{ padding: '32px 24px', textAlign: 'center', borderRight: i < 3 ? '1px solid rgba(255,255,255,0.06)' : 'none' }}>
                 <div className="stat-number" style={{ fontSize: '2.8rem' }}>{s.number}</div>
