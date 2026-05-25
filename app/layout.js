@@ -43,7 +43,6 @@ export const metadata = {
     description: META_DESCRIPTION_HOME,
   },
   robots: { index: true, follow: true },
-  alternates: { canonical: SITE_URL },
   other: { 'msvalidate.01': 'F07B54450F4E8031FB33D8429BD6A5A2' },
 };
 
@@ -69,7 +68,6 @@ const jsonLd = {
     { '@type': 'OpeningHoursSpecification', dayOfWeek: ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday'], opens: '09:00', closes: '21:00', description: 'Same-day service' },
     { '@type': 'OpeningHoursSpecification', dayOfWeek: ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday'], opens: '00:00', closes: '23:59', description: '24/7 emergency' },
   ],
-  priceRange: '$$',
   hasOfferCatalog: {
     '@type': 'OfferCatalog',
     name: 'Garage Door Services Ottawa',
@@ -393,7 +391,7 @@ function Footer() {
         <div className="footer-bottom-wrap">
           <p>© 2026 {BUSINESS_NAME}. All rights reserved. | Serving Ottawa, ON</p>
           <div className="footer-bottom-links">
-            {[['Privacy Policy', '/privacy'], ['Terms of Service', '#'], ['Sitemap', '/sitemap.xml']].map(([label, href]) => (
+            {[['Privacy Policy', '/privacy'], ['Sitemap', '/sitemap.xml']].map(([label, href]) => (
               <a key={label} href={href}>{label}</a>
             ))}
           </div>

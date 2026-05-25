@@ -1,11 +1,13 @@
 import { PHONE, PHONE_HREF, aboutStats, JOBS_TOTAL, BUSINESS_NAME } from '../../lib/data';
 import { aboutStoryCards } from '../../lib/siteCopy';
 
-export const metadata = {
+import { buildPageMetadata } from '../../lib/seo';
+
+export const metadata = buildPageMetadata({
   title: 'About Us',
   description: 'Local Ottawa garage door crew since 2020 — springs, openers, repairs, and installs. Same-day service, written quotes before work, and a labour guarantee on every job.',
-  alternates: { canonical: 'https://www.ottawagaragedoorrepair.ca/about' },
-};
+  path: '/about',
+});
 
 export default function AboutPage() {
   return (

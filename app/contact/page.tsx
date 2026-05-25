@@ -1,11 +1,13 @@
 import { PHONE, PHONE_HREF, SMS_HREF, EMAIL, services, areas, BUSINESS_NAME } from '../../lib/data';
 import ContactCallbackForm from '../components/ContactCallbackForm';
 
-export const metadata = {
+import { buildPageMetadata } from '../../lib/seo';
+
+export const metadata = buildPageMetadata({
   title: 'Contact Us',
   description: 'Call, text, or request a callback for garage door repair in Ottawa — springs, openers, cables, and installs. Same-day service across every neighbourhood.',
-  alternates: { canonical: 'https://www.ottawagaragedoorrepair.ca/contact' },
-};
+  path: '/contact',
+});
 
 export default function ContactPage() {
   return (

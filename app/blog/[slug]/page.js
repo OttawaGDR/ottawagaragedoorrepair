@@ -1,4 +1,5 @@
 import { PHONE, PHONE_HREF } from '../../../lib/data';
+import { SITE_BRAND, SITE_URL, blogMetaDescription, openGraphPage } from '../../../lib/seo';
 import Icon from '../../components/Icons';
 
 const posts = {
@@ -8,6 +9,7 @@ const posts = {
     title: 'How Much Does Garage Door Repair Cost in Ottawa? (2026 Guide)',
     date: 'Jan 15, 2026',
     readTime: '8 min read',
+    metaDescription: 'What garage door repairs typically cost in Ottawa — springs, openers, cables, tracks, and tune-ups explained with no surprise fees.',
     intro: "Getting your garage door repaired in Ottawa doesn't have to be a guessing game. Here's a complete breakdown of what you'll actually pay for every common repair — no surprises.",
     sections: [
       { heading: 'Spring Replacement', content: 'Torsion spring replacement is the most common garage door repair in Ottawa. Spring replacement runs $220–$350. We always recommend replacing both springs at the same time since if one broke, the other is near the end of its life — and it saves you a second service call within months.' },
@@ -151,10 +153,14 @@ export async function generateMetadata({ params }) {
   const { slug } = await params;
   const post = posts[slug];
   if (!post) return { title: 'Post Not Found' };
+  const url = `${SITE_URL}/blog/${slug}`;
+  const description = blogMetaDescription(post);
   return {
     title: post.title,
-    description: post.intro?.slice(0, 160) || `Garage door repair and opener advice for Ottawa. ${post.title}`,
-    alternates: { canonical: `https://www.ottawagaragedoorrepair.ca/blog/${slug}` },
+    description,
+    alternates: { canonical: url },
+    openGraph: openGraphPage({ title: post.title, description, url }),
+    twitter: { card: 'summary', title: post.title, description },
   };
 }
 
@@ -175,8 +181,32 @@ export default async function BlogPostPage({ params }) {
     );
   }
 
+  const articleUrl = `${SITE_URL}/blog/${slug}`;
+  const articleSchema = {
+    '@context': 'https://schema.org',
+    '@type': 'Article',
+    headline: post.title,
+    description: blogMetaDescription(post),
+    datePublished: post.date,
+    author: { '@type': 'Organization', name: SITE_BRAND },
+    publisher: { '@type': 'Organization', name: SITE_BRAND, url: SITE_URL },
+    mainEntityOfPage: articleUrl,
+    inLanguage: 'en-CA',
+  };
+  const breadcrumbSchema = {
+    '@context': 'https://schema.org',
+    '@type': 'BreadcrumbList',
+    itemListElement: [
+      { '@type': 'ListItem', position: 1, name: 'Home', item: SITE_URL },
+      { '@type': 'ListItem', position: 2, name: 'Blog', item: `${SITE_URL}/blog` },
+      { '@type': 'ListItem', position: 3, name: post.title, item: articleUrl },
+    ],
+  };
+
   return (
     <>
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(articleSchema) }} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }} />
       {/* HERO */}
       <section style={{ padding: '60px 0 40px', borderBottom: '1px solid rgba(255,255,255,0.06)' }}>
         <div className="container" style={{ maxWidth: 800, margin: '0 auto' }}>

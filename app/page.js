@@ -1,5 +1,5 @@
 import { services, areas, faqs, blogPosts, galleryImages, PHONE, PHONE_HREF, homepageStats, BUSINESS_NAME } from '../lib/data';
-import { META_TITLE_HOME, META_DESCRIPTION_HOME, SITE_BRAND, SITE_URL } from '../lib/seo';
+import { META_TITLE_HOME, META_DESCRIPTION_HOME, OG_SITE_NAME, SITE_BRAND, SITE_URL } from '../lib/seo';
 import {
   trustBarItems,
   heroFeaturePills,
@@ -29,10 +29,19 @@ const websiteJsonLd = {
 export const metadata = {
   title: { absolute: META_TITLE_HOME },
   description: META_DESCRIPTION_HOME,
+  alternates: { canonical: SITE_URL },
   openGraph: {
     title: META_TITLE_HOME,
     description: META_DESCRIPTION_HOME,
     url: SITE_URL,
+    siteName: OG_SITE_NAME,
+    locale: 'en_CA',
+    type: 'website',
+  },
+  twitter: {
+    card: 'summary',
+    title: META_TITLE_HOME,
+    description: META_DESCRIPTION_HOME,
   },
 };
 

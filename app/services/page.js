@@ -2,17 +2,14 @@ import { services, PHONE, PHONE_HREF, servicesPageStats, BUSINESS_NAME } from '.
 import { EMERGENCY_REPAIR_INTRO, whyChooseUsCards, servicesGallerySection } from '../../lib/siteCopy';
 import Icon from '../components/Icons';
 
-export const metadata = {
+import { buildPageMetadata } from '../../lib/seo';
+
+export const metadata = buildPageMetadata({
   title: 'Springs, Openers & Door Repair',
   description: `Garage door repair in Ottawa — spring replacement, opener repair, cables, and new door installs. Same-day service. Licensed & insured. Call ${PHONE}.`,
+  path: '/services',
   keywords: ['garage door repair Ottawa', 'garage door spring repair Ottawa', 'garage door opener repair Ottawa', 'garage door installation Ottawa'],
-  alternates: { canonical: 'https://www.ottawagaragedoorrepair.ca/services' },
-  openGraph: {
-    title: 'Springs, Openers & Door Repair | Garage Door Repair Ottawa',
-    description: `Spring replacement, opener repair, cables, and new doors in Ottawa. Same-day service. Call ${PHONE}.`,
-    url: 'https://www.ottawagaragedoorrepair.ca/services',
-  },
-};
+});
 
 const realJobs = [
   {
@@ -79,6 +76,8 @@ const realJobs = [
     time: '60 min',
     location: 'Ottawa',
     color: '#f59e0b',
+    image: '/images/garage-door-panel-repair-ottawa.jpg',
+    imageAlt: 'Broken garage door panel with cracked frame and disconnected opener arm — panel repair Ottawa',
   },
   {
     emoji: '🚪',

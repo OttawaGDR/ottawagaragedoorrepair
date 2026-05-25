@@ -1,10 +1,12 @@
 import { areas, PHONE, PHONE_HREF } from '../../lib/data';
 
-export const metadata = {
+import { buildPageMetadata } from '../../lib/seo';
+
+export const metadata = buildPageMetadata({
   title: 'Service Areas Across Ottawa',
   description: `Garage door repair across Ottawa — Kanata, Barrhaven, Nepean, Orleans, Stittsville, Gloucester, and more. Springs, openers, same-day service. Call ${PHONE}.`,
-  alternates: { canonical: 'https://www.ottawagaragedoorrepair.ca/areas' },
-};
+  path: '/areas',
+});
 
 const areaDetails = [
   { slug: "kanata", name: "Kanata", emoji: "🏘️", population: "110,000+", highlight: "Tech hub with newer homes & premium doors", color: "#f97316" },

@@ -1,12 +1,14 @@
 import { PHONE, PHONE_HREF } from '../../lib/data';
 import BlogCategoryFilter from '../components/BlogCategoryFilter';
 
-export const metadata = {
+import { buildPageMetadata } from '../../lib/seo';
+
+export const metadata = buildPageMetadata({
   title: 'Repair Tips & Guides',
   description: 'Expert garage door advice for Ottawa — broken springs, cold-weather fixes, insulated doors, and opener guides from a local repair crew.',
+  path: '/blog',
   keywords: ['garage door repair Ottawa', 'garage door opener repair Ottawa', 'garage door tips Ottawa'],
-  alternates: { canonical: 'https://www.ottawagaragedoorrepair.ca/blog' },
-};
+});
 
 const posts = [
   { slug: 'garage-door-repair-cost-ottawa', emoji: '💰', cat: 'Pricing', title: 'How Much Does Garage Door Repair Cost in Ottawa? (2026 Guide)', excerpt: 'Complete pricing breakdown for every type of garage door repair in Ottawa. No surprises.', date: 'Jan 15, 2026', readTime: '8 min read' },

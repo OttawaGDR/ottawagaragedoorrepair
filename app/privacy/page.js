@@ -1,10 +1,12 @@
 import { PHONE_HREF, BUSINESS_NAME } from '../../lib/data';
 
-export const metadata = {
+import { buildPageMetadata } from '../../lib/seo';
+
+export const metadata = buildPageMetadata({
   title: 'Privacy Policy',
   description: 'Privacy policy for ottawagaragedoorrepair.ca. How we collect, use, and protect your information when you contact us for garage door services in Ottawa.',
-  alternates: { canonical: 'https://www.ottawagaragedoorrepair.ca/privacy' },
-};
+  path: '/privacy',
+});
 
 export default function PrivacyPage() {
   return (

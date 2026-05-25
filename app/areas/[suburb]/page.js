@@ -1,6 +1,6 @@
 import { areas, services, faqs, PHONE, PHONE_HREF, BUSINESS_NAME } from '../../../lib/data';
 import { getAreaContent, getAreaMetaDescription } from '../../../lib/areaPageContent';
-import { OG_SITE_NAME, SITE_BRAND, SITE_URL } from '../../../lib/seo';
+import { OG_SITE_NAME, ORG_ID, SITE_BRAND, SITE_URL, WEBSITE_ID, areaMetaDescription, truncateMeta } from '../../../lib/seo';
 
 export async function generateStaticParams() {
   return areas.map(a => ({ suburb: a.slug }));
@@ -13,9 +13,7 @@ export async function generateMetadata({ params }) {
   const areaUrl = `${SITE_URL}/areas/${suburb}`;
   const title = { absolute: `Garage Door Repair ${area.name} | Springs & Openers | Same-Day` };
   const uniqueMeta = getAreaMetaDescription(suburb);
-  const description = uniqueMeta
-    ? `${uniqueMeta} Same-day service for springs, openers & cables. Licensed & insured. Call ${PHONE}.`
-    : `Same-day garage door repair in ${area.name}, Ottawa. Springs, openers, cables, emergency service. Licensed & insured. Call ${PHONE} for a quote.`;
+  const description = areaMetaDescription(area.name, uniqueMeta);
   return {
     title,
     description,
@@ -26,6 +24,12 @@ export async function generateMetadata({ params }) {
       url: areaUrl,
       siteName: OG_SITE_NAME,
       locale: 'en_CA',
+      type: 'website',
+    },
+    twitter: {
+      card: 'summary',
+      title: `Garage Door Repair ${area.name} | Springs & Openers | Same-Day`,
+      description,
     },
     keywords: [
       `garage door repair ${area.name}`,
@@ -54,20 +58,19 @@ export default async function AreaPage({ params }) {
   }
 
   const areaPageUrl = `${SITE_URL}/areas/${suburb}`;
+  const pageDescription = areaContent?.intro
+    ? truncateMeta(`${areaContent.intro} Same-day repair for springs, openers, cables, and emergencies.`, 200)
+    : `Garage door repair and installation in ${area.name}, Ottawa. Same-day service for springs, openers, cables, and emergency repairs.`;
   const schema = {
     '@context': 'https://schema.org',
-    '@type': 'LocalBusiness',
-    '@id': `${SITE_URL}/#organization`,
-    name: SITE_BRAND,
-    alternateName: 'ottawagaragedoorrepair.ca',
-    description: areaContent?.intro
-      ? `${areaContent.intro} Same-day repair and installation for springs, openers, cables, and emergencies.`
-      : `Garage door repair and installation in ${area.name}, Ottawa. Same-day service for springs, openers, cables, and emergency repairs.`,
-    url: SITE_URL,
-    telephone: PHONE,
-    areaServed: [{ '@type': 'City', name: area.name }, { '@type': 'City', name: 'Ottawa', addressRegion: 'ON', addressCountry: 'CA' }],
-    address: { '@type': 'PostalAddress', addressLocality: 'Ottawa', addressRegion: 'ON', addressCountry: 'CA' },
-    serviceArea: { '@type': 'GeoCircle', geoMidpoint: { '@type': 'GeoCoordinates', latitude: 45.4215, longitude: -75.6972 }, geoRadius: '50000' },
+    '@type': 'WebPage',
+    '@id': `${areaPageUrl}#webpage`,
+    name: `Garage Door Repair ${area.name} | ${SITE_BRAND}`,
+    description: pageDescription,
+    url: areaPageUrl,
+    isPartOf: { '@id': WEBSITE_ID },
+    about: { '@id': ORG_ID },
+    inLanguage: 'en-CA',
   };
   const breadcrumbSchema = {
     '@context': 'https://schema.org',

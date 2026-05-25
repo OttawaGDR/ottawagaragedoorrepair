@@ -1,5 +1,5 @@
 import { services, PHONE, PHONE_HREF, BUSINESS_NAME } from '../../../lib/data';
-import { SITE_BRAND, serviceMetaDescription } from '../../../lib/seo';
+import { ORG_ID, SITE_BRAND, SITE_URL, openGraphPage, serviceMetaDescription } from '../../../lib/seo';
 import { serviceWhatsIncluded, serviceFaqs } from '../../../lib/serviceContent';
 import { servicePageTrustBullets } from '../../../lib/siteCopy';
 
@@ -13,11 +13,14 @@ export async function generateMetadata({ params }) {
   if (!service) return {};
   const title = { absolute: `${service.title} Ottawa | Springs & Openers | Same-Day` };
   const description = serviceMetaDescription(service);
+  const url = `${SITE_URL}/services/${slug}`;
   return {
     title,
     description,
     keywords: service.keywords || ['garage door services Ottawa', 'garage door repairs Ottawa'],
-    alternates: { canonical: `https://www.ottawagaragedoorrepair.ca/services/${slug}` },
+    alternates: { canonical: url },
+    openGraph: openGraphPage({ title: title.absolute, description, url }),
+    twitter: { card: 'summary', title: title.absolute, description },
   };
 }
 
@@ -40,18 +43,44 @@ export default async function ServicePage({ params }) {
   const whatsIncluded = serviceWhatsIncluded[slug] || [];
   const serviceFaqList = serviceFaqs[slug] || [];
 
+  const serviceUrl = `${SITE_URL}/services/${slug}`;
   const schema = {
     '@context': 'https://schema.org',
     '@type': 'Service',
     name: `${service.title} in Ottawa`,
-    provider: { '@type': 'LocalBusiness', name: SITE_BRAND, telephone: PHONE },
+    url: serviceUrl,
+    provider: { '@type': 'LocalBusiness', '@id': ORG_ID, name: SITE_BRAND, telephone: PHONE },
     areaServed: 'Ottawa, Ontario, Canada',
     description: service.shortDesc,
   };
+  const breadcrumbSchema = {
+    '@context': 'https://schema.org',
+    '@type': 'BreadcrumbList',
+    itemListElement: [
+      { '@type': 'ListItem', position: 1, name: 'Home', item: SITE_URL },
+      { '@type': 'ListItem', position: 2, name: 'Services', item: `${SITE_URL}/services` },
+      { '@type': 'ListItem', position: 3, name: service.title, item: serviceUrl },
+    ],
+  };
+  const faqSchema = serviceFaqList.length
+    ? {
+        '@context': 'https://schema.org',
+        '@type': 'FAQPage',
+        mainEntity: serviceFaqList.map((item) => ({
+          '@type': 'Question',
+          name: item.q,
+          acceptedAnswer: { '@type': 'Answer', text: item.a },
+        })),
+      }
+    : null;
 
   return (
     <>
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }} />
+      {faqSchema && (
+        <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }} />
+      )}
 
       <section className="service-detail-page grid-bg" style={{ background: 'transparent', padding: '80px 0 60px', position: 'relative', overflow: 'hidden' }}>
         <div style={{ position: 'absolute', top: '30%', right: '5%', width: 500, height: 500, borderRadius: '50%', background: 'radial-gradient(circle, rgba(249,115,22,0.09) 0%, transparent 70%)', pointerEvents: 'none' }} />
