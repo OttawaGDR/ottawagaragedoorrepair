@@ -1,5 +1,5 @@
 import { services, PHONE, PHONE_HREF, BUSINESS_NAME } from '../../../lib/data';
-import { SITE_BRAND } from '../../../lib/seo';
+import { SITE_BRAND, serviceMetaDescription } from '../../../lib/seo';
 import { serviceWhatsIncluded, serviceFaqs } from '../../../lib/serviceContent';
 import { servicePageTrustBullets } from '../../../lib/siteCopy';
 
@@ -12,7 +12,7 @@ export async function generateMetadata({ params }) {
   const service = services.find(s => s.slug === slug);
   if (!service) return {};
   const title = { absolute: `${service.title} Ottawa | Springs & Openers | Same-Day` };
-  const description = `${service.shortDesc} Same-day ${service.title.toLowerCase()} in Ottawa. Licensed & insured. Call ${PHONE}.`;
+  const description = serviceMetaDescription(service);
   return {
     title,
     description,
@@ -46,7 +46,7 @@ export default async function ServicePage({ params }) {
     name: `${service.title} in Ottawa`,
     provider: { '@type': 'LocalBusiness', name: SITE_BRAND, telephone: PHONE },
     areaServed: 'Ottawa, Ontario, Canada',
-    description: service.fullDesc,
+    description: service.shortDesc,
   };
 
   return (
@@ -100,48 +100,30 @@ export default async function ServicePage({ params }) {
                     <figure
                       key={photo.src}
                       className="service-detail-photo"
-                      style={{
-                        margin: 0,
-                        borderRadius: 16,
-                        overflow: 'hidden',
-                        background: '#f1f5f9',
-                        boxShadow: '0 12px 40px rgba(0,0,0,0.3)',
-                        border: '1px solid rgba(255,255,255,0.12)',
-                      }}
+                      style={{ margin: 0, borderRadius: 16, overflow: 'hidden', boxShadow: '0 12px 40px rgba(0,0,0,0.35)' }}
                     >
                       <img
                         src={photo.src}
-                        alt={photo.alt || service.title}
+                        alt={photo.alt || service.imageAlt || service.title}
+                        title={photo.caption || photo.alt || service.title}
                         width={400}
                         height={500}
-                        style={{ width: '100%', height: 'auto', display: 'block', verticalAlign: 'middle' }}
                       />
-                      {photo.caption ? (
-                        <figcaption style={{ padding: '10px 12px', fontSize: '0.8rem', fontWeight: 700, color: 'var(--navy)', background: '#f8fafc', textAlign: 'center' }}>
-                          {photo.caption}
-                        </figcaption>
-                      ) : null}
+                      {photo.caption ? <figcaption>{photo.caption}</figcaption> : null}
                     </figure>
                   ))}
                 </div>
               ) : service.image ? (
                 <div
                   className="service-detail-photo"
-                  style={{
-                    marginBottom: 24,
-                    borderRadius: 16,
-                    overflow: 'hidden',
-                    background: '#f1f5f9',
-                    boxShadow: '0 20px 60px rgba(0,0,0,0.35)',
-                    border: '1px solid rgba(255,255,255,0.12)',
-                  }}
+                  style={{ marginBottom: 24, borderRadius: 16, overflow: 'hidden', boxShadow: '0 20px 60px rgba(0,0,0,0.35)' }}
                 >
                   <img
                     src={service.image}
                     alt={service.imageAlt || service.title}
+                    title={service.imageAlt || service.title}
                     width={800}
                     height={600}
-                    style={{ width: '100%', height: 'auto', display: 'block', verticalAlign: 'middle' }}
                   />
                 </div>
               ) : null}

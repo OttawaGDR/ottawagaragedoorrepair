@@ -537,12 +537,37 @@ iframe { max-width: 100%; }
   width: 100%;
   aspect-ratio: 16/10;
   overflow: hidden;
-  background: rgba(0,0,0,0.2);
+  background: linear-gradient(145deg, var(--navy-mid) 0%, var(--navy-light) 70%, rgba(249, 115, 22, 0.15) 100%);
 }
-.service-card-img-wrap img { width: 100%; height: 100%; object-fit: cover; display: block; }
+.service-card-img-wrap img { width: 100%; height: 100%; object-fit: contain; display: block; padding: 8px; }
 
-.service-detail-photo img { max-height: 420px; object-fit: contain; margin: 0 auto; }
+.service-detail-photo {
+  background: linear-gradient(145deg, var(--navy-mid) 0%, var(--navy-light) 55%, rgba(249, 115, 22, 0.14) 100%);
+  border: 1px solid var(--glass-border) !important;
+}
+.service-detail-photo img {
+  width: 100%;
+  height: auto;
+  display: block;
+  max-height: 420px;
+  object-fit: contain;
+  margin: 0 auto;
+  padding: 12px;
+}
+.service-detail-photo figcaption {
+  padding: 10px 12px;
+  font-size: 0.8rem;
+  font-weight: 700;
+  color: rgba(255, 255, 255, 0.92);
+  background: rgba(10, 22, 40, 0.85);
+  text-align: center;
+  border-top: 1px solid var(--glass-border);
+}
 .service-detail-photos-grid .service-detail-photo img { max-height: 280px; }
+.service-job-photo {
+  background: linear-gradient(145deg, var(--navy-mid) 0%, var(--navy-light) 70%, rgba(249, 115, 22, 0.12) 100%) !important;
+}
+.service-job-photo img { object-fit: contain !important; padding: 10px; }
 @media (max-width: 900px) {
   .service-detail-hero-grid { grid-template-columns: 1fr !important; }
   .service-detail-hero-side { order: -1; }

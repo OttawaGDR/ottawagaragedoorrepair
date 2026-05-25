@@ -3,7 +3,7 @@ import BlogCategoryFilter from '../components/BlogCategoryFilter';
 
 export const metadata = {
   title: 'Repair Tips & Guides',
-  description: 'Expert garage door advice for Ottawa — repair costs, broken springs, cold-weather fixes, insulated doors, and opener guides from a local crew.',
+  description: 'Expert garage door advice for Ottawa — broken springs, cold-weather fixes, insulated doors, and opener guides from a local repair crew.',
   keywords: ['garage door repair Ottawa', 'garage door opener repair Ottawa', 'garage door tips Ottawa'],
   alternates: { canonical: 'https://www.ottawagaragedoorrepair.ca/blog' },
 };

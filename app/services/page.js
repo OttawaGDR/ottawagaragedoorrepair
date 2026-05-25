@@ -4,7 +4,7 @@ import Icon from '../components/Icons';
 
 export const metadata = {
   title: 'Springs, Openers & Door Repair',
-  description: `Garage door repair in Ottawa — spring replacement, opener repair, cables, and new door installs. Same-day service, upfront pricing. Call ${PHONE}.`,
+  description: `Garage door repair in Ottawa — spring replacement, opener repair, cables, and new door installs. Same-day service. Licensed & insured. Call ${PHONE}.`,
   keywords: ['garage door repair Ottawa', 'garage door spring repair Ottawa', 'garage door opener repair Ottawa', 'garage door installation Ottawa'],
   alternates: { canonical: 'https://www.ottawagaragedoorrepair.ca/services' },
   openGraph: {
@@ -210,16 +210,19 @@ export default function ServicesPage() {
             {realJobs.map((job, i) => (
               <div key={i} className="glass-card card-shine reveal" style={{ overflow: 'hidden' }}>
                 {/* CARD TOP */}
-                <div style={{
-                  height: 160,
-                  background: job.image ? '#f1f5f9' : `linear-gradient(135deg, ${job.color}22, ${job.color}11)`,
-                  display: 'flex', alignItems: 'center', justifyContent: 'center',
-                  position: 'relative',
-                  borderBottom: `1px solid ${job.color}33`,
-                  overflow: 'hidden',
-                }}>
+                <div
+                  className={job.image ? 'service-job-photo' : undefined}
+                  style={{
+                    height: 160,
+                    background: job.image ? undefined : `linear-gradient(135deg, ${job.color}22, ${job.color}11)`,
+                    display: 'flex', alignItems: 'center', justifyContent: 'center',
+                    position: 'relative',
+                    borderBottom: `1px solid ${job.color}33`,
+                    overflow: 'hidden',
+                  }}
+                >
                   {job.image ? (
-                    <img src={job.image} alt={job.imageAlt || job.title} style={{ width: '100%', height: '100%', objectFit: 'cover', display: 'block' }} />
+                    <img src={job.image} alt={job.imageAlt || job.title} title={job.imageAlt || job.title} style={{ width: '100%', height: '100%', display: 'block' }} />
                   ) : (
                     <span style={{ fontSize: '4rem' }}>{job.emoji}</span>
                   )}
