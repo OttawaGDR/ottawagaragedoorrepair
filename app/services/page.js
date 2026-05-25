@@ -32,6 +32,8 @@ const realJobs = [
     time: '60 min',
     location: 'Kanata',
     color: '#3b82f6',
+    image: '/images/garage-door-cable-repair-ottawa.png',
+    imageAlt: 'Garage door lift cable, rollers, and bottom brackets for cable repair',
   },
   {
     emoji: '⚙️',
@@ -210,12 +212,17 @@ export default function ServicesPage() {
                 {/* CARD TOP */}
                 <div style={{
                   height: 160,
-                  background: `linear-gradient(135deg, ${job.color}22, ${job.color}11)`,
+                  background: job.image ? '#f1f5f9' : `linear-gradient(135deg, ${job.color}22, ${job.color}11)`,
                   display: 'flex', alignItems: 'center', justifyContent: 'center',
                   position: 'relative',
                   borderBottom: `1px solid ${job.color}33`,
+                  overflow: 'hidden',
                 }}>
-                  <span style={{ fontSize: '4rem' }}>{job.emoji}</span>
+                  {job.image ? (
+                    <img src={job.image} alt={job.imageAlt || job.title} style={{ width: '100%', height: '100%', objectFit: 'cover', display: 'block' }} />
+                  ) : (
+                    <span style={{ fontSize: '4rem' }}>{job.emoji}</span>
+                  )}
                   <div style={{
                     position: 'absolute', top: 12, right: 12,
                     background: job.color,

@@ -541,6 +541,19 @@ iframe { max-width: 100%; }
 }
 .service-card-img-wrap img { width: 100%; height: 100%; object-fit: cover; display: block; }
 
+.service-detail-photo img { max-height: 420px; object-fit: contain; margin: 0 auto; }
+.service-detail-photos-grid .service-detail-photo img { max-height: 280px; }
+@media (max-width: 900px) {
+  .service-detail-hero-grid { grid-template-columns: 1fr !important; }
+  .service-detail-hero-side { order: -1; }
+  .service-detail-photo { margin-bottom: 28px !important; }
+  .service-detail-photos-grid { grid-template-columns: 1fr 1fr !important; }
+}
+@media (max-width: 520px) {
+  .service-detail-photos-grid { grid-template-columns: 1fr !important; }
+  .service-detail-photos-grid .service-detail-photo img { max-height: 360px; }
+}
+
 /* How it works / steps */
 .steps-grid {
   display: grid;

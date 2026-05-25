@@ -64,12 +64,7 @@ export default async function ServicePage({ params }) {
             <span style={{ color: 'var(--orange)' }}>{service.title}</span>
           </nav>
 
-          {service.image && (
-          <div style={{ marginBottom: 32, borderRadius: 16, overflow: 'hidden', boxShadow: '0 20px 60px rgba(0,0,0,0.4)' }}>
-            <img src={service.image} alt={service.title} style={{ width: '100%', aspectRatio: '16/9', objectFit: 'cover', display: 'block' }} />
-          </div>
-        )}
-          <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 60, alignItems: 'center' }}>
+          <div className="service-detail-hero-grid" style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 60, alignItems: 'center' }}>
             <div>
               <div style={{ fontSize: '4rem', marginBottom: 20 }}>{service.icon}</div>
               <span className="service-tag" style={{ marginBottom: 16 }}>{service.price}</span>
@@ -98,8 +93,59 @@ export default async function ServicePage({ params }) {
               </a>
             </div>
 
-            <div className="hide-mobile">
-              <div className="glass-card border-glow" style={{ padding: 36 }}>
+            <div className="service-detail-hero-side">
+              {service.images?.length > 0 ? (
+                <div className="service-detail-photos-grid" style={{ marginBottom: 24, display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 12 }}>
+                  {service.images.map((photo) => (
+                    <figure
+                      key={photo.src}
+                      className="service-detail-photo"
+                      style={{
+                        margin: 0,
+                        borderRadius: 16,
+                        overflow: 'hidden',
+                        background: '#f1f5f9',
+                        boxShadow: '0 12px 40px rgba(0,0,0,0.3)',
+                        border: '1px solid rgba(255,255,255,0.12)',
+                      }}
+                    >
+                      <img
+                        src={photo.src}
+                        alt={photo.alt || service.title}
+                        width={400}
+                        height={500}
+                        style={{ width: '100%', height: 'auto', display: 'block', verticalAlign: 'middle' }}
+                      />
+                      {photo.caption ? (
+                        <figcaption style={{ padding: '10px 12px', fontSize: '0.8rem', fontWeight: 700, color: 'var(--navy)', background: '#f8fafc', textAlign: 'center' }}>
+                          {photo.caption}
+                        </figcaption>
+                      ) : null}
+                    </figure>
+                  ))}
+                </div>
+              ) : service.image ? (
+                <div
+                  className="service-detail-photo"
+                  style={{
+                    marginBottom: 24,
+                    borderRadius: 16,
+                    overflow: 'hidden',
+                    background: '#f1f5f9',
+                    boxShadow: '0 20px 60px rgba(0,0,0,0.35)',
+                    border: '1px solid rgba(255,255,255,0.12)',
+                  }}
+                >
+                  <img
+                    src={service.image}
+                    alt={service.imageAlt || service.title}
+                    width={800}
+                    height={600}
+                    style={{ width: '100%', height: 'auto', display: 'block', verticalAlign: 'middle' }}
+                  />
+                </div>
+              ) : null}
+              <div className="glass-card border-glow service-detail-book-card" style={{ padding: 36 }}>
                 <h3 style={{ fontFamily: 'var(--font-serif)', fontSize: '1.4rem',  marginBottom: 8 }}>Book This Service</h3>
                 <p style={{ color: 'var(--gray-400)', fontSize: '0.85rem', marginBottom: 24 }}>We arrive in under 90 minutes in every Ottawa area.</p>
                 <div className="form-group">

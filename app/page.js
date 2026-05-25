@@ -161,7 +161,7 @@ function Services() {
             <a key={service.slug} href={`/services/${service.slug}`} className="glass-card card-shine reveal service-card">
               {service.image && (
                 <div className="service-card-img-wrap">
-                  <img src={service.image} alt={service.title} />
+                  <img src={service.image} alt={service.imageAlt || service.title} />
                 </div>
               )}
               <div className="service-card-body">
