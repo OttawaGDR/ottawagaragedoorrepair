@@ -1,5 +1,5 @@
 import { services, areas, faqs, blogPosts, galleryImages, PHONE, PHONE_HREF, homepageStats, BUSINESS_NAME } from '../lib/data';
-import { META_TITLE_HOME, META_DESCRIPTION_HOME, OG_SITE_NAME, SITE_BRAND, SITE_URL } from '../lib/seo';
+import { META_TITLE_HOME, META_DESCRIPTION_HOME, OG_SITE_NAME, SITE_BRAND, SITE_URL, siteOgImage } from '../lib/seo';
 import {
   trustBarItems,
   heroFeaturePills,
@@ -37,6 +37,7 @@ export const metadata = {
     siteName: OG_SITE_NAME,
     locale: 'en_CA',
     type: 'website',
+    images: [siteOgImage],
   },
   twitter: {
     card: 'summary',

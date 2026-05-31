@@ -7,6 +7,9 @@ import {
   OG_SITE_NAME,
   SITE_BRAND,
   SITE_URL,
+  siteIcons,
+  siteLogoImageObject,
+  siteOgImage,
 } from '../lib/seo';
 import Icon from './components/Icons';
 import EmergencyBar from './components/EmergencyBar';
@@ -41,7 +44,10 @@ export const metadata = {
     siteName: OG_SITE_NAME,
     title: META_TITLE_HOME,
     description: META_DESCRIPTION_HOME,
+    images: [siteOgImage],
   },
+  icons: siteIcons,
+  manifest: '/site.webmanifest',
   robots: { index: true, follow: true },
   other: { 'msvalidate.01': 'F07B54450F4E8031FB33D8429BD6A5A2' },
 };
@@ -55,6 +61,8 @@ const jsonLd = {
   telephone: '(613) 617-4238',
   email: 'info@ottawagaragedoorrepair.ca',
   url: 'https://www.ottawagaragedoorrepair.ca',
+  logo: siteLogoImageObject,
+  image: siteLogoImageObject.url,
   description: META_DESCRIPTION_HOME,
   address: {
     '@type': 'PostalAddress',
@@ -84,6 +92,8 @@ export default function RootLayout({ children }) {
       <head>
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
+        <link rel="icon" href={`${SITE_URL}/logo-192.png`} type="image/png" sizes="192x192" />
+        <link rel="apple-touch-icon" href={`${SITE_URL}/apple-touch-icon.png`} sizes="180x180" />
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
