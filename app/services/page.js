@@ -58,6 +58,8 @@ const realJobs = [
     time: '90 min',
     location: 'Nepean',
     color: '#ef4444',
+    image: '/images/garage-door-emergency-repair-ottawa.jpg',
+    imageAlt: 'Garage door off track and hanging at an angle — emergency repair Ottawa',
   },
   {
     emoji: '❄️',
