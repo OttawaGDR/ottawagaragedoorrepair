@@ -8,7 +8,8 @@
   "scripts": {
     "dev": "next dev -p 3005",
     "dev:clean": "node -e \"const fs=require('fs');const p='.next';if(fs.existsSync(p)){try{fs.rmSync(p,{recursive:true});console.log('Cleared .next');}catch(e){console.log('Close other terminals/Node, then run: npm run dev');}}else{console.log('No .next folder');}\" && next dev -p 3005",
-    "build": "next build",
+    "build": "node scripts/generate-brand-icons.mjs && next build",
+    "icons": "node scripts/generate-brand-icons.mjs",
     "start": "next start",
     "lint": "eslint"
   },
@@ -19,6 +20,8 @@
     "resend": "^6.9.2"
   },
   "devDependencies": {
+    "sharp": "^0.34.2",
+    "to-ico": "^1.1.5",
     "@tailwindcss/postcss": "^4",
     "@types/node": "^20",
     "@types/react": "^19",

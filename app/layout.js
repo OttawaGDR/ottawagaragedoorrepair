@@ -92,7 +92,9 @@ export default function RootLayout({ children }) {
       <head>
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
-        <link rel="icon" href={`${SITE_URL}/logo-192.png`} type="image/png" sizes="192x192" />
+        <link rel="icon" href={`${SITE_URL}/favicon-32.png`} type="image/png" sizes="32x32" />
+        <link rel="icon" href={`${SITE_URL}/icon.svg`} type="image/svg+xml" />
+        <link rel="shortcut icon" href={`${SITE_URL}/favicon.ico`} />
         <link rel="apple-touch-icon" href={`${SITE_URL}/apple-touch-icon.png`} sizes="180x180" />
         <script
           type="application/ld+json"
