@@ -87,8 +87,10 @@ const realJobs = [
     title: 'R18 Insulated Door Install',
     desc: 'Complete installation: removed old door, installed new R18 steel door with polyurethane core, LiftMaster belt-drive opener, weather seals, safety sensors.',
     time: '6 hours',
-    location: 'Barrhaven',
+    location: 'Gloucester',
     color: '#f97316',
+    image: '/images/garage-door-new-install-gloucester.jpg',
+    imageAlt: 'New white raised-panel garage door installation on brick home in Gloucester, Ottawa',
   },
 ];
 

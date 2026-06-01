@@ -1,6 +1,8 @@
 import { areas, services, faqs, PHONE, PHONE_HREF, BUSINESS_NAME } from '../../../lib/data';
 import { getAreaContent, getAreaMetaDescription } from '../../../lib/areaPageContent';
-import { OG_SITE_NAME, ORG_ID, SITE_BRAND, SITE_URL, WEBSITE_ID, areaMetaDescription, truncateMeta } from '../../../lib/seo';
+import { getAreaPhoto, getAreaPhotoAbsolute, areaPhotoAltForMeta } from '../../../lib/areaPhotos';
+import { OG_SITE_NAME, ORG_ID, SITE_BRAND, SITE_URL, WEBSITE_ID, areaMetaDescription, openGraphPage, truncateMeta } from '../../../lib/seo';
+import GalleryImage from '../../components/GalleryImage';
 
 export async function generateStaticParams() {
   return areas.map(a => ({ suburb: a.slug }));
@@ -14,26 +16,31 @@ export async function generateMetadata({ params }) {
   const title = { absolute: `Garage Door Repair ${area.name} | Springs & Openers | Same-Day` };
   const uniqueMeta = getAreaMetaDescription(suburb);
   const description = areaMetaDescription(area.name, uniqueMeta);
+  const ogTitle = `Garage Door Repair ${area.name} | Springs & Openers | Same-Day`;
+  const photoUrl = getAreaPhotoAbsolute(suburb, SITE_URL);
+  const ogImage = photoUrl
+    ? { url: photoUrl, alt: areaPhotoAltForMeta(area.name, suburb) }
+    : undefined;
+  const openGraph = {
+    ...openGraphPage({ title: ogTitle, description, url: areaUrl }),
+    ...(ogImage ? { images: [ogImage] } : {}),
+  };
   return {
     title,
     description,
     alternates: { canonical: areaUrl },
-    openGraph: {
-      title: `Garage Door Repair ${area.name} | Springs & Openers | Same-Day`,
-      description,
-      url: areaUrl,
-      siteName: OG_SITE_NAME,
-      locale: 'en_CA',
-      type: 'website',
-    },
+    openGraph,
     twitter: {
-      card: 'summary',
-      title: `Garage Door Repair ${area.name} | Springs & Openers | Same-Day`,
+      card: ogImage ? 'summary_large_image' : 'summary',
+      title: ogTitle,
       description,
+      ...(ogImage ? { images: [photoUrl] } : {}),
     },
     keywords: [
       `garage door repair ${area.name}`,
       `garage door repair ${area.name} Ottawa`,
+      `garage door installation ${area.name}`,
+      `new garage door ${area.name}`,
       `garage door service ${area.name}`,
       `garage door spring repair ${area.name}`,
       'garage door opener repair Ottawa',
@@ -58,6 +65,7 @@ export default async function AreaPage({ params }) {
   }
 
   const areaPageUrl = `${SITE_URL}/areas/${suburb}`;
+  const areaPhoto = getAreaPhoto(suburb);
   const pageDescription = areaContent?.intro
     ? truncateMeta(`${areaContent.intro} Same-day repair for springs, openers, cables, and emergencies.`, 200)
     : `Garage door repair and installation in ${area.name}, Ottawa. Same-day service for springs, openers, cables, and emergency repairs.`;
@@ -71,6 +79,15 @@ export default async function AreaPage({ params }) {
     isPartOf: { '@id': WEBSITE_ID },
     about: { '@id': ORG_ID },
     inLanguage: 'en-CA',
+    ...(areaPhoto
+      ? {
+          primaryImageOfPage: {
+            '@type': 'ImageObject',
+            url: getAreaPhotoAbsolute(suburb, SITE_URL),
+            caption: areaPhoto.alt,
+          },
+        }
+      : {}),
   };
   const breadcrumbSchema = {
     '@context': 'https://schema.org',
@@ -167,7 +184,15 @@ export default async function AreaPage({ params }) {
               </div>
             </div>
 
-            <div className="hide-mobile">
+            <div className="hide-mobile area-hero-side">
+              {areaPhoto && (
+                <figure
+                  className="service-detail-photo area-hero-photo"
+                  style={{ margin: '0 0 20px', borderRadius: 16, overflow: 'hidden', boxShadow: '0 20px 60px rgba(0,0,0,0.35)' }}
+                >
+                  <GalleryImage src={areaPhoto.src} alt={areaPhoto.alt} caption={areaPhoto.caption} />
+                </figure>
+              )}
               <div className="glass-card border-glow" style={{ padding: 36 }}>
                 <h3 style={{ fontFamily: 'var(--font-serif)', fontSize: '1.3rem',  marginBottom: 8 }}>
                   Request Service in {area.name}
@@ -202,6 +227,16 @@ export default async function AreaPage({ params }) {
         </div>
         <div style={{ position: 'absolute', bottom: 0, left: 0, right: 0, height: 80, background: 'linear-gradient(transparent, var(--navy))', pointerEvents: 'none' }} />
       </section>
+
+      {areaPhoto && (
+        <section className="show-mobile" style={{ padding: '0 0 32px', background: 'var(--navy)' }}>
+          <div className="container">
+            <figure className="service-detail-photo area-hero-photo" style={{ margin: 0, borderRadius: 16, overflow: 'hidden' }}>
+              <GalleryImage src={areaPhoto.src} alt={areaPhoto.alt} caption={areaPhoto.caption} />
+            </figure>
+          </div>
+        </section>
+      )}
 
       {/* LOCAL CONTENT */}
       <section className="section section-light">
