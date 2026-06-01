@@ -1,5 +1,15 @@
 import { services, areas, faqs, blogPosts, galleryImages, PHONE, PHONE_HREF, homepageStats, BUSINESS_NAME } from '../lib/data';
-import { META_TITLE_HOME, META_DESCRIPTION_HOME, OG_SITE_NAME, SITE_BRAND, SITE_URL, siteOgImage } from '../lib/seo';
+import {
+  META_TITLE_HOME,
+  META_DESCRIPTION_HOME,
+  OG_SITE_NAME,
+  SITE_ALTERNATE_NAMES,
+  SITE_BRAND,
+  SITE_NAME,
+  SITE_URL,
+  WEBSITE_ID,
+  siteOgImage,
+} from '../lib/seo';
 import {
   trustBarItems,
   heroFeaturePills,
@@ -17,12 +27,12 @@ import ContactCallbackForm from './components/ContactCallbackForm';
 const websiteJsonLd = {
   '@context': 'https://schema.org',
   '@type': 'WebSite',
-  '@id': 'https://www.ottawagaragedoorrepair.ca/#website',
-  name: SITE_BRAND,
-  alternateName: ['ottawagaragedoorrepair.ca'],
+  '@id': WEBSITE_ID,
+  name: SITE_NAME,
+  alternateName: SITE_ALTERNATE_NAMES,
   url: `${SITE_URL}/`,
   description: META_DESCRIPTION_HOME,
-  publisher: { '@id': 'https://www.ottawagaragedoorrepair.ca/#organization' },
+  publisher: { '@id': `${SITE_URL}/#organization` },
   inLanguage: 'en-CA',
 };
 
@@ -75,7 +85,7 @@ function Hero() {
         <div className="hero-grid">
           <div>
             <div className="badge hero-badge"><Icon name="bolt" size={16} className="text-orange-bright" /> Same-Day Service</div>
-            <p className="hero-brand-line">{BUSINESS_NAME}</p>
+            <p className="hero-brand-line">{SITE_NAME}</p>
             <h1 className="hero-title">
               SAME-DAY<br />
               <span className="hero-title-accent">GARAGE DOOR</span><br />

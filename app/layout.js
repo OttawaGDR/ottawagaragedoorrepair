@@ -5,7 +5,8 @@ import {
   META_TITLE_TEMPLATE,
   META_DESCRIPTION_HOME,
   OG_SITE_NAME,
-  SITE_BRAND,
+  SITE_ALTERNATE_NAMES,
+  SITE_NAME,
   SITE_URL,
   siteIcons,
   siteLogoImageObject,
@@ -20,7 +21,7 @@ import GoogleAnalytics from './components/GoogleAnalytics';
 export const viewport = { width: 'device-width', initialScale: 1, maximumScale: 5 };
 export const metadata = {
   metadataBase: new URL(SITE_URL),
-  applicationName: SITE_BRAND,
+  applicationName: SITE_NAME,
   title: {
     default: META_TITLE_HOME,
     template: META_TITLE_TEMPLATE,
@@ -56,8 +57,8 @@ const jsonLd = {
   '@context': 'https://schema.org',
   '@type': 'LocalBusiness',
   '@id': 'https://www.ottawagaragedoorrepair.ca/#organization',
-  name: SITE_BRAND,
-  alternateName: ['ottawagaragedoorrepair.ca'],
+  name: SITE_NAME,
+  alternateName: SITE_ALTERNATE_NAMES,
   telephone: '(613) 617-4238',
   email: 'info@ottawagaragedoorrepair.ca',
   url: 'https://www.ottawagaragedoorrepair.ca',
@@ -96,6 +97,8 @@ export default function RootLayout({ children }) {
         <link rel="icon" href={`${SITE_URL}/icon.svg`} type="image/svg+xml" />
         <link rel="shortcut icon" href={`${SITE_URL}/favicon.ico`} />
         <link rel="apple-touch-icon" href={`${SITE_URL}/apple-touch-icon.png`} sizes="180x180" />
+        <meta name="application-name" content={SITE_NAME} />
+        <meta name="apple-mobile-web-app-title" content="Ottawa GDR" />
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
