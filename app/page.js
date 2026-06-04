@@ -1,5 +1,4 @@
 import { services, areas, faqs, blogPosts, PHONE, PHONE_HREF, homepageStats, BUSINESS_NAME } from '../lib/data';
-import { newDoorGalleryImages, repairGalleryImages } from '../lib/areaPhotos';
 import {
   META_TITLE_HOME,
   META_DESCRIPTION_HOME,
@@ -20,7 +19,6 @@ import {
   finalCtaCopy,
 } from '../lib/siteCopy';
 import Icon from './components/Icons';
-import GalleryImage from './components/GalleryImage';
 import QuoteCalculator from './components/QuoteCalculator';
 import ContactCallbackForm from './components/ContactCallbackForm';
 
@@ -71,7 +69,6 @@ export default function HomePage() {
       <QuoteCalculator services={services} />
       <HowItWorks />
       <Areas />
-      <Gallery />
       <FAQ />
       <Blog />
       <FinalCTA />
@@ -273,56 +270,6 @@ function Areas() {
               </div>
             </div>
           </div>
-        </div>
-      </div>
-    </section>
-  );
-}
-
-function GalleryGrid({ images, idPrefix }) {
-  return (
-    <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))', gap: 24 }}>
-      {images.map((img, i) => (
-        <div key={`${idPrefix}-${i}`} className="reveal glass-card" style={{ overflow: 'hidden', padding: 0 }}>
-          <GalleryImage src={img.src} alt={img.alt} caption={img.caption} />
-        </div>
-      ))}
-    </div>
-  );
-}
-
-function Gallery() {
-  return (
-    <section className="section" style={{ background: 'var(--navy-mid)' }}>
-      <div className="container">
-        <div style={{ textAlign: 'center', marginBottom: 48 }}>
-          <span className="section-label">{gallerySection.label}</span>
-          <h2 className="heading-xl reveal" style={{ maxWidth: 560, margin: '0 auto' }}>
-            {gallerySection.title} <em style={{ color: 'var(--orange)' }}>{gallerySection.titleAccent}</em>
-          </h2>
-          <p style={{ color: 'var(--gray-400)', marginTop: 16, maxWidth: 520, margin: '16px auto 0', lineHeight: 1.75 }}>
-            {gallerySection.subtitle}
-          </p>
-        </div>
-
-        <div style={{ marginBottom: 56 }}>
-          <h3 className="heading-md reveal" style={{ marginBottom: 8, textAlign: 'center' }}>
-            New <em style={{ color: 'var(--orange)' }}>Garage Door</em> Installs
-          </h3>
-          <p style={{ color: 'var(--gray-400)', textAlign: 'center', marginBottom: 28, fontSize: '0.95rem', lineHeight: 1.7 }}>
-            Recent steel and insulated door installations across Ottawa — Kanata, Barrhaven, Orleans, Gloucester, and more.
-          </p>
-          <GalleryGrid images={newDoorGalleryImages} idPrefix="new-door" />
-        </div>
-
-        <div>
-          <h3 className="heading-md reveal" style={{ marginBottom: 8, textAlign: 'center' }}>
-            Repairs & <em style={{ color: 'var(--orange)' }}>Tune-Ups</em>
-          </h3>
-          <p style={{ color: 'var(--gray-400)', textAlign: 'center', marginBottom: 28, fontSize: '0.95rem', lineHeight: 1.7 }}>
-            Springs, cables, openers, panels, and weather seals from neighbourhoods we serve every week.
-          </p>
-          <GalleryGrid images={repairGalleryImages} idPrefix="repair" />
         </div>
       </div>
     </section>
