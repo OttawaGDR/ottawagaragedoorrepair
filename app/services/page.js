@@ -25,7 +25,7 @@ const realJobs = [
     emoji: '🔧',
     tag: 'Cable Repair',
     title: 'Snapped Cable Emergency Fix',
-    desc: 'Cable snapped causing dangerous door tilt. Replaced both lift cables, drums, and bottom brackets with commercial-grade aircraft cable rated for 2,000+ lbs.',
+    desc: 'Cable snapped causing dangerous door tilt. Replaced both lift cables, drums, and bottom brackets with heavy-duty aircraft cable rated for 2,000+ lbs.',
     time: '60 min',
     location: 'Kanata',
     color: '#3b82f6',
