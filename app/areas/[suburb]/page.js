@@ -1,5 +1,5 @@
 import { areas, services, faqs, PHONE, PHONE_HREF, BUSINESS_NAME } from '../../../lib/data';
-import { getAreaContent, getAreaMetaDescription } from '../../../lib/areaPageContent';
+import { getAreaContent, getAreaFaqs, getAreaMetaDescription, isPrimaryArea } from '../../../lib/areaPageContent';
 import { getAreaPhoto, getAreaPhotoAbsolute, areaPhotoAltForMeta } from '../../../lib/areaPhotos';
 import { OG_SITE_NAME, ORG_ID, SITE_BRAND, SITE_URL, WEBSITE_ID, areaMetaDescription, openGraphPage, truncateMeta } from '../../../lib/seo';
 import GalleryImage from '../../components/GalleryImage';
@@ -13,10 +13,14 @@ export async function generateMetadata({ params }) {
   const area = areas.find(a => a.slug === suburb);
   if (!area) return {};
   const areaUrl = `${SITE_URL}/areas/${suburb}`;
-  const title = { absolute: `Garage Door Repair ${area.name} | Springs & Openers | Same-Day` };
+  const title = isPrimaryArea(suburb)
+    ? { absolute: `Garage Door Repair ${area.name} Ottawa | Local Same-Day Service` }
+    : { absolute: `Garage Door Repair ${area.name} | Springs & Openers | Same-Day` };
   const uniqueMeta = getAreaMetaDescription(suburb);
   const description = areaMetaDescription(area.name, uniqueMeta);
-  const ogTitle = `Garage Door Repair ${area.name} | Springs & Openers | Same-Day`;
+  const ogTitle = isPrimaryArea(suburb)
+    ? `Garage Door Repair ${area.name} Ottawa | Local Same-Day Service`
+    : `Garage Door Repair ${area.name} | Springs & Openers | Same-Day`;
   const photoUrl = getAreaPhotoAbsolute(suburb, SITE_URL);
   const ogImage = photoUrl
     ? { url: photoUrl, alt: areaPhotoAltForMeta(area.name, suburb) }
@@ -248,9 +252,16 @@ export default async function AreaPage({ params }) {
                 Why {area.name} Calls {BUSINESS_NAME}
               </h2>
               {areaContent?.localContext ? (
-                <p style={{ color: 'var(--gray-600)', lineHeight: 1.8, marginBottom: 24 }}>
-                  {areaContent.localContext}
-                </p>
+                <>
+                  <p style={{ color: 'var(--gray-600)', lineHeight: 1.8, marginBottom: areaContent.localContextExtra ? 20 : 24 }}>
+                    {areaContent.localContext}
+                  </p>
+                  {areaContent.localContextExtra && (
+                    <p style={{ color: 'var(--gray-600)', lineHeight: 1.8, marginBottom: 24 }}>
+                      {areaContent.localContextExtra}
+                    </p>
+                  )}
+                </>
               ) : (
                 <>
                   <p style={{ color: 'var(--gray-600)', lineHeight: 1.8, marginBottom: 20 }}>
@@ -273,13 +284,58 @@ export default async function AreaPage({ params }) {
                   </ul>
                 </div>
               ) : null}
+
+              {areaContent?.neighborhoods?.length ? (
+                <div style={{ marginBottom: 28 }}>
+                  <h3 style={{ fontFamily: 'var(--font-serif)', fontSize: '1.15rem', color: 'var(--navy)', marginBottom: 14, fontWeight: 700 }}>
+                    Neighbourhoods we serve in {area.name}
+                  </h3>
+                  <div style={{ display: 'flex', flexWrap: 'wrap', gap: 8 }}>
+                    {areaContent.neighborhoods.map((n) => (
+                      <span
+                        key={n}
+                        style={{
+                          fontSize: '0.82rem',
+                          fontWeight: 600,
+                          padding: '8px 14px',
+                          borderRadius: 100,
+                          background: 'var(--gray-100)',
+                          color: 'var(--navy)',
+                          border: '1px solid var(--gray-200)',
+                        }}
+                      >
+                        {n}
+                      </span>
+                    ))}
+                  </div>
+                </div>
+              ) : null}
+
+              {areaContent?.doorProfile && (
+                <div style={{ marginBottom: 24 }}>
+                  <h3 style={{ fontFamily: 'var(--font-serif)', fontSize: '1.1rem', color: 'var(--navy)', marginBottom: 10, fontWeight: 700 }}>
+                    Garage doors common in {area.name}
+                  </h3>
+                  <p style={{ color: 'var(--gray-600)', lineHeight: 1.8, fontSize: '0.95rem', margin: 0 }}>{areaContent.doorProfile}</p>
+                </div>
+              )}
+
+              {areaContent?.installNote && (
+                <div style={{ marginBottom: 28, padding: '20px 22px', background: 'rgba(249,115,22,0.08)', borderRadius: 12, border: '1px solid rgba(249,115,22,0.2)' }}>
+                  <h3 style={{ fontFamily: 'var(--font-serif)', fontSize: '1.05rem', color: 'var(--navy)', marginBottom: 10, fontWeight: 700 }}>
+                    New door installation in {area.name}
+                  </h3>
+                  <p style={{ color: 'var(--gray-600)', lineHeight: 1.75, fontSize: '0.92rem', margin: 0 }}>{areaContent.installNote}</p>
+                </div>
+              )}
+
               <div style={{ display: 'flex', flexDirection: 'column', gap: 14 }}>
-                {[
+                {(areaContent?.highlights || [
                   { icon: '⚡', title: `Under 90 Min Arrival`, desc: `We arrive in under 90 minutes everywhere in Ottawa — including ${area.name}. We call 30 min before arrival.` },
                   { icon: '🔧', title: 'All Makes & Models Serviced', desc: 'We stock parts for all major door and opener brands.' },
                   { icon: '❄️', title: 'Ottawa Winter Specialists', desc: 'Cold-weather door failures are our specialty. We work year-round.' },
                   { icon: '💰', title: 'Price Locked First', desc: 'You approve the total in writing before we start — no add-ons at the end.' },
-                ].map(item => (
+                ]).map(item => (
                   <div key={item.title} className="light-card" style={{ padding: '18px 22px', display: 'flex', gap: 16, alignItems: 'flex-start' }}>
                     <span style={{ fontSize: '1.4rem', flexShrink: 0 }}>{item.icon}</span>
                     <div>
@@ -411,7 +467,13 @@ export default async function AreaPage({ params }) {
             <span className="section-label">{area.name} FAQ</span>
             <h2 className="heading-lg reveal">{area.name} Garage Door Questions</h2>
           </div>
-          {(areaContent?.areaFaq ? [areaContent.areaFaq, ...faqs.slice(0, 4)] : faqs.slice(0, 5)).map((faq, i) => (
+          {(() => {
+            const localFaqs = getAreaFaqs(suburb);
+            const list = localFaqs.length
+              ? [...localFaqs, ...faqs.filter((f) => !localFaqs.some((lf) => lf.q === f.q)).slice(0, isPrimaryArea(suburb) ? 2 : 4)]
+              : faqs.slice(0, 5);
+            return list;
+          })().map((faq, i) => (
             <div key={`${faq.q}-${i}`} className="faq-item">
               <button className="faq-question">{faq.q}<span className="faq-icon">+</span></button>
               <div className="faq-answer">{faq.a}</div>
