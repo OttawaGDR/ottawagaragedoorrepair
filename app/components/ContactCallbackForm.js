@@ -130,8 +130,8 @@ export default function ContactCallbackForm({ services, areas, variant = 'page' 
     <>
       {isHero ? (
         <>
-          <h2 className="hero-form-title">Request Service</h2>
-          <p className="hero-form-desc">We&apos;ll reach you in under 90 minutes</p>
+          <h2 className="hero-form-title">Request a callback</h2>
+          <p className="hero-form-desc">We call back within 90 minutes — or text us if you prefer</p>
         </>
       ) : (
         <>

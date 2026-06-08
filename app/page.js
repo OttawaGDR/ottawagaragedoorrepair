@@ -12,7 +12,6 @@ import {
 } from '../lib/seo';
 import {
   trustBarItems,
-  heroFeaturePills,
   howItWorksSteps,
   howItWorksPromiseItems,
   gallerySection,
@@ -81,33 +80,29 @@ function Hero() {
     <section className="grid-bg hero-section">
       <div className="container hero-container">
         <div className="hero-grid">
-          <div>
-            <div className="badge hero-badge"><Icon name="bolt" size={16} className="text-orange-bright" /> Same-Day Service</div>
-            <p className="hero-brand-line">{SITE_NAME}</p>
+          <div className="hero-copy">
+            <p className="hero-eyebrow">{SITE_NAME}</p>
             <h1 className="hero-title">
-              SAME-DAY<br />
-              <span className="hero-title-accent">GARAGE DOOR</span><br />
-              REPAIR OTTAWA
+              Same-day garage door repair <span className="hero-title-accent">in Ottawa</span>
             </h1>
             <p className="hero-subtitle">
-              <a href="/services" className="link-inherit">Garage door services Ottawa</a> & <a href="/services" className="link-inherit">garage door repairs</a> — springs, openers, cables — fixed today. <a href="/services/opener-repair" className="link-inherit">Garage door opener repair</a> and installation. Local crew, <strong className="text-white">24/7</strong> emergency line.
+              Springs, openers, cables, and new door installs — fixed by a local crew.{' '}
+              <a href="/services/emergency-repair" className="link-inherit">24/7 emergency line</a>.
             </p>
-            <div className="hero-location">
-              <p><Icon name="mappin" size={18} /> Serving all <a href="/areas" className="link-inherit link-inherit-2">Ottawa neighbourhoods</a></p>
-              <p>We arrive in under 90 min everywhere</p>
-            </div>
-            <div className="hero-cta-row">
-              <a href={PHONE_HREF} className="btn-primary"><Icon name="emergency" size={20} /> Emergency Call — {PHONE}</a>
-              <a href="/contact" className="btn-secondary">Get Free Quote →</a>
-              <a href="/booking" className="btn-secondary">Book a visit →</a>
-            </div>
-            <div className="hero-features">
-              {heroFeaturePills.map(item => (
-                <div key={item.label} className="hero-feature-item">
-                  <Icon name={item.icon} size={22} className="text-orange" />
-                  <span>{item.label}</span>
-                </div>
-              ))}
+            <ul className="hero-trust-list" aria-label="Service promises">
+              <li><Icon name="mappin" size={18} /> All <a href="/areas" className="link-inherit">Ottawa neighbourhoods</a></li>
+              <li><Icon name="clock" size={18} /> Under 90 minutes typical arrival</li>
+              <li><Icon name="dollar" size={18} /> Written price before work starts</li>
+            </ul>
+            <div className="hero-cta-block">
+              <a href={PHONE_HREF} className="btn-primary hero-cta-primary">
+                <Icon name="phone" size={20} /> Call {PHONE}
+              </a>
+              <div className="hero-cta-secondary">
+                <a href="/contact" className="hero-cta-link">Free quote</a>
+                <span className="hero-cta-divider" aria-hidden="true">·</span>
+                <a href="/booking" className="hero-cta-link">Book a visit</a>
+              </div>
             </div>
             <div className="hero-request-mobile glass-card border-glow">
               <ContactCallbackForm services={services} areas={areas} variant="hero" />
