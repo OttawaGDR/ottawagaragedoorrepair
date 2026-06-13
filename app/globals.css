@@ -644,29 +644,85 @@ iframe { max-width: 100%; }
 /* Areas section */
 .areas-grid {
   display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 80px;
-  align-items: center;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+  gap: 56px;
+  align-items: start;
 }
 .areas-intro { min-width: 0; }
-.areas-heading-text { margin-bottom: 20px; font-family: 'Barlow Condensed', sans-serif; }
-.areas-intro-p {
-  color: rgba(255,255,255,0.75);
-  line-height: 1.75;
-  margin-bottom: 32px;
-  font-size: 0.98rem;
+.areas-eyebrow {
+  font-family: var(--font-display);
+  font-size: 0.8rem;
+  font-weight: 700;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--orange);
+  margin: 0 0 12px;
 }
-.areas-pills-inner { display: flex; flex-wrap: wrap; gap: 10px; margin-bottom: 24px; }
-.areas-response-inner { padding: 24px; min-width: 0; }
-.areas-response-row {
+.areas-heading {
+  margin: 0 0 16px;
+  font-family: 'Barlow Condensed', sans-serif;
+  line-height: 1.1;
+  max-width: 14em;
+}
+.areas-intro-p {
+  color: rgba(255,255,255,0.78);
+  line-height: 1.7;
+  margin: 0 0 20px;
+  font-size: 1rem;
+  max-width: 32rem;
+}
+.areas-stats {
+  list-style: none;
+  margin: 0 0 28px;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+.areas-stats li {
   display: flex;
   align-items: center;
-  gap: 16px;
+  gap: 10px;
+  font-size: 0.92rem;
+  font-weight: 600;
+  color: rgba(255,255,255,0.88);
 }
-.areas-response-icon { flex-shrink: 0; }
-.areas-response-text { min-width: 0; }
-.areas-response-label { font-weight: 600; font-size: 0.9rem; color: rgba(255,255,255,0.65); margin-bottom: 4px; }
-.areas-response-time { font-size: 2.2rem; }
+.areas-cta-row {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 14px;
+}
+.areas-cta-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  color: rgba(255,255,255,0.75);
+  font-weight: 700;
+  font-size: 0.95rem;
+  text-decoration: none;
+  transition: color 0.2s;
+}
+.areas-cta-link:hover { color: var(--orange); }
+.areas-pills-label {
+  margin: 0 0 14px;
+  font-size: 0.82rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: rgba(255,255,255,0.45);
+}
+.areas-view-all {
+  display: inline-block;
+  margin-top: 20px;
+  color: var(--orange);
+  font-weight: 700;
+  font-size: 0.92rem;
+  text-decoration: none;
+  transition: opacity 0.2s;
+}
+.areas-view-all:hover { opacity: 0.85; }
+.areas-pills-inner { display: flex; flex-wrap: wrap; gap: 10px; }
 
 /* Nav (layout) */
 .main-nav-wrap {
@@ -736,18 +792,13 @@ iframe { max-width: 100%; }
 .footer-bottom-links a { color: rgba(255,255,255,0.3); font-size: 0.78rem; text-decoration: none; }
 
 @media (max-width: 768px) {
+  .areas-grid { grid-template-columns: 1fr !important; gap: 36px !important; }
+  .areas-heading { max-width: none; font-size: clamp(1.85rem, 7vw, 2.35rem) !important; }
+  .areas-cta-row .btn-primary { width: 100%; justify-content: center; }
+
   .trust-bar { padding: 12px 0 !important; }
   .marquee-item { font-size: 0.75rem !important; }
   .marquee-track { gap: 40px; }
-  .areas-section .areas-heading,
-  .areas-section .areas-heading *,
-  .areas-section .areas-heading em { font-family: 'Barlow Condensed', sans-serif !important; font-size: clamp(1.75rem, 6vw, 2.5rem) !important; line-height: 1.2 !important; font-weight: 800 !important; text-decoration: none !important; word-break: normal !important; overflow-wrap: break-word !important; }
-  .areas-section .areas-heading em { font-style: italic !important; }
-  .areas-section .container > div { min-width: 0; }
-  .areas-response-card { min-width: 0; }
-  .areas-response-label { font-size: 0.8rem !important; }
-  .areas-response-time { font-size: 1.25rem !important; white-space: nowrap !important; word-break: normal !important; overflow-wrap: normal !important; line-height: 1.2 !important; letter-spacing: -0.02em !important; }
-
   /* Services: prevent words breaking into single letters on mobile */
   .service-detail-page .container,
   .service-detail-page h1,
@@ -1315,7 +1366,6 @@ select.form-input option { background: var(--navy-mid); color: white; }
   .main-nav { padding-left: 12px !important; padding-right: 12px !important; }
   .trust-bar { padding: 10px 0 !important; }
   .marquee-item { font-size: 0.7rem !important; }
-  .areas-response-time { font-size: 1.1rem !important; }
   [style*="grid-template-columns: repeat(2"] { grid-template-columns: 1fr !important; }
   .section { padding: 48px 0; }
   .section-sm { padding: 32px 0; }

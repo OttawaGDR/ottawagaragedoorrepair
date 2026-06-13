@@ -234,36 +234,44 @@ function HowItWorks() {
   );
 }
 
+const FEATURED_AREA_SLUGS = ['kanata', 'barrhaven', 'nepean', 'orleans', 'stittsville', 'gloucester'];
+
 function Areas() {
+  const featuredAreas = FEATURED_AREA_SLUGS
+    .map((slug) => areas.find((a) => a.slug === slug))
+    .filter(Boolean);
+
   return (
     <section className="section areas-section">
       <div className="container">
         <div className="areas-grid">
           <div className="areas-intro">
-            <span className="section-label">Service Area</span>
-            <h2 className="heading-xl areas-heading reveal areas-heading-text">
-              We Come to <em className="text-orange">Your Door</em> Across Ottawa
+            <p className="areas-eyebrow">Ottawa service areas</p>
+            <h2 className="heading-xl areas-heading reveal">
+              Same-day repair in every neighbourhood
             </h2>
             <p className="areas-intro-p">
-              We arrive in under 90 minutes everywhere in Ottawa — from Kanata to Orleans, Barrhaven to Stittsville. Same promise in every neighbourhood.
+              Local crews across Ottawa and nearby communities — springs, openers, cables, and new doors.
             </p>
-            <a href={PHONE_HREF} className="btn-primary"><Icon name="phone" size={20} /> Check Your Area</a>
+            <ul className="areas-stats" aria-label="Service coverage">
+              <li><Icon name="mappin" size={18} /> {areas.length} areas served</li>
+              <li><Icon name="clock" size={18} /> Under 90 minutes typical arrival</li>
+            </ul>
+            <div className="areas-cta-row">
+              <a href="/areas" className="btn-primary">Browse all areas →</a>
+              <a href={PHONE_HREF} className="areas-cta-link"><Icon name="phone" size={18} /> {PHONE}</a>
+            </div>
           </div>
           <div className="areas-pills-wrap">
+            <p className="areas-pills-label">Popular areas</p>
             <div className="areas-pills-inner">
-              {areas.map(area => (
-                <a key={area.slug} href={`/areas/${area.slug}`} className="area-pill"><Icon name="mappin" size={16} /> {area.name}</a>
+              {featuredAreas.map((area) => (
+                <a key={area.slug} href={`/areas/${area.slug}`} className="area-pill">
+                  <Icon name="mappin" size={16} /> {area.name}
+                </a>
               ))}
             </div>
-            <div className="glass-card areas-response-card reveal areas-response-inner">
-              <div className="areas-response-row">
-                <Icon name="clock" size={36} className="text-orange areas-response-icon" />
-                <div className="areas-response-text">
-                  <div className="areas-response-label">Average Response Time</div>
-                  <div className="stat-number areas-response-time">Under 90 Minutes</div>
-                </div>
-              </div>
-            </div>
+            <a href="/areas" className="areas-view-all">View all {areas.length} service areas →</a>
           </div>
         </div>
       </div>
