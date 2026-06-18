@@ -752,8 +752,9 @@ iframe { max-width: 100%; }
 .nav-details { position: relative; }
 .nav-ctas .btn-primary { padding: 12px 20px; font-size: 0.9rem; gap: 8px; }
 .nav-ctas .btn-secondary { padding: 12px 18px; font-size: 0.9rem; gap: 6px; }
+.nav-quote-btn,
+.nav-call-btn { white-space: nowrap; }
 .dropdown-post-emoji { display: flex; align-items: center; justify-content: center; color: var(--orange); }
-.sticky-call-btn { display: flex; align-items: center; justify-content: center; color: inherit; text-decoration: none; }
 .footer-logo-wrap { margin-bottom: 20px; }
 .mobile-menu-drawer .drawer-link { display: flex; align-items: center; gap: 8px; }
 
@@ -761,7 +762,7 @@ iframe { max-width: 100%; }
 .footer-wrap {
   background: #02080f;
   border-top: 1px solid rgba(249,115,22,0.1);
-  padding: 70px 0 110px;
+  padding: 70px 0 40px;
 }
 .footer-grid {
   display: grid;
@@ -1131,56 +1132,6 @@ iframe { max-width: 100%; }
 .form-input::placeholder { color: rgba(255,255,255,0.25); }
 select.form-input option { background: var(--navy-mid); color: white; }
 
-.emergency-bar {
-  position: fixed;
-  bottom: 0; left: 0; right: 0;
-  background: linear-gradient(90deg, #991b1b, #dc2626, #991b1b);
-  color: white;
-  padding: 14px 24px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 20px;
-  z-index: 1000;
-  transform: translateY(100%);
-  transition: transform 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-  box-shadow: 0 -4px 60px rgba(220,38,38,0.5);
-}
-.emergency-bar.visible { transform: translateY(0); }
-.emergency-bar a { color: white; text-decoration: none; font-weight: 800; font-size: 1.05rem; }
-
-.sticky-call {
-  position: fixed;
-  right: 24px;
-  bottom: 80px;
-  z-index: 999;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 8px;
-}
-.sticky-call a {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  width: 62px; height: 62px;
-  background: linear-gradient(135deg, #f97316, #ea580c);
-  border-radius: 50%;
-  box-shadow: 0 8px 30px rgba(249,115,22,0.55);
-  animation: pulse-glow 2s ease-in-out infinite;
-  font-size: 1.5rem;
-  text-decoration: none;
-  transition: transform 0.2s;
-}
-.sticky-call a:hover { transform: scale(1.12); }
-.sticky-call .sticky-sms {
-  background: linear-gradient(135deg, #1e3a5f, #0f2040);
-  border: 2px solid rgba(249,115,22,0.4);
-  box-shadow: 0 6px 24px rgba(0,0,0,0.3);
-}
-.sticky-call .sticky-sms:hover { border-color: var(--orange); }
-.sticky-call-label { font-size: 0.68rem; font-weight: 800; color: var(--orange); text-transform: uppercase; letter-spacing: 0.08em; background: rgba(10,22,40,0.92); padding: 4px 10px; border-radius: 4px; }
-
 /* Main nav: align all items (Services, Areas, Blog, About, Contact, Book a visit) on same line */
 .main-nav .hide-mobile { align-items: center; }
 .main-nav .nav-item {
@@ -1268,18 +1219,13 @@ select.form-input option { background: var(--navy-mid); color: white; }
   .section { padding: 60px 0; }
   .section-sm { padding: 40px 0; }
   .hide-mobile { display: none !important; }
-  .sticky-call { right: 12px; left: auto; top: 50%; transform: translateY(-50%); bottom: auto; width: auto; height: auto; }
-  .sticky-call a { width: 52px; height: 52px; min-width: 52px; min-height: 52px; }
-  .sticky-call-label { white-space: nowrap; }
-  .emergency-bar { flex-direction: column; gap: 12px; text-align: center; padding: 16px 12px; }
-  .emergency-bar a { min-height: 44px; display: inline-flex; align-items: center; justify-content: center; padding: 12px 20px; }
   [style*="grid-template-columns: 1fr 1fr"] { grid-template-columns: 1fr !important; }
   [style*="grid-template-columns: 2fr 1fr"] { grid-template-columns: 1fr !important; }
   [style*="grid-template-columns: repeat(4"] { grid-template-columns: repeat(2, 1fr) !important; }
   [style*="grid-template-columns: 2fr"] { grid-template-columns: 1fr !important; }
   .footer-grid { grid-template-columns: 1fr !important; gap: 32px !important; text-align: center; }
   .footer-grid > div:first-child { max-width: 100%; }
-  footer { padding: 48px 0 80px !important; }
+  footer { padding: 48px 0 40px !important; }
   .footer-bottom { flex-direction: column !important; align-items: center !important; text-align: center !important; gap: 16px !important; }
   /* Contain hero orbs so mobile scrolls only vertically */
   .hero-orb-1, .hero-orb-2, .hero-orb-3 { width: min(280px, 85vw) !important; height: min(280px, 85vw) !important; }

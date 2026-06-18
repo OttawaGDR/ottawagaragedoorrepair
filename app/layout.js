@@ -1,5 +1,5 @@
 import './globals.css';
-import { services, areas, PHONE, PHONE_HREF, SMS_HREF, EMAIL, FACEBOOK_URL, INSTAGRAM_URL, BUSINESS_NAME } from '../lib/data';
+import { services, areas, PHONE, PHONE_HREF, EMAIL, FACEBOOK_URL, INSTAGRAM_URL, BUSINESS_NAME } from '../lib/data';
 import {
   META_TITLE_HOME,
   META_TITLE_TEMPLATE,
@@ -13,7 +13,6 @@ import {
   siteOgImage,
 } from '../lib/seo';
 import Icon from './components/Icons';
-import EmergencyBar from './components/EmergencyBar';
 import Logo from './components/Logo';
 import HeroBackground from './components/HeroBackground';
 import GoogleAnalytics from './components/GoogleAnalytics';
@@ -111,8 +110,6 @@ export default function RootLayout({ children }) {
         <div className="mobile-no-hscroll" style={{ overflowX: 'hidden', maxWidth: '100%', position: 'relative', zIndex: 1, paddingTop: 56 }}>
           {children}
         </div>
-        <StickyCall />
-        <EmergencyBar />
         <Footer />
         <script dangerouslySetInnerHTML={{ __html: clientScript }} />
       </body>
@@ -224,8 +221,6 @@ function Navbar() {
         .show-mobile { display: none !important; }
         @media (max-width: 768px) {
           .show-mobile { display: flex !important; }
-          .nav-phone-btn .show-mobile { display: inline !important; }
-          .nav-phone-btn .hide-mobile { display: none !important; }
           .mobile-menu-btn {
             display: flex; align-items: center; justify-content: center;
             width: 44px; height: 44px; min-width: 44px; min-height: 44px;
@@ -250,10 +245,11 @@ function Navbar() {
             white-space: nowrap;
           }
           .mobile-menu-drawer a:hover, .mobile-menu-drawer a:focus { background: rgba(249,115,22,0.15); color: white; }
-          .nav-phone-btn { display: none !important; }
-          .nav-inner > div:last-child { gap: 8 !important; min-width: 0; }
-          .nav-inner .btn-secondary.show-mobile { padding: 10px 12px !important; font-size: 0.85rem !important; min-width: 44px; }
-          .nav-inner .btn-secondary.show-mobile .nav-text-label { display: none !important; }
+          .mobile-menu-drawer .drawer-cta { font-weight: 800; }
+          .mobile-menu-drawer .drawer-cta-primary { background: linear-gradient(135deg, #f97316, #ea580c); color: white !important; }
+          .nav-ctas { gap: 8px !important; flex-shrink: 0; }
+          .nav-ctas .btn-primary,
+          .nav-ctas .btn-secondary { padding: 10px 14px !important; font-size: 0.82rem !important; min-height: 44px; }
           .nav-flag { height: 24px !important; width: 48px !important; }
           .main-nav .nav-inner > div:first-child { min-width: 0; max-width: 55%; }
         }
@@ -328,7 +324,8 @@ function Navbar() {
             <details className="show-mobile nav-details">
               <summary className="mobile-menu-btn" aria-label="Open menu">☰</summary>
               <div className="mobile-menu-drawer">
-                <a href={SMS_HREF} className="drawer-link">📱 Text Us</a>
+                <a href={PHONE_HREF} className="drawer-link drawer-cta drawer-cta-primary">📞 Call {PHONE}</a>
+                <a href="/contact" className="drawer-link drawer-cta">Get Free Quote</a>
                 <a href="/services">Services</a>
                 <a href="/areas">Areas</a>
                 <a href="/blog">Blog</a>
@@ -338,27 +335,19 @@ function Navbar() {
                 <a href="/booking">Book a visit</a>
               </div>
             </details>
-            <a href={SMS_HREF} className="show-mobile btn-secondary" aria-label={`Text ${BUSINESS_NAME}`}>
-              <Icon name="message" size={18} /> <span className="nav-text-label">Text</span>
+            <a href="/contact" className="btn-secondary nav-quote-btn">
+              <span className="hide-mobile">Free Quote</span>
+              <span className="show-mobile">Quote</span>
             </a>
-            <a href={PHONE_HREF} className="btn-primary nav-phone-btn" aria-label="Call (613) 617-4238">
-              <Icon name="phone" size={20} /> <span className="hide-mobile">{PHONE}</span><span className="show-mobile">Call</span>
+            <a href={PHONE_HREF} className="btn-primary nav-call-btn" aria-label={`Call ${PHONE}`}>
+              <Icon name="phone" size={20} />
+              <span className="hide-mobile">{PHONE}</span>
+              <span className="show-mobile">Call</span>
             </a>
           </div>
         </div>
       </nav>
     </>
-  );
-}
-
-function StickyCall() {
-  return (
-    <div className="sticky-call">
-      <a href={PHONE_HREF} aria-label={`Call ${BUSINESS_NAME}`} className="sticky-call-btn"><Icon name="phone" size={24} /></a>
-      <span className="sticky-call-label">Call Now</span>
-      <a href={SMS_HREF} aria-label={`Text ${BUSINESS_NAME}`} className="sticky-sms sticky-call-btn"><Icon name="message" size={24} /></a>
-      <span className="sticky-call-label">Text Us</span>
-    </div>
   );
 }
 
