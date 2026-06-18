@@ -758,6 +758,58 @@ iframe { max-width: 100%; }
 .footer-logo-wrap { margin-bottom: 20px; }
 .mobile-menu-drawer .drawer-link { display: flex; align-items: center; gap: 8px; }
 
+/* Sticky bottom call + quote bar */
+body.has-sticky-cta {
+  padding-bottom: calc(72px + env(safe-area-inset-bottom, 0px));
+}
+.sticky-bottom-cta {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 950;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px;
+  padding: 10px 14px calc(10px + env(safe-area-inset-bottom, 0px));
+  background: rgba(10, 22, 40, 0.97);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  box-shadow: 0 -8px 32px rgba(0, 0, 0, 0.4);
+}
+.sticky-bottom-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  min-height: 48px;
+  padding: 12px 14px;
+  border-radius: 10px;
+  font-family: var(--font-display);
+  font-weight: 800;
+  font-size: 0.92rem;
+  letter-spacing: 0.02em;
+  text-decoration: none;
+  transition: transform 0.15s ease, filter 0.15s ease;
+}
+.sticky-bottom-btn:active { transform: scale(0.98); }
+.sticky-bottom-quote {
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.16);
+  color: white;
+}
+.sticky-bottom-quote:hover { background: rgba(255, 255, 255, 0.12); color: white; }
+.sticky-bottom-call {
+  background: linear-gradient(135deg, #f97316, #ea580c);
+  color: white;
+  box-shadow: 0 4px 20px rgba(249, 115, 22, 0.35);
+}
+.sticky-bottom-call:hover {
+  filter: brightness(1.06);
+  color: white;
+}
+
 /* Footer */
 .footer-wrap {
   background: #02080f;
@@ -1225,7 +1277,9 @@ select.form-input option { background: var(--navy-mid); color: white; }
   [style*="grid-template-columns: 2fr"] { grid-template-columns: 1fr !important; }
   .footer-grid { grid-template-columns: 1fr !important; gap: 32px !important; text-align: center; }
   .footer-grid > div:first-child { max-width: 100%; }
-  footer { padding: 48px 0 40px !important; }
+  footer { padding: 48px 0 calc(40px + env(safe-area-inset-bottom, 0px)) !important; }
+  .sticky-bottom-btn { font-size: 0.85rem; min-height: 44px; padding: 10px 12px; }
+  .sticky-bottom-cta { padding: 8px 10px calc(8px + env(safe-area-inset-bottom, 0px)); gap: 8px; }
   .footer-bottom { flex-direction: column !important; align-items: center !important; text-align: center !important; gap: 16px !important; }
   /* Contain hero orbs so mobile scrolls only vertically */
   .hero-orb-1, .hero-orb-2, .hero-orb-3 { width: min(280px, 85vw) !important; height: min(280px, 85vw) !important; }

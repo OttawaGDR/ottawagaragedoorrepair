@@ -103,13 +103,14 @@ export default function RootLayout({ children }) {
           dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
         />
       </head>
-      <body style={{ margin: 0, background: 'var(--navy)' }} className="noise">
+      <body style={{ margin: 0, background: 'var(--navy)' }} className="noise has-sticky-cta">
         <GoogleAnalytics />
         <HeroBackground />
         <Navbar />
         <div className="mobile-no-hscroll" style={{ overflowX: 'hidden', maxWidth: '100%', position: 'relative', zIndex: 1, paddingTop: 56 }}>
           {children}
         </div>
+        <StickyBottomCta />
         <Footer />
         <script dangerouslySetInnerHTML={{ __html: clientScript }} />
       </body>
@@ -348,6 +349,21 @@ function Navbar() {
         </div>
       </nav>
     </>
+  );
+}
+
+function StickyBottomCta() {
+  return (
+    <div className="sticky-bottom-cta" role="region" aria-label="Call or request a quote">
+      <a href="/contact" className="sticky-bottom-btn sticky-bottom-quote">
+        Free Quote
+      </a>
+      <a href={PHONE_HREF} className="sticky-bottom-btn sticky-bottom-call" aria-label={`Call ${PHONE}`}>
+        <Icon name="phone" size={20} />
+        <span className="hide-mobile">Call {PHONE}</span>
+        <span className="show-mobile">Call Now</span>
+      </a>
+    </div>
   );
 }
 
