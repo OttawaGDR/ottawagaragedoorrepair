@@ -1,4 +1,4 @@
-import { services, PHONE, PHONE_HREF, servicesPageStats, BUSINESS_NAME } from '../../lib/data';
+import { services, PHONE, servicesPageStats, BUSINESS_NAME } from '../../lib/data';
 import { EMERGENCY_REPAIR_INTRO, whyChooseUsCards, servicesGallerySection } from '../../lib/siteCopy';
 import Icon from '../components/Icons';
 
@@ -96,6 +96,7 @@ const realJobs = [
 
 const mainServices = [
   {
+    slug: 'emergency-repair',
     icon: '🚨',
     title: 'Emergency Garage Door Repair Ottawa',
     price: '$220',
@@ -115,6 +116,7 @@ const mainServices = [
     emergency: true,
   },
   {
+    slug: 'opener-repair',
     icon: '⚙️',
     title: 'Garage Door Opener Repair & Installation',
     price: '$195',
@@ -133,6 +135,7 @@ const mainServices = [
     emergency: false,
   },
   {
+    slug: 'new-door-installation',
     icon: '🏠',
     title: 'New Garage Door Installation Ottawa',
     price: '$1,800–4,500',
@@ -175,8 +178,7 @@ export default function ServicesPage() {
               <a href="/services/spring-replacement" style={{ color: 'inherit', textDecoration: 'underline', textUnderlineOffset: 2 }}>Garage door repairs</a> Ottawa & <a href="/services/opener-repair" style={{ color: 'inherit', textDecoration: 'underline', textUnderlineOffset: 2 }}>garage door opener repair</a>. Professional garage door services — springs, cables, installation. Same-day, licensed & insured. <a href="/contact" style={{ color: 'var(--orange)', fontWeight: 600 }}>Get a free quote</a>.
             </p>
             <div style={{ display: 'flex', gap: 14, flexWrap: 'wrap' }}>
-              <a href={PHONE_HREF} className="btn-primary" style={{ display: 'inline-flex', alignItems: 'center', gap: 8 }}><Icon name="emergency" size={20} /> Emergency: {PHONE}</a>
-              <a href="#main-services" className="btn-secondary">View All Services →</a>
+              <a href="#service-pages" className="btn-primary">Browse All Services →</a>
             </div>
           </div>
         </div>
@@ -192,6 +194,25 @@ export default function ServicesPage() {
                 <div className="stat-number" style={{ fontSize: '2.8rem' }}>{s.number}</div>
                 <div className="stat-label">{s.label}</div>
               </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* SERVICE PAGE LINKS */}
+      <section id="service-pages" className="section-sm" style={{ background: 'var(--navy-mid)', borderBottom: '1px solid rgba(255,255,255,0.05)' }}>
+        <div className="container">
+          <h2 className="heading-lg" style={{ marginBottom: 8, textAlign: 'center' }}>Choose a Service</h2>
+          <p style={{ color: 'var(--gray-400)', marginBottom: 28, textAlign: 'center', fontSize: '0.95rem' }}>
+            Tap any service for full details, pricing, and what&apos;s included.
+          </p>
+          <div className="services-quick-grid">
+            {services.map((s) => (
+              <a key={s.slug} href={`/services/${s.slug}`} className="services-quick-link">
+                <span className="services-quick-icon"><Icon name={s.slug} size={24} /></span>
+                <span className="services-quick-text">{s.title}</span>
+                <span className="services-quick-arrow" aria-hidden>→</span>
+              </a>
             ))}
           </div>
         </div>
@@ -347,39 +368,11 @@ export default function ServicesPage() {
                     <span style={{ color: 'var(--orange)', fontWeight: 700, fontSize: '0.9rem' }}>{service.noteIcon} {service.note}</span>
                   </div>
 
-                  <div style={{ display: 'flex', gap: 14, flexWrap: 'wrap' }}>
-                    <a href={PHONE_HREF} className="btn-primary" style={{ display: 'inline-flex', alignItems: 'center', gap: 8, ...(service.emergency ? { background: 'linear-gradient(135deg, #dc2626, #b91c1c)' } : {}) }}>
-                      <Icon name="phone" size={20} /> Call for {service.emergency ? 'Emergency' : 'Same-Day'} Service
-                    </a>
-                    <a href="/contact" className="btn-secondary">Get Free Quote →</a>
-                  </div>
+                  <a href={`/services/${service.slug}`} className="btn-secondary" style={{ display: 'inline-flex', alignItems: 'center', gap: 8 }}>
+                    View full service page →
+                  </a>
                 </div>
               </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* SERVICE QUICK LINKS */}
-      <section className="section-sm" style={{ background: 'var(--navy-mid)' }}>
-        <div className="container">
-          <h3 style={{ fontFamily: 'var(--font-serif)', fontSize: '1.4rem',  marginBottom: 24, textAlign: 'center' }}>
-            All Individual Service Pages
-          </h3>
-          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(200px, 1fr))', gap: 12 }}>
-            {services.map(s => (
-              <a key={s.slug} href={`/services/${s.slug}`} style={{
-                display: 'flex', alignItems: 'center', gap: 12,
-                background: 'rgba(255,255,255,0.04)',
-                border: '1px solid rgba(255,255,255,0.08)',
-                borderRadius: 12, padding: '14px 18px',
-                textDecoration: 'none', color: 'rgba(255,255,255,0.7)',
-                fontSize: '0.9rem', fontWeight: 500,
-                transition: 'all 0.25s ease',
-              }}>
-                <span style={{ color: 'var(--orange)' }}><Icon name={s.slug} size={24} /></span>
-                <span>{s.title}</span>
-              </a>
             ))}
           </div>
         </div>
@@ -391,17 +384,9 @@ export default function ServicesPage() {
           <h2 className="display-xl" style={{ marginBottom: 12 }}>
             NEED GARAGE DOOR SERVICE IN OTTAWA?
           </h2>
-          <p style={{ color: 'rgba(255,255,255,0.9)', fontSize: '1.05rem', marginBottom: 36, maxWidth: 480, margin: '0 auto 36px' }}>
-            Same-day service available. Licensed & insured. Upfront pricing guaranteed.
+          <p style={{ color: 'rgba(255,255,255,0.9)', fontSize: '1.05rem', marginBottom: 0, maxWidth: 480, margin: '0 auto' }}>
+            Same-day service available. Licensed & insured. Upfront pricing guaranteed — use the call or quote buttons below.
           </p>
-          <div style={{ display: 'flex', gap: 16, justifyContent: 'center', flexWrap: 'wrap' }}>
-            <a href={PHONE_HREF} style={{ display: 'inline-flex', alignItems: 'center', gap: 10, background: 'white', color: '#ea580c', fontWeight: 800, fontSize: '1.1rem', padding: '18px 40px', borderRadius: 100, textDecoration: 'none', transition: 'transform 0.2s' }}>
-              <Icon name="phone" size={22} /> {PHONE}
-            </a>
-            <a href="/contact" style={{ display: 'inline-flex', alignItems: 'center', gap: 10, background: 'rgba(255,255,255,0.15)', color: 'white', fontWeight: 700, fontSize: '1rem', padding: '17px 36px', borderRadius: 100, textDecoration: 'none', border: '1.5px solid rgba(255,255,255,0.4)' }}>
-              Book Online →
-            </a>
-          </div>
         </div>
       </section>
     </div>

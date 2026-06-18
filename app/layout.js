@@ -246,11 +246,27 @@ function Navbar() {
             white-space: nowrap;
           }
           .mobile-menu-drawer a:hover, .mobile-menu-drawer a:focus { background: rgba(249,115,22,0.15); color: white; }
-          .mobile-menu-drawer .drawer-cta { font-weight: 800; }
-          .mobile-menu-drawer .drawer-cta-primary { background: linear-gradient(135deg, #f97316, #ea580c); color: white !important; }
-          .nav-ctas { gap: 8px !important; flex-shrink: 0; }
-          .nav-ctas .btn-primary,
-          .nav-ctas .btn-secondary { padding: 10px 14px !important; font-size: 0.82rem !important; min-height: 44px; }
+          .mobile-menu-group { margin-bottom: 4px; }
+          .mobile-menu-summary {
+            list-style: none;
+            padding: 14px 16px;
+            color: rgba(255,255,255,0.9);
+            font-weight: 700;
+            font-size: 1rem;
+            border-radius: 10px;
+            cursor: pointer;
+          }
+          .mobile-menu-summary::-webkit-details-marker { display: none; }
+          .mobile-menu-sub { padding: 0 8px 8px; display: flex; flex-direction: column; gap: 2px; }
+          .drawer-sublink {
+            display: block;
+            padding: 11px 16px 11px 28px !important;
+            font-size: 0.92rem !important;
+            font-weight: 500 !important;
+            color: rgba(255,255,255,0.75) !important;
+          }
+          .drawer-sublink-all { color: var(--orange) !important; font-weight: 700 !important; padding-left: 16px !important; }
+          .nav-ctas { flex-shrink: 0; }
           .nav-flag { height: 24px !important; width: 48px !important; }
           .main-nav .nav-inner > div:first-child { min-width: 0; max-width: 55%; }
         }
@@ -325,9 +341,15 @@ function Navbar() {
             <details className="show-mobile nav-details">
               <summary className="mobile-menu-btn" aria-label="Open menu">☰</summary>
               <div className="mobile-menu-drawer">
-                <a href={PHONE_HREF} className="drawer-link drawer-cta drawer-cta-primary">📞 Call {PHONE}</a>
-                <a href="/contact" className="drawer-link drawer-cta">Get Free Quote</a>
-                <a href="/services">Services</a>
+                <details className="mobile-menu-group">
+                  <summary className="mobile-menu-summary">Services</summary>
+                  <div className="mobile-menu-sub">
+                    {services.map((s) => (
+                      <a key={s.slug} href={`/services/${s.slug}`} className="drawer-sublink">{s.title}</a>
+                    ))}
+                    <a href="/services" className="drawer-sublink drawer-sublink-all">All services →</a>
+                  </div>
+                </details>
                 <a href="/areas">Areas</a>
                 <a href="/blog">Blog</a>
                 <a href="/faq">FAQ</a>
@@ -336,15 +358,6 @@ function Navbar() {
                 <a href="/booking">Book a visit</a>
               </div>
             </details>
-            <a href="/contact" className="btn-secondary nav-quote-btn">
-              <span className="hide-mobile">Free Quote</span>
-              <span className="show-mobile">Quote</span>
-            </a>
-            <a href={PHONE_HREF} className="btn-primary nav-call-btn" aria-label={`Call ${PHONE}`}>
-              <Icon name="phone" size={20} />
-              <span className="hide-mobile">{PHONE}</span>
-              <span className="show-mobile">Call</span>
-            </a>
           </div>
         </div>
       </nav>

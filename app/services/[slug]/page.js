@@ -1,4 +1,4 @@
-import { services, PHONE, PHONE_HREF, BUSINESS_NAME } from '../../../lib/data';
+import { services, PHONE, BUSINESS_NAME } from '../../../lib/data';
 import { ORG_ID, SITE_BRAND, SITE_URL, openGraphPage, serviceMetaDescription } from '../../../lib/seo';
 import { serviceWhatsIncluded, serviceFaqs } from '../../../lib/serviceContent';
 import { servicePageTrustBullets } from '../../../lib/siteCopy';
@@ -117,9 +117,6 @@ export default async function ServicePage({ params }) {
                   </div>
                 ))}
               </div>
-              <a href={PHONE_HREF} className="btn-primary">
-                📞 Book {service.title} — {PHONE}
-              </a>
             </div>
 
             <div className="service-detail-hero-side">
@@ -156,33 +153,6 @@ export default async function ServicePage({ params }) {
                   />
                 </div>
               ) : null}
-              <div className="glass-card border-glow service-detail-book-card" style={{ padding: 36 }}>
-                <h3 style={{ fontFamily: 'var(--font-serif)', fontSize: '1.4rem',  marginBottom: 8 }}>Book This Service</h3>
-                <p style={{ color: 'var(--gray-400)', fontSize: '0.85rem', marginBottom: 24 }}>We arrive in under 90 minutes in every Ottawa area.</p>
-                <div className="form-group">
-                  <label className="form-label">Your Name</label>
-                  <input className="form-input" type="text" placeholder="John Smith" />
-                </div>
-                <div className="form-group">
-                  <label className="form-label">Phone Number</label>
-                  <input className="form-input" type="tel" placeholder="(613) 000-0000" />
-                </div>
-                <div className="form-group">
-                  <label className="form-label">When do you need it?</label>
-                  <select className="form-input">
-                    <option>ASAP — Emergency</option>
-                    <option>Today</option>
-                    <option>Tomorrow</option>
-                    <option>This weekend</option>
-                  </select>
-                </div>
-                <a href={PHONE_HREF} className="btn-primary" style={{ width: '100%', justifyContent: 'center' }}>
-                  📞 Call to Book Now
-                </a>
-                <p style={{ textAlign: 'center', marginTop: 12, fontSize: '0.78rem', color: 'var(--gray-400)' }}>
-                  Free diagnosis · No obligation · Upfront pricing
-                </p>
-              </div>
             </div>
           </div>
         </div>
@@ -299,12 +269,9 @@ export default async function ServicePage({ params }) {
           <h2 style={{ fontFamily: 'var(--font-display)', fontSize: 'clamp(2rem, 5vw, 3.5rem)', fontWeight: 900,  color: 'white', marginBottom: 12 }}>
             NEED {service.title.toUpperCase()} IN OTTAWA?
           </h2>
-          <p style={{ color: 'rgba(255,255,255,0.9)', fontSize: '1.05rem', marginBottom: 36 }}>
-            Same-day service available. Licensed & insured. 1-year warranty.
+          <p style={{ color: 'rgba(255,255,255,0.9)', fontSize: '1.05rem', margin: 0 }}>
+            Same-day service available. Licensed & insured. Use the call or quote buttons below.
           </p>
-          <a href={PHONE_HREF} style={{ display: 'inline-flex', alignItems: 'center', gap: 10, background: 'white', color: '#ea580c', fontWeight: 800, fontSize: '1.15rem', padding: '18px 44px', borderRadius: 100, textDecoration: 'none' }}>
-            📞 {PHONE}
-          </a>
         </div>
       </section>
     </>
