@@ -1,11 +1,11 @@
 import { PHONE, PHONE_HREF, SMS_HREF, EMAIL, services, areas, BUSINESS_NAME } from '../../lib/data';
 import ContactCallbackForm from '../components/ContactCallbackForm';
 
-import { buildPageMetadata } from '../../lib/seo';
+import { buildPageMetadata, META_AREA_LIST, META_CTA } from '../../lib/seo';
 
 export const metadata = buildPageMetadata({
   title: 'Contact Us',
-  description: 'Call, text, or request a callback for garage door repair in Ottawa — springs, openers, cables, and installs. Same-day service across every neighbourhood.',
+  description: `Garage door repair in ${META_AREA_LIST} & all Ottawa — springs, openers, cables & new installs. Call, text, or request a callback. ${META_CTA}`,
   path: '/contact',
 });
 

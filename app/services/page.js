@@ -2,11 +2,11 @@ import { services, PHONE, servicesPageStats, BUSINESS_NAME } from '../../lib/dat
 import { EMERGENCY_REPAIR_INTRO, whyChooseUsCards, servicesGallerySection } from '../../lib/siteCopy';
 import Icon from '../components/Icons';
 
-import { buildPageMetadata } from '../../lib/seo';
+import { buildPageMetadata, META_DESCRIPTION_SERVICES } from '../../lib/seo';
 
 export const metadata = buildPageMetadata({
   title: 'Springs, Openers & Door Repair',
-  description: `Garage door repair in Ottawa — spring replacement, opener repair, cables, and new door installs. Same-day service. Licensed & insured. Call ${PHONE}.`,
+  description: META_DESCRIPTION_SERVICES,
   path: '/services',
   keywords: ['garage door repair Ottawa', 'garage door spring repair Ottawa', 'garage door opener repair Ottawa', 'garage door installation Ottawa'],
 });

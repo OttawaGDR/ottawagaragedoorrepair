@@ -51,7 +51,7 @@ export default async function ServicePage({ params }) {
     url: serviceUrl,
     provider: { '@type': 'LocalBusiness', '@id': ORG_ID, name: SITE_BRAND, telephone: PHONE },
     areaServed: 'Ottawa, Ontario, Canada',
-    description: service.shortDesc,
+    description: serviceMetaDescription(service),
   };
   const breadcrumbSchema = {
     '@context': 'https://schema.org',

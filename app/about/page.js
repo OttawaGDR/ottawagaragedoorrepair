@@ -1,11 +1,11 @@
 import { PHONE, PHONE_HREF, aboutStats, JOBS_TOTAL, BUSINESS_NAME } from '../../lib/data';
 import { aboutStoryCards } from '../../lib/siteCopy';
 
-import { buildPageMetadata } from '../../lib/seo';
+import { buildPageMetadata, META_AREA_LIST, META_CTA } from '../../lib/seo';
 
 export const metadata = buildPageMetadata({
   title: 'About Us',
-  description: 'Local Ottawa garage door crew since 2020 — springs, openers, repairs, and installs. Same-day service, written quotes before work, and a labour guarantee on every job.',
+  description: `Local Ottawa garage door crew since 2020 — springs, openers, cables & new installs in ${META_AREA_LIST} & all neighbourhoods. Written quotes before work. ${META_CTA}`,
   path: '/about',
 });
 

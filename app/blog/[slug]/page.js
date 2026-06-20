@@ -9,7 +9,7 @@ const posts = {
     title: 'How Much Does Garage Door Repair Cost in Ottawa? (2026 Guide)',
     date: 'Jan 15, 2026',
     readTime: '8 min read',
-    metaDescription: 'What garage door repairs typically cost in Ottawa — springs, openers, cables, tracks, and tune-ups explained with no surprise fees.',
+    metaDescription: 'Garage door repair costs in Ottawa explained — spring replacement, openers, cables, tune-ups & new doors. What affects pricing, no surprise fees. Same-day service across Ottawa.',
     intro: "Getting your garage door repaired in Ottawa doesn't have to be a guessing game. Here's a complete breakdown of what you'll actually pay for every common repair — no surprises.",
     sections: [
       { heading: 'Spring Replacement', content: 'Torsion spring replacement is the most common garage door repair in Ottawa. Spring replacement runs $220–$350. We always recommend replacing both springs at the same time since if one broke, the other is near the end of its life — and it saves you a second service call within months.' },

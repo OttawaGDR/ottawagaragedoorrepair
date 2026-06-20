@@ -1,10 +1,10 @@
 import { areas, PHONE, PHONE_HREF } from '../../lib/data';
 
-import { buildPageMetadata } from '../../lib/seo';
+import { buildPageMetadata, META_AREA_LIST, META_CTA } from '../../lib/seo';
 
 export const metadata = buildPageMetadata({
   title: 'Service Areas Across Ottawa',
-  description: `Garage door repair across Ottawa — Kanata, Barrhaven, Nepean, Orleans, Stittsville, Gloucester, and more. Springs, openers, same-day service. Call ${PHONE}.`,
+  description: `Garage door repair across Ottawa — ${META_AREA_LIST}, Manotick, Rockland & 30+ communities. Springs, openers, cables, new doors & emergency service. ${META_CTA}`,
   path: '/areas',
 });
 
