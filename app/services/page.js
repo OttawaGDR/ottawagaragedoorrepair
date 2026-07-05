@@ -289,7 +289,9 @@ export default function ServicesPage() {
           <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(220px, 1fr))', gap: 24 }}>
             {whyChooseUsCards.map((item, i) => (
               <div key={i} className="light-card reveal" style={{ padding: 28, textAlign: 'center' }}>
-                <div style={{ fontSize: '2rem', marginBottom: 14 }}>{item.icon}</div>
+                <div style={{ marginBottom: 14, display: 'flex', justifyContent: 'center', color: 'var(--orange)' }}>
+                  <Icon name={item.icon} size={36} />
+                </div>
                 <h3 style={{ fontFamily: 'var(--font-body)', fontWeight: 700, fontSize: '1rem', color: 'var(--navy)', marginBottom: 8 }}>{item.title}</h3>
                 <p style={{ color: 'var(--gray-600)', fontSize: '0.88rem', lineHeight: 1.65 }}>{item.desc}</p>
               </div>
