@@ -3,6 +3,25 @@ import { SITE_BRAND, SITE_URL, blogMetaDescription, openGraphPage } from '../../
 import Icon from '../../components/Icons';
 
 const posts = {
+  'garage-door-safety-sensors-ottawa': {
+    emoji: '🔴',
+    cat: 'Repairs',
+    title: 'Garage Door Safety Sensors Not Working? Ottawa Troubleshooting Guide',
+    date: 'Jul 5, 2026',
+    readTime: '6 min read',
+    metaDescription: 'Garage door safety sensors blinking or door won\'t close in Ottawa? Step-by-step alignment, cleaning, and glare fixes — plus when to call a technician. Same-day service across Ottawa.',
+    intro: "Your garage door starts to close, then reverses halfway up — or the opener light blinks and nothing moves. In most Ottawa homes, the culprit is the pair of photo-eye safety sensors at the bottom of the door frame. Here's how to diagnose and fix the common causes yourself, and when it's time to call a pro.",
+    sections: [
+      { heading: 'How Safety Sensors Work', content: "Modern garage doors have two small units mounted about 6 inches off the floor on each side of the opening. One sends an invisible infrared beam; the other receives it. If anything breaks that beam — a person, bike, snowbank, or misalignment — the opener stops and reverses. That's required by law and prevents serious injuries. When the beam is interrupted or the sensors can't \"see\" each other, the door won't close with the opener." },
+      { heading: 'Blinking Lights: What They Mean', content: "On most LiftMaster, Chamberlain, and Genie units, a steady green or amber light on each sensor means aligned and working. A blinking light usually means misalignment or a blocked beam. If one sensor is dark entirely, check the wiring connection at the back of the unit or at the opener terminal — vibration and cold can loosen clips over time." },
+      { heading: 'Step 1: Clear the Path', content: "Before adjusting anything, look along the floor between the sensors. Remove bikes, bins, snow piles, and leaves. Ottawa garages often accumulate slush and road salt near the door in winter — a small mound of ice can block the beam even when the door looks clear from standing height." },
+      { heading: 'Step 2: Clean the Lenses', content: "Wipe both sensor lenses with a soft, dry cloth. Spider webs, dust, and road salt film are common in Ottawa and can scatter the infrared beam enough to trigger a false reversal. Avoid harsh chemicals — a microfiber cloth is usually enough." },
+      { heading: 'Step 3: Realign the Sensors', content: "Loosen the mounting bracket wing nut slightly on one sensor. Adjust it until the indicator light stays solid (not blinking). Tighten and repeat on the other side if needed. Sensors should point directly at each other across the full width of the opening. A door frame that has shifted with frost heave or a bumped bracket is a frequent cause in older Ottawa homes." },
+      { heading: 'Sun Glare in Late Afternoon', content: "If the door only fails to close on sunny afternoons, direct sunlight hitting the receiver sensor can overpower the infrared beam — especially on west-facing garages in Kanata, Barrhaven, and Orleans. A short sun shield (cardboard or a commercial shade clip) on the outside of the receiver often fixes it. If glare is the pattern, alignment alone won't solve it." },
+      { heading: 'Check the Door Balance and Travel Limits', content: "Sometimes the sensors are fine but the door hits an obstruction because it's binding on the track or the opener force setting is too low. Disconnect the opener with the red release cord and lift the door manually halfway — it should stay put. If it drops or feels heavy, you may have a spring or track issue, not a sensor issue. Forcing the opener in that case risks more damage." },
+      { heading: 'When to Call a Technician', content: "Call a professional if both sensors show solid lights but the door still reverses, wires are frayed or chewed, the opener wall button works but remotes don't (or vice versa), or you've realigned twice and the problem returns. Snapped cables, bent tracks, and broken springs can mimic sensor problems — our technicians test the full system on site across Ottawa, usually within 90 minutes." },
+    ],
+  },
   'garage-door-repair-cost-ottawa': {
     emoji: '💰',
     cat: 'Pricing',

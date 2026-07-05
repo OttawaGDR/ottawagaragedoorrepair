@@ -313,6 +313,7 @@ function Navbar() {
               <a href="/blog" className="nav-item">BLOG <span className="nav-dropdown-arrow" aria-hidden>▼</span></a>
               <div className="nav-dropdown-menu">
                 {[
+                  { slug: 'garage-door-safety-sensors-ottawa', icon: 'wrench', title: 'Safety Sensors Not Working? Ottawa Fix Guide', cat: 'Repairs' },
                   { slug: 'garage-door-repair-cost-ottawa', icon: 'dollar', title: 'Repair Costs in Ottawa (2026 Guide)', cat: 'Pricing' },
                   { slug: 'broken-spring-ottawa-what-to-do', icon: 'wrench', title: "Broken Spring? Here's What To Do", cat: 'Emergency' },
                   { slug: 'garage-door-not-opening-cold-weather', icon: 'weather', title: 'Door Not Opening in Cold Weather?', cat: 'Winter Tips' },

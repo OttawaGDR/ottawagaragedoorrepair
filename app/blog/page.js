@@ -11,6 +11,7 @@ export const metadata = buildPageMetadata({
 });
 
 const posts = [
+  { slug: 'garage-door-safety-sensors-ottawa', emoji: '🔴', cat: 'Repairs', title: 'Garage Door Safety Sensors Not Working? Ottawa Troubleshooting Guide', excerpt: 'Door reverses when closing or sensor lights blink? Ottawa fixes for alignment, glare, ice, and wiring.', date: 'Jul 5, 2026', readTime: '6 min read' },
   { slug: 'garage-door-repair-cost-ottawa', emoji: '💰', cat: 'Pricing', title: 'How Much Does Garage Door Repair Cost in Ottawa? (2026 Guide)', excerpt: 'Complete pricing breakdown for every type of garage door repair in Ottawa. No surprises.', date: 'Jan 15, 2026', readTime: '8 min read' },
   { slug: 'broken-spring-ottawa-what-to-do', emoji: '🔩', cat: 'Emergency', title: 'Broken Garage Door Spring in Ottawa? Here is Exactly What To Do', excerpt: 'Your spring just snapped. The door will not open. Here is what to do and what it costs to fix.', date: 'Jan 8, 2026', readTime: '6 min read' },
   { slug: 'garage-door-not-opening-cold-weather', emoji: '❄️', cat: 'Winter Tips', title: 'Garage Door Not Opening in Cold Weather? Ottawa Fix Guide', excerpt: 'The 7 most common reasons your door stops working when Ottawa temperatures drop below -15C.', date: 'Dec 20, 2025', readTime: '7 min read' },
