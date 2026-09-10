@@ -3,6 +3,26 @@ import { SITE_BRAND, SITE_URL, blogMetaDescription, openGraphPage } from '../../
 import Icon from '../../components/Icons';
 
 const posts = {
+  'garage-door-wont-open-ottawa': {
+    emoji: '🚪',
+    cat: 'Repairs',
+    title: "Garage Door Won't Open? Ottawa Troubleshooting Guide",
+    date: 'Sep 10, 2026',
+    readTime: '8 min read',
+    metaDescription: "Garage door won't open in Ottawa? Diagnose broken springs, dead openers, locked remotes, frozen seals, and off-track doors — plus when to call same-day repair across Ottawa.",
+    intro: "Your garage door won't open — remote dead, wall button silent, or the motor humming with nothing moving. This is one of the most common service calls we get across Ottawa, Kanata, Barrhaven, and Orleans. Use this guide to narrow the cause safely, try a few low-risk checks, and know when to stop and call a technician.",
+    sections: [
+      { heading: 'Stay Safe Before You Troubleshoot', content: "Never force a door that feels stuck or extremely heavy. A broken torsion spring leaves 200–400 lbs of unbalanced weight on the panels — lifting it by hand or running the opener can snap cables, bend the track, or injure you. If you heard a loud bang overnight, treat it as a broken spring and leave the door alone until a pro arrives." },
+      { heading: '1. Broken Torsion or Extension Spring', content: "The #1 reason a garage door won't open in Ottawa is a snapped spring — especially after cold snaps when metal gets brittle. Look at the spring(s) above the door: a visible gap in the coil means it's broken. The door may sit crooked or feel impossibly heavy. Spring replacement is same-day on most Ottawa calls; we replace both springs for balance so you don't get a second failure weeks later." },
+      { heading: '2. Opener Power, Remotes, and Wall Button', content: "Confirm the opener has power — check the ceiling unit light, the outlet, and any GFCI or breaker that may have tripped. Try the hard-wired wall button next. If the wall button works but remotes don't, replace remote batteries and reprogram if needed. If neither works and the motor is silent, you may have a failed logic board, fried capacitor, or dead unit that needs opener repair or replacement." },
+      { heading: '3. Motor Runs but Door Does Not Move', content: "If you hear humming or grinding but the door stays put, the drive gear inside the opener is often worn — a common LiftMaster and Chamberlain failure after years of Ottawa winters. Gear replacement restores quiet travel without buying a full opener. Also check the red emergency release cord: if someone pulled it during a power outage, the trolley may still be disconnected — pull toward the door until it clicks back onto the rail." },
+      { heading: '4. Safety Sensors Blocking the Close Cycle', content: "Some openers refuse to open after a failed close if sensors are misaligned or blocked by snow, ice, or clutter. Check both photo-eyes near the floor — lights should be solid, not blinking. Clear the path, wipe the lenses, and realign until both indicators stay steady. Persistent sensor faults after cleaning usually need a technician to check wiring." },
+      { heading: '5. Frozen Bottom Seal or Ice Buildup', content: "In winter, the rubber bottom seal can freeze to the driveway overnight. Running the opener then burns out the motor. Pour warm (not boiling) water along the seal, wait a minute, then try again. Long-term: keep a low-temp silicone on the seal each fall. If ice is thick or the door is already straining, stop and call — forcing it risks spring or cable damage." },
+      { heading: '6. Off-Track Door, Bent Rollers, or Binding Hardware', content: "If panels are crooked, rollers sit outside the track, or the door binds halfway, do not operate it. Off-track doors and frayed cables are safety hazards. Causes include impact, frost heave on the slab, or deferred maintenance. A licensed tech resets the track, replaces rollers or cables, and rebalances the door so the opener isn't fighting a mechanical problem." },
+      { heading: 'Quick DIY Checks That Are Usually Safe', content: "1) Confirm power and try the wall button. 2) Replace remote batteries. 3) Look for a visible spring gap. 4) Clear sensor path and check indicator lights. 5) See if the emergency cord left the opener disconnected. Skip DIY if the door is heavy, crooked, off-track, or you heard a bang — those need professional tools and winding bars." },
+      { heading: 'When to Call Same-Day Garage Door Repair in Ottawa', content: "Call a technician if the spring is broken, the door is off-track, cables look frayed, the opener hums without moving the door, or DIY checks didn't restore normal travel. Garage Door Repair Ottawa stocks springs, cables, rollers, and opener parts on every truck — most won't-open calls finish in one visit across Ottawa and the suburbs, typically within 90 minutes, with a written price before work starts." },
+    ],
+  },
   'garage-door-safety-sensors-ottawa': {
     emoji: '🔴',
     cat: 'Repairs',

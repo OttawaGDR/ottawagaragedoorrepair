@@ -313,13 +313,13 @@ function Navbar() {
               <a href="/blog" className="nav-item">BLOG <span className="nav-dropdown-arrow" aria-hidden>▼</span></a>
               <div className="nav-dropdown-menu">
                 {[
+                  { slug: 'garage-door-wont-open-ottawa', icon: 'door', title: "Garage Door Won't Open? Ottawa Guide", cat: 'Repairs' },
                   { slug: 'garage-door-safety-sensors-ottawa', icon: 'wrench', title: 'Safety Sensors Not Working? Ottawa Fix Guide', cat: 'Repairs' },
                   { slug: 'garage-door-repair-cost-ottawa', icon: 'dollar', title: 'Repair Costs in Ottawa (2026 Guide)', cat: 'Pricing' },
                   { slug: 'broken-spring-ottawa-what-to-do', icon: 'wrench', title: "Broken Spring? Here's What To Do", cat: 'Emergency' },
                   { slug: 'garage-door-not-opening-cold-weather', icon: 'weather', title: 'Door Not Opening in Cold Weather?', cat: 'Winter Tips' },
                   { slug: 'best-insulated-garage-doors-ottawa', icon: 'home', title: 'Best Insulated Doors for Ottawa', cat: 'Buying Guide' },
                   { slug: 'smart-garage-door-opener-ottawa', icon: 'smartphone', title: 'Best Smart Openers (2026 Review)', cat: 'Smart Home' },
-                  { slug: 'garage-door-maintenance-checklist-ottawa', icon: 'checklist', title: 'Annual Maintenance Checklist', cat: 'Maintenance' },
                 ].map(post => (
                   <a key={post.slug} href={`/blog/${post.slug}`} className="dropdown-post">
                     <span className="dropdown-post-emoji"><Icon name={post.icon} size={22} /></span>
