@@ -3,6 +3,26 @@ import { SITE_BRAND, SITE_URL, blogMetaDescription, openGraphPage } from '../../
 import Icon from '../../components/Icons';
 
 const posts = {
+  'garage-door-opener-not-working-ottawa': {
+    emoji: '⚙️',
+    cat: 'Repairs',
+    title: 'Garage Door Opener Not Working? Ottawa Repair Guide',
+    date: 'Oct 17, 2026',
+    readTime: '7 min read',
+    metaDescription: 'Garage door opener not working in Ottawa? Fix remotes, wall buttons, grinding gears, sensor faults, and dead motors — plus when to repair vs replace. Same-day service across Ottawa.',
+    intro: "Your garage door opener won't respond — remotes dead, wall button silent, motor humming, or grinding every cycle. Opener failures are one of the top service calls we see across Ottawa, Kanata, Barrhaven, Nepean, and Orleans. This guide helps you spot the common causes, try safe checks first, and know when repair or a new unit makes more sense.",
+    sections: [
+      { heading: 'Confirm It Is the Opener — Not the Door', content: "Before blaming the motor, rule out a mechanical door problem. Disconnect the opener with the red emergency release and try lifting the door halfway by hand. If it feels extremely heavy, drops, or sits crooked, you likely have a broken spring, frayed cable, or binding track — not an opener failure. Running a motor against a broken spring often burns out the unit and costs more to fix." },
+      { heading: '1. Power, Outlet, and Breaker Issues', content: "Check that the ceiling unit has power: look for a lit bulb or status LED, confirm the plug is seated, and reset any GFCI outlet or breaker that tripped. Ottawa garages often share circuits with freezers or heaters that overload cold-weather loads. If power is restored and the opener still does nothing, move on to the wall control and logic board." },
+      { heading: '2. Remotes Work Differently Than the Wall Button', content: "Always test the hard-wired wall button first. If the wall button opens the door but remotes do not, replace remote batteries and reprogram the remotes to the opener. Vehicle HomeLink and older rolling-code remotes sometimes lose sync after a battery change or power outage. If neither remotes nor the wall button work, the problem is usually inside the opener — capacitor, logic board, or motor — not the remotes." },
+      { heading: '3. Motor Hums or Grinds but Door Does Not Move', content: "A humming motor with no travel, or a loud grind on every open, usually means worn drive gears — especially on older LiftMaster and Chamberlain chain-drive units common in Ottawa subdivisions. Gear replacement is often cheaper than a full opener and restores quiet, reliable travel. If plastic gear teeth are shredded, do not keep running the unit; that can damage the worm gear or rail trolley." },
+      { heading: '4. Safety Sensors and Travel Limits', content: "Misaligned or dirty photo-eye sensors can stop the door from closing — and some units lock out further travel until the fault clears. Clean both lenses, clear ice or clutter from the beam path, and adjust until both indicator lights stay solid. If the door opens fine but stops short or reverses at the floor, travel limits or force settings may need recalibration after a power outage or cold snap." },
+      { heading: '5. When Repair Beats Replacement', content: "Repair usually makes sense when the opener is under about 10–12 years old, the rail and motor housing are sound, and the failure is a gear kit, capacitor, logic board, remote programming, or sensor wiring. We service LiftMaster, Chamberlain, Genie, Craftsman, and Marantec units same day when parts are on the truck. Opener service and gear work are typically much less than a full swap when the unit still has life left." },
+      { heading: '6. When a New Opener Is the Better Call', content: "Replace the opener when the motor is burned out, the chassis is cracked, parts are discontinued, or the unit is noisy and unreliable every winter. Belt-drive and modern quiet openers hold up better in attached Ottawa garages where bedrooms sit above. Smart WiFi models add phone control and alerts — useful if you want to check the door from work — and we handle removal, install, and remote programming in one visit." },
+      { heading: 'Safe DIY Checks Before You Call', content: "1) Verify power and reset GFCI/breaker. 2) Test the wall button, then remotes with fresh batteries. 3) Confirm the emergency release has not left the trolley disconnected. 4) Clean and realign safety sensors. 5) Manually lift the door to confirm springs still balance it. Stop DIY if you hear grinding with no movement, smell burning, or the door is heavy or crooked — those need a technician." },
+      { heading: 'Same-Day Opener Repair Across Ottawa', content: "If checks do not restore normal operation, call for on-site diagnosis. Garage Door Repair Ottawa carries common opener parts and gear kits so most jobs finish without a second appointment — across Ottawa, Kanata, Barrhaven, Orleans, Stittsville, and Gloucester. You get a written price before work starts, and we tell you honestly whether repair or replacement is the smarter spend." },
+    ],
+  },
   'garage-door-wont-open-ottawa': {
     emoji: '🚪',
     cat: 'Repairs',

@@ -11,6 +11,7 @@ export const metadata = buildPageMetadata({
 });
 
 const posts = [
+  { slug: 'garage-door-opener-not-working-ottawa', emoji: '⚙️', cat: 'Repairs', title: 'Garage Door Opener Not Working? Ottawa Repair Guide', excerpt: 'Remotes dead, motor humming, or grinding every cycle? Diagnose opener faults, gears, sensors — and when to repair vs replace.', date: 'Oct 17, 2026', readTime: '7 min read' },
   { slug: 'garage-door-wont-open-ottawa', emoji: '🚪', cat: 'Repairs', title: "Garage Door Won't Open? Ottawa Troubleshooting Guide", excerpt: "Door stuck, remote dead, or motor humming? Diagnose springs, openers, sensors, ice, and off-track issues — then know when to call.", date: 'Sep 10, 2026', readTime: '8 min read' },
   { slug: 'garage-door-safety-sensors-ottawa', emoji: '🔴', cat: 'Repairs', title: 'Garage Door Safety Sensors Not Working? Ottawa Troubleshooting Guide', excerpt: 'Door reverses when closing or sensor lights blink? Ottawa fixes for alignment, glare, ice, and wiring.', date: 'Jul 5, 2026', readTime: '6 min read' },
   { slug: 'garage-door-repair-cost-ottawa', emoji: '💰', cat: 'Pricing', title: 'How Much Does Garage Door Repair Cost in Ottawa? (2026 Guide)', excerpt: 'Complete pricing breakdown for every type of garage door repair in Ottawa. No surprises.', date: 'Jan 15, 2026', readTime: '8 min read' },
