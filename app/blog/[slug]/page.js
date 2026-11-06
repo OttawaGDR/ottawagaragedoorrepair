@@ -3,6 +3,26 @@ import { SITE_BRAND, SITE_URL, blogMetaDescription, openGraphPage } from '../../
 import Icon from '../../components/Icons';
 
 const posts = {
+  'prepare-garage-door-ottawa-winter': {
+    emoji: '❄️',
+    cat: 'Winter Tips',
+    title: 'How to Prepare Your Garage Door for Ottawa Winter (2026 Guide)',
+    date: 'Nov 6, 2026',
+    readTime: '7 min read',
+    metaDescription: 'Prepare your garage door for Ottawa winter — lubrication, weather seals, springs, sensors, and opener checks before -20°C. Same-day tune-ups across Ottawa, Kanata, Barrhaven & Orleans.',
+    intro: "Ottawa winters punish garage doors. When temperatures drop below -15°C, dry rollers seize, bottom seals freeze to the slab, springs get brittle, and openers strain against binding hardware. A short fall prep routine prevents the stuck-door emergencies we see every January across Kanata, Barrhaven, Nepean, Orleans, and Stittsville. Here is what to do before the deep freeze — and when to book a tune-up instead of DIY.",
+    sections: [
+      { heading: 'Why Ottawa Winters Break Garage Doors', content: "Cold contracts metal tracks and springs, thickens cheap grease into paste, and freezes rubber weather seals to wet concrete overnight. Road salt and slush creep under the door and corrode bottom brackets and cables. Attached garages lose heat through worn seals, which raises heating bills and leaves the opener working harder every cycle. Most mid-winter failures we fix started as small fall issues that were ignored." },
+      { heading: '1. Lubricate Moving Parts With Cold-Rated Product', content: "Wipe old black grease off rollers, hinges, bearing plates, and spring coils, then apply a silicone or lithium spray rated to at least -40°C. Avoid WD-40 as a long-term lubricant — it cleans briefly, then leaves parts dry. Do not soak the opener rail with oil if the manufacturer specifies a dry PTFE lube. One thorough lube in October or early November cuts squeaks and reduces opener strain when the first cold snap hits." },
+      { heading: '2. Inspect and Replace Weatherstripping', content: "Check the bottom rubber seal for cracks, flattening, or gaps that let drafts and mice in. Side and top vinyl stops should lightly touch the closed door without tearing. Soft, brittle, or torn seals freeze solid and can glue the door to the floor — forcing the opener then burns out the motor or snaps a cable. Fresh weatherstripping is one of the highest-ROI winter upgrades for Ottawa attached garages." },
+      { heading: '3. Test Door Balance and Spring Condition', content: "Pull the red emergency release and lift the door halfway by hand. A balanced door stays put; if it drops hard or feels heavy, spring tension is off or a spring is near failure. Look for rust, gaps in the coil, or uneven cable wrap on the drums. Never try to wind torsion springs yourself — they are under extreme tension. Book a spring check now; mid-winter snaps leave cars trapped and doors unsafe." },
+      { heading: '4. Clear Sensors and Check Auto-Reverse', content: "Wipe both photo-eye lenses and confirm indicator lights stay solid. Place a 2x4 on the floor in the door's path and close the door — it should reverse on contact. Misaligned sensors from frost heave or summer bumps become a bigger headache when snow piles block the beam. Fix sensor and force settings in fall so you are not troubleshooting in a snowstorm with frozen fingers." },
+      { heading: '5. Opener, Remotes, and Power Backup', content: "Replace remote batteries before winter kills them. Confirm the wall button works if remotes fail. Listen for grinding — worn gears fail faster when the door binds in cold. If your garage loses power often in ice storms, consider a battery backup opener or know how to use the manual release safely. Smart openers help you verify the door closed after you leave, which matters when winter wind can push a soft-closed door open." },
+      { heading: '6. Keep the Threshold Clear of Ice and Salt', content: "Chip ice off the sill and sweep salt away from the bottom seal so it does not freeze overnight. A thin silicone wipe on the seal in late fall helps prevent sticking. If the door freezes shut, use warm (not boiling) water along the seal — never force the opener. Repeated freeze-thaw cycles without seal care are a top cause of burned motors on Ottawa January service calls." },
+      { heading: 'DIY vs Professional Fall Tune-Up', content: "Homeowners can safely lubricate, wipe sensors, replace remote batteries, and visually check seals. Leave spring tension, cable replacement, track realignment, and opener gear work to a licensed technician. Our 21-point maintenance tune-up covers lubrication, balance, sensors, hardware, and a written report — usually under an hour — so small issues get fixed before they become emergency calls." },
+      { heading: 'Book Before the Deep Freeze', content: "Same-day garage door prep and repair is available across Ottawa and the suburbs. We stock cold-rated springs, rollers, seals, and opener parts on the truck so most winter-readiness jobs finish in one visit. Call for a fall tune-up or weather seal upgrade before overnight lows hit the teens below zero — that is when emergency volume spikes and wait times grow." },
+    ],
+  },
   'garage-door-opener-not-working-ottawa': {
     emoji: '⚙️',
     cat: 'Repairs',

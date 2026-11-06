@@ -11,6 +11,7 @@ export const metadata = buildPageMetadata({
 });
 
 const posts = [
+  { slug: 'prepare-garage-door-ottawa-winter', emoji: '❄️', cat: 'Winter Tips', title: 'How to Prepare Your Garage Door for Ottawa Winter (2026 Guide)', excerpt: 'Lubrication, weather seals, springs, sensors, and opener checks before deep freeze — prevent January stuck-door emergencies.', date: 'Nov 6, 2026', readTime: '7 min read' },
   { slug: 'garage-door-opener-not-working-ottawa', emoji: '⚙️', cat: 'Repairs', title: 'Garage Door Opener Not Working? Ottawa Repair Guide', excerpt: 'Remotes dead, motor humming, or grinding every cycle? Diagnose opener faults, gears, sensors — and when to repair vs replace.', date: 'Oct 17, 2026', readTime: '7 min read' },
   { slug: 'garage-door-wont-open-ottawa', emoji: '🚪', cat: 'Repairs', title: "Garage Door Won't Open? Ottawa Troubleshooting Guide", excerpt: "Door stuck, remote dead, or motor humming? Diagnose springs, openers, sensors, ice, and off-track issues — then know when to call.", date: 'Sep 10, 2026', readTime: '8 min read' },
   { slug: 'garage-door-safety-sensors-ottawa', emoji: '🔴', cat: 'Repairs', title: 'Garage Door Safety Sensors Not Working? Ottawa Troubleshooting Guide', excerpt: 'Door reverses when closing or sensor lights blink? Ottawa fixes for alignment, glare, ice, and wiring.', date: 'Jul 5, 2026', readTime: '6 min read' },
